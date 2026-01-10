@@ -1,16 +1,37 @@
-## Hi there 👋
+# 👋 Welcome to PSWeb Studio
 
-<!--
-**pswebstudio/pswebstudio** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Hi there! **PSWeb Studio** — I create modern, responsive websites and web apps that combine creativity, usability, and clean code.  
 
-Here are some ideas to get you started:
+🌐 **Check out the live site:** [pswebstudio.netlify.app](https://pswebstudio.netlify.app/)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## 🛠 Technologies & Tools
+- **Frontend:** HTML, CSS, JavaScript  
+- **SEO Optimization:** On-page SEO, meta tags, schema markup  
+- **Deployment:** Netlify  
+- **Version Control:** Git & GitHub  
+
+---
+
+## 📂 Projects
+I have successfully completed **12 projects**, including:  
+
+- **2 eCommerce Projects** – Online stores with full product and Request Quote functionality  
+- **1 CRM Project** – Customer relationship management system  
+- **Other Web Projects** – Portfolio sites, landing pages, and web experiments  
+
+All projects are fully responsive, user-friendly, and SEO-optimized.  
+
+Check out my live work: [pswebstudio.netlify.app](https://pswebstudio.netlify.app/)  
+
+---
+
+## 📫 Connect with Me
+- GitHub: [@pswebstudio](https://github.com/pswebstudio)  
+- Website: [pswebstudio.netlify.app](https://pswebstudio.netlify.app/)  
+- Email: pswebstudio.dev@gmail.com  
+
+---
+
+✨ Fun Fact: I love turning ideas into interactive web experiences that users enjoy!
