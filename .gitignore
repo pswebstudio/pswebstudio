@@ -1,0 +1,17 @@
+# OS junk
+desktop.ini
+Thumbs.db
+
+# Videos
+*.mp4
+*.mov
+*.avi
+
+# PDFs
+*.pdf
+
+# Vendor libs
+assets/vendor/
+
+# Source maps
+*.map
