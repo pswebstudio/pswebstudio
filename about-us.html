@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About Us - PSWeb Studio | Web Design & Development</title>
+
+  <meta name="description" content="PSWeb Studio crafting modern, responsive, and high-performance websites since 2023. We blend design and technology to build brands online.">
+  <meta name="keywords" content="PSWeb Studio, web design, web development, frontend, UI/UX, portfolio, creative agency">
+  
+  <link rel="icon" href="images/favico/favicon.ico" type="image/x-icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .intro-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    li{
+    display: flex;
+    align-items: center;
+    gap: 10px;}
+    }
+
+    .about-hero {
+      padding: 120px 0 100px;
+      position: relative;
+      background: radial-gradient(circle at 20% 30%, #e6e9ff 0%, #f9faff 100%);
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(135deg, rgba(67,97,238,0.15), rgba(114,9,183,0.1));
+      border-radius: 50%;
+      top: -200px;
+      right: -150px;
+      z-index: 0;
+      filter: blur(50px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #1e4492, #0095dd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #171717;
+      display: block;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+
+    .section-title p {
+      color: #555;
+      max-width: 600px;
+      margin: 10px auto 0;
+    }
+    .about-text h3 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .about-image img {
+      border-radius: 1rem;
+      height: 470px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    /* ================= VALUES ================= */
+    .values-section {
+      padding: 100px 0;
+      background-color: #f8f9fc;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .value-card {
+    padding: 15px;
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid #666666;
+    }
+    .value-card h3 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        }
+
+    .value-card p {
+        color: #555;
+        margin-bottom: 0;
+        font-size: 0.97rem;
+        margin-top: 15px;
+        }
+
+    /* ================= CTA ================= */
+    .cta-section {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #4361ee, #0092dd);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -150px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      filter: blur(50px);
+    }
+
+    .cta-content p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin: 5px 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-light {
+      background-color: #fff;
+      color: #4361ee;
+    }
+
+    .btn-light:hover {
+      background-color: #f3f3f3;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 992px) {
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .cta-content h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <header id="header" class="header sticky-top">
+    <div class="nav-wrap">
+
+      <div class="container d-flex justify-content-between position-relative">
+              <a href="index.html" class="logo d-flex align-items-center">
+         <img src="images/psweb-logo.png" alt="logo">
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </li>
+            <li><a href="contact-us.php" class="contact-blink">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="about-hero" data-aos="fade-up">
+      <div class="container">
+        <div class="hero-content">
+          <h1>About PSWeb Studio</h1>
+          <p>We build fast, beautiful, and impactful digital experiences that help businesses grow online.</p>
+          <div class="stats mt-0 py-2" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-item">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2.5+</span>
+              <span class="stat-label">Years of Experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Our Story</h2>
+          <p>Turning ideas into powerful web experiences since 2023</p>
+        </div>
+        <div class="about-content">
+        <div class="row">
+        <div class="col-md-7">
+        <div class="about-text" data-aos="fade-right">
+            <h3>Where Creativity Meets Performance</h3>
+            <p><strong>PSWeb Studio</strong> started with one goal: to create websites that don’t just look good, but perform flawlessly. We believe good design drives good business.</p>
+            <p>In two years, we’ve completed more than <strong>10 projects</strong> for clients across India, helping startups and brands strengthen their online presence with modern, responsive web solutions.</p>
+            <p>We combine clean design, solid development, and SEO best practices to deliver results that last.</p>
+            <p>Our team thrives on innovation and collaboration. Every project begins with understanding your brand, your audience, and your goals. From there, we craft a digital experience that is not only visually stunning but also strategically effective.</p>
+            <p>We specialize in:</p>
+            <ul class="intro-highlights list-unstyled mt-3">
+              <li><i class="bi bi-check-circle-fill"></i>Custom website design and development</li>
+              <li><i class="bi bi-check-circle-fill"></i>Responsive and mobile-first design</li>
+              <li><i class="bi bi-check-circle-fill"></i>SEO optimization and analytics integration</li>
+              <li><i class="bi bi-check-circle-fill"></i>E-commerce platforms and online stores</li>
+              <li><i class="bi bi-check-circle-fill"></i>Maintenance and performance optimization</li>
+            </ul>
+          
+        </div>
+        </div>
+        <div class="col-md-5">
+        <div class="about-image" data-aos="fade-left">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team at work">
+        </div>  
+        </div>
+        </div>
+          <p class="mt-3">At PSWeb Studio, we don’t just build websites; we build digital experiences that convert visitors into loyal customers.</p>
+            <p>Our commitment to quality and client satisfaction has earned us lasting relationships with brands that continue to grow and evolve online.</p>
+        </div>
+      </div>
+    </section>
+    <section class="values-section">
+      <div class="container">
+        <div class="section-title mb-0" data-aos="fade-up">
+          <h2>Our Core Values</h2>
+          <p>The principles that shape how we work and what we deliver</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card" data-aos="zoom-in">
+            <h3><i class="bi bi-lightbulb"></i>Innovation</h3>
+            <p>We stay ahead of the curve, using modern tech and design to craft standout experiences.</p>
+          </div>
+          <div class="value-card" data-aos="zoom-in" data-aos-delay="100">
+            <h3><i class="bi bi-people"></i>Collaboration</h3>
+            <p>We treat our clients like partners and build everything together, step by step.</p>
+          </div>
+          <div class="value-card" data-aos="zoom-in" data-aos-delay="200">
+            <h3><i class="bi bi-rocket-takeoff"></i>Excellence</h3>
+            <p>We aim high on every project no shortcuts, no compromises, just quality.</p>
+          </div>
+          <div class="value-card" data-aos="zoom-in" data-aos-delay="300">
+            <h3><i class="bi bi-heart"></i> Passion</h3>
+            <p>We love what we do and it shows in the websites we deliver.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content" data-aos="fade-up">
+          <h2 class="text-white mb-3">Let's Build Something Great Together</h2>
+          <p class="text-white">Whether you're launching a new business or upgrading your current site, we’ll help you create an online presence that truly works.</p>
+          <div class="cta-buttons">
+            <a href="contact-us.php" class="btn-light">Start a Project</a>
+            <a href="portfolio.html" class="btn-outline">View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true });
+  </script>
+</body>
+</html>
