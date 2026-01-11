@@ -2529,7 +2529,7 @@ section,
   position: relative;
   background: #f9f9f9;
   background-repeat: no-repeat;
-  background-image: url(http://localhost/psweb/images/shape-circle.png);
+  background-image: url(images/shape-circle.png);
 }
 
 .marquee-container {
