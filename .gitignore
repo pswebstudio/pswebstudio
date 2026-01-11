@@ -1,2 +1,6 @@
-# REMOVE this line
-# assets/vendor/
+# OS junk
+desktop.ini
+Thumbs.db
+
+# PDFs (optional)
+*.pdf
