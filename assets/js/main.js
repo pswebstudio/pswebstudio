@@ -398,8 +398,45 @@
 
 })();
 
+// Fix for Netlify image paths - This function checks and fixes image URLs
+function fixImagePaths() {
+  // Fix all image sources on the page
+  document.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    
+    // Fix relative paths that might be broken
+    if (src && src.startsWith('images/')) {
+      // If images are in a subdirectory, ensure correct path
+      if (!window.location.pathname.includes('/index.html')) {
+        // For Netlify routing, we need to ensure correct base path
+        const basePath = window.location.pathname.includes('.html') 
+          ? window.location.pathname.split('/').slice(0, -1).join('/') + '/'
+          : '/';
+        
+        img.src = basePath + src;
+      }
+    }
+    
+    // Add error handling for broken images
+    img.onerror = function() {
+      console.warn('Image failed to load:', this.src);
+      this.style.display = 'none';
+      
+      // Try to load a fallback if available
+      const fallbackSrc = this.getAttribute('data-fallback');
+      if (fallbackSrc) {
+        this.src = fallbackSrc;
+        this.style.display = 'block';
+      }
+    };
+  });
+}
+
 // Project list functionality
 document.addEventListener('DOMContentLoaded', function() {
+  // Fix image paths first
+  fixImagePaths();
+  
   const projects = [
     { url: "https://madhyapradeshdmc.com", name: "Madhya Pradesh DMC", desc: "Destination management" },
     { url: "https://hotelinandaman.com", name: "Hotel In Andaman", desc: "Hotels and resorts" },
@@ -432,7 +469,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="project-shadow"></div>
       <div class="project-label">
         <div class="project-icon">
-          <img src="${favicon}" alt="favicon" loading="lazy">
+          <img src="${favicon}" alt="favicon" loading="lazy" 
+               data-fallback="https://via.placeholder.com/64/000000/ffffff?text=LOGO">
         </div>
         <div class="project-info">
           <div class="project-main">${project.name}</div>
@@ -441,7 +479,8 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     `;
 
-    card.dataset.preview = `https://image.thum.io/get/width/800/crop/800/noanimate/${project.url}`;
+    // Use a more reliable screenshot service
+    card.dataset.preview = `https://s0.wp.com/mshots/v1/${encodeURIComponent(project.url)}?w=800&h=600`;
     return card;
   }
 
@@ -452,13 +491,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const activeCard = cards[index];
     if (activeCard && !activeCard.dataset.loaded) {
-      // Create image preloader
+      // Create image preloader with timeout
       const img = new Image();
+      const previewUrl = activeCard.dataset.preview;
+      
       img.onload = function() {
-        activeCard.style.setProperty("--optionBackground", `url(${activeCard.dataset.preview})`);
+        activeCard.style.setProperty("--optionBackground", `url(${previewUrl})`);
         activeCard.dataset.loaded = "true";
       };
-      img.src = activeCard.dataset.preview;
+      
+      img.onerror = function() {
+        console.warn('Preview failed to load:', previewUrl);
+        activeCard.style.setProperty("--optionBackground", 
+          "linear-gradient(135deg, #667eea 0%, #764ba2 100%)");
+        activeCard.dataset.loaded = "true";
+      };
+      
+      // Set timeout to avoid hanging
+      setTimeout(() => {
+        if (!img.complete) {
+          img.src = ''; // Cancel loading
+          activeCard.style.setProperty("--optionBackground", 
+            "linear-gradient(135deg, #667eea 0%, #764ba2 100%)");
+          activeCard.dataset.loaded = "true";
+        }
+      }, 5000);
+      
+      img.src = previewUrl;
     }
 
     if (activeCard) {
@@ -570,68 +629,70 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Clients section
+// Clients section - FIXED IMAGE PATHS
 document.addEventListener('DOMContentLoaded', function() {
+  // IMPORTANT: Update these paths to match your actual image locations
+  // If images are in Netlify, they should be in the /public folder
   const projects = [
     { 
         url: "https://madhyapradeshdmc.com", 
         name: "Madhya Pradesh DMC", 
         desc: "Destination management",
-        image: "images/project-banner/mp.png"
+        image: "/images/project-banner/mp.png"  // Changed to absolute path
     },
     { 
         url: "https://mpdmc.com", 
         name: "MP DMC", 
         desc: "Destination management", 
-        image: "images/project-banner/mpdmc.png"
+        image: "/images/project-banner/mpdmc.png"  // Changed to absolute path
     },
     { 
         url: "https://hotelinandaman.com", 
         name: "Hotel In Andaman", 
         desc: "Hotels and resorts",
-        image: "images/project-banner/hia.png"
+        image: "/images/project-banner/hia.png"  // Changed to absolute path
     },
     { 
         url: "https://andamandmc.com", 
         name: "Andaman DMC", 
         desc: "Destination Management Company",
-        image: "images/project-banner/andaman-dmc.png"
+        image: "/images/project-banner/andaman-dmc.png"  // Changed to absolute path
     },
     {
         url: "https://andamantravelagent.com", 
         name: "Andaman Travel Agent", 
         desc: "Travel services for Andaman Islands",
-        image: "images/project-banner/andaman-travel-agent.png"
+        image: "/images/project-banner/andaman-travel-agent.png"  // Changed to absolute path
     },
     { 
         url: "https://andaman.vacations", 
         name: "Andaman Vacations", 
         desc: "Holiday packages",
-        image: "images/project-banner/av.png"
+        image: "/images/project-banner/av.png"  // Changed to absolute path
     },
     { 
         url: "https://questguideindia.com", 
         name: "Quest Guide India", 
         desc: "Tourism & destinations",
-        image: "images/project-banner/qg.png"
+        image: "/images/project-banner/qg.png"  // Changed to absolute path
     },
     { 
         url: "https://markaa.in", 
         name: "Markaa", 
         desc: "E-commerce solutions",
-        image: "images/project-banner/markaa.png"
+        image: "/images/project-banner/markaa.png"  // Changed to absolute path
     },
     { 
         url: "https://tscbarcodeprinters.com", 
         name: "TSC Barcode Printers", 
         desc: "Barcode solutions",
-        image: "images/project-banner/tsc.png"
+        image: "/images/project-banner/tsc.png"  // Changed to absolute path
     },
     { 
         url: "https://exploreandaman.co.in/crm.html", 
         name: "Explore Andaman CRM", 
         desc: "CRM solutions for Andaman", 
-        image: "images/project-banner/crm.png" 
+        image: "/images/project-banner/crm.png"  // Changed to absolute path
     }
   ];
 
@@ -641,8 +702,11 @@ document.addEventListener('DOMContentLoaded', function() {
   function createProjectOption(project, index) {
     const option = document.createElement('div');
     option.className = `psweb-project-option ${index === 0 ? 'active' : ''}`;
-    option.style.setProperty('--optionBackground', `url('${project.image}')`);
-
+    
+    // Use fallback background if image fails
+    const fallbackBackground = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+    option.style.setProperty('--optionBackground', fallbackBackground);
+    
     const targetName = project.name.replace(/\s+/g, '_').toLowerCase();
 
     option.innerHTML = `
@@ -650,7 +714,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="psweb-project-label">
           <div class="psweb-project-icon">
               <img src="https://www.google.com/s2/favicons?domain=${project.url}&sz=32" 
-                   alt="favicon" class="psweb-project-favicon" loading="lazy">
+                   alt="favicon" class="psweb-project-favicon" loading="lazy"
+                   data-fallback="https://via.placeholder.com/32/000000/ffffff?text=LOGO">
           </div>
           <div class="psweb-project-info">
               <div class="psweb-project-main">
@@ -663,6 +728,18 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
       </div>
     `;
+    
+    // Preload image with error handling
+    const img = new Image();
+    img.onload = function() {
+      option.style.setProperty('--optionBackground', `url('${project.image}')`);
+    };
+    img.onerror = function() {
+      console.warn(`Failed to load image: ${project.image}`);
+      // Keep the fallback background
+    };
+    img.src = project.image;
+    
     return option;
   }
 
@@ -687,12 +764,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// FAQ section
+// FAQ section - FIXED Unsplash URLs
 document.addEventListener('DOMContentLoaded', function () {
   const faqData = [
     {
       heading: "Web Development",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop&auto=format",
       faqs: [
         {
           q: "What technologies do you use?",
@@ -719,11 +796,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     {
       heading: "UI Design & Implementation",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop&auto=format",
       faqs: [
         {
           q: "Do you use Figma?",
-          a: "No. We don’t rely on Figma for UI design."
+          a: "No. We don't rely on Figma for UI design."
         },
         {
           q: "What design tools do you use?",
@@ -746,7 +823,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     {
       heading: "SEO & Performance",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop&auto=format",
       faqs: [
         {
           q: "Do you provide SEO services?",
@@ -773,7 +850,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     {
       heading: "Maintenance & Support",
-      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=400&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=400&h=200&fit=crop&auto=format",
       faqs: [
         {
           q: "Do you provide post-launch support?",
@@ -800,7 +877,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     {
       heading: "Pricing & Consultation",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop&auto=format",
       faqs: [
         {
           q: "Do you offer a free consultation?",
@@ -837,7 +914,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     groupDiv.innerHTML = `
       <h3>${item.heading}</h3>
-      <img src="${item.image}" alt="${item.heading}" class="faq-image" loading="lazy">
+      <img src="${item.image}" alt="${item.heading}" class="faq-image" loading="lazy"
+           data-fallback="https://via.placeholder.com/400x200/667eea/ffffff?text=${encodeURIComponent(item.heading)}">
       ${item.faqs.map(faq => `
         <div class="faq-item">
           <strong>${faq.q}</strong>
@@ -881,7 +959,8 @@ document.addEventListener('DOMContentLoaded', function() {
   [topMarquee, bottomMarquee].forEach(marquee => {
     if (marquee) {
       // Clone content for seamless loop
-      marquee.innerHTML += marquee.innerHTML;
+      const content = marquee.innerHTML;
+      marquee.innerHTML = content + content + content;
       
       // Add pause on hover
       marquee.addEventListener('mouseenter', () => {
@@ -916,7 +995,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function createBrandItem(url) {
     try {
       const domain = new URL(url).hostname;
-      const faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+      const faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(url)}`;
       
       const li = document.createElement('li');
       const a = document.createElement('a');
@@ -931,6 +1010,9 @@ document.addEventListener('DOMContentLoaded', function() {
       img.loading = "lazy";
       img.style.width = "45px";
       img.style.height = "45px";
+      img.onerror = function() {
+        this.src = "https://via.placeholder.com/45/000000/ffffff?text=" + domain.charAt(0).toUpperCase();
+      };
 
       a.appendChild(img);
       li.appendChild(a);
@@ -946,27 +1028,80 @@ document.addEventListener('DOMContentLoaded', function() {
     if (brandItem) brandList.appendChild(brandItem);
   });
 });
-$(document).ready(function() {
-            // Initialize Owl Carousel
-            $(".portfolio-carousel").owlCarousel({
-                autoWidth: true,
-                loop: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    768: {
-                        items: 2
-                    },
-                    992: {
-                        items: 3
-                    }
-                }
-            });
-            
-            // Handle click events for game items
-            $(".portfolio-game-item").click(function() {
-                $(".portfolio-game-item").not($(this)).removeClass("portfolio-active");
-                $(this).toggleClass("portfolio-active");
-            });
+
+// Owl Carousel initialization - FIXED to use pure JS if jQuery not available
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if jQuery and Owl Carousel are available
+  if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+    $(".portfolio-carousel").owlCarousel({
+      autoWidth: true,
+      loop: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        992: {
+          items: 3
+        }
+      }
+    });
+    
+    // Handle click events for game items
+    $(".portfolio-game-item").click(function() {
+      $(".portfolio-game-item").not($(this)).removeClass("portfolio-active");
+      $(this).toggleClass("portfolio-active");
+    });
+  } else {
+    // Fallback for when jQuery/Owl Carousel is not available
+    console.warn('jQuery or Owl Carousel not loaded. Using fallback carousel.');
+    
+    const carousels = document.querySelectorAll('.portfolio-carousel');
+    carousels.forEach(carousel => {
+      // Add basic styling if carousel fails
+      carousel.style.overflowX = 'auto';
+      carousel.style.display = 'flex';
+      carousel.style.gap = '15px';
+      carousel.style.padding = '10px';
+    });
+    
+    // Handle click events for game items
+    document.querySelectorAll('.portfolio-game-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.portfolio-game-item').forEach(otherItem => {
+          if (otherItem !== this) {
+            otherItem.classList.remove('portfolio-active');
+          }
         });
+        this.classList.toggle('portfolio-active');
+      });
+    });
+  }
+});
+
+// Add this function to handle Netlify-specific issues
+function handleNetlifyIssues() {
+  // Fix for Netlify routing with SPA-like behavior
+  if (window.location.hostname.includes('netlify.app')) {
+    // Ensure all internal links work correctly
+    document.querySelectorAll('a[href^="/"]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.includes('.html') && !href.includes('#')) {
+        link.href = href + '/index.html';
+      }
+    });
+  }
+  
+  // Log image loading issues for debugging
+  window.addEventListener('error', function(e) {
+    if (e.target.tagName === 'IMG') {
+      console.error('Image failed to load:', e.target.src);
+    }
+  }, true);
+}
+
+// Initialize Netlify fixes when DOM is ready
+document.addEventListener('DOMContentLoaded', handleNetlifyIssues);
+window.addEventListener('load', fixImagePaths);
