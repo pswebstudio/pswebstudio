@@ -3,80 +3,86 @@
 
 /* Fonts */
 :root {
-  /* --- Font Definitions --- */
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Lato", sans-serif;
-  --nav-font: "Inter", sans-serif;
-  
-  /* --- Base Colors --- */
-  --background-color:#fff; 
-  --surface-color:#fff; /* Typically cards, modals */
-  --default-color: #444444; /* Primary text color for light mode */
-  --heading-color: #171717; 
-  --contrast-color:#fff; /* Used for text on dark surfaces */
+  /* ---------------- Fonts (System Only) ---------------- */
+  --default-font: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-  /* --- Brand/Accent Colors --- */
-  --accent-color: #27437a; /* Logo/Primary Action Color */
-  --accent-hover-color: #00a7ee; /* Secondary Color / Hover State Color */
+  --heading-font: var(--default-font);
+  --nav-font: var(--default-font);
 
-  /* --- Navigation Colors --- */
-  --nav-color: #222222;
-  --nav-hover-color: var(--accent-hover-color); /* Referenced for consistency */
-  --nav-mobile-background-color:#fff;
-  --nav-dropdown-background-color: var(--accent-color); /* Referenced for consistency */
-  --nav-dropdown-color: var(--contrast-color);
-  --nav-dropdown-hover-color: var(--accent-hover-color);
+  /* ---------------- Base Colors ---------------- */
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+  --default-color: #333333;
+  --heading-color: #111111;
+  --contrast-color: #ffffff;
 
-  /* --- Interaction Styles --- */
-  --link-hover-blend: color-mix(in srgb, var(--accent-color), transparent 25%);
-  
-  /* --- System Settings --- */
+  /* ---------------- Brand / Accent ---------------- */
+  --accent-color: #2563eb;       /* Modern blue */
+  --accent-hover-color: #1d4ed8; /* Darker hover */
+
+  /* ---------------- Navigation ---------------- */
+  --nav-color: #1f2937;
+  --nav-hover-color: var(--accent-color);
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #1f2937;
+  --nav-dropdown-color: #ffffff;
+  --nav-dropdown-hover-color: #60a5fa;
+
+  /* ---------------- Interaction ---------------- */
+  --link-hover-color: var(--accent-hover-color);
+
+  /* ---------------- System ---------------- */
   scroll-behavior: smooth;
 }
 
-/* Link Hover Improvement (using the new blend variable) */
-a:hover {
-  color: var(--link-hover-blend);
-  text-decoration: none;
-}
-
-
-/* --- Theme Presets --- */
-.light-background {
-  --background-color: #f9f5f4; /* Slightly off-white background */
-  --surface-color:#fff;
-  /* Default text colors remain good for this light surface */
-}
-
-.dark-background {
-  --background-color: #060606;
-  --default-color: #f0f0f0; /* Lighter text for dark mode */
-  --heading-color:#fff;
-  --surface-color: #252525;
-  --contrast-color:#fff; /* Stays white for dark surface text */
-}
-
-/* --- General Styling --- */
+/* ---------------- Base Styling ---------------- */
 body {
+  font-family: var(--default-font);
   color: var(--default-color);
   background-color: var(--background-color);
-  font-family: var(--default-font);
+  line-height: 1.6;
 }
 
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: 0.3s;
+  transition: color 0.25s ease;
 }
 
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* ---------------- Headings ---------------- */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color);
   font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+/* ---------------- Light Theme ---------------- */
+.light-background {
+  --background-color: #f9fafb;
+  --surface-color: #ffffff;
+}
+
+/* ---------------- Dark Theme ---------------- */
+.dark-background {
+  --background-color: #0f172a;
+  --surface-color: #1e293b;
+  --default-color: #e5e7eb;
+  --heading-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #e5e7eb;
+  --nav-mobile-background-color: #0f172a;
 }
 
 /* PHP Email Form Messages
@@ -1434,9 +1440,6 @@ section,
   transform: translateX(5px);
 }
 
-.featured-services .service-item .icon {
-  margin-bottom: 1.5rem;
-}
 
 .featured-services .service-item .icon i {
   font-size: 2.5rem;
