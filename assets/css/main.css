@@ -1409,42 +1409,19 @@ section,
 --------------------------------------------------------------*/
 .featured-services .service-item {
   height: 100%;
-  padding: 20px;
-  background-color: #f4f4f4;
+  padding: 15px;
+  background-color: #cad0e400;
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
+  border: 1px solid #173e8e9e;
 }
 
-.featured-services .service-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 0;
-  background-color: var(--accent-color);
-  transition: height 0.3s ease-in-out;
-}
-
-.featured-services .service-item:hover::before {
-  height: 100%;
-}
-
-.featured-services .service-item:hover .icon i {
-  transform: scale(1.1) rotate(5deg);
-  color: var(--accent-color);
-}
-
-.featured-services .service-item:hover .link-item i {
-  transform: translateX(5px);
-}
 
 
 .featured-services .service-item .icon i {
   font-size: 2.5rem;
   color: color-mix(in srgb, var(--accent-color), transparent 15%);
-  transition: all 0.3s ease-in-out;
 }
 
 .featured-services .service-item h3 {
@@ -2267,7 +2244,7 @@ section,
 }
 
 .features .intro-panel .intro-content .intro-title {
-  font-weight: 800;
+  font-weight: 500;
   margin-bottom: 8px;
 }
 
