@@ -19,8 +19,8 @@
   --contrast-color: #ffffff;
 
   /* ---------------- Brand / Accent ---------------- */
-  --accent-color: #2563eb;       /* Modern blue */
-  --accent-hover-color: #1d4ed8; /* Darker hover */
+  --accent-color: #0e9ce1;       /* Modern blue */
+  --accent-hover-color: #1f4492; /* Darker hover */
 
   /* ---------------- Navigation ---------------- */
   --nav-color: #1f2937;
@@ -28,7 +28,7 @@
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #1f2937;
   --nav-dropdown-color: #ffffff;
-  --nav-dropdown-hover-color: #60a5fa;
+  --nav-dropdown-hover-color: #1f4492;
 
   /* ---------------- Interaction ---------------- */
   --link-hover-color: var(--accent-hover-color);
