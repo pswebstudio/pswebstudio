@@ -1160,7 +1160,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom:30px;
   position: relative;
 }
 
@@ -2378,10 +2378,11 @@ section,
 }
 
 .features .feature-item .f-body .f-title {
-  font-size: 18px;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: 500;
   margin-bottom: 6px;
 }
+
 
 .features .feature-item .f-body .f-text {
   color: var(--muted);
@@ -2457,7 +2458,7 @@ section,
 
 .features .assurance-banner .assurance-content h5 {
   margin: 0 0 4px 0;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .features .assurance-banner .assurance-content p {
@@ -2552,11 +2553,13 @@ section,
 }
 
 .testimonial-card {
-background-color: rgb(238 242 247);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  min-width: 300px;
+    background-color: rgb(238 242 247);
+    padding: 15px;
+    border-radius: 15px;
+    min-width: 300px;
+    align-content: center;
+    border-radius: 1rem;
+    border: 1px solid #cccccc57;
 }
 
 .testimonial-card p {
@@ -2567,7 +2570,7 @@ background-color: rgb(238 242 247);
 
 .testimonial-card .critic-name {
   font-weight: 600;
-  color: #000;
+  color: var(--bs-black);
 }
 
 .fade-left,
