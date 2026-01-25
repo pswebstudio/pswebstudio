@@ -2623,19 +2623,30 @@ section,
 --------------------------------------------------------------*/
 .call-to-action {
   padding: 100px 0;
+  background-color: #0c1e21;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
+}
+.bg-shape-2 {
+    top: inherit;
+    inset-inline-start: inherit;
+    bottom: 0;
+    inset-inline-end: 0;
 }
 
+.bg-shape-2, .bg-shape-1 {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    max-width: 370px;
+    width: 100%;
+    z-index: -1;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
 .call-to-action .cta-wrapper {
   position: relative;
-}
-
-.call-to-action .cta-wrapper .content-block {
-  background-color: #303034;
-  border-radius: 16px;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 40px color-mix(in srgb, var(--default-color), transparent 96%), 0 1px 0 color-mix(in srgb, var(--accent-color), transparent 94%);
 }
 
 .call-to-action .text-content {
