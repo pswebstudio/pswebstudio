@@ -100,7 +100,6 @@
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     background: var(--bs-white);
     height: 100%;
     display: flex;
@@ -119,10 +118,7 @@
     padding: 0;
 }
     
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
+
     
     .portfolio-image {
       height: 250px;
@@ -254,16 +250,17 @@
       margin-right: 0.5rem;
     }
     
-    .portfolio-link-outline {
-      background: transparent;
-      border: 2px solid var(--accent-hover-color);
-      color: var(--accent-hover-color);
-    }
-    
-    .portfolio-link-outline:hover {
-      background: var(--accent-hover-color)
-      color: var(--bs-white);
-    }
+   .portfolio-link-outline {
+  background: transparent;
+  border: 2px solid var(--accent-hover-color);
+  color: var(--accent-hover-color);
+}
+
+.portfolio-link-outline:hover {
+  background: var(--accent-hover-color);
+  color: var(--accent-hover-color);
+}
+
     
     .view-more-container {
       text-align: center;
