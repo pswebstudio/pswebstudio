@@ -2621,31 +2621,49 @@ section,
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
+/* ===============================
+   CTA BASE
+================================ */
+
 .call-to-action {
   background-color: #0c1e21;
   border-radius: 1rem;
   position: relative;
+  overflow: hidden; /* REQUIRED for background shapes */
   z-index: 1;
 }
+
+/* ===============================
+   BACKGROUND SHAPES (FIXED)
+================================ */
+
+.bg-shape-1,
 .bg-shape-2 {
-    top: inherit;
-    inset-inline-start: inherit;
-    bottom: 0;
-    inset-inline-end: 0;
+  position: absolute;
+  width: 100%;
+  max-width: 370px;
+  pointer-events: none;
+  z-index: 0; /* IMPORTANT: not negative */
+  opacity: 0.4;
 }
 
-.bg-shape-2, .bg-shape-1 {
-    position: absolute;
-    top: 0;
-    inset-inline-start: 0;
-    max-width: 370px;
-    width: 100%;
-    z-index: -1;
-    mix-blend-mode: difference;
-    pointer-events: none;
+.bg-shape-1 {
+  top: 0;
+  left: 0;
 }
+
+.bg-shape-2 {
+  bottom: 0;
+  right: 0;
+}
+
+/* ===============================
+   CTA WRAPPER & TEXT
+================================ */
+
 .call-to-action .cta-wrapper {
   position: relative;
+  z-index: 2;
 }
 
 .call-to-action .text-content {
@@ -2677,24 +2695,28 @@ section,
 .call-to-action .text-content h2 {
   font-size: 3.25rem;
   font-weight: 300;
-  color: var(--bs-white);
+  color: #ffffff;
   line-height: 1.15;
   margin-bottom: 2rem;
 }
 
 .call-to-action .text-content h2 .accent-text {
-color: var(--bs-white);
+  color: #ffffff;
   font-weight: 400;
   display: block;
 }
 
 .call-to-action .text-content p {
   font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: #efefef;
   line-height: 1.8;
   margin-bottom: 2.5rem;
   max-width: 90%;
 }
+
+/* ===============================
+   BENEFITS LIST
+================================ */
 
 .call-to-action .benefits-list {
   margin-bottom: 2.5rem;
@@ -2706,31 +2728,33 @@ color: var(--bs-white);
   margin-bottom: 1rem;
 }
 
-.call-to-action .benefits-list .benefit-row .benefit-item {
+.call-to-action .benefits-list .benefit-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   flex: 1;
 }
 
-.call-to-action .benefits-list .benefit-row .benefit-item .check-icon {
+.call-to-action .benefits-list .check-icon {
   width: 24px;
   height: 24px;
   background: var(--accent-hover-color);
-  color: var(--aifnmjmchg-html-bg-color);
+  color: #000;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
-  flex-shrink: 0;
 }
 
-.call-to-action .benefits-list .benefit-row .benefit-item span {
+.call-to-action .benefits-list span {
   font-size: 0.95rem;
   color: #efefef;
-  font-weight: 400;
 }
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
 
 .call-to-action .action-group {
   display: flex;
@@ -2739,28 +2763,26 @@ color: var(--bs-white);
   margin-bottom: 3rem;
 }
 
-.call-to-action .action-group .btn {
+.call-to-action .btn {
   transition: all 0.3s ease;
   border-radius: 8px;
   font-weight: 500;
 }
 
-.call-to-action .action-group .btn.btn-primary-action {
+.call-to-action .btn-primary-action {
   background: var(--accent-color);
-  color: var(--contrast-color);
+  color: #000;
   padding: 1rem 2rem;
   border: none;
   font-size: 1rem;
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-color), transparent 85%);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
 }
 
-.call-to-action .action-group .btn.btn-primary-action:hover {
-  background: color-mix(in srgb, var(--accent-color), black 10%);
+.call-to-action .btn-primary-action:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px color-mix(in srgb, var(--accent-color), transparent 80%);
 }
 
-.call-to-action .action-group .btn.btn-text-link {
+.call-to-action .btn-text-link {
   background: transparent;
   color: #efefef;
   border: none;
@@ -2771,13 +2793,17 @@ color: var(--bs-white);
   font-size: 1rem;
 }
 
-.call-to-action .action-group .btn.btn-text-link:hover {
+.call-to-action .btn-text-link:hover {
   color: var(--accent-color);
 }
 
-.call-to-action .action-group .btn.btn-text-link i {
+.call-to-action .btn-text-link i {
   font-size: 1.25rem;
 }
+
+/* ===============================
+   TRUST INDICATORS
+================================ */
 
 .call-to-action .trust-indicators {
   display: flex;
@@ -2789,172 +2815,84 @@ color: var(--bs-white);
   text-align: center;
 }
 
-.call-to-action .trust-indicators .indicator .metric {
+.call-to-action .trust-indicators .metric {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--bs-color);
-  line-height: 1;
-  margin-bottom: 0.25rem;
+  color: #ffffff;
 }
 
-.call-to-action .trust-indicators .indicator .label {
+.call-to-action .trust-indicators .label {
   font-size: 0.85rem;
-  color:#efefef;
-  font-weight: 400;
+  color: #efefef;
 }
 
 .call-to-action .trust-indicators .separator {
   width: 1px;
   height: 40px;
-  background: color-mix(in srgb, var(--default-color), transparent 85%);
+  background: rgba(255,255,255,0.2);
 }
+
+/* ===============================
+   VISUAL SECTION
+================================ */
 
 .call-to-action .visual-section {
-  position: relative;
-}
-
-.call-to-action .visual-section .image-container {
   position: relative;
   z-index: 2;
 }
 
-.call-to-action .visual-section .image-container .main-visual {
-  width: 100%;
-  border-radius: 12px;
-  max-width: 480px;
+.call-to-action .image-container {
+  position: relative;
 }
 
-.call-to-action .visual-section .image-container .floating-badge {
+.call-to-action .main-visual {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+}
+
+/* ===============================
+   FLOATING BADGES
+================================ */
+
+.floating-badge {
   position: absolute;
-  background: var(--surface-color);
+  background: #ffffff;
   border-radius: 12px;
   padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: 0 8px 32px color-mix(in srgb, var(--default-color), transparent 92%), 0 0 0 1px color-mix(in srgb, var(--accent-color), transparent 92%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
   z-index: 3;
 }
 
-.call-to-action .visual-section .image-container .floating-badge .badge-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 20%));
-  color: var(--contrast-color);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.call-to-action .visual-section .image-container .floating-badge .badge-text .badge-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--heading-color);
-  line-height: 1;
-  margin-bottom: 0.25rem;
-}
-
-.call-to-action .visual-section .image-container .floating-badge .badge-text .badge-subtitle {
-  font-size: 0.8rem;
-  color: color-mix(in srgb, var(--default-color), transparent 35%);
-  font-weight: 400;
-}
-
-.call-to-action .visual-section .image-container .floating-badge.badge-1 {
+.badge-1 {
   top: 10%;
   left: -20px;
   animation: floatSlow 6s ease-in-out infinite;
 }
 
-.call-to-action .visual-section .image-container .floating-badge.badge-2 {
+.badge-2 {
   bottom: 15%;
   right: -30px;
   animation: floatFast 4s ease-in-out infinite;
 }
 
-.call-to-action .visual-section .decorative-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.call-to-action .visual-section .decorative-elements .element {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.call-to-action .visual-section .decorative-elements .element.element-1 {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 92%), color-mix(in srgb, var(--accent-color), transparent 98%));
-  top: -10%;
-  right: 20%;
-  animation: drift 8s ease-in-out infinite;
-}
-
-.call-to-action .visual-section .decorative-elements .element.element-2 {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(225deg, color-mix(in srgb, var(--heading-color), transparent 90%), color-mix(in srgb, var(--heading-color), transparent 98%));
-  bottom: -5%;
-  left: 10%;
-  animation: drift 6s ease-in-out infinite reverse;
-}
-
-.call-to-action .visual-section .decorative-elements .element.element-3 {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(45deg, color-mix(in srgb, var(--accent-color), transparent 88%), color-mix(in srgb, var(--accent-color), transparent 96%));
-  top: 50%;
-  left: -5%;
-  animation: drift 10s ease-in-out infinite;
-}
+/* ===============================
+   ANIMATIONS
+================================ */
 
 @keyframes floatSlow {
-
-  0%,
-  100% {
-    transform: translateY(0) translateX(0);
-  }
-
-  50% {
-    transform: translateY(-8px) translateX(4px);
-  }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes floatFast {
-
-  0%,
-  100% {
-    transform: translateY(0) translateX(0);
-  }
-
-  50% {
-    transform: translateY(6px) translateX(-3px);
-  }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
-@keyframes drift {
-
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  33% {
-    transform: translate(10px, -8px) rotate(120deg);
-  }
-
-  66% {
-    transform: translate(-5px, 12px) rotate(240deg);
-  }
-}
 
 @media (max-width: 992px) {
   .call-to-action {
