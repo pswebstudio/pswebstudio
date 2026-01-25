@@ -89,22 +89,35 @@
     }
     
     .portfolio-grid {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-    
-    .portfolio-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background: white;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+/* Add this to ensure items are visible during filtering */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    background: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Add this for hidden state */
+.portfolio-item.isotope-hidden {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
     
     .portfolio-item:hover {
       transform: translateY(-10px);
@@ -1027,97 +1040,149 @@
   <script src="../assets/vendor/aos/aos.js"></script>
   <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- Add Isotope library -->
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="../assets/js/main.js"></script>
 
-  <script>
+<script>
     // Initialize AOS
     AOS.init({
-      duration: 1000,
-      once: true,
+        duration: 1000,
+        once: true,
     });
 
-    // Portfolio Filtering
-    document.addEventListener('DOMContentLoaded', function() {
-      // Portfolio filtering
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const portfolioGrid = document.getElementById('portfolio-grid');
-      
-      // Initialize Isotope
-      const iso = new Isotope(portfolioGrid, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows',
-        percentPosition: true,
-        fitRows: {
-          gutter: 30
+    // Force all portfolio items to be visible
+    function forcePortfolioItemsVisible() {
+        const items = document.querySelectorAll('.portfolio-item');
+        items.forEach(item => {
+            item.style.display = 'flex';
+            item.style.opacity = '1';
+            item.style.visibility = 'visible';
+            item.style.height = 'auto';
+            item.style.margin = '';
+            item.style.padding = '';
+        });
+        
+        const portfolioGrid = document.getElementById('portfolio-grid');
+        if (portfolioGrid) {
+            portfolioGrid.style.display = 'grid';
+            portfolioGrid.style.opacity = '1';
+            portfolioGrid.style.visibility = 'visible';
         }
-      });
-      
-      // Filter button click event
-      filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          
-          // Add active class to clicked button
-          this.classList.add('active');
-          
-          // Get filter value
-          const filterValue = this.getAttribute('data-filter');
-          
-          // Filter items
-          iso.arrange({ filter: filterValue });
+    }
+
+    // Simple Portfolio Filtering (no Isotope dependency)
+    function setupPortfolioFiltering() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioGrid = document.getElementById('portfolio-grid');
+        
+        if (!portfolioGrid) return;
+        
+        // Make sure grid is visible
+        portfolioGrid.style.display = 'grid';
+        
+        // Filter button click event
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                const items = portfolioGrid.querySelectorAll('.portfolio-item');
+                
+                if (filterValue === '*') {
+                    // Show all items
+                    items.forEach(item => {
+                        item.style.display = 'flex';
+                        item.style.opacity = '1';
+                        item.style.visibility = 'visible';
+                        item.style.transform = 'scale(1)';
+                    });
+                } else {
+                    // Get class name without the dot
+                    const className = filterValue.substring(1);
+                    
+                    // First hide all items
+                    items.forEach(item => {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                            item.style.visibility = 'hidden';
+                        }, 200);
+                    });
+                    
+                    // Then show filtered items
+                    setTimeout(() => {
+                        items.forEach(item => {
+                            if (item.classList.contains(className)) {
+                                item.style.display = 'flex';
+                                item.style.visibility = 'visible';
+                                setTimeout(() => {
+                                    item.style.opacity = '1';
+                                    item.style.transform = 'scale(1)';
+                                }, 10);
+                            }
+                        });
+                    }, 250);
+                }
+            });
         });
-      });
-      
-      // Initialize testimonial slider
-      const testimonialSwiper = new Swiper('.testimonialSwiper', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-      
-      // Initialize GLightbox for project images
-      const lightbox = GLightbox({
-        selector: '.portfolio-image img',
-        touchNavigation: true,
-        loop: true,
-      });
-      
-      // Add favicon fallback handling
-      document.querySelectorAll('.portfolio-favicon').forEach(favicon => {
-        favicon.addEventListener('error', function() {
-          const fallback = this.getAttribute('data-fallback');
-          if (fallback) {
-            this.src = fallback;
-          } else {
-            // Extract initials from alt text for fallback
-            const alt = this.alt || 'Website';
-            const initials = alt.split(' ')
-              .map(word => word.charAt(0))
-              .join('')
-              .toUpperCase()
-              .substring(0, 2);
-            
-            this.src = `https://via.placeholder.com/32/2c3e50/ffffff?text=${encodeURIComponent(initials)}`;
-          }
-        });
-      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Force items to be visible
+        forcePortfolioItemsVisible();
+        
+        // Setup simple filtering
+        setupPortfolioFiltering();
+        
+        // Initialize testimonial slider
+        if (typeof Swiper !== 'undefined') {
+            const testimonialSwiper = new Swiper('.testimonialSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        }
+        
+        // Smooth scroll for "View Projects" button
+        const viewProjectsBtn = document.querySelector('a[href="#portfolio-grid"]');
+        if (viewProjectsBtn) {
+            viewProjectsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector('#portfolio-grid');
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
     });
-  </script>
+
+    // Also run on window load
+    window.addEventListener('load', function() {
+        forcePortfolioItemsVisible();
+    });
+</script>
 
 </body>
 </html>
