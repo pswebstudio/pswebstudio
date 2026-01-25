@@ -2622,7 +2622,6 @@ section,
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action {
-  padding: 100px 0;
   background-color: #0c1e21;
   border-radius: 12px;
   position: relative;
@@ -2684,7 +2683,7 @@ section,
 }
 
 .call-to-action .text-content h2 .accent-text {
-color: var(--accent-hover-color);
+color: var(--bs-white);
   font-weight: 400;
   display: block;
 }
