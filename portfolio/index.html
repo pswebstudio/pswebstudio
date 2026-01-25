@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio Gallery - PSWeb Studio</title>
+  <meta name="description" content="Explore our web development portfolio - modern, responsive websites and applications built with cutting-edge technologies">
+  <meta name="keywords" content="web development portfolio, website gallery, frontend projects, responsive design portfolio">
+
+  <!-- Favicons -->
+  <link href="images/favicon.png" rel="icon">
+  <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  
+  <style>
+    /* Portfolio Gallery Custom Styles */
+    .portfolio-hero {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 5rem 0 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    .portfolio-stats {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-top: -3rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      display: block;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      color: #666;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+    }
+    
+    .portfolio-filters {
+      margin-bottom: 2rem;
+    }
+    
+    .filter-btn {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid #dee2e6;
+      background: white;
+      color: #495057;
+      border-radius: 50px;
+      margin: 0.25rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #2c3e50;
+      border-color: #2c3e50;
+      color: white;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+    
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .portfolio-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-image img {
+      transform: scale(1.05);
+    }
+    
+    .portfolio-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .portfolio-category {
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      background: #e9ecef;
+      color: #495057;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .portfolio-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #2c3e50;
+    }
+    
+    .portfolio-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .portfolio-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .tech-tag {
+      padding: 0.25rem 0.75rem;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #495057;
+    }
+    
+    .portfolio-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background: #2c3e50;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .portfolio-link:hover {
+      background: #1a252f;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .portfolio-link i {
+      margin-left: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .portfolio-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    .view-more-container {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+    }
+    
+    .view-more-btn {
+      padding: 1rem 2.5rem;
+      background: transparent;
+      border: 2px solid #2c3e50;
+      color: #2c3e50;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .view-more-btn:hover {
+      background: #2c3e50;
+      color: white;
+    }
+    
+    .testimonial-slider {
+      background: #f8f9fa;
+      border-radius: 1rem;
+      padding: 3rem 2rem;
+      margin: 4rem 0;
+    }
+    
+    .testimonial-item {
+      text-align: center;
+      padding: 0 1rem;
+    }
+    
+    .client-quote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #495057;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .client-info h5 {
+      color: #2c3e50;
+      margin-bottom: 0.25rem;
+    }
+    
+    .client-info p {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      
+      .portfolio-hero {
+        padding: 3rem 0 2rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="portfolio-page">
+
+  <header id="header" class="header sticky-top">
+    <div class="nav-wrap">
+      <div class="container d-flex justify-content-between position-relative">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="images/psweb-logo.png" alt="PSWeb Studio logo">
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="contact-us.php" class="contact-blink">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Portfolio Hero Section -->
+    <section class="portfolio-hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
+            <h1 class="display-4 fw-bold mb-3">Our Portfolio Gallery</h1>
+            <p class="lead mb-4">
+              Explore our collection of web development projects. Each piece represents our commitment to clean code, 
+              modern design, and exceptional user experience.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="#portfolio-grid" class="btn btn-primary btn-lg px-4">View Projects</a>
+              <a href="contact-us.php" class="btn btn-outline-primary btn-lg px-4">Start Your Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Stats -->
+    <div class="container">
+      <div class="portfolio-stats">
+        <div class="row g-4">
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-item">
+              <span class="stat-number">25+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-item">
+              <span class="stat-number">18</span>
+              <span class="stat-label">Happy Clients</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-item">
+              <span class="stat-number">15</span>
+              <span class="stat-label">Technologies Used</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Gallery Section -->
+    <section id="portfolio" class="portfolio section">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Portfolio Filters -->
+        <div class="portfolio-filters text-center" data-aos="fade-up" data-aos-delay="100">
+          <button class="filter-btn active" data-filter="*">All Projects</button>
+          <button class="filter-btn" data-filter=".web-app">Web Applications</button>
+          <button class="filter-btn" data-filter=".ecommerce">E-commerce</button>
+          <button class="filter-btn" data-filter=".travel">Travel & Tourism</button>
+          <button class="filter-btn" data-filter=".education">Education</button>
+          <button class="filter-btn" data-filter=".healthcare">Healthcare</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div id="portfolio-grid" class="portfolio-grid" data-aos="fade-up" data-aos-delay="200">
+          
+          <!-- Madhya Pradesh DMC -->
+          <div class="portfolio-item travel" data-category="travel">
+            <div class="portfolio-image">
+              <img src="images/project-banner/mp.png" alt="Madhya Pradesh DMC">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Travel & Tourism</span>
+              <h3 class="portfolio-title">Madhya Pradesh DMC</h3>
+              <p class="portfolio-description">
+                A comprehensive destination management platform showcasing Madhya Pradesh's tourism 
+                with interactive maps, tour packages, and responsive design.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">jQuery</span>
+              </div>
+              <a href="portfolio-details-mp.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Andaman Travel Agent -->
+          <div class="portfolio-item travel web-app" data-category="travel">
+            <div class="portfolio-image">
+              <img src="images/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Travel & Web App</span>
+              <h3 class="portfolio-title">Andaman Travel Agent</h3>
+              <p class="portfolio-description">
+                Full-featured travel booking platform with real-time availability, 
+                multi-vendor coordination, and secure payment processing.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">REST API</span>
+              </div>
+              <a href="portfolio-andaman.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hotel In Andaman -->
+          <div class="portfolio-item travel ecommerce" data-category="travel">
+            <div class="portfolio-image">
+              <img src="images/project-banner/hia.png" alt="Hotel In Andaman">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Travel & E-commerce</span>
+              <h3 class="portfolio-title">Hotel In Andaman</h3>
+              <p class="portfolio-description">
+                Hotel booking and management system with inventory control, 
+                booking engine, and multi-vendor support for accommodation providers.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Stripe API</span>
+              </div>
+              <a href="portfolio-hotel.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Andaman Vacations -->
+          <div class="portfolio-item travel" data-category="travel">
+            <div class="portfolio-image">
+              <img src="images/project-banner/av.png" alt="Andaman Vacations">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Travel & Tourism</span>
+              <h3 class="portfolio-title">Andaman Vacations</h3>
+              <p class="portfolio-description">
+                Tour package management system with itinerary builder, 
+                price calculator, and integrated payment gateway for seamless bookings.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">jQuery</span>
+              </div>
+              <a href="portfolio-vacations.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- E-commerce Platform -->
+          <div class="portfolio-item ecommerce web-app" data-category="ecommerce">
+            <div class="portfolio-image">
+              <img src="images/project-banner/ecommerce.jpg" alt="E-commerce Platform">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">E-commerce</span>
+              <h3 class="portfolio-title">Multi-Vendor E-commerce</h3>
+              <p class="portfolio-description">
+                Complete online marketplace with vendor management, 
+                inventory tracking, order processing, and analytics dashboard.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">Redux</span>
+              </div>
+              <a href="portfolio-ecommerce.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Educational Portal -->
+          <div class="portfolio-item education web-app" data-category="education">
+            <div class="portfolio-image">
+              <img src="images/project-banner/education.jpg" alt="Educational Portal">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Education</span>
+              <h3 class="portfolio-title">Learning Management System</h3>
+              <p class="portfolio-description">
+                Online education platform with course management, 
+                video streaming, assessments, and progress tracking for students.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">WebRTC</span>
+                <span class="tech-tag">AWS S3</span>
+              </div>
+              <a href="portfolio-education.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Healthcare System -->
+          <div class="portfolio-item healthcare web-app" data-category="healthcare">
+            <div class="portfolio-image">
+              <img src="images/project-banner/healthcare.jpg" alt="Healthcare System">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Healthcare</span>
+              <h3 class="portfolio-title">Patient Management System</h3>
+              <p class="portfolio-description">
+                Comprehensive healthcare solution with appointment scheduling, 
+                patient records, prescription management, and telemedicine features.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">WebSocket</span>
+                <span class="tech-tag">Azure</span>
+              </div>
+              <a href="portfolio-healthcare.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Corporate Website -->
+          <div class="portfolio-item web-app" data-category="web-app">
+            <div class="portfolio-image">
+              <img src="images/project-banner/corporate.jpg" alt="Corporate Website">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Corporate</span>
+              <h3 class="portfolio-title">Enterprise Corporate Portal</h3>
+              <p class="portfolio-description">
+                Modern corporate website with CMS integration, 
+                team management, project showcase, and contact management system.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">WordPress</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">ACF</span>
+              </div>
+              <a href="portfolio-corporate.html" class="portfolio-link">
+                View Case Study <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- View More Projects -->
+        <div class="view-more-container" data-aos="fade-up">
+          <button class="view-more-btn" id="load-more">
+            <i class="bi bi-plus-circle me-2"></i> Load More Projects
+          </button>
+        </div>
+
+      </div>
+    </section><!-- /Portfolio Gallery Section -->
+
+    <!-- Testimonials Slider -->
+    <section class="testimonial-slider">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center mb-5" data-aos="fade-up">
+            <h2 class="mb-3">What Our Clients Say</h2>
+            <p class="text-muted">Feedback from businesses we've helped transform with our web solutions</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="swiper testimonialSwiper" data-aos="fade-up" data-aos-delay="100">
+              <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="client-quote">
+                      "PSWeb Studio delivered exactly what we needed for our tourism portal. 
+                      The Madhya Pradesh DMC website has significantly improved our online presence 
+                      and user engagement."
+                    </div>
+                    <div class="client-info">
+                      <h5>Rajesh Sharma</h5>
+                      <p>Director, Madhya Pradesh Tourism</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="client-quote">
+                      "The Andaman travel booking system transformed our operations. 
+                      Real-time availability and seamless payments have increased our bookings by 40%."
+                    </div>
+                    <div class="client-info">
+                      <h5>Priya Verma</h5>
+                      <p>Owner, Andaman Travel Agency</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="client-quote">
+                      "Professional, timely, and excellent quality work. Our e-commerce platform 
+                      handles thousands of transactions daily without any issues."
+                    </div>
+                    <div class="client-info">
+                      <h5>Amit Patel</h5>
+                      <p>CEO, RetailPlus E-commerce</p>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center" data-aos="fade-up">
+            <h2 class="mb-4">Ready to Start Your Project?</h2>
+            <p class="mb-4">
+              Let's discuss your vision and create a web solution that exceeds your expectations. 
+              Our team is ready to bring your ideas to life.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="contact-us.php" class="btn btn-primary btn-lg px-4">Get a Free Quote</a>
+              <a href="index.html#services" class="btn btn-outline-primary btn-lg px-4">View Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="row gy-5">
+        <!-- Brand Section -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">
+            <a href="index.html" class="logo d-flex align-items-center mb-3">
+              <span class="sitename">PSWeb Studio</span>
+            </a>
+            <p class="tagline">
+              A code-focused web studio building fast, responsive, and practical websites
+              for real businesses.
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-5 col-md-6">
+          <div class="footer-links-grid">
+            <div class="row">
+              <div class="col-6 col-md-4">
+                <h5>Studio</h5>
+                <ul class="list-unstyled">
+                  <li><a href="about-us.html">About</a></li>
+                  <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                  <li><a href="index.html#services">Services</a></li>
+                  <li><a href="contact-us.php">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Services</h5>
+                <ul class="list-unstyled">
+                  <li><a href="index.html#services">Web Development</a></li>
+                  <li><a href="index.html#services">UI/UX Design</a></li>
+                  <li><a href="index.html#services">SEO Optimization</a></li>
+                  <li><a href="index.html#services">Performance Tuning</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Legal</h5>
+                <ul class="list-unstyled">
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="col-lg-3 col-md-12">
+          <div class="footer-cta">
+            <h5>Start a Project</h5>
+            <p class="small mb-3">
+              Have a website idea or need improvements to an existing one?
+            </p>
+            <a href="quotation.html" class="btn btn-primary w-100">
+              Request a Quote
+            </a>
+            <div class="contact-info mt-3">
+              <div class="contact-item d-flex align-items-center mb-2">
+                <i class="bi bi-envelope me-2"></i>
+                <span>hello@pswebstudio.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content d-flex justify-content-between align-items-center flex-wrap">
+          <p class="mb-0">
+            © 2025 <span class="sitename">PSWeb Studio</span>. All rights reserved.
+          </p>
+          <p class="mb-0">
+            Built & maintained by <strong>PSWeb Studio</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    // Portfolio Filtering
+    document.addEventListener('DOMContentLoaded', function() {
+      // Portfolio filtering
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+      const portfolioGrid = document.getElementById('portfolio-grid');
+      
+      // Initialize Isotope
+      const iso = new Isotope(portfolioGrid, {
+        itemSelector: '.portfolio-item',
+        layoutMode: 'fitRows',
+        percentPosition: true,
+        fitRows: {
+          gutter: 30
+        }
+      });
+      
+      // Filter button click event
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Get filter value
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter items
+          iso.arrange({ filter: filterValue });
+        });
+      });
+      
+      // Load more projects functionality
+      const loadMoreBtn = document.getElementById('load-more');
+      let currentItems = 8;
+      
+      // Example additional projects data (in a real scenario, this would come from an API)
+      const additionalProjects = [
+        {
+          category: "travel",
+          title: "Kerala Tourism Portal",
+          description: "Showcasing Kerala's backwaters and cultural heritage with interactive virtual tours.",
+          tech: ["HTML5", "CSS3", "JavaScript", "Three.js", "GSAP"],
+          link: "portfolio-kerala.html"
+        },
+        {
+          category: "ecommerce",
+          title: "Fashion E-commerce Store",
+          description: "Modern fashion retail platform with AR try-on feature and personalized recommendations.",
+          tech: ["React", "Node.js", "MongoDB", "AR.js", "TensorFlow.js"],
+          link: "portfolio-fashion.html"
+        },
+        {
+          category: "web-app",
+          title: "Real Estate Platform",
+          description: "Property listing and management system with virtual property tours and mortgage calculator.",
+          tech: ["Vue.js", "Laravel", "MySQL", "WebGL", "Google Maps API"],
+          link: "portfolio-realestate.html"
+        },
+        {
+          category: "education",
+          title: "Online Tutoring Platform",
+          description: "Live tutoring system with whiteboard, video calls, and progress tracking for students.",
+          tech: ["React", "WebRTC", "Socket.io", "Canvas API", "Firebase"],
+          link: "portfolio-tutoring.html"
+        }
+      ];
+      
+      loadMoreBtn.addEventListener('click', function() {
+        // In a real scenario, you would fetch additional projects from an API
+        // For demo purposes, we'll simulate loading more items
+        
+        // Simulate loading delay
+        loadMoreBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Loading...';
+        loadMoreBtn.disabled = true;
+        
+        setTimeout(() => {
+          // Create and append new project elements
+          additionalProjects.forEach(project => {
+            const projectElement = document.createElement('div');
+            projectElement.className = `portfolio-item ${project.category}`;
+            projectElement.setAttribute('data-category', project.category);
+            
+            // Generate random image based on category
+            const imageMap = {
+              travel: 'images/project-banner/travel' + Math.floor(Math.random() * 3 + 1) + '.jpg',
+              ecommerce: 'images/project-banner/ecommerce' + Math.floor(Math.random() * 3 + 1) + '.jpg',
+              webapp: 'images/project-banner/webapp' + Math.floor(Math.random() * 3 + 1) + '.jpg',
+              education: 'images/project-banner/education' + Math.floor(Math.random() * 3 + 1) + '.jpg'
+            };
+            
+            const categoryLabels = {
+              travel: "Travel & Tourism",
+              ecommerce: "E-commerce",
+              "web-app": "Web Application",
+              education: "Education"
+            };
+            
+            projectElement.innerHTML = `
+              <div class="portfolio-image">
+                <img src="${imageMap[project.category] || 'images/project-banner/default.jpg'}" alt="${project.title}">
+              </div>
+              <div class="portfolio-content">
+                <span class="portfolio-category">${categoryLabels[project.category] || project.category}</span>
+                <h3 class="portfolio-title">${project.title}</h3>
+                <p class="portfolio-description">${project.description}</p>
+                <div class="portfolio-tech">
+                  ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+                <a href="${project.link}" class="portfolio-link">
+                  View Case Study <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            `;
+            
+            portfolioGrid.appendChild(projectElement);
+          });
+          
+          // Reinitialize Isotope with new items
+          iso.appended(additionalProjects.map((_, i) => {
+            return portfolioGrid.children[portfolioGrid.children.length - additionalProjects.length + i];
+          }));
+          
+          // Update button state
+          loadMoreBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i> All Projects Loaded';
+          loadMoreBtn.disabled = true;
+          loadMoreBtn.style.opacity = '0.7';
+          
+        }, 1500);
+      });
+      
+      // Initialize testimonial slider
+      const testimonialSwiper = new Swiper('.testimonialSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+      
+      // Initialize GLightbox for project images
+      const lightbox = GLightbox({
+        selector: '.portfolio-image img',
+        touchNavigation: true,
+        loop: true,
+      });
+    });
+  </script>
+
+</body>
+</html>
