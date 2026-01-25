@@ -2623,7 +2623,7 @@ section,
 --------------------------------------------------------------*/
 .call-to-action {
   background-color: #0c1e21;
-  border-radius: 12px;
+  border-radius: 1rem;
   position: relative;
   z-index: 1;
 }
@@ -2792,14 +2792,14 @@ color: var(--bs-white);
 .call-to-action .trust-indicators .indicator .metric {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--heading-color);
+  color: var(--bs-color);
   line-height: 1;
   margin-bottom: 0.25rem;
 }
 
 .call-to-action .trust-indicators .indicator .label {
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color:#efefef
   font-weight: 400;
 }
 
