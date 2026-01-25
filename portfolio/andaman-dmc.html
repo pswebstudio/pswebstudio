@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio Details - PSWeb Studio</title>
-  <meta name="description" content="View detailed case study of our web development projects at PSWeb Studio">
-  <meta name="keywords" content="web development portfolio, case study, website project, frontend development">
+  <title>Andaman DMC - Portfolio Details - PSWeb Studio</title>
+  <meta name="description" content="Andaman DMC destination management company platform - A comprehensive web solution for Andaman Islands tourism">
+  <meta name="keywords" content="andaman dmc, destination management company, tourism website, travel portal, web development portfolio">
 
   <!-- Favicons -->
-  <link href="images/favicon.png" rel="icon">
-  <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../images/favicon.png" rel="icon">
+  <link href="../images/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -18,19 +18,368 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
   <style>
+    .portfolio-details-page .main {
+      padding-top: 100px;
+    }
+
+    .page-title {
+      background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+      color: white;
+      padding: 4rem 0 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .page-title .breadcrumbs {
+      margin-bottom: 1rem;
+    }
+
+    .page-title .breadcrumb {
+      background: transparent;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .page-title .breadcrumb-item a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+    }
+
+    .page-title .breadcrumb-item a:hover {
+      color: white;
+    }
+
+    .page-title .breadcrumb-item.active {
+      color: white;
+    }
+
+    .page-title .breadcrumb-item + .breadcrumb-item::before {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .page-title .title-wrapper h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .page-title .title-wrapper p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .portfolio-showcase .main-image {
+      margin-bottom: 2rem;
+    }
+
+    .portfolio-showcase .main-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .intro-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .intro-card .intro-head {
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-card .kicker {
+      display: inline-flex;
+      align-items: center;
+      background: #e9ecef;
+      color: #495057;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .intro-card h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .intro-card .lead {
+      font-size: 1.1rem;
+      color: #495057;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-item i {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-top: 0.25rem;
+    }
+
+    .feature-item .text h6 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .feature-item .text p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .metric-band {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric .value {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1;
+    }
+
+    .metric .label {
+      display: block;
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .divider {
+      width: 1px;
+      height: 40px;
+      background: #dee2e6;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    .portfolio-info, .project-challenges {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .portfolio-info h3, .project-challenges h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .portfolio-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .portfolio-info ul li {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .portfolio-info ul li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .portfolio-info ul li span:first-child {
+      font-weight: 600;
+      color: #2c3e50;
+      min-width: 100px;
+      display: inline-block;
+    }
+
+    .portfolio-info .status-live {
+      background: #d4edda;
+      color: #155724;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .portfolio-info .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .btn-visit, .btn-github {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .btn-visit {
+      background: #2c3e50;
+      color: white;
+      border: 2px solid #2c3e50;
+    }
+
+    .btn-visit:hover {
+      background: #1a252f;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-github {
+      background: transparent;
+      color: #2c3e50;
+      border: 2px solid #2c3e50;
+    }
+
+    .btn-github:hover {
+      background: #2c3e50;
+      color: white;
+    }
+
+    .project-challenges ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .project-challenges ul li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .project-challenges ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    .additional-context {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .additional-context h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .process-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #dee2e6;
+    }
+
+    .process-step {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .process-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .process-step::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0.5rem;
+      width: 1rem;
+      height: 1rem;
+      background: #2c3e50;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 3px #2c3e50;
+    }
+
+    .step-content h5 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .step-content p {
+      color: #666;
+      margin-bottom: 0;
+    }
+
+    /* Related Projects Carousel */
+    .related-projects {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid #dee2e6;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
 
     .related-projects-carousel .owl-stage {
       padding: 10px 0;
@@ -42,27 +391,49 @@
       padding: 0 15px;
       height: 100%;
     }
+
+    .related-projects-carousel .related-project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .related-projects-carousel .related-project-card:hover {
+      transform: translateY(-5px);
+    }
+
     .related-projects-carousel .related-project-card img {
-    width: 100%;
-    height: 250px;
-    border-radius: 2rem;
-    object-fit: cover;
-    border: 1px solid #e5e5e5cc
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .related-projects-carousel .card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .related-projects-carousel .card-content h5 {
       font-size: 1.1rem;
-      margin-bottom: 10px;
       font-weight: 600;
-      margin-top: 25px;
+      margin-bottom: 0.75rem;
+      color: #2c3e50;
     }
 
     .related-projects-carousel .card-content p {
       color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
       flex-grow: 1;
     }
+
     .related-projects-carousel .owl-nav {
       position: absolute;
       top: -60px;
@@ -77,7 +448,7 @@
       height: 40px;
       background: #f8f9fa !important;
       border: 1px solid #dee2e6 !important;
-      border-radius: 4px;
+      border-radius: 8px;
       margin-left: 10px;
       display: flex !important;
       align-items: center;
@@ -92,20 +463,10 @@
     }
 
     .related-projects-carousel .owl-nav button span {
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1;
-      font-weight: bold;
     }
 
-    .related-projects-carousel .owl-nav button.owl-prev span {
-      margin-left: -2px;
-    }
-
-    .related-projects-carousel .owl-nav button.owl-next span {
-      margin-right: -2px;
-    }
-
-    /* Owl Carousel Dots */
     .related-projects-carousel .owl-dots {
       margin-top: 30px;
       text-align: center;
@@ -122,13 +483,63 @@
     }
 
     .related-projects-carousel .owl-dot.active span {
-      background: var(--accent-hover-color) !important;
+      background: #2c3e50 !important;
       width: 30px;
       border-radius: 5px;
     }
 
-  </style>
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .sidebar {
+        position: static;
+        margin-top: 2rem;
+      }
+      
+      .page-title .title-wrapper h1 {
+        font-size: 2rem;
+      }
+      
+      .metric-band {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .divider {
+        width: 100px;
+        height: 1px;
+      }
+    }
 
+    @media (max-width: 768px) {
+      .intro-card,
+      .portfolio-info,
+      .project-challenges,
+      .additional-context {
+        padding: 1.5rem;
+      }
+      
+      .page-title {
+        padding: 3rem 0 2rem;
+      }
+      
+      .related-projects-carousel .owl-nav {
+        position: relative;
+        top: 0;
+        margin-top: 20px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .feature-list .col-md-6 {
+        width: 100%;
+      }
+      
+      .portfolio-info .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body class="portfolio-details-page">
@@ -137,7 +548,7 @@
     <div class="nav-wrap">
       <div class="container d-flex justify-content-between position-relative">
         <a href="index.html" class="logo d-flex align-items-center">
-          <img src="images/psweb-logo.png" alt="PSWeb Studio logo">
+          <img src="../images/psweb-logo.png" alt="PSWeb Studio logo">
         </a>
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -158,19 +569,21 @@
 
     <!-- Page Title -->
     <div class="page-title">
-      <div class="breadcrumbs">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
-            <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
-            <li class="breadcrumb-item active current">Madhya Pradesh DMC</li>
-          </ol>
-        </nav>
-      </div>
+      <div class="container">
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+              <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+              <li class="breadcrumb-item active current">Andaman DMC</li>
+            </ol>
+          </nav>
+        </div>
 
-      <div class="title-wrapper">
-        <h1>Madhya Pradesh DMC Project</h1>
-        <p>A comprehensive destination management platform built with modern web technologies for seamless travel operations</p>
+        <div class="title-wrapper">
+          <h1>Andaman DMC Platform</h1>
+          <p>A comprehensive destination management company platform for Andaman Islands tourism with booking, itinerary planning, and vendor coordination</p>
+        </div>
       </div>
     </div><!-- End Page Title -->
 
@@ -181,210 +594,208 @@
           <div class="col-lg-8">
             <div class="portfolio-showcase" data-aos="fade-up" data-aos-delay="200">
               <div class="main-image">
-                <img src="images/project-banner/mp.png" class="img-fluid rounded" alt="Madhya Pradesh DMC Website">
+                <img src="../images/project-banner/andaman-dmc.png" class="img-fluid rounded" alt="Andaman DMC Website Platform">
               </div>
-
             </div>
-           <div class="about">
-  <article class="intro-card  shadow-none border">
-    <div class="intro-head">
-      <span class="kicker">
-        <i class="bi bi-stars me-1"></i>Project Overview
-      </span>
-      <h2 class="py-2">
-        Madhya Pradesh DMC
-      </h2>
-    </div>
+            
+            <div class="about">
+              <article class="intro-card">
+                <div class="intro-head">
+                  <span class="kicker">
+                    <i class="bi bi-stars me-1"></i>Project Overview
+                  </span>
+                  <h2 class="py-2">
+                    Andaman Destination Management Company
+                  </h2>
+                </div>
 
-    <div class="intro-body">
-      <p class="lead">
-        Madhya Pradesh DMC is a destination-focused developed to promote the cultural,
-        historical, and natural attractions of Madhya Pradesh. The platform serves as an informative
-        resource for travelers looking to explore destinations, travel routes, and curated tour packages
-        across the state.
-      </p>
+                <div class="intro-body">
+                  <p class="lead">
+                    Andaman DMC is a complete destination management platform designed to streamline tourism operations 
+                    in the Andaman Islands. The platform serves as a central hub for tour operators, travel agents, 
+                    and tourists to access comprehensive travel services including package tours, accommodation, 
+                    transportation, and activity bookings.
+                  </p>
 
-      <p>
-        The primary objective of the project was to present extensive tourism content in a structured,
-        visually engaging, and easy-to-navigate format. Special attention was given to page performance,
-        mobile responsiveness, and content clarity to ensure a smooth browsing experience for both
-        domestic and international visitors.
-      </p>
+                  <p>
+                    The primary objective was to create a scalable platform that could handle multiple vendors, 
+                    real-time availability, and seamless booking processes. Special attention was given to user 
+                    experience, mobile responsiveness, and integration capabilities to support the growing tourism 
+                    industry in the Andaman Islands.
+                  </p>
 
-      <div class="feature-list row gy-3">
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="250">
-          <div class="feature-item">
-            <i class="bi bi-geo-alt"></i>
-            <div class="text">
-              <h6>Destination-Centric Architecture</h6>
-              <p>
-                Each destination is presented with structured information including highlights,
-                travel relevance, and supporting visuals, making it easy for users to explore
-                and compare locations.
-              </p>
+                  <div class="feature-list row gy-3">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="250">
+                      <div class="feature-item">
+                        <i class="bi bi-calendar-check"></i>
+                        <div class="text">
+                          <h6>Dynamic Itinerary Planner</h6>
+                          <p>
+                            Customizable tour packages with day-by-day planning, activity selection, 
+                            and real-time availability checking for hotels and transportation.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                      <div class="feature-item">
+                        <i class="bi bi-building"></i>
+                        <div class="text">
+                          <h6>Multi-Vendor Management</h6>
+                          <p>
+                            Integrated dashboard for hotels, tour operators, and activity providers 
+                            to manage their offerings, pricing, and availability in real-time.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="350">
+                      <div class="feature-item">
+                        <i class="bi bi-credit-card"></i>
+                        <div class="text">
+                          <h6>Secure Payment Gateway</h6>
+                          <p>
+                            Multiple payment options including credit cards, net banking, and UPI 
+                            with secure transaction processing and instant confirmation.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                      <div class="feature-item">
+                        <i class="bi bi-phone"></i>
+                        <div class="text">
+                          <h6>Mobile-First Responsive Design</h6>
+                          <p>
+                            Fully responsive interface that works seamlessly across all devices, 
+                            with optimized mobile experience for on-the-go travel planning.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="metric-band" data-aos="fade-up" data-aos-delay="450">
+                    <div class="metric">
+                      <span class="value">50+</span>
+                      <span class="label">Tour Packages</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="metric">
+                      <span class="value">100+</span>
+                      <span class="label">Vendor Partners</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="metric">
+                      <span class="value">24/7</span>
+                      <span class="label">Booking Support</span>
+                    </div>
+                  </div>
+
+                  <p class="mt-4 mb-0">
+                    andamandmc.com serves as the primary digital platform for destination management services 
+                    in the Andaman Islands. The system is designed to scale with increasing tourism demand, 
+                    with capabilities to add new features like AI-powered recommendations, virtual tours, 
+                    and multi-language support as the platform grows.
+                  </p>
+                </div>
+              </article>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-item">
-            <i class="bi bi-phone"></i>
-            <div class="text">
-              <h6>Mobile-First Responsive Design</h6>
-              <p>
-                The layout adapts seamlessly across all screen sizes, ensuring consistent usability
-                and readability on mobile devices, tablets, and desktops.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="350">
-          <div class="feature-item">
-            <i class="bi bi-map"></i>
-            <div class="text">
-              <h6>Interactive Map Integration</h6>
-              <p>
-                Location-based navigation is supported through map integration, allowing users
-                to visually explore destinations and understand geographical context.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="feature-item">
-            <i class="bi bi-speedometer2"></i>
-            <div class="text">
-              <h6>Performance & SEO Optimization</h6>
-              <p>
-                Optimized assets, CDN usage, and SEO-friendly structure ensure fast load times
-                and better visibility across search engines and social platforms.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="metric-band" data-aos="fade-up" data-aos-delay="450">
-        <div class="metric">
-          <span class="value">15+</span>
-          <span class="label">Tourist Destinations</span>
-        </div>
-        <div class="divider"></div>
-        <div class="metric">
-          <span class="value">10+</span>
-          <span class="label">Travel Categories</span>
-        </div>
-        <div class="divider"></div>
-        <div class="metric">
-          <span class="value">100%</span>
-          <span class="label">Responsive Experience</span>
-        </div>
-      </div>
-
-      <p class="mt-4 mb-0">
-        madhyapradeshdmc.com acts as a digital entry point for discovering the state’s tourism potential,
-        offering clear navigation, rich content presentation, and a reliable browsing experience.
-        The platform is designed to scale with additional destinations, content sections,
-        and future enhancements as tourism needs evolve.
-      </p>
-    </div>
-  </article>
-</div>
-
           </div>
 
           <div class="col-lg-4">
-            <div class="sidebar  ">
-              <div class="portfolio-info shadow-none border" data-aos="fade-left" data-aos-delay="200">
+            <div class="sidebar">
+              <div class="portfolio-info" data-aos="fade-left" data-aos-delay="200">
                 <h3>Project Details</h3>
                 <ul>
-                  <li><span>Category:</span> Web Application</li>
-                  <li><span>Client:</span> Madhya Pradesh Tourism</li>
-                  <li><span>Project Date:</span> March 2024</li>
-                  <li><span>Project URL:</span> <a href="https://madhyapradeshdmc.com" target="_blank">madhyapradeshdmc.com</a></li>
+                  <li><span>Category:</span> Travel & Tourism Platform</li>
+                  <li><span>Client:</span> Andaman DMC Services</li>
+                  <li><span>Project Date:</span> January 2024</li>
+                  <li><span>Project URL:</span> <a href="https://andamandmc.com" target="_blank" rel="noopener">andamandmc.com</a></li>
                   <li>
                     <span>Technologies:</span>
-                    HTML5, CSS3, JavaScript, Bootstrap 4.5.2, jQuery 3.6.0, Animate.css, OWL Carousel, Leaflet Maps, Font Awesome, Bootstrap Icons, Google Analytics (GA4), Google Tag Manager, Open Graph, CDN (jsDelivr, Unpkg), Apache Server
+                    HTML5, CSS3, JavaScript, Bootstrap 5, PHP, MySQL, jQuery, AJAX, REST API, Google Maps API, Payment Gateway Integration
                   </li>
                   <li><span>Project Status:</span> <span class="status-live">Live & Active</span></li>
                   <li class="buttons mt-3">
-                    <a href="https://madhyapradeshdmc.com" target="_blank" class="btn-visit">Visit Website</a>
+                    <a href="https://andamandmc.com" target="_blank" rel="noopener" class="btn-visit">Visit Website</a>
                     <a href="portfolio.html" class="btn-github"><i class="bi bi-arrow-left"></i> Back to Portfolio</a>
                   </li>
                 </ul>
               </div>
-              <div class="project-challenges  shadow-none border" data-aos="fade-left" data-aos-delay="400">
+              
+              <div class="project-challenges" data-aos="fade-left" data-aos-delay="400">
                 <h3>Key Features</h3>
                 <ul class="mb-0">
+                  <li><i class="bi bi-check-circle text-success"></i> Customizable tour package builder</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Real-time availability checking</li>
                   <li><i class="bi bi-check-circle text-success"></i> Multi-vendor coordination system</li>
-                  <li><i class="bi bi-check-circle text-success"></i> Real-time availability management</li>
                   <li><i class="bi bi-check-circle text-success"></i> Secure payment processing</li>
-                  <li><i class="bi bi-check-circle text-success"></i> Mobile-first responsive design</li>
-                  <li><i class="bi bi-check-circle text-success"></i> Advanced analytics dashboard</li>
-                  <li class="pb-0"><i class="bi bi-check-circle text-success"></i> Multi-language support</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Mobile-responsive design</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Customer relationship management</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Analytics and reporting dashboard</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Email and SMS notifications</li>
                 </ul>
               </div>
-
-
-            
             </div>
           </div>
         </div>
 
         <div class="row mt-3">
           <div class="col-12" data-aos="fade-up" data-aos-delay="400">
-         <div class="additional-context shadow-none border">
-  <h3>Development Process</h3>
-  <p>
-    The Madhya Pradesh DMC website was developed using a structured, step-by-step frontend workflow.
-    The focus was on content clarity, responsive layout, performance optimization, and visual consistency
-    rather than heavy backend complexity.
-  </p>
-  
-  <div class="process-timeline mt-4">
-    <div class="process-step">
-      <div class="step-content mb-4">
-        <h5><i class="me-2 bi bi-check-circle text-success"></i> Content Research & Planning</h5>
-        <p>
-          Analysis of tourism content, destination categorization, sitemap planning,
-          and page structure definition for clear user navigation.
-        </p>
-      </div>
-    </div>
+            <div class="additional-context">
+              <h3>Development Process</h3>
+              <p>
+                The Andaman DMC platform was developed using an agile methodology with focus on user experience, 
+                scalability, and integration capabilities. The project followed a structured development lifecycle 
+                to ensure timely delivery and quality assurance.
+              </p>
+              
+              <div class="process-timeline mt-4">
+                <div class="process-step">
+                  <div class="step-content mb-4">
+                    <h5><i class="me-2 bi bi-check-circle text-success"></i> Requirements Analysis & Planning</h5>
+                    <p>
+                      Comprehensive analysis of destination management workflows, stakeholder interviews, 
+                      feature prioritization, and technical architecture planning.
+                    </p>
+                  </div>
+                </div>
 
-    <div class="process-step">
-      <div class="step-content mb-4">
-        <h5><i class="me-2 bi bi-check-circle text-success"></i> Layout & Visual Design</h5>
-        <p>
-          Creation of responsive layouts using Bootstrap, typography selection,
-          color consistency, and animation planning for better engagement.
-        </p>
-      </div>
-    </div>
+                <div class="process-step">
+                  <div class="step-content mb-4">
+                    <h5><i class="me-2 bi bi-check-circle text-success"></i> UI/UX Design & Prototyping</h5>
+                    <p>
+                      User journey mapping, wireframing, visual design creation, and interactive prototyping 
+                      for both customer-facing and admin interfaces.
+                    </p>
+                  </div>
+                </div>
 
-    <div class="process-step">
-      <div class="step-content mb-4">
-        <h5><i class="me-2 bi bi-check-circle text-success"></i> Frontend Development</h5>
-        <p>
-          Implementation using HTML, CSS, JavaScript, and jQuery with
-          interactive components such as sliders, maps, and animations.
-        </p>
-      </div>
-    </div>
+                <div class="process-step">
+                  <div class="step-content mb-4">
+                    <h5><i class="me-2 bi bi-check-circle text-success"></i> Backend Development</h5>
+                    <p>
+                      Database design, API development, payment gateway integration, vendor management system, 
+                      and booking engine implementation.
+                    </p>
+                  </div>
+                </div>
 
-    <div class="process-step">
-      <div class="step-content">
-        <h5><i class="me-2 bi bi-check-circle text-success"></i> Testing & Deployment</h5>
-        <p>
-          Cross-browser testing, mobile responsiveness checks, performance optimization,
-          and deployment on an Apache-based hosting environment.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
+                <div class="process-step">
+                  <div class="step-content">
+                    <h5><i class="me-2 bi bi-check-circle text-success"></i> Frontend Development & Testing</h5>
+                    <p>
+                      Responsive interface implementation, cross-browser testing, performance optimization, 
+                      security testing, and user acceptance testing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -392,76 +803,65 @@
         <div class="row mt-5">
           <div class="col-12">
             <div class="related-projects" data-aos="fade-up" data-aos-delay="500">
-             <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-                <h2 class="text-black">Related Project</h2>
-                <p class="text-black">
-                  Clean code, fast performance, and user-focused interfaces built directly in the browser.
+              <div class="container section-title" data-aos="fade-up">
+                <h2>Related Projects</h2>
+                <p>
+                  Explore other travel and tourism projects we've developed with clean code and user-focused design.
                 </p>
               </div>
               
               <div class="owl-carousel owl-theme related-projects-carousel mt-4">
                 <div class="item">
                   <div class="related-project-card">
-                    <img src="images/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent" class="img-fluid">
+                    <img src="../images/project-banner/mpdmc.png" alt="MP DMC" class="img-fluid">
                     <div class="card-content">
-                      <h5>Andaman Travel Agent</h5>
-                      <p>Responsive travel booking platform with real-time availability and booking system</p>
-                      <a href="portfolio-andaman.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                      <h5>MP DMC</h5>
+                      <p>Destination management platform for Madhya Pradesh with tour packages and vendor coordination</p>
+                      <a href="portfolio-details-mpdmc.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
                     </div>
                   </div>
                 </div>
                 
                 <div class="item">
                   <div class="related-project-card">
-                    <img src="images/project-banner/hia.png" alt="Hotel In Andaman" class="img-fluid">
+                    <img src="../images/project-banner/hia.png" alt="Hotel In Andaman" class="img-fluid">
                     <div class="card-content">
                       <h5>Hotel In Andaman</h5>
-                      <p>Comprehensive hotel booking and management system with multi-vendor support</p>
-                      <a href="portfolio-hotel.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                      <p>Hotel booking and management system with real-time availability and multi-property support</p>
+                      <a href="portfolio-details-hotel.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
                     </div>
                   </div>
                 </div>
                 
                 <div class="item">
                   <div class="related-project-card">
-                    <img src="images/project-banner/av.png" alt="Andaman Vacations" class="img-fluid">
+                    <img src="../images/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent" class="img-fluid">
+                    <div class="card-content">
+                      <h5>Andaman Travel Agent</h5>
+                      <p>Travel agency website with booking system and package customization for Andaman Islands</p>
+                      <a href="portfolio-details-travelagent.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="../images/project-banner/av.png" alt="Andaman Vacations" class="img-fluid">
                     <div class="card-content">
                       <h5>Andaman Vacations</h5>
-                      <p>Tour package management system with integrated payment gateway</p>
-                      <a href="portfolio-vacations.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                      <p>Holiday package platform with activity bookings and travel guides for Andaman visitors</p>
+                      <a href="portfolio-details-vacations.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
                     </div>
                   </div>
                 </div>
                 
                 <div class="item">
                   <div class="related-project-card">
-                    <img src="images/project-banner/ecommerce.jpg" alt="E-commerce Platform" class="img-fluid">
+                    <img src="../images/project-banner/mp.png" alt="Madhya Pradesh DMC" class="img-fluid">
                     <div class="card-content">
-                      <h5>E-commerce Platform</h5>
-                      <p>Multi-vendor online marketplace with advanced inventory management</p>
-                      <a href="portfolio-ecommerce.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="related-project-card">
-                    <img src="images/project-banner/education.jpg" alt="Educational Portal" class="img-fluid">
-                    <div class="card-content">
-                      <h5>Educational Portal</h5>
-                      <p>Online learning management system with video courses and assessments</p>
-                      <a href="portfolio-education.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="related-project-card">
-                    <img src="images/project-banner/healthcare.jpg" alt="Healthcare System" class="img-fluid">
-                    <div class="card-content">
-                      <h5>Healthcare System</h5>
-                      <p>Patient management and appointment booking system for clinics</p>
-                      <a href="portfolio-healthcare.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                      <h5>Madhya Pradesh DMC</h5>
+                      <p>Comprehensive destination management platform showcasing tourism in Madhya Pradesh</p>
+                      <a href="portfolio-details-mp.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
                     </div>
                   </div>
                 </div>
@@ -469,7 +869,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section><!-- /Portfolio Details Section -->
 
@@ -579,14 +978,11 @@
   </div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
   
   <!-- jQuery (Required for Owl Carousel) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -595,38 +991,72 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
   <script>
-    // Initialize GLightbox for image gallery
-    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
 
-      $(document).ready(function(){
-      
-        $('.related-projects-carousel').owlCarousel({
-          loop: true,
-          nav: true,
-          dots: true,
-          autoplay: true,
-          autoplayTimeout: 5000,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            768: {
-              items: 2
-            },
-            992: {
-              items: 3
-            }
+    // Initialize Owl Carousel
+    $(document).ready(function(){
+      $('.related-projects-carousel').owlCarousel({
+        loop: true,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1,
+            margin: 20
           },
-          navText: ['<i class="bi bi-chevron-left"></i>', '<i class="bi bi-chevron-right"></i>']
-        });
-
-     
+          576: {
+            items: 2,
+            margin: 20
+          },
+          768: {
+            items: 3,
+            margin: 20
+          },
+          992: {
+            items: 3,
+            margin: 30
+          }
+        },
+        navText: ['<i class="bi bi-chevron-left"></i>', '<i class="bi bi-chevron-right"></i>'],
+        navContainer: '.related-projects-carousel'
       });
-      
+    });
+
+    // Add smooth scrolling for navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          if(this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
+      });
+
+      // Add active class to current page link
+      const currentPage = window.location.pathname.split('/').pop();
+      document.querySelectorAll('.navmenu a').forEach(link => {
+        if(link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        }
+      });
     });
   </script>
 
