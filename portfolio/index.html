@@ -9,8 +9,8 @@
   <meta name="keywords" content="web development portfolio, website gallery, frontend projects, responsive design portfolio">
 
   <!-- Favicons -->
-  <link href="images/favicon.png" rel="icon">
-  <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../images/favicon.png" rel="icon">
+  <link href="../images/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -114,6 +114,7 @@
     .portfolio-image {
       height: 250px;
       overflow: hidden;
+      position: relative;
     }
     
     .portfolio-image img {
@@ -125,6 +126,19 @@
     
     .portfolio-item:hover .portfolio-image img {
       transform: scale(1.05);
+    }
+    
+    .portfolio-favicon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 32px;
+      height: 32px;
+      background: white;
+      border-radius: 6px;
+      padding: 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 2;
     }
     
     .portfolio-content {
@@ -148,8 +162,25 @@
     .portfolio-title {
       font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       color: #2c3e50;
+    }
+    
+    .portfolio-title a {
+      color: #2c3e50;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .portfolio-title a:hover {
+      color: #1a252f;
+    }
+    
+    .portfolio-subtitle {
+      color: #6c757d;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
     }
     
     .portfolio-description {
@@ -176,18 +207,24 @@
       color: #495057;
     }
     
+    .portfolio-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+    
     .portfolio-link {
+      flex: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem;
       background: #2c3e50;
       color: white;
       text-decoration: none;
-      border-radius: 50px;
+      border-radius: 8px;
       font-weight: 500;
       transition: all 0.3s ease;
-      width: 100%;
       text-align: center;
     }
     
@@ -198,12 +235,18 @@
     }
     
     .portfolio-link i {
-      margin-left: 0.5rem;
-      transition: transform 0.3s ease;
+      margin-right: 0.5rem;
     }
     
-    .portfolio-link:hover i {
-      transform: translateX(5px);
+    .portfolio-link-outline {
+      background: transparent;
+      border: 2px solid #2c3e50;
+      color: #2c3e50;
+    }
+    
+    .portfolio-link-outline:hover {
+      background: #2c3e50;
+      color: white;
     }
     
     .view-more-container {
@@ -271,6 +314,10 @@
       .stat-number {
         font-size: 2rem;
       }
+      
+      .portfolio-links {
+        flex-direction: column;
+      }
     }
     
     @media (max-width: 576px) {
@@ -336,26 +383,26 @@
         <div class="row g-4">
           <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
             <div class="stat-item">
-              <span class="stat-number">25+</span>
-              <span class="stat-label">Projects Completed</span>
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Live Projects</span>
             </div>
           </div>
           <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
             <div class="stat-item">
-              <span class="stat-number">18</span>
-              <span class="stat-label">Happy Clients</span>
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Client Satisfaction</span>
             </div>
           </div>
           <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
             <div class="stat-item">
-              <span class="stat-number">15</span>
-              <span class="stat-label">Technologies Used</span>
+              <span class="stat-number">8</span>
+              <span class="stat-label">Industries Served</span>
             </div>
           </div>
           <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
             <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Satisfaction Rate</span>
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Support</span>
             </div>
           </div>
         </div>
@@ -369,27 +416,36 @@
         <!-- Portfolio Filters -->
         <div class="portfolio-filters text-center" data-aos="fade-up" data-aos-delay="100">
           <button class="filter-btn active" data-filter="*">All Projects</button>
-          <button class="filter-btn" data-filter=".web-app">Web Applications</button>
-          <button class="filter-btn" data-filter=".ecommerce">E-commerce</button>
           <button class="filter-btn" data-filter=".travel">Travel & Tourism</button>
-          <button class="filter-btn" data-filter=".education">Education</button>
-          <button class="filter-btn" data-filter=".healthcare">Healthcare</button>
+          <button class="filter-btn" data-filter=".dmc">DMC Services</button>
+          <button class="filter-btn" data-filter=".hotel">Hotels & Resorts</button>
+          <button class="filter-btn" data-filter=".ecommerce">E-commerce</button>
+          <button class="filter-btn" data-filter=".business">Business Solutions</button>
         </div>
 
         <!-- Portfolio Grid -->
         <div id="portfolio-grid" class="portfolio-grid" data-aos="fade-up" data-aos-delay="200">
           
           <!-- Madhya Pradesh DMC -->
-          <div class="portfolio-item travel" data-category="travel">
+          <div class="portfolio-item travel dmc" data-category="travel dmc">
             <div class="portfolio-image">
-              <img src="../images/project-banner/mp.png" alt="Madhya Pradesh DMC">
+              <img src="/images/project-banner/mp.png" alt="Madhya Pradesh DMC Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://madhyapradeshdmc.com&sz=32" 
+                   alt="Madhya Pradesh DMC favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=MP'">
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">Travel & Tourism</span>
-              <h3 class="portfolio-title">Madhya Pradesh DMC</h3>
+              <span class="portfolio-category">Travel & DMC</span>
+              <h3 class="portfolio-title">
+                <a href="https://madhyapradeshdmc.com" target="_blank" rel="noopener noreferrer">
+                  Madhya Pradesh DMC
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Destination management platform</p>
               <p class="portfolio-description">
                 A comprehensive destination management platform showcasing Madhya Pradesh's tourism 
-                with interactive maps, tour packages, and responsive design.
+                with interactive maps, tour packages, and responsive design for seamless travel planning.
               </p>
               <div class="portfolio-tech">
                 <span class="tech-tag">HTML5</span>
@@ -397,185 +453,367 @@
                 <span class="tech-tag">JavaScript</span>
                 <span class="tech-tag">Bootstrap</span>
                 <span class="tech-tag">jQuery</span>
+                <span class="tech-tag">Leaflet Maps</span>
               </div>
-              <a href="portfolio-details-mp.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
+              <div class="portfolio-links">
+                <a href="portfolio-details-mp.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://madhyapradeshdmc.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- MP DMC -->
+          <div class="portfolio-item dmc travel" data-category="dmc travel">
+            <div class="portfolio-image">
+              <img src="/images/project-banner/mpdmc.png" alt="MP DMC Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://mpdmc.com&sz=32" 
+                   alt="MP DMC favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=MD'">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">DMC Services</span>
+              <h3 class="portfolio-title">
+                <a href="https://mpdmc.com" target="_blank" rel="noopener noreferrer">
+                  MP DMC
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Destination Management Company</p>
+              <p class="portfolio-description">
+                Professional destination management services platform with vendor coordination, 
+                itinerary planning, and comprehensive travel solutions for Madhya Pradesh tourism.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap 5</span>
+                <span class="tech-tag">AJAX</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="portfolio-details-mpdmc.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://mpdmc.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel In Andaman -->
+          <div class="portfolio-item hotel travel" data-category="hotel travel">
+            <div class="portfolio-image">
+              <img src="/images/project-banner/hia.png" alt="Hotel In Andaman Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://hotelinandaman.com&sz=32" 
+                   alt="Hotel In Andaman favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=HI'">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Hotels & Resorts</span>
+              <h3 class="portfolio-title">
+                <a href="https://hotelinandaman.com" target="_blank" rel="noopener noreferrer">
+                  Hotel In Andaman
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Hotels and resorts booking platform</p>
+              <p class="portfolio-description">
+                Comprehensive hotel booking system featuring real-time availability, 
+                room selection, secure payments, and multi-property management for Andaman Islands.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">Stripe API</span>
+                <span class="tech-tag">REST API</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="portfolio-details-hotel.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://hotelinandaman.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Andaman DMC -->
+          <div class="portfolio-item dmc travel" data-category="dmc travel">
+            <div class="portfolio-image">
+              <img src="/images/project-banner/andaman-dmc.png" alt="Andaman DMC Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://andamandmc.com&sz=32" 
+                   alt="Andaman DMC favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=AD'">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">DMC Services</span>
+              <h3 class="portfolio-title">
+                <a href="https://andamandmc.com" target="_blank" rel="noopener noreferrer">
+                  Andaman DMC
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Destination Management Company</p>
+              <p class="portfolio-description">
+                Full-service destination management platform for Andaman Islands offering 
+                tour packages, transportation, accommodation, and activity bookings.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Google Maps API</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="portfolio-details-andamandmc.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://andamandmc.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
             </div>
           </div>
 
           <!-- Andaman Travel Agent -->
-          <div class="portfolio-item travel web-app" data-category="travel">
+          <div class="portfolio-item travel" data-category="travel">
             <div class="portfolio-image">
-              <img src="../images/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent">
+              <img src="/images/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://andamantravelagent.com&sz=32" 
+                   alt="Andaman Travel Agent favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=AT'">
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">Travel & Web App</span>
-              <h3 class="portfolio-title">Andaman Travel Agent</h3>
+              <span class="portfolio-category">Travel Services</span>
+              <h3 class="portfolio-title">
+                <a href="https://andamantravelagent.com" target="_blank" rel="noopener noreferrer">
+                  Andaman Travel Agent
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Travel services for Andaman Islands</p>
               <p class="portfolio-description">
-                Full-featured travel booking platform with real-time availability, 
-                multi-vendor coordination, and secure payment processing.
+                Professional travel agency website with booking system, package customization, 
+                and comprehensive travel services for Andaman Islands tourism.
               </p>
               <div class="portfolio-tech">
                 <span class="tech-tag">PHP</span>
                 <span class="tech-tag">MySQL</span>
                 <span class="tech-tag">JavaScript</span>
                 <span class="tech-tag">Bootstrap</span>
-                <span class="tech-tag">REST API</span>
+                <span class="tech-tag">Email API</span>
               </div>
-              <a href="portfolio-andaman.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Hotel In Andaman -->
-          <div class="portfolio-item travel ecommerce" data-category="travel">
-            <div class="portfolio-image">
-              <img src="../images/project-banner/hia.png" alt="Hotel In Andaman">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-category">Travel & E-commerce</span>
-              <h3 class="portfolio-title">Hotel In Andaman</h3>
-              <p class="portfolio-description">
-                Hotel booking and management system with inventory control, 
-                booking engine, and multi-vendor support for accommodation providers.
-              </p>
-              <div class="portfolio-tech">
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">Laravel</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Stripe API</span>
+              <div class="portfolio-links">
+                <a href="portfolio-details-travelagent.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://andamantravelagent.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
               </div>
-              <a href="portfolio-hotel.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
             </div>
           </div>
 
           <!-- Andaman Vacations -->
           <div class="portfolio-item travel" data-category="travel">
             <div class="portfolio-image">
-              <img src="../images/project-banner/av.png" alt="Andaman Vacations">
+              <img src="/images/project-banner/av.png" alt="Andaman Vacations Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://andaman.vacations&sz=32" 
+                   alt="Andaman Vacations favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=AV'">
             </div>
             <div class="portfolio-content">
               <span class="portfolio-category">Travel & Tourism</span>
-              <h3 class="portfolio-title">Andaman Vacations</h3>
+              <h3 class="portfolio-title">
+                <a href="https://andaman.vacations" target="_blank" rel="noopener noreferrer">
+                  Andaman Vacations
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Holiday packages and tours</p>
               <p class="portfolio-description">
-                Tour package management system with itinerary builder, 
-                price calculator, and integrated payment gateway for seamless bookings.
+                Complete vacation planning platform offering curated holiday packages, 
+                activity bookings, and travel guides for Andaman Islands visitors.
               </p>
               <div class="portfolio-tech">
                 <span class="tech-tag">HTML5</span>
                 <span class="tech-tag">CSS3</span>
                 <span class="tech-tag">JavaScript</span>
                 <span class="tech-tag">Bootstrap</span>
-                <span class="tech-tag">jQuery</span>
+                <span class="tech-tag">Payment Gateway</span>
               </div>
-              <a href="portfolio-vacations.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
+              <div class="portfolio-links">
+                <a href="portfolio-details-vacations.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://andaman.vacations" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- E-commerce Platform -->
-          <div class="portfolio-item ecommerce web-app" data-category="ecommerce">
+          <!-- Quest Guide India -->
+          <div class="portfolio-item travel" data-category="travel">
             <div class="portfolio-image">
-              <img src="../images/project-banner/ecommerce.jpg" alt="E-commerce Platform">
+              <img src="/images/project-banner/qg.png" alt="Quest Guide India Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://questguideindia.com&sz=32" 
+                   alt="Quest Guide India favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=QG'">
             </div>
             <div class="portfolio-content">
-              <span class="portfolio-category">E-commerce</span>
-              <h3 class="portfolio-title">Multi-Vendor E-commerce</h3>
+              <span class="portfolio-category">Tourism & Destinations</span>
+              <h3 class="portfolio-title">
+                <a href="https://questguideindia.com" target="_blank" rel="noopener noreferrer">
+                  Quest Guide India
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Tourism information and guides</p>
               <p class="portfolio-description">
-                Complete online marketplace with vendor management, 
-                inventory tracking, order processing, and analytics dashboard.
-              </p>
-              <div class="portfolio-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag">Express</span>
-                <span class="tech-tag">Redux</span>
-              </div>
-              <a href="portfolio-ecommerce.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Educational Portal -->
-          <div class="portfolio-item education web-app" data-category="education">
-            <div class="portfolio-image">
-              <img src="../images/project-banner/education.jpg" alt="Educational Portal">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-category">Education</span>
-              <h3 class="portfolio-title">Learning Management System</h3>
-              <p class="portfolio-description">
-                Online education platform with course management, 
-                video streaming, assessments, and progress tracking for students.
-              </p>
-              <div class="portfolio-tech">
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">Laravel</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">WebRTC</span>
-                <span class="tech-tag">AWS S3</span>
-              </div>
-              <a href="portfolio-education.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Healthcare System -->
-          <div class="portfolio-item healthcare web-app" data-category="healthcare">
-            <div class="portfolio-image">
-              <img src="../images/project-banner/healthcare.jpg" alt="Healthcare System">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-category">Healthcare</span>
-              <h3 class="portfolio-title">Patient Management System</h3>
-              <p class="portfolio-description">
-                Comprehensive healthcare solution with appointment scheduling, 
-                patient records, prescription management, and telemedicine features.
-              </p>
-              <div class="portfolio-tech">
-                <span class="tech-tag">Angular</span>
-                <span class="tech-tag">.NET Core</span>
-                <span class="tech-tag">SQL Server</span>
-                <span class="tech-tag">WebSocket</span>
-                <span class="tech-tag">Azure</span>
-              </div>
-              <a href="portfolio-healthcare.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Corporate Website -->
-          <div class="portfolio-item web-app" data-category="web-app">
-            <div class="portfolio-image">
-              <img src="../images/project-banner/corporate.jpg" alt="Corporate Website">
-            </div>
-            <div class="portfolio-content">
-              <span class="portfolio-category">Corporate</span>
-              <h3 class="portfolio-title">Enterprise Corporate Portal</h3>
-              <p class="portfolio-description">
-                Modern corporate website with CMS integration, 
-                team management, project showcase, and contact management system.
+                Informative tourism portal providing detailed guides, travel tips, 
+                and destination information for various Indian tourist locations.
               </p>
               <div class="portfolio-tech">
                 <span class="tech-tag">WordPress</span>
                 <span class="tech-tag">PHP</span>
                 <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">ACF</span>
+                <span class="tech-tag">Custom Theme</span>
+                <span class="tech-tag">SEO</span>
               </div>
-              <a href="portfolio-corporate.html" class="portfolio-link">
-                View Case Study <i class="bi bi-arrow-right"></i>
-              </a>
+              <div class="portfolio-links">
+                <a href="portfolio-details-questguide.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://questguideindia.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Markaa -->
+          <div class="portfolio-item ecommerce" data-category="ecommerce">
+            <div class="portfolio-image">
+              <img src="/images/project-banner/markaa.png" alt="Markaa E-commerce Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://markaa.in&sz=32" 
+                   alt="Markaa favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=MK'">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">E-commerce Solutions</span>
+              <h3 class="portfolio-title">
+                <a href="https://markaa.in" target="_blank" rel="noopener noreferrer">
+                  Markaa
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">E-commerce platform</p>
+              <p class="portfolio-description">
+                Modern e-commerce solution with product catalog, shopping cart, 
+                secure checkout, and order management system for retail businesses.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">Magento</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Payment Integration</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="portfolio-details-markaa.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://markaa.in" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TSC Barcode Printers -->
+          <div class="portfolio-item business" data-category="business">
+            <div class="portfolio-image">
+              <img src="/images/project-banner/tsc.png" alt="TSC Barcode Printers Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://tscbarcodeprinters.com&sz=32" 
+                   alt="TSC Barcode favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=TS'">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Business Solutions</span>
+              <h3 class="portfolio-title">
+                <a href="https://tscbarcodeprinters.com" target="_blank" rel="noopener noreferrer">
+                  TSC Barcode Printers
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">Barcode solutions provider</p>
+              <p class="portfolio-description">
+                Business website for barcode printer solutions featuring product catalog, 
+                technical specifications, support resources, and dealer network.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Contact Forms</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="portfolio-details-tsc.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://tscbarcodeprinters.com" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Explore Andaman CRM -->
+          <div class="portfolio-item business travel" data-category="business travel">
+            <div class="portfolio-image">
+              <img src="/images/project-banner/crm.png" alt="Explore Andaman CRM Website">
+              <img src="https://www.google.com/s2/favicons?domain=https://exploreandaman.co.in/crm.html&sz=32" 
+                   alt="Explore Andaman CRM favicon" 
+                   class="portfolio-favicon"
+                   onerror="this.src='https://via.placeholder.com/32/000000/ffffff?text=CR'">
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-category">Business CRM</span>
+              <h3 class="portfolio-title">
+                <a href="https://exploreandaman.co.in/crm.html" target="_blank" rel="noopener noreferrer">
+                  Explore Andaman CRM
+                </a>
+              </h3>
+              <p class="portfolio-subtitle">CRM solutions for travel businesses</p>
+              <p class="portfolio-description">
+                Customer Relationship Management system tailored for travel agencies with 
+                lead management, customer tracking, and booking coordination features.
+              </p>
+              <div class="portfolio-tech">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Chart.js</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="portfolio-details-crm.html" class="portfolio-link">
+                  <i class="bi bi-eye"></i> Case Study
+                </a>
+                <a href="https://exploreandaman.co.in/crm.html" target="_blank" rel="noopener noreferrer" class="portfolio-link portfolio-link-outline">
+                  <i class="bi bi-box-arrow-up-right"></i> Visit Site
+                </a>
+              </div>
             </div>
           </div>
 
@@ -583,9 +821,9 @@
 
         <!-- View More Projects -->
         <div class="view-more-container" data-aos="fade-up">
-          <button class="view-more-btn" id="load-more">
-            <i class="bi bi-plus-circle me-2"></i> Load More Projects
-          </button>
+          <a href="contact-us.php" class="view-more-btn">
+            <i class="bi bi-chat-dots me-2"></i> Start Your Project
+          </a>
         </div>
 
       </div>
@@ -611,7 +849,7 @@
                     <div class="client-quote">
                       "PSWeb Studio delivered exactly what we needed for our tourism portal. 
                       The Madhya Pradesh DMC website has significantly improved our online presence 
-                      and user engagement."
+                      and user engagement. Highly recommended!"
                     </div>
                     <div class="client-info">
                       <h5>Rajesh Sharma</h5>
@@ -623,12 +861,13 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="client-quote">
-                      "The Andaman travel booking system transformed our operations. 
-                      Real-time availability and seamless payments have increased our bookings by 40%."
+                      "The Hotel In Andaman booking system transformed our operations. 
+                      Real-time availability and seamless payments have increased our bookings by 40%. 
+                      The team was professional and responsive throughout."
                     </div>
                     <div class="client-info">
                       <h5>Priya Verma</h5>
-                      <p>Owner, Andaman Travel Agency</p>
+                      <p>Owner, Hotel In Andaman</p>
                     </div>
                   </div>
                 </div>
@@ -636,12 +875,13 @@
                 <div class="swiper-slide">
                   <div class="testimonial-item">
                     <div class="client-quote">
-                      "Professional, timely, and excellent quality work. Our e-commerce platform 
-                      handles thousands of transactions daily without any issues."
+                      "Our e-commerce platform by PSWeb Studio handles thousands of transactions 
+                      daily without any issues. Their attention to detail and post-launch support 
+                      has been exceptional."
                     </div>
                     <div class="client-info">
                       <h5>Amit Patel</h5>
-                      <p>CEO, RetailPlus E-commerce</p>
+                      <p>CEO, Markaa E-commerce</p>
                     </div>
                   </div>
                 </div>
@@ -665,8 +905,12 @@
               Our team is ready to bring your ideas to life.
             </p>
             <div class="d-flex flex-wrap justify-content-center gap-3">
-              <a href="contact-us.php" class="btn btn-primary btn-lg px-4">Get a Free Quote</a>
-              <a href="index.html#services" class="btn btn-outline-primary btn-lg px-4">View Services</a>
+              <a href="contact-us.php" class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-chat-dots me-2"></i>Get a Free Quote
+              </a>
+              <a href="tel:+919876543210" class="btn btn-outline-primary btn-lg px-4">
+                <i class="bi bi-telephone me-2"></i>Call Now
+              </a>
             </div>
           </div>
         </div>
@@ -802,7 +1046,6 @@
     document.addEventListener('DOMContentLoaded', function() {
       // Portfolio filtering
       const filterButtons = document.querySelectorAll('.filter-btn');
-      const portfolioItems = document.querySelectorAll('.portfolio-item');
       const portfolioGrid = document.getElementById('portfolio-grid');
       
       // Initialize Isotope
@@ -832,105 +1075,6 @@
         });
       });
       
-      // Load more projects functionality
-      const loadMoreBtn = document.getElementById('load-more');
-      let currentItems = 8;
-      
-      // Example additional projects data (in a real scenario, this would come from an API)
-      const additionalProjects = [
-        {
-          category: "travel",
-          title: "Kerala Tourism Portal",
-          description: "Showcasing Kerala's backwaters and cultural heritage with interactive virtual tours.",
-          tech: ["HTML5", "CSS3", "JavaScript", "Three.js", "GSAP"],
-          link: "portfolio-kerala.html"
-        },
-        {
-          category: "ecommerce",
-          title: "Fashion E-commerce Store",
-          description: "Modern fashion retail platform with AR try-on feature and personalized recommendations.",
-          tech: ["React", "Node.js", "MongoDB", "AR.js", "TensorFlow.js"],
-          link: "portfolio-fashion.html"
-        },
-        {
-          category: "web-app",
-          title: "Real Estate Platform",
-          description: "Property listing and management system with virtual property tours and mortgage calculator.",
-          tech: ["Vue.js", "Laravel", "MySQL", "WebGL", "Google Maps API"],
-          link: "portfolio-realestate.html"
-        },
-        {
-          category: "education",
-          title: "Online Tutoring Platform",
-          description: "Live tutoring system with whiteboard, video calls, and progress tracking for students.",
-          tech: ["React", "WebRTC", "Socket.io", "Canvas API", "Firebase"],
-          link: "portfolio-tutoring.html"
-        }
-      ];
-      
-      loadMoreBtn.addEventListener('click', function() {
-        // In a real scenario, you would fetch additional projects from an API
-        // For demo purposes, we'll simulate loading more items
-        
-        // Simulate loading delay
-        loadMoreBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Loading...';
-        loadMoreBtn.disabled = true;
-        
-        setTimeout(() => {
-          // Create and append new project elements
-          additionalProjects.forEach(project => {
-            const projectElement = document.createElement('div');
-            projectElement.className = `portfolio-item ${project.category}`;
-            projectElement.setAttribute('data-category', project.category);
-            
-            // Generate random image based on category
-            const imageMap = {
-              travel: 'images/project-banner/travel' + Math.floor(Math.random() * 3 + 1) + '.jpg',
-              ecommerce: 'images/project-banner/ecommerce' + Math.floor(Math.random() * 3 + 1) + '.jpg',
-              webapp: 'images/project-banner/webapp' + Math.floor(Math.random() * 3 + 1) + '.jpg',
-              education: 'images/project-banner/education' + Math.floor(Math.random() * 3 + 1) + '.jpg'
-            };
-            
-            const categoryLabels = {
-              travel: "Travel & Tourism",
-              ecommerce: "E-commerce",
-              "web-app": "Web Application",
-              education: "Education"
-            };
-            
-            projectElement.innerHTML = `
-              <div class="portfolio-image">
-                <img src="${imageMap[project.category] || 'images/project-banner/default.jpg'}" alt="${project.title}">
-              </div>
-              <div class="portfolio-content">
-                <span class="portfolio-category">${categoryLabels[project.category] || project.category}</span>
-                <h3 class="portfolio-title">${project.title}</h3>
-                <p class="portfolio-description">${project.description}</p>
-                <div class="portfolio-tech">
-                  ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                </div>
-                <a href="${project.link}" class="portfolio-link">
-                  View Case Study <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            `;
-            
-            portfolioGrid.appendChild(projectElement);
-          });
-          
-          // Reinitialize Isotope with new items
-          iso.appended(additionalProjects.map((_, i) => {
-            return portfolioGrid.children[portfolioGrid.children.length - additionalProjects.length + i];
-          }));
-          
-          // Update button state
-          loadMoreBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i> All Projects Loaded';
-          loadMoreBtn.disabled = true;
-          loadMoreBtn.style.opacity = '0.7';
-          
-        }, 1500);
-      });
-      
       // Initialize testimonial slider
       const testimonialSwiper = new Swiper('.testimonialSwiper', {
         slidesPerView: 1,
@@ -951,6 +1095,26 @@
         selector: '.portfolio-image img',
         touchNavigation: true,
         loop: true,
+      });
+      
+      // Add favicon fallback handling
+      document.querySelectorAll('.portfolio-favicon').forEach(favicon => {
+        favicon.addEventListener('error', function() {
+          const fallback = this.getAttribute('data-fallback');
+          if (fallback) {
+            this.src = fallback;
+          } else {
+            // Extract initials from alt text for fallback
+            const alt = this.alt || 'Website';
+            const initials = alt.split(' ')
+              .map(word => word.charAt(0))
+              .join('')
+              .toUpperCase()
+              .substring(0, 2);
+            
+            this.src = `https://via.placeholder.com/32/2c3e50/ffffff?text=${encodeURIComponent(initials)}`;
+          }
+        });
       });
     });
   </script>
