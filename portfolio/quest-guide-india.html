@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio Details - PSWeb Studio</title>
+  <meta name="description" content="View detailed case study of our web development projects at PSWeb Studio">
+  <meta name="keywords" content="web development portfolio, case study, website project, frontend development">
+
+  <!-- Favicons -->
+  <link href="images/favicon.png" rel="icon">
+  <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+
+    .related-projects-carousel .owl-stage {
+      padding: 10px 0;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .related-projects-carousel .item {
+      padding: 0 15px;
+      height: 100%;
+    }
+    .related-projects-carousel .related-project-card img {
+    width: 100%;
+    height: 250px;
+    border-radius: 2rem;
+    object-fit: cover;
+    border: 1px solid #e5e5e5cc
+    }
+
+    .related-projects-carousel .card-content h5 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+      margin-top: 25px;
+    }
+
+    .related-projects-carousel .card-content p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+    .related-projects-carousel .owl-nav {
+      position: absolute;
+      top: -60px;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0;
+    }
+
+    .related-projects-carousel .owl-nav button {
+      width: 40px;
+      height: 40px;
+      background: #f8f9fa !important;
+      border: 1px solid #dee2e6 !important;
+      border-radius: 4px;
+      margin-left: 10px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .related-projects-carousel .owl-nav button:hover {
+      background: #2c3e50 !important;
+      border-color: #2c3e50 !important;
+      color: white !important;
+    }
+
+    .related-projects-carousel .owl-nav button span {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    .related-projects-carousel .owl-nav button.owl-prev span {
+      margin-left: -2px;
+    }
+
+    .related-projects-carousel .owl-nav button.owl-next span {
+      margin-right: -2px;
+    }
+
+    /* Owl Carousel Dots */
+    .related-projects-carousel .owl-dots {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .related-projects-carousel .owl-dot span {
+      width: 10px;
+      height: 10px;
+      margin: 5px 7px;
+      background: #ddd;
+      border-radius: 50%;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .related-projects-carousel .owl-dot.active span {
+      background: var(--accent-hover-color) !important;
+      width: 30px;
+      border-radius: 5px;
+    }
+
+  </style>
+
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header sticky-top">
+    <div class="nav-wrap">
+      <div class="container d-flex justify-content-between position-relative">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img src="images/psweb-logo.png" alt="PSWeb Studio logo">
+        </a>
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="contact-us.php" class="contact-blink">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="breadcrumbs">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house"></i> Home</a></li>
+            <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+            <li class="breadcrumb-item active current">Madhya Pradesh DMC</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="title-wrapper">
+        <h1>Madhya Pradesh DMC Project</h1>
+        <p>A comprehensive destination management platform built with modern web technologies for seamless travel operations</p>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section pt-0">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="portfolio-showcase" data-aos="fade-up" data-aos-delay="200">
+              <div class="main-image">
+                <img src="images/project-banner/mp.png" class="img-fluid rounded" alt="Madhya Pradesh DMC Website">
+              </div>
+
+            </div>
+           <div class="about">
+  <article class="intro-card  shadow-none border">
+    <div class="intro-head">
+      <span class="kicker">
+        <i class="bi bi-stars me-1"></i>Project Overview
+      </span>
+      <h2 class="py-2">
+        Madhya Pradesh DMC
+      </h2>
+    </div>
+
+    <div class="intro-body">
+      <p class="lead">
+        Madhya Pradesh DMC is a destination-focused developed to promote the cultural,
+        historical, and natural attractions of Madhya Pradesh. The platform serves as an informative
+        resource for travelers looking to explore destinations, travel routes, and curated tour packages
+        across the state.
+      </p>
+
+      <p>
+        The primary objective of the project was to present extensive tourism content in a structured,
+        visually engaging, and easy-to-navigate format. Special attention was given to page performance,
+        mobile responsiveness, and content clarity to ensure a smooth browsing experience for both
+        domestic and international visitors.
+      </p>
+
+      <div class="feature-list row gy-3">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="feature-item">
+            <i class="bi bi-geo-alt"></i>
+            <div class="text">
+              <h6>Destination-Centric Architecture</h6>
+              <p>
+                Each destination is presented with structured information including highlights,
+                travel relevance, and supporting visuals, making it easy for users to explore
+                and compare locations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-item">
+            <i class="bi bi-phone"></i>
+            <div class="text">
+              <h6>Mobile-First Responsive Design</h6>
+              <p>
+                The layout adapts seamlessly across all screen sizes, ensuring consistent usability
+                and readability on mobile devices, tablets, and desktops.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="350">
+          <div class="feature-item">
+            <i class="bi bi-map"></i>
+            <div class="text">
+              <h6>Interactive Map Integration</h6>
+              <p>
+                Location-based navigation is supported through map integration, allowing users
+                to visually explore destinations and understand geographical context.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-item">
+            <i class="bi bi-speedometer2"></i>
+            <div class="text">
+              <h6>Performance & SEO Optimization</h6>
+              <p>
+                Optimized assets, CDN usage, and SEO-friendly structure ensure fast load times
+                and better visibility across search engines and social platforms.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="metric-band" data-aos="fade-up" data-aos-delay="450">
+        <div class="metric">
+          <span class="value">15+</span>
+          <span class="label">Tourist Destinations</span>
+        </div>
+        <div class="divider"></div>
+        <div class="metric">
+          <span class="value">10+</span>
+          <span class="label">Travel Categories</span>
+        </div>
+        <div class="divider"></div>
+        <div class="metric">
+          <span class="value">100%</span>
+          <span class="label">Responsive Experience</span>
+        </div>
+      </div>
+
+      <p class="mt-4 mb-0">
+        madhyapradeshdmc.com acts as a digital entry point for discovering the state’s tourism potential,
+        offering clear navigation, rich content presentation, and a reliable browsing experience.
+        The platform is designed to scale with additional destinations, content sections,
+        and future enhancements as tourism needs evolve.
+      </p>
+    </div>
+  </article>
+</div>
+
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar  ">
+              <div class="portfolio-info shadow-none border" data-aos="fade-left" data-aos-delay="200">
+                <h3>Project Details</h3>
+                <ul>
+                  <li><span>Category:</span> Web Application</li>
+                  <li><span>Client:</span> Madhya Pradesh Tourism</li>
+                  <li><span>Project Date:</span> March 2024</li>
+                  <li><span>Project URL:</span> <a href="https://madhyapradeshdmc.com" target="_blank">madhyapradeshdmc.com</a></li>
+                  <li>
+                    <span>Technologies:</span>
+                    HTML5, CSS3, JavaScript, Bootstrap 4.5.2, jQuery 3.6.0, Animate.css, OWL Carousel, Leaflet Maps, Font Awesome, Bootstrap Icons, Google Analytics (GA4), Google Tag Manager, Open Graph, CDN (jsDelivr, Unpkg), Apache Server
+                  </li>
+                  <li><span>Project Status:</span> <span class="status-live">Live & Active</span></li>
+                  <li class="buttons mt-3">
+                    <a href="https://madhyapradeshdmc.com" target="_blank" class="btn-visit">Visit Website</a>
+                    <a href="portfolio.html" class="btn-github"><i class="bi bi-arrow-left"></i> Back to Portfolio</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-challenges  shadow-none border" data-aos="fade-left" data-aos-delay="400">
+                <h3>Key Features</h3>
+                <ul class="mb-0">
+                  <li><i class="bi bi-check-circle text-success"></i> Multi-vendor coordination system</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Real-time availability management</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Secure payment processing</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Mobile-first responsive design</li>
+                  <li><i class="bi bi-check-circle text-success"></i> Advanced analytics dashboard</li>
+                  <li class="pb-0"><i class="bi bi-check-circle text-success"></i> Multi-language support</li>
+                </ul>
+              </div>
+
+
+            
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+         <div class="additional-context shadow-none border">
+  <h3>Development Process</h3>
+  <p>
+    The Madhya Pradesh DMC website was developed using a structured, step-by-step frontend workflow.
+    The focus was on content clarity, responsive layout, performance optimization, and visual consistency
+    rather than heavy backend complexity.
+  </p>
+  
+  <div class="process-timeline mt-4">
+    <div class="process-step">
+      <div class="step-content mb-4">
+        <h5><i class="me-2 bi bi-check-circle text-success"></i> Content Research & Planning</h5>
+        <p>
+          Analysis of tourism content, destination categorization, sitemap planning,
+          and page structure definition for clear user navigation.
+        </p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-content mb-4">
+        <h5><i class="me-2 bi bi-check-circle text-success"></i> Layout & Visual Design</h5>
+        <p>
+          Creation of responsive layouts using Bootstrap, typography selection,
+          color consistency, and animation planning for better engagement.
+        </p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-content mb-4">
+        <h5><i class="me-2 bi bi-check-circle text-success"></i> Frontend Development</h5>
+        <p>
+          Implementation using HTML, CSS, JavaScript, and jQuery with
+          interactive components such as sliders, maps, and animations.
+        </p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-content">
+        <h5><i class="me-2 bi bi-check-circle text-success"></i> Testing & Deployment</h5>
+        <p>
+          Cross-browser testing, mobile responsiveness checks, performance optimization,
+          and deployment on an Apache-based hosting environment.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+
+        <!-- Related Projects with Owl Carousel -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="related-projects" data-aos="fade-up" data-aos-delay="500">
+             <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+                <h2 class="text-black">Related Project</h2>
+                <p class="text-black">
+                  Clean code, fast performance, and user-focused interfaces built directly in the browser.
+                </p>
+              </div>
+              
+              <div class="owl-carousel owl-theme related-projects-carousel mt-4">
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="images/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent" class="img-fluid">
+                    <div class="card-content">
+                      <h5>Andaman Travel Agent</h5>
+                      <p>Responsive travel booking platform with real-time availability and booking system</p>
+                      <a href="portfolio-andaman.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="images/project-banner/hia.png" alt="Hotel In Andaman" class="img-fluid">
+                    <div class="card-content">
+                      <h5>Hotel In Andaman</h5>
+                      <p>Comprehensive hotel booking and management system with multi-vendor support</p>
+                      <a href="portfolio-hotel.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="images/project-banner/av.png" alt="Andaman Vacations" class="img-fluid">
+                    <div class="card-content">
+                      <h5>Andaman Vacations</h5>
+                      <p>Tour package management system with integrated payment gateway</p>
+                      <a href="portfolio-vacations.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="images/project-banner/ecommerce.jpg" alt="E-commerce Platform" class="img-fluid">
+                    <div class="card-content">
+                      <h5>E-commerce Platform</h5>
+                      <p>Multi-vendor online marketplace with advanced inventory management</p>
+                      <a href="portfolio-ecommerce.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="images/project-banner/education.jpg" alt="Educational Portal" class="img-fluid">
+                    <div class="card-content">
+                      <h5>Educational Portal</h5>
+                      <p>Online learning management system with video courses and assessments</p>
+                      <a href="portfolio-education.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="item">
+                  <div class="related-project-card">
+                    <img src="images/project-banner/healthcare.jpg" alt="Healthcare System" class="img-fluid">
+                    <div class="card-content">
+                      <h5>Healthcare System</h5>
+                      <p>Patient management and appointment booking system for clinics</p>
+                      <a href="portfolio-healthcare.html" class="btn btn-outline-primary rounded-pill"><i class="bi bi-arrow-right-circle me-1"></i> View Project</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="row gy-5">
+        <!-- Brand Section -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">
+            <a href="index.html" class="logo d-flex align-items-center mb-3">
+              <span class="sitename">PSWeb Studio</span>
+            </a>
+            <p class="tagline">
+              A code-focused web studio building fast, responsive, and practical websites
+              for real businesses.
+            </p>
+            <div class="d-flex align-items-center mt-4">
+              <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-5 col-md-6">
+          <div class="footer-links-grid">
+            <div class="row">
+              <div class="col-6 col-md-4">
+                <h5>Studio</h5>
+                <ul class="list-unstyled">
+                  <li><a href="about-us.html">About</a></li>
+                  <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                  <li><a href="index.html#services">Services</a></li>
+                  <li><a href="contact-us.php">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Services</h5>
+                <ul class="list-unstyled">
+                  <li><a href="index.html#services">Web Development</a></li>
+                  <li><a href="index.html#services">UI/UX Design</a></li>
+                  <li><a href="index.html#services">SEO Optimization</a></li>
+                  <li><a href="index.html#services">Performance Tuning</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Legal</h5>
+                <ul class="list-unstyled">
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="col-lg-3 col-md-12">
+          <div class="footer-cta">
+            <h5>Start a Project</h5>
+            <p class="small mb-3">
+              Have a website idea or need improvements to an existing one?
+            </p>
+            <a href="quotation.html" class="btn btn-primary w-100">
+              Request a Quote
+            </a>
+            <div class="contact-info mt-3">
+              <div class="contact-item d-flex align-items-center mb-2">
+                <i class="bi bi-envelope me-2"></i>
+                <span>hello@pswebstudio.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content d-flex justify-content-between align-items-center flex-wrap">
+          <p class="mb-0">
+            © 2025 <span class="sitename">PSWeb Studio</span>. All rights reserved.
+          </p>
+          <p class="mb-0">
+            Built & maintained by <strong>PSWeb Studio</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  
+  <!-- jQuery (Required for Owl Carousel) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Initialize GLightbox for image gallery
+    document.addEventListener('DOMContentLoaded', function() {
+
+      $(document).ready(function(){
+      
+        $('.related-projects-carousel').owlCarousel({
+          loop: true,
+          nav: true,
+          dots: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            768: {
+              items: 2
+            },
+            992: {
+              items: 3
+            }
+          },
+          navText: ['<i class="bi bi-chevron-left"></i>', '<i class="bi bi-chevron-right"></i>']
+        });
+
+     
+      });
+      
+    });
+  </script>
+
+</body>
+</html>
