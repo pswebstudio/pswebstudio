@@ -2657,7 +2657,7 @@ section,
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--accent-hover-color);
+  color: #efefef;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1rem;
@@ -2677,7 +2677,7 @@ section,
 .call-to-action .text-content h2 {
   font-size: 3.25rem;
   font-weight: 300;
-  color: var(--heading-color);
+  color: var(--bs-white);
   line-height: 1.15;
   margin-bottom: 2rem;
 }
@@ -2728,7 +2728,7 @@ color: var(--bs-white);
 
 .call-to-action .benefits-list .benefit-row .benefit-item span {
   font-size: 0.95rem;
-  color: var(--heading-color);
+  color: #efefef
   font-weight: 400;
 }
 
@@ -2762,7 +2762,7 @@ color: var(--bs-white);
 
 .call-to-action .action-group .btn.btn-text-link {
   background: transparent;
-  color: var(--default-color);
+  color: #efefef;
   border: none;
   padding: 0;
   display: inline-flex;
