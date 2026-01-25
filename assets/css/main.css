@@ -2728,7 +2728,7 @@ color: var(--bs-white);
 
 .call-to-action .benefits-list .benefit-row .benefit-item span {
   font-size: 0.95rem;
-  color: #efefef
+  color: #efefef;
   font-weight: 400;
 }
 
