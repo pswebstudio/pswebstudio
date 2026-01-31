@@ -55,7 +55,7 @@
     <div class="nav-wrap">
 
       <div class="container d-flex justify-content-between position-relative">
-              <a href="index.html" class="logo d-flex align-items-center">
+              <a href="https://pswebstudio.netlify.app/" class="logo d-flex align-items-center">
          <img src="images/psweb-logo.png" alt="logo">
         </a>
         <nav id="navmenu" class="navmenu">
@@ -63,7 +63,7 @@
             <li><a href="#hero" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="https://pswebstudio.netlify.app/portfolio/">Portfolio</a></li>
             <li><a href="#team">Team</a></li>
             <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
@@ -72,7 +72,7 @@
                 <li><a href="#">Blog</a></li>
               </ul>
             </li>
-            <li><a href="contact-us.php" class="contact-blink">Contact</a></li>
+            <li><a href="https://pswebstudio.netlify.app/contact-us.php" class="contact-blink">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -187,7 +187,7 @@
       <!-- Brand Section -->
       <div class="col-lg-4">
         <div class="footer-brand">
-          <a href="index.html" class="logo d-flex align-items-center mb-3">
+          <a href="https://pswebstudio.netlify.app/" class="logo d-flex align-items-center mb-3">
             <span class="sitename">PS Web Studio</span>
           </a>
           <p class="tagline">Crafting modern websites with creativity, performance, and user-first design.</p>
@@ -230,7 +230,7 @@
               <h5>Support</h5>
               <ul class="list-unstyled">
                 <li><a href="help.html">Help Center</a></li>
-                <li><a href="contact-us.php">Contact Us</a></li>
+                <li><a href="https://pswebstudio.netlify.app/contact-us.php">Contact Us</a></li>
                 <li><a href="privacy.html">Privacy Policy</a></li>
                 <li><a href="terms.html">Terms of Service</a></li>
               </ul>
