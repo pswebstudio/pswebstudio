@@ -3904,7 +3904,7 @@ color: var(--bs-white);
         }
         
         .portfolio-game-item.portfolio-active {
-            width: auto;
+            width: 500px;
         }
         
         .portfolio-game-item::after {
