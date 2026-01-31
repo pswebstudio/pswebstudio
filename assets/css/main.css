@@ -3888,8 +3888,8 @@ color: var(--bs-white);
         
         .portfolio-game-item {
             margin: 0 15px 15px;
-            width: 320px;
-            height: 400px;
+            width: auto;
+            height: 300px;
             display: flex;
             display: -webkit-flex;
             align-items: flex-end;
@@ -3904,9 +3904,7 @@ color: var(--bs-white);
         }
         
         .portfolio-game-item.portfolio-active {
-            width: 650px;
-            /* box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
-            -webkit-box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25); */
+            width: auto;
         }
         
         .portfolio-game-item::after {
