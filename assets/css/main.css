@@ -282,19 +282,8 @@ h6 {
     font-size: 12px;
     line-height: 0;
     margin-left: 5px;
-    transition: 0.3s;
   }
 
-  .navmenu a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 20px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
-  }
 
   .navmenu li:hover>a:after,
   .navmenu .active:after {
@@ -1143,7 +1132,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 30px 0;
   scroll-margin-top: 135px;
   overflow: clip;
 }
@@ -1419,11 +1408,9 @@ section,
 }
 
 .about .intro-card {
-  background: var(--surface-color);
   border: 1px solid var(--soft-border);
   border-radius: calc(var(--card-radius) + 4px);
   padding:20px;
-  box-shadow: 0 30px 60px color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 @media (max-width: 576px) {
@@ -2127,11 +2114,9 @@ section,
 
 
 .features .intro-panel {
-  background: linear-gradient(180deg, var(--surface-color), color-mix(in srgb, var(--accent-color), transparent 96%));
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   border-radius: 2rem;
   padding: 15px;
-  box-shadow: var(--shadow-soft);
 }
 
 .features .intro-panel .preview-visual {
@@ -2226,19 +2211,10 @@ section,
 
 .features .feature-item {
   position: relative;
-  background: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
   border-radius: var(--card-radius);
   padding:15px;
-  box-shadow: var(--shadow-soft);
-  transition: 0.3s;
   overflow: hidden;
-}
-
-.features .feature-item:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
 }
 
 .features .feature-item::before {
@@ -2253,13 +2229,11 @@ section,
 .features .feature-item .f-icon {
   width: 54px;
   height: 54px;
-  border-radius: 14px;
+  border-radius: 2rem;
   display: grid;
   place-items: center;
   margin-bottom: 14px;
-  color: var(--contrast-color);
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--default-color), transparent 85%);
-}
+  color: var(--contrast-color);}
 
 .features .feature-item .f-icon i {
   font-size: 22px;
@@ -2702,7 +2676,7 @@ color: var(--bs-white);
 .call-to-action .trust-indicators .indicator .metric {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--bs-color);
+  color: var(--aifnmjmchg-html-bg-color);
   line-height: 1;
   margin-bottom: 0.25rem;
 }
