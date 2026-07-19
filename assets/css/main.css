@@ -3719,7 +3719,7 @@ span {
 .feature-exprience-wrapper .adventure-box-2 {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(180deg, rgba(81, 79, 79, 0.09) 0%, rgba(205, 205, 205, 0.08) 100%);
+  background: linear-gradient(180deg, rgb(5 119 173) 0%, rgb(0 92 136) 100%);
   backdrop-filter: blur(7.5px);
   padding: 30px 40px;
   margin-top: 30px;
@@ -3728,10 +3728,10 @@ span {
   overflow: hidden;
 }
 .feature-exprience-wrapper .adventure-box-2 .shape {
-  position: absolute;
-  right: 30px;
-  top: 0;
-  z-index: -1;
+    position: absolute;
+    right: -9px;
+    bottom: -84px;
+    z-index: -1;
 }
 @media (max-width: 575px) {
   .feature-exprience-wrapper .adventure-box-2 .shape {
@@ -7649,18 +7649,9 @@ gap: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 430px 0 70px;
+
 }
-@media (max-width: 1399px) {
-  .breadcrumb-wrapper-4 .breadcrumb-top-items {
-    padding: 100px 0 70px;
-  }
-}
-@media (max-width: 991px) {
-  .breadcrumb-wrapper-4 .breadcrumb-top-items {
-    padding: 70px 0 70px;
-  }
-}
+
 .breadcrumb-wrapper-4 .breadcrumb-top-items .page-heading {
   position: relative;
 }
@@ -8030,8 +8021,11 @@ gap: 15px;
 .bg-cover {
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  background-position: center;
+    position: relative;
+    background-position: center;
+    height: 400px;
+    align-content: end;
+    padding-bottom: 30px;
 }
 
 .slide-transtion {
@@ -11809,19 +11803,20 @@ gap: 15px;
   line-height: 30px;
   text-align: center;
   background-color: var(--white);
-  color: var(--text);
+  /* color: var(--text);  */
   border-radius: 100px;
   position: absolute;
   top: 20px;
   right: 20px;
+  border-radius: 10px;
   cursor: pointer;
   z-index: 999;
   transition: all 0.4s ease-in-out;
 }
-.tour-place-item .tour-place-image .icon:hover {
+/* .tour-place-item .tour-place-image .icon:hover {
   background-color: var(--theme);
   color: var(--white);
-}
+} */
 .tour-place-item .tour-place-image img {
   width: 100%;
   height: 100%;
@@ -11918,7 +11913,6 @@ gap: 15px;
   margin-bottom: 15px;
 }
 .tour-place-item .tour-place-content.style-2 p {
-  max-width: 300px;
   margin-bottom: 20px;
 }
 .tour-place-item .tour-place-content.style-2 .tour-list li {
@@ -15871,4 +15865,187 @@ gap: 15px;
   100% {
     transform: translateY(0px);
   }
+}
+/* ===== Hero Banner (Bootstrap grid handles layout — no flex needed) ===== */
+.hero_banner {
+    padding: 40px 0;
+}
+
+.hero_banner .mx-4 {
+    border: 1px solid #939393;
+    border-radius: 10px;
+    padding: 30px;
+    background-image: url(../../assets/img/banner/psweb_banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero_content .hero_badge {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.hero_content h1 {
+    margin: 0 0 8px;
+}
+
+.hero_content h2 {
+    margin: 0 0 16px;
+    font-weight: 500;
+}
+
+.hero_content p {
+    margin: 0 0 24px;
+    line-height: 1.6;
+}
+
+.hero_btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ===== Slider ===== */
+.pswebstudio_slider * {
+    box-sizing: border-box;
+}
+
+.pswebstudio_slider {
+    margin: 0;
+}
+
+.pswebstudio_slider .slider {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.pswebstudio_slider .viewport {
+    position: relative;
+    height: min(68vh, 560px);
+    min-height: 360px;
+}
+
+.pswebstudio_slider .slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: end start;
+    padding: clamp(18px, 3vw, 28px);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.pswebstudio_slider .slide.is-active {
+    opacity: 1;
+}
+
+.pswebstudio_slider .bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.pswebstudio_slider .bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(1.05) contrast(1.02);
+    transform: scale(1.03);
+}
+
+.pswebstudio_slider .slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.1) 55%,
+        transparent
+    );
+}
+
+.pswebstudio_slider .content {
+    position: relative;
+    z-index: 1;
+    max-width: 50ch;
+    height: 250px;
+    padding: 14px 16px;
+    align-content: end;
+    border-radius: 16px;
+    background: rgba(0,0,0,.28);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.16);
+}
+
+.pswebstudio_slider .content h2,
+.pswebstudio_slider .content h3 {
+    margin: 0 0 6px;
+    color: var(--white, #fff);
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #0d9ce0;
+    padding-bottom: 12px;
+}
+
+.pswebstudio_slider .content p {
+    margin: 0;
+    line-height: 1.55;
+    color: rgba(255,255,255,.82);
+}
+
+/* Controls */
+.pswebstudio_slider .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 0;
+    position: absolute;
+    transform: translate(50%, -80%);
+}
+
+.pswebstudio_slider .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.pswebstudio_slider .dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,.25);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.pswebstudio_slider .dot:hover {
+    background: rgba(255,255,255,.55);
+}
+
+.pswebstudio_slider .dot.is-active {
+    width: 28px;
+    border-radius: 999px;
+    background: #60a5fa;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+    .pswebstudio_slider .viewport {
+        min-height: 300px;
+    }
+
+    .pswebstudio_slider .content {
+        max-width: 100%;
+        padding: 12px 14px;
+    }
+
+    .pswebstudio_slider .controls {
+        padding: 16px 0;
+    }
 }
