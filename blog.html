@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="PS Web Studio">
+    <title>Blog · PS Web Studio</title>
+    <meta name="description" content="Insights, engineering notes, web performance tips, and case studies from PS Web Studio.">
+    <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
+    <link rel="shortcut icon" href="assets/img/favico/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/flacticon.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Back To Top Start -->
+    <button id="back-top" class="back-to-top show" aria-label="Back to top">
+        <i class="fa-regular fa-arrow-up"></i>
+    </button>
+
+    <!-- Mouse Cursor Start -->
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"></div>
+
+    <!-- Offcanvas Mobile Menu Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html">
+                                <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio Logo">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button aria-label="Close menu"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services.
+                    </p>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Get In Touch</h3>
+                        <form action="#" id="contact-form" method="POST" class="contact-form-items">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="form-clt">
+                                        <input type="text" name="name" id="name33" placeholder="Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-clt">
+                                        <input type="email" name="email" id="email33" placeholder="Email Address" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-clt">
+                                        <textarea name="message" id="message2" placeholder="Enter message..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button type="submit" class="theme-btn w-100">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://github.com/pswebstudio" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="mailto:pswebstudio.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+
+    <!-- Header Top Section Start -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p>
+                    Welcome to <span>PS Web Studio</span> - need smart ideas for your business? <b>Let's Talk</b>
+                </p>
+                <div class="header-right">
+                    <ul class="header-list">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:pswebstudio.dev@gmail.com">Email : pswebstudio.dev@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone-flip"></i>
+                            <a href="tel:+918793400545">Call : +91 87934 00545</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main Section Start -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio Logo">
+                            </a>
+                        </div>
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="index.html#services"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li><a href="project.html"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li class="active"><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="header-button">
+                            <a href="contact.html" class="theme-btn">Get a Quote</a>
+                        </div>
+                        <div class="header__hamburger d-xl-none my-auto">
+                            <div class="sidebar__toggle">
+                                <i class="fas fa-bars"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Breadcrumb Section Start -->
+            <div class="breadcrumb-wrapper fix">
+                <div class="container">
+                    <div class="page-heading">
+                        <div class="breadcrumb-sub-title">
+                            <h1 class="wow fadeInUp" data-wow-delay=".3s" id="pageMainHeading">Latest Blog &amp; Articles</h1>
+                        </div>
+                        <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="style-2" id="breadcrumbCurrent">
+                                Latest Blog
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News / Blog Section Start -->
+            <section class="news-section section-padding pt-0">
+                <div class="container">
+                    <div class="row g-4">
+                        <!-- Left Column: Posts List -->
+                        <div class="col-lg-8 col-12">
+                            <!-- Active Filter Banner (hidden by default) -->
+                            <div id="filterBanner" class="alert alert-info d-none d-flex justify-content-between align-items-center mb-4">
+                                <span id="filterBannerText">Showing filtered posts</span>
+                                <button type="button" class="btn btn-sm btn-outline-dark" id="clearFilterBtn">Clear Filter</button>
+                            </div>
+
+                            <!-- Featured Post Area -->
+                            <div id="featuredPostArea">
+                                <!-- Top / Featured news-card-items populated from Supabase -->
+                            </div>
+
+                            <!-- Grid Posts Area -->
+                            <div class="row g-4" id="postsGridContainer">
+                                <!-- Fallback / Skeleton Cards while loading -->
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="news-card-items">
+                                        <div class="news-image">
+                                            <img src="assets/img/home-1/news/news-8.jpg" alt="Blog Post">
+                                            <span>Web Dev</span>
+                                        </div>
+                                        <div class="news-content">
+                                            <span>Frontend Engineering</span>
+                                            <h3><a href="blog-detail.html?slug=modern-web-architecture">Modern Web Architecture for High Performance</a></h3>
+                                            <a href="blog-detail.html?slug=modern-web-architecture" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="news-card-items">
+                                        <div class="news-image">
+                                            <img src="assets/img/home-1/news/news-9.jpg" alt="Blog Post">
+                                            <span>SEO</span>
+                                        </div>
+                                        <div class="news-content">
+                                            <span>Search Optimization</span>
+                                            <h3><a href="blog-detail.html?slug=core-web-vitals-guide">The Practical Guide to Core Web Vitals Optimization</a></h3>
+                                            <a href="blog-detail.html?slug=core-web-vitals-guide" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div class="page-nav-wrap text-center mt-5" id="paginationWrap">
+                                <ul id="paginationList">
+                                    <li><a class="page-numbers active" href="#">1</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Sidebar -->
+                        <div class="col-lg-4 col-12">
+                            <div class="main-sideber sticky-style">
+                                <!-- Search Widget -->
+                                <div class="single-sideber-widget">
+                                    <div class="search-widget">
+                                        <form action="#" id="blogSearchForm">
+                                            <input type="text" id="blogSearchInput" placeholder="Search blog...">
+                                            <button type="submit" aria-label="Search"><i class="fa-regular fa-magnifying-glass"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Categories Widget -->
+                                <div class="single-sideber-widget">
+                                    <div class="widget-title">
+                                        <h4>Categories</h4>
+                                    </div>
+                                    <ul id="sidebarCategories">
+                                        <li><a href="blog.html">Web Development</a><span>(4)</span></li>
+                                        <li><a href="blog.html">UI / UX Design</a><span>(3)</span></li>
+                                        <li><a href="blog.html">SEO &amp; Performance</a><span>(5)</span></li>
+                                        <li><a href="blog.html">Case Studies</a><span>(2)</span></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Recent Posts Widget -->
+                                <div class="single-sideber-widget">
+                                    <div class="widget-title">
+                                        <h4>Recent Posts</h4>
+                                    </div>
+                                    <div class="recent-post-area" id="sidebarRecentPosts">
+                                        <div class="recent-items">
+                                            <div class="recent-thumb">
+                                                <img src="assets/img/home-1/news/news-8.jpg" alt="Post">
+                                            </div>
+                                            <div class="recent-content">
+                                                <span>Recent</span>
+                                                <h5><a href="blog-detail.html">High-Performance Frontend Systems</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tag Cloud Widget -->
+                                <div class="single-sideber-widget">
+                                    <div class="widget-title">
+                                        <h4>Popular Tags</h4>
+                                    </div>
+                                    <div class="tagcloud" id="sidebarTags">
+                                        <a href="blog.html">Frontend</a>
+                                        <a href="blog.html">Performance</a>
+                                        <a href="blog.html">SEO</a>
+                                        <a href="blog.html">MySQL</a>
+                                        <a href="blog.html">JavaScript</a>
+                                        <a href="blog.html">Bootstrap</a>
+                                    </div>
+                                </div>
+
+                                <!-- Promo CTA Card -->
+                                <div class="tour-bg-image">
+                                    <img src="assets/img/home-1/news/news-19.jpg" alt="PS Web Studio">
+                                    <div class="tour-bg-content">
+                                        <span>Build Your Vision</span>
+                                        <h3><a href="contact.html">Need a Custom Website?</a></h3>
+                                        <a href="contact.html" class="theme-btn">Get Started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Section Start -->
+            <footer class="footer-section fix header-bg">
+                <div class="container">
+                    <div class="footer-widget-wrapper">
+                        <div class="row">
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title">
+                                        <h4>Services</h4>
+                                    </div>
+                                    <ul class="list-area">
+                                        <li><a href="index.html#portfolio"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimization</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX Integration</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title">
+                                        <h4>Company</h4>
+                                    </div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                                        <li><a href="project.html"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                        <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title">
+                                        <h4>Technologies</h4>
+                                    </div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title">
+                                        <h4>Get In Touch</h4>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="icon">
+                                            <i class="fa-regular fa-map-location-dot"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6>Mumbai, Maharashtra <br> India</h6>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="icon">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item mb-0">
+                                        <div class="icon">
+                                            <i class="fa-regular fa-phone-volume"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h6><a href="tel:+918793400545">+91 87934 00545</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title">
+                                        <h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4>
+                                    </div>
+                                    <div class="newsletter-content">
+                                        <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
+                                        <form action="#">
+                                            <div class="form-clt">
+                                                <input type="email" name="email" placeholder="Email Address" required>
+                                                <button type="submit" class="theme-btn">Subscribe</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom style-1">
+                    <div class="container">
+                        <div class="footer-wrapper">
+                            <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                <p>© 2026 <span>PS Web Studio,</span> All rights reserved</p>
+                                <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+
+                                <!-- WhatsApp Popup -->
+                                <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+                                    <div class="psws-whatsapp-header">
+                                        <div class="psws-whatsapp-header-icon">
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        </div>
+                                        <div class="psws-whatsapp-header-info">
+                                            <div class="psws-whatsapp-title">PSWeb Studio</div>
+                                            <div class="psws-whatsapp-status">● Typically replies instantly</div>
+                                        </div>
+                                        <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="psws-whatsapp-body">
+                                        <div class="psws-whatsapp-message">
+                                            <p>How can I help you? :)</p>
+                                            <div class="psws-whatsapp-time" id="pswsWhatsappTime">Now</div>
+                                        </div>
+                                    </div>
+                                    <div class="psws-whatsapp-footer">
+                                        <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                                            <div class="psws-whatsapp-input-wrapper">
+                                                <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                                                <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
+                                                    <i class="fa-solid fa-paper-plane"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Floating WhatsApp Button -->
+                                <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/split-type.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Supabase Dynamic Data Module -->
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
+
+    const supabaseUrl = 'https://jerlrkqevhevulupcowu.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    let allBlogs = [];
+    let activeCategory = null;
+    let activeTag = null;
+    let searchQuery = '';
+
+    const fallbackImages = [
+        'assets/img/home-1/news/news-17.jpg',
+        'assets/img/home-1/news/news-8.jpg',
+        'assets/img/home-1/news/news-9.jpg',
+        'assets/img/home-1/news/news-10.jpg',
+        'assets/img/home-1/news/news-11.jpg',
+        'assets/img/home-1/news/news-18.jpg'
+    ];
+
+    function resolveImage(imgStr, index) {
+        if (!imgStr) return fallbackImages[index % fallbackImages.length];
+        if (imgStr.startsWith('http') || imgStr.startsWith('assets/')) return imgStr;
+        return `assets/img/blog/${imgStr}`;
+    }
+
+    async function initBlog() {
+        const urlParams = new URLSearchParams(window.location.search);
+        activeCategory = urlParams.get('category');
+        activeTag = urlParams.get('tag');
+        searchQuery = (urlParams.get('q') || '').trim().toLowerCase();
+
+        try {
+            const { data, error } = await supabase
+                .from('blogs')
+                .select('*')
+                .eq('is_enabled', true)
+                .order('display_order', { ascending: true });
+
+            if (error) throw error;
+            allBlogs = data || [];
+            
+            buildSidebar(allBlogs);
+            renderFilteredPosts();
+        } catch (err) {
+            console.error('Error fetching blogs from Supabase:', err);
+            // Fallback rendering handles gracefully
+        }
+    }
+
+    function renderFilteredPosts() {
+        let filtered = allBlogs.slice();
+
+        if (activeCategory) {
+            filtered = filtered.filter(b => (b.category || '').toLowerCase() === activeCategory.toLowerCase());
+        }
+        if (activeTag) {
+            filtered = filtered.filter(b => {
+                const tags = Array.isArray(b.tags) ? b.tags : (b.tags || '').split(',').map(t => t.trim().toLowerCase());
+                return tags.includes(activeTag.toLowerCase());
+            });
+        }
+        if (searchQuery) {
+            filtered = filtered.filter(b => 
+                (b.title || '').toLowerCase().includes(searchQuery) ||
+                (b.excerpt || '').toLowerCase().includes(searchQuery) ||
+                (b.category || '').toLowerCase().includes(searchQuery)
+            );
+        }
+
+        // Update Filter Banner
+        const filterBanner = document.getElementById('filterBanner');
+        const filterBannerText = document.getElementById('filterBannerText');
+        if (activeCategory || activeTag || searchQuery) {
+            filterBanner.classList.remove('d-none');
+            let text = 'Filtering by: ';
+            if (activeCategory) text += `Category "${activeCategory}" `;
+            if (activeTag) text += `Tag "${activeTag}" `;
+            if (searchQuery) text += `Search "${searchQuery}"`;
+            filterBannerText.textContent = text;
+        } else {
+            filterBanner.classList.add('d-none');
+        }
+
+        const featuredArea = document.getElementById('featuredPostArea');
+        const gridArea = document.getElementById('postsGridContainer');
+
+        if (filtered.length === 0) {
+            featuredArea.innerHTML = '';
+            gridArea.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="fa-regular fa-folder-open fa-3x text-muted mb-3"></i>
+                    <h4>No articles found</h4>
+                    <p class="text-muted">Try adjusting your search or filter criteria.</p>
+                    <button class="theme-btn btn-sm" id="resetFilterBtn">View All Articles</button>
+                </div>
+            `;
+            const resetBtn = document.getElementById('resetFilterBtn');
+            if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
+            return;
+        }
+
+        // If no filter active and we have >= 3 posts, show lead featured post
+        if (!activeCategory && !activeTag && !searchQuery && filtered.length > 0) {
+            const leadPost = filtered[0];
+            const remaining = filtered.slice(1);
+            const leadSlug = leadPost.slug || leadPost.id;
+            const leadImg = resolveImage(leadPost.image, 0);
+
+            featuredArea.innerHTML = `
+                <div class="news-card-items mt-0 mb-4">
+                    <div class="news-image">
+                        <img src="${leadImg}" alt="${leadPost.title}" onerror="this.src='${fallbackImages[0]}'">
+                        <span>${leadPost.date || 'Featured'}</span>
+                    </div>
+                    <div class="news-content">
+                        <span>${leadPost.category || 'Insights'}</span>
+                        <h3>
+                            <a href="blog-detail.html?slug=${leadSlug}">
+                                ${leadPost.title}
+                            </a>
+                        </h3>
+                        <p class="text-muted mt-2">${leadPost.excerpt || ''}</p>
+                        <a href="blog-detail.html?slug=${leadSlug}" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            `;
+
+            gridArea.innerHTML = remaining.map((post, idx) => {
+                const slug = post.slug || post.id;
+                const img = resolveImage(post.image, idx + 1);
+                return `
+                    <div class="col-lg-6 col-md-6">
+                        <div class="news-card-items">
+                            <div class="news-image">
+                                <img src="${img}" alt="${post.title}" onerror="this.src='${fallbackImages[(idx+1)%fallbackImages.length]}'">
+                                <span>${post.date || 'Recent'}</span>
+                            </div>
+                            <div class="news-content">
+                                <span>${post.category || 'Article'}</span>
+                                <h3>
+                                    <a href="blog-detail.html?slug=${slug}">
+                                        ${post.title}
+                                    </a>
+                                </h3>
+                                <a href="blog-detail.html?slug=${slug}" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } else {
+            featuredArea.innerHTML = '';
+            gridArea.innerHTML = filtered.map((post, idx) => {
+                const slug = post.slug || post.id;
+                const img = resolveImage(post.image, idx);
+                return `
+                    <div class="col-lg-6 col-md-6">
+                        <div class="news-card-items">
+                            <div class="news-image">
+                                <img src="${img}" alt="${post.title}" onerror="this.src='${fallbackImages[idx%fallbackImages.length]}'">
+                                <span>${post.date || 'Article'}</span>
+                            </div>
+                            <div class="news-content">
+                                <span>${post.category || 'Article'}</span>
+                                <h3>
+                                    <a href="blog-detail.html?slug=${slug}">
+                                        ${post.title}
+                                    </a>
+                                </h3>
+                                <a href="blog-detail.html?slug=${slug}" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        if (typeof WOW !== 'undefined') {
+            new WOW().init();
+        }
+    }
+
+    function buildSidebar(blogs) {
+        // Build Categories
+        const catMap = {};
+        const tagSet = new Set();
+
+        blogs.forEach(b => {
+            if (b.category) {
+                catMap[b.category] = (catMap[b.category] || 0) + 1;
+            }
+            if (b.tags) {
+                const tags = Array.isArray(b.tags) ? b.tags : b.tags.split(',');
+                tags.forEach(t => {
+                    const clean = t.trim();
+                    if (clean) tagSet.add(clean);
+                });
+            }
+        });
+
+        const catUl = document.getElementById('sidebarCategories');
+        if (catUl && Object.keys(catMap).length > 0) {
+            catUl.innerHTML = Object.entries(catMap).map(([cat, count]) => `
+                <li>
+                    <a href="blog.html?category=${encodeURIComponent(cat)}">${cat}</a>
+                    <span>(${count})</span>
+                </li>
+            `).join('');
+        }
+
+        // Build Recent Posts
+        const recentArea = document.getElementById('sidebarRecentPosts');
+        if (recentArea && blogs.length > 0) {
+            const recent = blogs.slice(0, 3);
+            recentArea.innerHTML = recent.map((post, idx) => {
+                const slug = post.slug || post.id;
+                const img = resolveImage(post.image, idx);
+                return `
+                    <div class="recent-items">
+                        <div class="recent-thumb">
+                            <img src="${img}" alt="${post.title}" onerror="this.src='${fallbackImages[idx]}'">
+                        </div>
+                        <div class="recent-content">
+                            <span>${post.date || 'Recent'}</span>
+                            <h5>
+                                <a href="blog-detail.html?slug=${slug}">${post.title}</a>
+                            </h5>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Build Tags
+        const tagsArea = document.getElementById('sidebarTags');
+        if (tagsArea && tagSet.size > 0) {
+            tagsArea.innerHTML = Array.from(tagSet).map(tag => `
+                <a href="blog.html?tag=${encodeURIComponent(tag)}">${tag}</a>
+            `).join('');
+        }
+    }
+
+    function resetAllFilters() {
+        activeCategory = null;
+        activeTag = null;
+        searchQuery = '';
+        window.history.pushState({}, '', 'blog.html');
+        renderFilteredPosts();
+    }
+
+    const clearBtn = document.getElementById('clearFilterBtn');
+    if (clearBtn) clearBtn.addEventListener('click', resetAllFilters);
+
+    const searchForm = document.getElementById('blogSearchForm');
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('blogSearchInput');
+            searchQuery = (input.value || '').trim().toLowerCase();
+            renderFilteredPosts();
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initBlog);
+    </script>
+</body>
+</html>

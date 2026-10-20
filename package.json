@@ -1,0 +1,42 @@
+{
+  "name": "pswebstudio",
+  "version": "1.0.0",
+  "description": "PS Web Studio - Custom Website Development & CMS",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "migrate:projects": "node scripts/migrate-projects.js",
+    "migrate:blogs": "node scripts/migrate-blogs.js",
+    "migrate:all": "npm run migrate:projects && npm run migrate:blogs",
+    "dev": "npx serve .",
+    "build": "echo 'No build step required'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "web-development",
+    "cms",
+    "supabase",
+    "portfolio",
+    "pswebstudio"
+  ],
+  "author": "PS Web Studio",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pswebstudio/pswebstudio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pswebstudio/pswebstudio/issues"
+  },
+  "homepage": "https://pswebstudio.netlify.app/"
+}

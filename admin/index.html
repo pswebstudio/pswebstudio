@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSWeb Studio CMS - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f0f2f5; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .sidebar {background: var(--bs-black); min-height: 100vh; padding: 20px 0; position: sticky; top: 0; }
+        .sidebar .nav-link { color: rgba(255,255,255,0.7); padding: 12px 20px; border-radius: 8px; margin: 4px 12px; transition: all 0.3s; text-decoration: none; display: block; cursor: pointer; }
+        .sidebar .nav-link:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .sidebar .nav-link.active { background: #0d9ce0; color: #fff; }
+        .sidebar .nav-link i { width: 24px; text-align: center; margin-right: 8px; }
+        .navbar { background: #fff !important; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 12px 0; }
+        .navbar .navbar-brand { font-weight: 700; color: #1a1a2e; }
+        .navbar .navbar-brand i { color: #0d9ce0; }
+        .stat-card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; height: 100%; }
+        .stat-card:hover { transform: translateY(-4px); }
+        .stat-card .icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .stat-card .icon.blue { background: #e7f1ff; color: #0d9ce0; }
+        .stat-card .icon.green { background: #d1e7dd; color: #198754; }
+        .stat-card .icon.orange { background: #fff3cd; color: #ffc107; }
+        .stat-card .icon.purple { background: #e7d4f5; color: #6f42c1; }
+        .table-card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .admin-content { padding: 20px; }
+        #content-area { min-height: 400px; }
+        .loading-spinner { display: flex; justify-content: center; align-items: center; min-height: 300px; }
+        .admin-user { color: #495057; font-size: 14px; }
+        .admin-user i { color: #0d9ce0; }
+        .logout-btn { border: none; background: transparent; color: #dc3545; font-weight: 600; transition: color 0.3s; cursor: pointer; }
+        .logout-btn:hover { color: #b02a37; }
+        .modal-lg { max-width: 900px; }
+        .form-section { background: #f8f9fa; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+        .form-section h6 { color: #1a1a2e; margin-bottom: 12px; font-weight: 600; }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; min-height: 44px; background: #fff; }
+        .tag-item { background: #0d9ce0; color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; }
+        .tag-item .remove-tag { cursor: pointer; opacity: 0.7; }
+        .tag-item .remove-tag:hover { opacity: 1; }
+        .tag-input { border: none; outline: none; flex: 1; min-width: 100px; background: transparent; }
+        .toast-notification { position: fixed; bottom: 20px; right: 20px; background: #198754; color: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); display: none; z-index: 9999; animation: slideIn 0.3s ease; }
+        .toast-notification.error { background: #dc3545; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @media (max-width: 768px) { .sidebar { min-height: auto; position: relative; } .sidebar .nav { flex-direction: row; overflow-x: auto; flex-wrap: nowrap; } .sidebar .nav-link { white-space: nowrap; margin: 4px 6px; padding: 8px 16px; font-size: 14px; } }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="admin-user" id="adminUser"><i class="fas fa-user-circle"></i> Loading...</span>
+                <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 sidebar d-none d-md-block">
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link active" data-section="dashboard" href="#"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" data-section="projects" href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" data-section="blogs" href="#"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" data-section="services" href="#"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li class="nav-item"><a class="nav-link" data-section="testimonials" href="#"><i class="fas fa-comment"></i> Testimonials</a></li>
+                    <li class="nav-item mt-4"><a class="nav-link" href="/pswebstudio/" target="_blank"><i class="fas fa-eye"></i> View Site</a></li>
+                </ul>
+            </nav>
+
+            <main class="col-md-10 admin-content">
+                <div id="content-area">
+                    <div class="loading-spinner"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Add New</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-notification" id="toast"><i class="fas fa-check-circle me-2"></i> <span id="toastMessage">Success!</span></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm"
+        }
+    }
+    </script>
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
+
+        const supabaseUrl = 'https://jerlrkqevhevulupcowu.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg';
+
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        let modalInstance = null;
+
+        function escapeHtml(value) {
+            if (value === null || value === undefined) return '';
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.textContent = message;
+            toast.className = 'toast-notification' + (type === 'error' ? ' error' : '');
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        async function checkAuth() {
+            try {
+                const { data } = await supabase.auth.getSession();
+                if (!data.session) {
+                    window.location.href = '/pswebstudio/admin/login.html';
+                    return false;
+                }
+                const { data: userData } = await supabase.auth.getUser();
+                if (userData?.user) {
+                    document.getElementById('adminUser').innerHTML =
+                        `<i class="fas fa-user-circle"></i> ${escapeHtml(userData.user.email)}`;
+                }
+                return true;
+            } catch (error) {
+                window.location.href = '/pswebstudio/admin/login.html';
+                return false;
+            }
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            if (confirm('Are you sure you want to logout?')) {
+                await supabase.auth.signOut();
+                window.location.href = '/pswebstudio/admin/login.html';
+            }
+        });
+
+        document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.sidebar .nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                loadSection(link.dataset.section);
+            });
+        });
+
+        async function loadSection(section) {
+            const area = document.getElementById('content-area');
+            try {
+                switch(section) {
+                    case 'dashboard': area.innerHTML = await getDashboardHTML(); break;
+                    case 'projects': area.innerHTML = await getProjectsHTML(); break;
+                    case 'blogs': area.innerHTML = await getBlogsHTML(); break;
+                    case 'services': area.innerHTML = `<div class="text-center py-5"><h3>Services Management</h3><p class="text-muted">Coming soon...</p></div>`; break;
+                    case 'testimonials': area.innerHTML = `<div class="text-center py-5"><h3>Testimonials Management</h3><p class="text-muted">Coming soon...</p></div>`; break;
+                    default: area.innerHTML = `<div class="text-center py-5"><h3>Welcome to CMS</h3><p class="text-muted">Select an option from the sidebar</p></div>`;
+                }
+            } catch (error) {
+                area.innerHTML = `<div class="alert alert-danger">Error: ${escapeHtml(error.message)}</div>`;
+            }
+        }
+
+        async function getDashboardHTML() {
+            const [projects, blogs] = await Promise.all([
+                supabase.from('projects').select('count', { count: 'exact' }),
+                supabase.from('blogs').select('count', { count: 'exact' })
+            ]);
+            return `
+                <h3 class="mb-4">Dashboard</h3>
+                <div class="row g-4">
+                    <div class="col-md-3 col-sm-6"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><h6 class="text-muted mb-1">Total Projects</h6><h2 class="mb-0">${projects.count || 0}</h2></div><div class="icon blue"><i class="fas fa-project-diagram"></i></div></div></div></div>
+                    <div class="col-md-3 col-sm-6"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><h6 class="text-muted mb-1">Total Blogs</h6><h2 class="mb-0">${blogs.count || 0}</h2></div><div class="icon green"><i class="fas fa-blog"></i></div></div></div></div>
+                    <div class="col-md-3 col-sm-6"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><h6 class="text-muted mb-1">Services</h6><h2 class="mb-0">0</h2></div><div class="icon orange"><i class="fas fa-cogs"></i></div></div></div></div>
+                    <div class="col-md-3 col-sm-6"><div class="stat-card"><div class="d-flex justify-content-between align-items-center"><div><h6 class="text-muted mb-1">Testimonials</h6><h2 class="mb-0">0</h2></div><div class="icon purple"><i class="fas fa-comment"></i></div></div></div></div>
+                </div>
+                <div class="table-card mt-4"><h5>Quick Actions</h5><div class="d-flex gap-3 flex-wrap">
+                    <a href="#" class="btn btn-primary" onclick="loadSection('projects')"><i class="fas fa-list"></i> Manage Projects</a>
+                    <a href="#" class="btn btn-success" onclick="loadSection('blogs')"><i class="fas fa-list"></i> Manage Blogs</a>
+                </div></div>
+            `;
+        }
+
+        let currentProjectId = null;
+
+        async function getProjectsHTML() {
+            const { data: projects, error } = await supabase.from('projects').select('*').order('display_order', { ascending: true });
+            if (error) throw error;
+
+            return `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3>Projects</h3>
+                    <button class="btn btn-primary" onclick="openProjectForm()"><i class="fas fa-plus"></i> Add Project</button>
+                </div>
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead><tr><th>Title</th><th>Client</th><th>Industry</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                ${projects && projects.length > 0 ? projects.map(p => `
+                                    <tr>
+                                        <td><strong>${escapeHtml(p.title)}</strong></td>
+                                        <td>${escapeHtml(p.client || 'N/A')}</td>
+                                        <td>${escapeHtml(p.industry || 'N/A')}</td>
+                                        <td><span class="badge ${p.status === 'Live' ? 'bg-success' : 'bg-warning'}">${escapeHtml(p.status || 'Draft')}</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" onclick="openProjectForm('${p.id}')"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteProject('${p.id}')"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                `).join('') : `<tr><td colspan="5" class="text-center text-muted">No projects found</td></tr>`}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.openProjectForm = async function(id = null) {
+            currentProjectId = id;
+            const modal = document.getElementById('editModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            let project = { 
+                title: '', 
+                description: '', 
+                client: '', 
+                industry: '', 
+                type: '', 
+                timeline: '', 
+                team: '', 
+                status: 'Live', 
+                year: '2026', 
+                features: [], 
+                tech_stack: { frontend: [], backend: [] }, 
+                images: [],
+                scope: { design: '', development: '', database: '', deployment: '' }, 
+                testimonial: '',
+                testimonial_author: '',
+                live_url: '' 
+            };
+
+            if (id) {
+                const { data } = await supabase.from('projects').select('*').eq('id', id).single();
+                if (data) {
+                    project = data;
+                    // Ensure tech_stack is an object
+                    if (typeof project.tech_stack === 'string') {
+                        try { project.tech_stack = JSON.parse(project.tech_stack); } 
+                        catch(e) { project.tech_stack = { frontend: [], backend: [] }; }
+                    }
+                    if (!project.tech_stack) project.tech_stack = { frontend: [], backend: [] };
+                    if (!project.tech_stack.frontend) project.tech_stack.frontend = [];
+                    if (!project.tech_stack.backend) project.tech_stack.backend = [];
+                    
+                    // Ensure scope is an object
+                    if (typeof project.scope === 'string') {
+                        try { project.scope = JSON.parse(project.scope); } 
+                        catch(e) { project.scope = {}; }
+                    }
+                    if (!project.scope) project.scope = {};
+                    
+                    // Ensure images is an array
+                    if (!project.images) project.images = [];
+                }
+                title.textContent = 'Edit Project';
+            } else {
+                title.textContent = 'Add New Project';
+            }
+
+            body.innerHTML = `
+                <form id="projectForm">
+                    <!-- Basic Information -->
+                    <div class="row">
+                        <div class="col-md-6"><div class="form-section"><h6>Basic Information</h6>
+                            <div class="mb-2"><label class="form-label">Title *</label><input type="text" class="form-control" id="p_title" value="${escapeHtml(project.title || '')}" required></div>
+                            <div class="mb-2"><label class="form-label">Description</label><textarea class="form-control" id="p_description" rows="2">${escapeHtml(project.description || '')}</textarea></div>
+                            <div class="mb-2"><label class="form-label">Client</label><input type="text" class="form-control" id="p_client" value="${escapeHtml(project.client || '')}"></div>
+                            <div class="mb-2"><label class="form-label">Industry</label><input type="text" class="form-control" id="p_industry" value="${escapeHtml(project.industry || '')}"></div>
+                        </div></div>
+                        <div class="col-md-6"><div class="form-section"><h6>Project Details</h6>
+                            <div class="mb-2"><label class="form-label">Type</label><input type="text" class="form-control" id="p_type" value="${escapeHtml(project.type || '')}"></div>
+                            <div class="mb-2"><label class="form-label">Timeline</label><input type="text" class="form-control" id="p_timeline" value="${escapeHtml(project.timeline || '')}"></div>
+                            <div class="mb-2"><label class="form-label">Team</label><input type="text" class="form-control" id="p_team" value="${escapeHtml(project.team || '')}"></div>
+                            <div class="mb-2"><label class="form-label">Status</label>
+                                <select class="form-control" id="p_status">
+                                    <option value="Live" ${project.status === 'Live' ? 'selected' : ''}>Live</option>
+                                    <option value="Draft" ${project.status === 'Draft' ? 'selected' : ''}>Draft</option>
+                                    <option value="Coming Soon" ${project.status === 'Coming Soon' ? 'selected' : ''}>Coming Soon</option>
+                                </select>
+                            </div>
+                            <div class="mb-2"><label class="form-label">Year</label><input type="text" class="form-control" id="p_year" value="${escapeHtml(project.year || '2026')}"></div>
+                        </div></div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div class="row">
+                        <div class="col-md-6"><div class="form-section"><h6>Frontend Technologies</h6>
+                            <div class="tag-container" id="p_frontend_container">
+                                ${(project.tech_stack?.frontend || []).map(f => `<span class="tag-item">${escapeHtml(f)} <span class="remove-tag" onclick="this.parentElement.remove()">&times;</span></span>`).join('')}
+                                <input type="text" class="tag-input" id="p_frontend_input" placeholder="Add frontend tech and press Enter...">
+                            </div>
+                        </div></div>
+                        <div class="col-md-6"><div class="form-section"><h6>Backend Technologies</h6>
+                            <div class="tag-container" id="p_backend_container">
+                                ${(project.tech_stack?.backend || []).map(f => `<span class="tag-item">${escapeHtml(f)} <span class="remove-tag" onclick="this.parentElement.remove()">&times;</span></span>`).join('')}
+                                <input type="text" class="tag-input" id="p_backend_input" placeholder="Add backend tech and press Enter...">
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="row">
+                        <div class="col-md-12"><div class="form-section"><h6>Features</h6>
+                            <div class="tag-container" id="p_features_container">
+                                ${(project.features || []).map(f => `<span class="tag-item">${escapeHtml(f)} <span class="remove-tag" onclick="this.parentElement.remove()">&times;</span></span>`).join('')}
+                                <input type="text" class="tag-input" id="p_features_input" placeholder="Add feature and press Enter...">
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <!-- Scope -->
+                    <div class="row">
+                        <div class="col-md-6"><div class="form-section"><h6>Scope - Design</h6>
+                            <textarea class="form-control" id="p_scope_design" rows="2">${escapeHtml(project.scope?.design || '')}</textarea>
+                        </div></div>
+                        <div class="col-md-6"><div class="form-section"><h6>Scope - Development</h6>
+                            <textarea class="form-control" id="p_scope_development" rows="2">${escapeHtml(project.scope?.development || '')}</textarea>
+                        </div></div>
+                        <div class="col-md-6"><div class="form-section"><h6>Scope - Database</h6>
+                            <textarea class="form-control" id="p_scope_database" rows="2">${escapeHtml(project.scope?.database || '')}</textarea>
+                        </div></div>
+                        <div class="col-md-6"><div class="form-section"><h6>Scope - Deployment</h6>
+                            <textarea class="form-control" id="p_scope_deployment" rows="2">${escapeHtml(project.scope?.deployment || '')}</textarea>
+                        </div></div>
+                    </div>
+
+                    <!-- Testimonial -->
+                    <div class="row">
+                        <div class="col-md-12"><div class="form-section"><h6>Testimonial</h6>
+                            <div class="mb-2"><label class="form-label">Testimonial Text</label>
+                                <textarea class="form-control" id="p_testimonial" rows="2">${escapeHtml(project.testimonial || '')}</textarea>
+                            </div>
+                            <div class="mb-2"><label class="form-label">Testimonial Author</label>
+                                <input type="text" class="form-control" id="p_testimonial_author" value="${escapeHtml(project.testimonial_author || '')}">
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <!-- Images -->
+                    <div class="row">
+                        <div class="col-md-12"><div class="form-section"><h6>Gallery Images</h6>
+                            <div class="tag-container" id="p_images_container">
+                                ${(project.images || []).map(f => `<span class="tag-item">${escapeHtml(f)} <span class="remove-tag" onclick="this.parentElement.remove()">&times;</span></span>`).join('')}
+                                <input type="text" class="tag-input" id="p_images_input" placeholder="Add image filename and press Enter...">
+                            </div>
+                            <small class="text-muted">Enter image filenames (e.g., project-name.png)</small>
+                        </div></div>
+                    </div>
+
+                    <!-- Live URL -->
+                    <div class="row">
+                        <div class="col-md-12"><div class="form-section"><h6>Live URL</h6>
+                            <div class="mb-2"><label class="form-label">Website URL</label>
+                                <input type="url" class="form-control" id="p_live_url" value="${escapeHtml(project.live_url || '')}">
+                            </div>
+                        </div></div>
+                    </div>
+
+                    <div class="text-end"><button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button></div>
+                </form>
+            `;
+
+            // Setup all tag inputs
+            setupTagInput('p_features_input', 'p_features_container');
+            setupTagInput('p_frontend_input', 'p_frontend_container');
+            setupTagInput('p_backend_input', 'p_backend_container');
+            setupTagInput('p_images_input', 'p_images_container');
+
+            function setupTagInput(inputId, containerId) {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            const val = input.value.trim();
+                            if (val) {
+                                const container = document.getElementById(containerId);
+                                const tag = document.createElement('span');
+                                tag.className = 'tag-item';
+                                tag.append(val + ' ');
+                                const remove = document.createElement('span');
+                                remove.className = 'remove-tag';
+                                remove.textContent = '\u00d7';
+                                remove.addEventListener('click', () => tag.remove());
+                                tag.appendChild(remove);
+                                container.insertBefore(tag, input);
+                                input.value = '';
+                            }
+                        }
+                    });
+                }
+            }
+
+            document.getElementById('projectForm').onsubmit = async (e) => {
+                e.preventDefault();
+
+                // Get all tags
+                function getTags(containerId) {
+                    const tags = [];
+                    document.querySelectorAll(`#${containerId} .tag-item`).forEach(el => {
+                        const remove = el.querySelector('.remove-tag');
+                        const text = remove ? el.textContent.slice(0, -remove.textContent.length) : el.textContent;
+                        tags.push(text.trim());
+                    });
+                    return tags;
+                }
+
+                // Build data object
+                const data = {
+                    title: document.getElementById('p_title').value.trim(),
+                    description: document.getElementById('p_description').value.trim(),
+                    client: document.getElementById('p_client').value.trim(),
+                    industry: document.getElementById('p_industry').value.trim(),
+                    type: document.getElementById('p_type').value.trim(),
+                    timeline: document.getElementById('p_timeline').value.trim(),
+                    team: document.getElementById('p_team').value.trim(),
+                    status: document.getElementById('p_status').value,
+                    year: document.getElementById('p_year').value.trim(),
+                    features: getTags('p_features_container'),
+                    tech_stack: {
+                        frontend: getTags('p_frontend_container'),
+                        backend: getTags('p_backend_container')
+                    },
+                    images: getTags('p_images_container'),
+                    scope: {
+                        design: document.getElementById('p_scope_design').value.trim(),
+                        development: document.getElementById('p_scope_development').value.trim(),
+                        database: document.getElementById('p_scope_database').value.trim(),
+                        deployment: document.getElementById('p_scope_deployment').value.trim()
+                    },
+                    testimonial: document.getElementById('p_testimonial').value.trim(),
+                    testimonial_author: document.getElementById('p_testimonial_author').value.trim(),
+                    live_url: document.getElementById('p_live_url').value.trim(),
+                    slug: document.getElementById('p_title').value.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+                };
+
+                try {
+                    let result;
+                    if (currentProjectId) {
+                        result = await supabase.from('projects').update(data).eq('id', currentProjectId);
+                    } else {
+                        result = await supabase.from('projects').insert([data]);
+                    }
+                    
+                    if (result.error) throw result.error;
+                    
+                    showToast(currentProjectId ? 'Project updated successfully!' : 'Project added successfully!');
+                    bootstrap.Modal.getInstance(modal).hide();
+                    loadSection('projects');
+                } catch (error) {
+                    console.error('Save error:', error);
+                    showToast('Error: ' + error.message, 'error');
+                }
+            };
+
+            if (!modalInstance) modalInstance = new bootstrap.Modal(modal);
+            modalInstance.show();
+        };
+
+        window.deleteProject = async function(id) {
+            if (confirm('Are you sure you want to delete this project?')) {
+                try {
+                    const { error } = await supabase.from('projects').delete().eq('id', id);
+                    if (error) throw error;
+                    showToast('Project deleted successfully!');
+                    loadSection('projects');
+                } catch (error) {
+                    showToast('Error: ' + error.message, 'error');
+                }
+            }
+        };
+
+        let currentBlogId = null;
+
+        async function getBlogsHTML() {
+            const { data: blogs, error } = await supabase.from('blogs').select('*').order('display_order', { ascending: true });
+            if (error) throw error;
+
+            return `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3>Blogs</h3>
+                    <button class="btn btn-primary" onclick="openBlogForm()"><i class="fas fa-plus"></i> Add Blog</button>
+                </div>
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead><tr><th>Title</th><th>Category</th><th>Date</th><th>Comments</th><th>Actions</th></tr></thead>
+                            <tbody>
+                                ${blogs && blogs.length > 0 ? blogs.map(b => `
+                                    <tr>
+                                        <td><strong>${escapeHtml(b.title)}</strong></td>
+                                        <td>${escapeHtml(b.category || 'General')}</td>
+                                        <td>${escapeHtml(b.date || 'N/A')}</td>
+                                        <td>${Number(b.comments) || 0}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" onclick="openBlogForm('${b.id}')"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteBlog('${b.id}')"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                `).join('') : `<tr><td colspan="5" class="text-center text-muted">No blogs found</td></tr>`}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.openBlogForm = async function(id = null) {
+            currentBlogId = id;
+            const modal = document.getElementById('editModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            let blog = { title: '', category: '', author: 'PS Web Studio', date: '', comments: 0, excerpt: '', content: '', tags: [], image: '' };
+
+            if (id) {
+                const { data } = await supabase.from('blogs').select('*').eq('id', id).single();
+                if (data) blog = data;
+                title.textContent = 'Edit Blog';
+            } else {
+                title.textContent = 'Add New Blog';
+            }
+
+            body.innerHTML = `
+                <form id="blogForm">
+                    <div class="row">
+                        <div class="col-md-6"><div class="form-section"><h6>Blog Information</h6>
+                            <div class="mb-2"><label class="form-label">Title *</label><input type="text" class="form-control" id="b_title" value="${escapeHtml(blog.title || '')}" required></div>
+                            <div class="mb-2"><label class="form-label">Category</label><input type="text" class="form-control" id="b_category" value="${escapeHtml(blog.category || '')}"></div>
+                            <div class="mb-2"><label class="form-label">Author</label><input type="text" class="form-control" id="b_author" value="${escapeHtml(blog.author || 'PS Web Studio')}"></div>
+                            <div class="mb-2"><label class="form-label">Date</label><input type="text" class="form-control" id="b_date" value="${escapeHtml(blog.date || '')}" placeholder="15 September 2026"></div>
+                            <div class="mb-2"><label class="form-label">Comments</label><input type="number" class="form-control" id="b_comments" value="${Number(blog.comments) || 0}"></div>
+                        </div></div>
+                        <div class="col-md-6"><div class="form-section"><h6>Media & Tags</h6>
+                            <div class="mb-2"><label class="form-label">Image Filename</label><input type="text" class="form-control" id="b_image" value="${escapeHtml(blog.image || '')}" placeholder="blog-1.jpg"></div>
+                            <div class="mb-2"><label class="form-label">Tags</label>
+                                <div class="tag-container" id="b_tags_container">
+                                    ${(blog.tags || []).map(t => `<span class="tag-item">${escapeHtml(t)} <span class="remove-tag" onclick="this.parentElement.remove()">&times;</span></span>`).join('')}
+                                    <input type="text" class="tag-input" id="b_tags_input" placeholder="Add tag and press Enter...">
+                                </div>
+                            </div>
+                        </div></div>
+                    </div>
+                    <div class="form-section"><h6>Content</h6>
+                        <div class="mb-2"><label class="form-label">Excerpt</label><textarea class="form-control" id="b_excerpt" rows="2">${escapeHtml(blog.excerpt || '')}</textarea></div>
+                        <div class="mb-2"><label class="form-label">Full Content (HTML allowed)</label><textarea class="form-control" id="b_content" rows="4">${blog.content || ''}</textarea></div>
+                    </div>
+                    <div class="text-end"><button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button></div>
+                </form>
+            `;
+
+            const tagInput = document.getElementById('b_tags_input');
+            if (tagInput) {
+                tagInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const val = tagInput.value.trim();
+                        if (val) {
+                            const container = document.getElementById('b_tags_container');
+                            const tag = document.createElement('span');
+                            tag.className = 'tag-item';
+                            tag.append(val + ' ');
+                            const remove = document.createElement('span');
+                            remove.className = 'remove-tag';
+                            remove.textContent = '\u00d7';
+                            remove.addEventListener('click', () => tag.remove());
+                            tag.appendChild(remove);
+                            container.insertBefore(tag, tagInput);
+                            tagInput.value = '';
+                        }
+                    }
+                });
+            }
+
+            document.getElementById('blogForm').onsubmit = async (e) => {
+                e.preventDefault();
+                const tags = [];
+                document.querySelectorAll('#b_tags_container .tag-item').forEach(el => {
+                    const remove = el.querySelector('.remove-tag');
+                    const text = remove ? el.textContent.slice(0, -remove.textContent.length) : el.textContent;
+                    tags.push(text.trim());
+                });
+
+                const data = {
+                    title: document.getElementById('b_title').value.trim(),
+                    category: document.getElementById('b_category').value.trim(),
+                    author: document.getElementById('b_author').value.trim(),
+                    date: document.getElementById('b_date').value.trim(),
+                    comments: parseInt(document.getElementById('b_comments').value) || 0,
+                    image: document.getElementById('b_image').value.trim(),
+                    excerpt: document.getElementById('b_excerpt').value.trim(),
+                    content: document.getElementById('b_content').value,
+                    tags: tags,
+                    slug: document.getElementById('b_title').value.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+                };
+
+                try {
+                    if (currentBlogId) {
+                        await supabase.from('blogs').update(data).eq('id', currentBlogId);
+                        showToast('Blog updated successfully!');
+                    } else {
+                        await supabase.from('blogs').insert([data]);
+                        showToast('Blog added successfully!');
+                    }
+                    bootstrap.Modal.getInstance(modal).hide();
+                    loadSection('blogs');
+                } catch (error) {
+                    showToast('Error: ' + error.message, 'error');
+                }
+            };
+
+            if (!modalInstance) modalInstance = new bootstrap.Modal(modal);
+            modalInstance.show();
+        };
+
+        window.deleteBlog = async function(id) {
+            if (confirm('Are you sure you want to delete this blog?')) {
+                try {
+                    await supabase.from('blogs').delete().eq('id', id);
+                    showToast('Blog deleted successfully!');
+                    loadSection('blogs');
+                } catch (error) {
+                    showToast('Error: ' + error.message, 'error');
+                }
+            }
+        };
+
+        window.loadSection = loadSection;
+        const isAuth = await checkAuth();
+        if (isAuth) loadSection('dashboard');
+    </script>
+</body>
+</html>

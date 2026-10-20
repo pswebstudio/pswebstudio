@@ -1,0 +1,271 @@
+{
+  "projects": {
+    "andaman-dmc": {
+      "title": "Andaman DMC",
+      "description": "A comprehensive travel and tour management platform built by PS Web Studio that streamlines destination management operations with powerful booking and content management capabilities. This all-in-one solution enables seamless tour package creation, real-time booking processing, and efficient customer relationship management for travel professionals.",
+      "client": "Andaman DMC Team",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "6 Weeks",
+      "team": "3 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Tour Package Management - Create, edit, and manage comprehensive tour packages with detailed pricing structures, high-quality images, and complex multi-day itineraries with ease.",
+        "Online Booking System - Real-time booking engine with date selection, multiple ticket types, secure payment gateway integration, and instant confirmation emails.",
+        "Admin Dashboard - Full-featured CMS for effortless management of content, bookings, customer data, and reporting analytics.",
+        "Dynamic Search & Filter - Advanced search functionality allowing users to filter packages by destination, trip duration, price range, and activity type.",
+        "Responsive Design - Fully optimized experience across desktop, tablet, and mobile devices with touch-friendly interfaces.",
+        "SEO Optimization - Comprehensive SEO implementation including meta tags, XML sitemaps, and schema markup for improved search visibility.",
+        "Enquiry & Contact Forms - Custom-built forms with email notifications, database storage, and automated response management."
+      ],
+      "techStack": {
+        "frontend": ["HTML5 / CSS3", "JavaScript (ES6+)", "Bootstrap 5", "Responsive UI Design"],
+        "backend": ["PHP (Core / Laravel)", "MySQL Database", "AJAX / jQuery", "RESTful API Integration"]
+      },
+      "images": ["andaman-dmc.png", "andaman-dmc2.png", "andaman-dmc3.png"],
+      "scope": {
+        "design": "Custom UI/UX design, wireframing, and responsive mockups built around the client's brand identity and target audience preferences.",
+        "development": "Full-stack development with PHP, MySQL, HTML5, CSS3, and JavaScript following best practices and coding standards.",
+        "database": "MySQL database design with optimized queries, secure data handling, and efficient relationship management.",
+        "deployment": "Professional hosting setup, domain configuration, SSL installation, and performance optimization for fast loading."
+      },
+      "testimonial": "PS Web Studio delivered a professional, feature-rich platform that exceeded our expectations. The booking system works flawlessly, and the admin panel makes content management effortless. Our business operations have become significantly more efficient.",
+      "testimonialAuthor": "Andaman DMC Team",
+      "liveUrl": "https://www.andamandmc.com"
+    },
+    "andaman-vacations": {
+      "title": "Andaman Vacations",
+      "description": "A premium vacation booking platform offering curated travel experiences across the Andaman Islands with a focus on luxury, personalization, and seamless user experience. This sophisticated platform combines modern design with powerful functionality to deliver exceptional travel planning services.",
+      "client": "Andaman Vacations Pvt Ltd",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "8 Weeks",
+      "team": "4 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Vacation Package Customization - Build your own itinerary with flexible options including hotel selection, activity choices, and duration preferences.",
+        "Real-time Availability Check - Live inventory management for hotels, cruises, and activities with instant availability updates.",
+        "Multi-currency Support - Seamless payments in USD, EUR, INR, and other major currencies with real-time exchange rates.",
+        "Advanced Filtering - Sophisticated filtering by budget, duration, activities, accommodation type, and traveler preferences.",
+        "User Reviews & Ratings - Authentic traveler reviews with verified purchase badges and comprehensive rating system.",
+        "Travel Blog Integration - SEO-optimized blog platform with travel tips, destination guides, and insider recommendations.",
+        "Mobile-First Design - Fully responsive with dedicated mobile booking experience and touch-optimized interfaces.",
+        "WhatsApp Integration - Direct chat support for instant customer assistance and real-time query resolution."
+      ],
+      "techStack": {
+        "frontend": ["React.js", "Tailwind CSS", "Redux", "Responsive UI Design"],
+        "backend": ["Node.js", "Express.js", "MongoDB", "JWT Authentication", "RESTful API"]
+      },
+      "images": ["andaman-vacations.png", "andaman-vacations2.png", "andaman-vacations3.png"],
+      "scope": {
+        "design": "Modern UI/UX design with focus on premium vacation experience, smooth booking flow, and visually engaging interfaces.",
+        "development": "Full-stack development with React.js, Node.js, and MongoDB for scalable high-performance applications.",
+        "database": "MongoDB database with optimized schemas for bookings, user profiles, travel packages, and reviews.",
+        "deployment": "AWS Cloud deployment with auto-scaling, CDN integration, and disaster recovery capabilities."
+      },
+      "testimonial": "The Andaman Vacations platform has transformed our business. The booking system is seamless, and our customers love the easy-to-use interface. PS Web Studio delivered beyond our expectations with exceptional quality and attention to detail.",
+      "testimonialAuthor": "Andaman Vacations Team",
+      "liveUrl": "https://www.andaman.vacations"
+    },
+    "andaman-travel-agent": {
+      "title": "Andaman Travel Agent",
+      "description": "A curated tour and travel platform offering local expertise and customized experiences across the Andaman Islands with a focus on authentic island adventures. This user-friendly platform connects travelers with verified local guides and unique island experiences.",
+      "client": "Andaman Travel Agent",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "5 Weeks",
+      "team": "2 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Curated Tour Packages - Handpicked experiences with local expertise featuring unique island adventures and cultural immersion.",
+        "Custom Itinerary Builder - Build your perfect trip with flexible options including activity selection, duration, and accommodation preferences.",
+        "Local Guide Integration - Connect with verified local guides who provide authentic island experiences and insider knowledge.",
+        "Activity Booking - Book water sports, scuba diving, island hopping, and adventure activities with instant confirmation.",
+        "Real-time Availability - Check tour and activity availability instantly with live inventory management.",
+        "Mobile-Friendly Design - Optimized for travelers on the go with responsive interfaces and touch-friendly navigation."
+      ],
+      "techStack": {
+        "frontend": ["HTML5 / CSS3", "JavaScript", "Bootstrap 5", "Responsive Design"],
+        "backend": ["PHP", "MySQL", "AJAX", "jQuery"]
+      },
+      "images": ["andaman-travel-agent.png"],
+      "scope": {
+        "design": "Travel-focused UI/UX with emphasis on visual storytelling, authentic imagery, and intuitive navigation.",
+        "development": "Full-stack development with PHP and MySQL for efficient tour management and booking processing.",
+        "database": "MySQL database for tour packages, bookings, customer data, and guide management.",
+        "deployment": "Shared hosting with CDN integration and SSL configuration for security."
+      },
+      "testimonial": "PS Web Studio understood our local expertise and built a platform that truly showcases it. Our customers love the easy booking process and the authentic experiences we offer. Highly recommended!",
+      "testimonialAuthor": "Andaman Travel Agent",
+      "liveUrl": "https://www.andamantravelagent.com"
+    },
+    "quest-guide-india": {
+      "title": "Quest Guide India",
+      "description": "A pan-India tour and travel services platform connecting travelers with authentic experiences across the country through expert local guides and curated itineraries. This comprehensive platform covers all major destinations with multi-city travel planning.",
+      "client": "Quest Guide India",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "7 Weeks",
+      "team": "3 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Pan-India Tour Packages - Comprehensive coverage of all major destinations across India with expert curated experiences.",
+        "Multi-city Itineraries - Create complex multi-destination trips with seamless transitions between cities and experiences.",
+        "Cultural Experience Booking - Book heritage walks, cooking classes, traditional performances, and cultural immersion activities.",
+        "Transport Integration - Book flights, trains, and local transport with real-time availability and pricing.",
+        "Customer Reviews - Authentic reviews from verified travelers with detailed feedback and ratings.",
+        "Multi-language Support - Content available in English, Hindi, and regional languages for wider audience reach."
+      ],
+      "techStack": {
+        "frontend": ["React.js", "CSS3", "Bootstrap", "Responsive UI"],
+        "backend": ["Node.js", "Express.js", "MongoDB", "RESTful API"]
+      },
+      "images": ["qg.png"],
+      "scope": {
+        "design": "Modern, vibrant UI reflecting India's diverse culture and travel experiences with engaging visual storytelling.",
+        "development": "Full-stack development with React and Node.js for scalable high-performance applications.",
+        "database": "MongoDB for flexible tour package data, booking management, and user profiles.",
+        "deployment": "Cloud hosting with auto-scaling capabilities and global CDN distribution."
+      },
+      "testimonial": "Quest Guide India now has a professional platform that represents our pan-India presence perfectly. The multi-city booking feature is a game-changer for our business and our customers absolutely love it.",
+      "testimonialAuthor": "Quest Guide India Team",
+      "liveUrl": "https://www.questguideindia.com"
+    },
+    "madhya-pradesh-dmc": {
+      "title": "Madhya Pradesh DMC",
+      "description": "A specialized travel portal showcasing the heart of India with heritage tours, wildlife safaris, and cultural experiences across Madhya Pradesh. This immersive platform brings the rich cultural heritage and natural beauty of central India to travelers worldwide.",
+      "client": "Madhya Pradesh DMC",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "6 Weeks",
+      "team": "3 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Heritage Tour Packages - Explore magnificent forts, royal palaces, and UNESCO World Heritage sites with expert guides.",
+        "Wildlife Safari Booking - Book exciting safaris in national parks and sanctuaries with tiger sightings and wildlife photography.",
+        "Cultural Experience - Local crafts, festivals, cuisine experiences, and traditional art forms of Madhya Pradesh.",
+        "Custom Itinerary Builder - Create personalized MP tours with flexible options for heritage, wildlife, and culture.",
+        "Guide & Transport Integration - Book local guides and vehicles with real-time availability and competitive pricing.",
+        "Photo Gallery - Showcase MP's natural beauty and cultural heritage with professional high-quality images."
+      ],
+      "techStack": {
+        "frontend": ["HTML5 / CSS3", "JavaScript", "Bootstrap 5", "Responsive Design"],
+        "backend": ["PHP (Laravel)", "MySQL", "AJAX", "jQuery"]
+      },
+      "images": ["mp.png"],
+      "scope": {
+        "design": "Warm, inviting design reflecting Madhya Pradesh's royal heritage with rich colors and cultural elements.",
+        "development": "Laravel-based development with robust booking management and content administration features.",
+        "database": "MySQL for tour packages, bookings, customer management, and content storage.",
+        "deployment": "VPS hosting with optimization for Indian audience and fast loading speeds."
+      },
+      "testimonial": "Madhya Pradesh DMC now has a professional portal that showcases the best of MP. The wildlife safari booking feature is very popular among our customers and has significantly increased our bookings.",
+      "testimonialAuthor": "Madhya Pradesh DMC",
+      "liveUrl": "https://www.madhyapradeshdmc.com"
+    },
+    "mpdmc": {
+      "title": "MPDMC",
+      "description": "A specialized travel platform focusing on wildlife, heritage tours, and authentic experiences in Madhya Pradesh with a commitment to sustainable tourism. This purpose-built platform delivers immersive travel experiences with expert local guidance.",
+      "client": "MPDMC",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "5 Weeks",
+      "team": "2 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Wildlife Tours - Tiger safaris, wildlife photography tours, and bird watching experiences in national parks.",
+        "Heritage Walks - Guided tours of historical sites, ancient temples, and architectural marvels of Madhya Pradesh.",
+        "Custom Packages - Tailored tours for families, couples, groups, and solo travelers with personalized itineraries.",
+        "Expert Local Guides - Verified guides with deep local knowledge and expertise in wildlife and heritage.",
+        "Easy Booking - Simple booking process with instant confirmation and flexible cancellation policies.",
+        "Sightseeing Planning - Complete MP travel planning with comprehensive destination guides and recommendations."
+      ],
+      "techStack": {
+        "frontend": ["HTML5 / CSS3", "JavaScript", "Bootstrap 5"],
+        "backend": ["PHP", "MySQL", "AJAX"]
+      },
+      "images": ["mpdmc.png"],
+      "scope": {
+        "design": "Clean, professional design focused on MP's natural and cultural heritage with immersive visual experiences.",
+        "development": "PHP-based development with focus on performance, security, and user experience.",
+        "database": "MySQL for efficient data management, booking processing, and content organization.",
+        "deployment": "Optimized hosting for fast loading speeds and reliable performance."
+      },
+      "testimonial": "PS Web Studio created a beautiful platform that truly represents MP's heritage. The wildlife tour bookings have increased significantly since the launch. Their understanding of our requirements was exceptional.",
+      "testimonialAuthor": "MPDMC Team",
+      "liveUrl": "https://www.mpdmc.com"
+    },
+    "hotel-in-andaman": {
+      "title": "Hotel in Andaman",
+      "description": "A comprehensive accommodation guide and booking platform for hotels, resorts, and homestays across the Andaman Islands with real-time availability and competitive pricing. This user-friendly platform simplifies island accommodation discovery and booking.",
+      "client": "Hotel in Andaman",
+      "industry": "Hospitality",
+      "type": "Custom Web Development",
+      "timeline": "4 Weeks",
+      "team": "2 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Hotel Listing - Comprehensive listings of hotels, resorts, and homestays with detailed descriptions and high-quality images.",
+        "Real-time Availability - Check room availability instantly with live inventory management and booking confirmation.",
+        "Price Comparison - Compare prices across properties to find the best deals and value for money.",
+        "Guest Reviews - Authentic reviews from verified guests with detailed feedback and ratings system.",
+        "Location Map - Interactive maps showing property locations with distance to attractions and landmarks.",
+        "Flexible Booking - Choose from multiple booking options with flexible cancellation and modification policies."
+      ],
+      "techStack": {
+        "frontend": ["HTML5 / CSS3", "JavaScript", "Bootstrap 5"],
+        "backend": ["PHP", "MySQL", "AJAX"]
+      },
+      "images": ["hia.png"],
+      "scope": {
+        "design": "Clean, hotel-focused UI with easy navigation, intuitive search, and user-friendly booking flow.",
+        "development": "PHP development with robust hotel management system and efficient booking processing.",
+        "database": "MySQL for property data, booking management, user profiles, and review systems.",
+        "deployment": "High-availability hosting with SSL security and performance optimization."
+      },
+      "testimonial": "Hotel in Andaman has become the go-to platform for island accommodations. The real-time availability feature is excellent and our users appreciate the comprehensive property listings and easy booking process.",
+      "testimonialAuthor": "Hotel in Andaman",
+      "liveUrl": "https://www.hotelinandaman.com"
+    },
+    "markaa": {
+      "title": "Markaa",
+      "description": "A comprehensive travel brand and tour operations website offering curated experiences across India with a focus on group tours and personalized travel planning. This versatile platform combines professional tour management with exceptional user experience.",
+      "client": "Markaa",
+      "industry": "Travel & Tourism",
+      "type": "Custom Web Development",
+      "timeline": "6 Weeks",
+      "team": "3 Developers",
+      "status": "Live",
+      "year": "2026",
+      "features": [
+        "Tour Packages - Curated experiences across multiple destinations with detailed itineraries and pricing options.",
+        "Group Tour Management - Manage group bookings and itineraries with specialized features for travel groups.",
+        "Custom Travel Planning - Personalized travel planning service with expert recommendations and tailored itineraries.",
+        "Partner Network - Connect with local service providers including hotels, transport, and activity operators.",
+        "Content Management - Easy content updates with user-friendly CMS for blog posts, destinations, and guides.",
+        "SEO Optimized - Built for search visibility with comprehensive SEO implementation and content strategy."
+      ],
+      "techStack": {
+        "frontend": ["React.js", "Tailwind CSS", "Responsive Design"],
+        "backend": ["Node.js", "Express.js", "MongoDB", "RESTful API"]
+      },
+      "images": ["markaa.png"],
+      "scope": {
+        "design": "Modern, travel-focused design with engaging visuals, compelling layouts, and user-centric interfaces.",
+        "development": "Full-stack development with React and Node.js for scalable high-performance applications.",
+        "database": "MongoDB for flexible data management, content storage, and user profiles.",
+        "deployment": "Cloud deployment with CDN for global reach and optimal performance."
+      },
+      "testimonial": "Markaa now has a professional platform that represents our brand perfectly. The group tour management feature is outstanding and has significantly improved our operational efficiency. PS Web Studio delivered exceptional quality.",
+      "testimonialAuthor": "Markaa Team",
+      "liveUrl": "https://www.markaa.in"
+    }
+  }
+}

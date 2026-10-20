@@ -2,20 +2,24 @@
 <html lang="en">
     <!--<< Header Area >>-->
     <head>
-      <!-- ========== Meta Tags ========== -->
+        <!-- ========== Meta Tags ========== -->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="webtend">
-        <meta name="description" content="Roavio - Travel & Tour Booking Html Template">
+        <meta name="author" content="PS Web Studio">
+        <meta name="description" content="About PS Web Studio - A specialized web development and frontend design studio creating fast, responsive, and SEO-friendly websites since 2023.">
+        
         <!-- ======== Page title ============ -->
-        <title>Roavio - Travel & Tour Booking Html Template</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.svg">
+        <title>About Us - PS Web Studio | Web Development & UI Design</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
+        <link rel="shortcut icon" href="assets/img/favico/favicon.ico">
+
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!--<< All Min Css >>-->
         <link rel="stylesheet" href="assets/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
         <!--<< Animate.css >>-->
         <link rel="stylesheet" href="assets/css/animate.css">
         <!--<< Magnific Popup.css >>-->
@@ -33,65 +37,69 @@
     </head>
     <body>
 
-      
-       
         <!-- Preloader Start -->
-    <div id="preloader" class="preloader">
+        <div id="preloader" class="preloader">
             <div class="spinner"></div>
         </div> 
 
+        <!-- Back To Top Start -->
+        <button id="back-top" class="back-to-top show">
+            <i class="fa-regular fa-arrow-up"></i>
+        </button>
 
-        
         <!-- MouseCursor Start -->
         <div class="mouseCursor cursor-outer"></div>
         <div class="mouseCursor cursor-inner"></div>
 
-         <div class="fix-area">
+        <!-- Offcanvas Sidebar Start -->
+        <div class="fix-area">
             <div class="offcanvas__info">
                 <div class="offcanvas__wrapper">
                     <div class="offcanvas__content">
                         <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
                                 </a>
                             </div>
                             <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
+                                <button aria-label="Close offcanvas menu">
+                                    <i class="fas fa-times"></i>
                                 </button>
                             </div>
                         </div>
                         <p class="text d-none d-xl-block">
-                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                            PS Web Studio builds fast, responsive, and SEO-friendly websites for growing businesses — from custom frontend builds to database-driven web applications.
                         </p>
                         <div class="mobile-menu fix mb-3"></div>
                         <div class="offcanvas__contact">
-                            <h3>Get Appointment</h3>
-                            <form action="#" id="contact-form" method="POST" class="contact-form-items">
+                            <h3>Get In Touch</h3>
+                            <form action="contact.php" id="contact-form" method="POST" class="contact-form-items">
                                 <div class="row g-4">
                                     <div class="col-lg-12">
                                         <div class="form-clt">
-                                            <input type="text" name="name" id="name33" placeholder="Name">
+                                            <input type="text" name="name" id="name33" placeholder="Your Name" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-clt">
-                                            <input type="text" name="name" id="email33" placeholder="Email Address">
+                                            <input type="email" name="email" id="email33" placeholder="Email Address" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-clt">
-                                            <textarea name="message" id="message2" placeholder="Enter message..."></textarea>
+                                            <textarea name="message" id="message2" placeholder="Enter message..." required></textarea>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="theme-btn w-100">Send Message</button>
                                     </div>
                                 </div>
                             </form>
                             <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/pswebstudio" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                                <a href="mailto:pswebstudio.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="https://wa.me/918793400545" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -100,41 +108,22 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-         <!-- Header-Top Section Start -->
+        <!-- Header Top Section Start -->
         <div class="header-top-section">
             <div class="container-fluid">
                 <div class="header-top-wrapper">
                     <p>
-    Welcome to <span>PS Web Studio</span> creative agency, need smart ideas for your business <b>Let’s Talk</b>
-</p>
+                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <b>Let's Talk</b>
+                    </p>
                     <div class="header-right">
-                        <div class="flag-wrap">
-                            <i class="fa-solid fa-globe"></i>
-                            <div class="nice-select" tabindex="0">
-                                <span class="current">
-                                    English
-                                </span>
-                                <ul class="list">
-                                    <li data-value="1" class="option selected focus">
-                                        English
-                                    </li>
-                                    <li data-value="1" class="option">
-                                        Bangla
-                                    </li>
-                                    <li data-value="1" class="option">
-                                        Hindi
-                                    </li>
-                                </ul>
-                             </div>
-                        </div>
                         <ul class="header-list">
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
                                 <a href="mailto:pswebstudio.dev@gmail.com">Email : pswebstudio.dev@gmail.com</a>
                             </li>
                             <li>
-                               <i class="fa-solid fa-phone-flip"></i>
-                                <a href="tel:+91 87934 00545">Call : +91 87934 00545</a>
+                                <i class="fa-solid fa-phone-flip"></i>
+                                <a href="tel:+918793400545">Call : +91 87934 00545</a>
                             </li>
                         </ul>
                     </div>
@@ -143,171 +132,34 @@
         </div>
         
         <!-- Header Section Start -->
-         <header id="header-sticky" class="header-1">
+        <header id="header-sticky" class="header-1">
             <div class="container-fluid">
                 <div class="mega-menu-wrapper">
                     <div class="header-main">
                         <div class="header-left">
                             <div class="logo">
                                 <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
+                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
                                 </a>
                             </div>
-                             <div class="mean__menu-wrapper">
+                            <div class="mean__menu-wrapper">
                                 <div class="main-menu">
-                                   <nav id="mobile-menu">
+                                    <nav id="mobile-menu">
                                         <ul>
-                                            <li class="has-dropdown active menu-thumb">
-                                                <a href="index.html">
-                                                    Home 
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu has-homemenu">
-                                                    <li>
-                                                        <div class="homemenu-items">
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb">
-                                                                    <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 01
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-2.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 02
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-3.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 03
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-4.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 04
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown active d-xl-none">
-                                                <a href="index.html" class="border-none">
-                                                Home
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="index.html">Home 01</a></li>
-                                                    <li><a href="index-2.html">Home 02</a></li>
-                                                    <li><a href="index-3.html">Home 03</a></li>
-                                                    <li><a href="index-4.html">Home 04</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="destination-details.html">
-                                                    Destinations
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="destination.html">Destinations 01</a></li>
-                                                    <li><a href="destination-2.html">Destinations 02</a></li>
-                                                    <li><a href="destination-details.html">Destination Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                    Tours
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="tour-list.html">Tour List</a></li>
-                                                    <li><a href="tour-grid.html">Tour Grid</a></li>
-                                                    <li><a href="tour-sidebar.html">Tour sidebar</a></li>
-                                                    <li><a href="tour-no-sidebar.html">Tour No sidebar</a></li>
-                                                    <li><a href="tour-details.html">Tour Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="news-details.html">
-                                                    Pages
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li>
-                                                        <a href="about.html">About Us</a>
-                                                    </li>
-                                                    <li><a href="team.html">Team</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                    <li><a href="faq.html">Our Faq</a></li>
-                                                    <li><a href="gallery.html">Our Gallery</a></li>
-                                                    <li><a href="404.html">404 Page</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="news-details.html">
-                                                    Blog
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="news.html">Blog Standard</a></li>
-                                                    <li><a href="news-grid.html">Blog Grid</a></li>
-                                                    <li><a href="news-details.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact Us</a>
-                                            </li>
+                                            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                            <li><a href="index.html#services"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                            <li><a href="project.html"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                            <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                            <li class="active"><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                         <div class="header-right d-flex justify-content-end align-items-center">
-                           <div class="search-widget">
-                                <form action="#">
-                                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                    <input type="text" placeholder="Search">
-                                </form>
-                            </div>
                             <div class="header-button">
-                                <a href="contact.html" class="theme-btn">Book Now</a>
+                                <a href="contact.html" class="theme-btn">Get a Quote</a>
                             </div>
                             <div class="header__hamburger d-xl-none my-auto">
                                 <div class="sidebar__toggle">
@@ -318,106 +170,105 @@
                     </div>
                 </div>
             </div>
-        </header> 
+        </header>
 
         <div id="smooth-wrapper">
             <div id="smooth-content">
-                <!-- Hero Section Start -->
-                <div class="breadcrumb-wrapper-2 fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb/bg-1.jpg);">
+                <!-- Breadcrumb Section Start -->
+                <div class="breadcrumb-wrapper-3 fix bg-cover" style="background-image: url('assets/img/banner/portfolio-banner.png');">
                     <div class="container">
                         <div class="page-heading">
                             <div class="breadcrumb-sub-title">
-                                <h1 class="wow fadeInUp" data-wow-delay=".3s">About Us</h1>
+                                <h1 class="wow fadeInUp" data-wow-delay=".3s">About PS Web Studio</h1>
                             </div>
                             <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                            <li>
-                                <a href="index.html">
-                                    Home
-                                </a>
-                            </li>
-                            <li class="style-2">
-                            About Us
-                            </li>
-                        </ul>
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="style-2 style-3">
+                                    About Us
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- About Section-2 Start -->
+                <!-- About Overview Section Start -->
                 <section class="about-section-2 section-padding fix">
                     <div class="container">
                         <div class="about-wrapper-2 style-2">
-                            <div class="row g-4">
+                            <div class="row g-4 align-items-center">
                                 <div class="col-lg-7">
                                     <div class="about-content">
                                         <div class="section-title mb-0">
+                                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-code text-theme me-2"></i> About Our Studio</span>
                                             <h2 class="text-anim">
-                                                Passionate About Your Adventures With <b>ROAVIO</b>
+                                                Crafting Fast, Responsive &amp; Conversion-Driven Web Experiences
                                             </h2>
                                         </div>
-                                        <p class="text wow fadeInUp" data-wow-delay=".5s">
-                                            We believe travel is more than just a trip—it’s an experience that shapes your life. Our mission is to create unforgettable journeys that combine adventure, comfort, and authentic cultural encounters.
+                                        <p class="text wow fadeInUp" data-wow-delay=".4s">
+                                            Founded in 2023, <b>PS Web Studio</b> is a specialized web development and UI engineering studio based in Mumbai, India. We partner directly with growing businesses, travel operators, healthcare providers, and local brands who need high-performing websites that look stunning, load in milliseconds, and rank at the top of search results.
                                         </p>
                                         <div class="about-item">
                                             <div class="about-image wow img-custom-anim-left">
-                                                <img src="assets/img/home-2/about/about-4.jpg" alt="img">
+                                                <img src="assets/img/banner/pswebstudio-1.jpg" alt="PS Web Studio development workspace" style="border-radius: 12px; object-fit: cover;">
                                             </div>
-                                            <div class="right-content wow fadeInUp" data-wow-delay=".3s">
-                                                <ul class="nav">
+                                            <div class="right-content wow fadeInUp" data-wow-delay=".5s">
+                                                <ul class="nav" role="tablist">
                                                     <li class="nav-item">
-                                                        <a href="#Course" data-bs-toggle="tab" class="nav-link active">
-                                                        Our Mission
+                                                        <a href="#Mission" data-bs-toggle="tab" class="nav-link active" role="tab">
+                                                            Our Mission
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="#Curriculum" data-bs-toggle="tab" class="nav-link">
-                                                        Our Vision
+                                                        <a href="#Vision" data-bs-toggle="tab" class="nav-link" role="tab">
+                                                            Our Vision
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="#Philosophy" data-bs-toggle="tab" class="nav-link" role="tab">
+                                                            Our Philosophy
                                                         </a>
                                                     </li>
                                                 </ul>
                                                 <div class="tab-content">
-                                                <div id="Course" class="tab-pane fade show active">
+                                                    <div id="Mission" class="tab-pane fade show active" role="tabpanel">
                                                         <div class="content">
                                                             <p>
-                                                                Take the stress to travel with our seamless flight booking and reservation services.
+                                                                To eliminate bloated templates and provide clean, custom-coded web solutions that deliver measurable business growth, fast load speeds, and intuitive user experiences.
                                                             </p>
                                                             <ul class="list">
-                                                                <li>
-                                                                    <i class="fa-solid fa-check"></i>
-                                                                    Destination Search & Filters
-                                                                </li>
-                                                                <li>
-                                                                    <i class="fa-solid fa-check"></i>
-                                                                    Online Booking System
-                                                                </li>
-                                                                <li>
-                                                                    <i class="fa-solid fa-check"></i>
-                                                                    Blog & Travel Guides
-                                                                </li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> 100% Mobile Responsive Layouts</li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Sub-second Core Web Vitals Performance</li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Conversion-Optimized Inquiry Funnels</li>
                                                             </ul>
-                                                            <a href="about.html" class="theme-btn">Learn More Us</a>
+                                                            <a href="contact.html" class="theme-btn mt-3">Start a Project</a>
                                                         </div>
                                                     </div>
-                                                    <div id="Curriculum" class="tab-pane fade">
+                                                    <div id="Vision" class="tab-pane fade" role="tabpanel">
                                                         <div class="content">
                                                             <p>
-                                                                Take the stress to travel with our seamless flight booking and reservation services.
+                                                                To be the go-to technical partner for brands who value speed, craftsmanship, and direct collaboration over bulky agency bureaucracy and slow turnaround times.
                                                             </p>
                                                             <ul class="list">
-                                                                <li>
-                                                                    <i class="fa-solid fa-check"></i>
-                                                                    Destination Search & Filters
-                                                                </li>
-                                                                <li>
-                                                                    <i class="fa-solid fa-check"></i>
-                                                                    Online Booking System
-                                                                </li>
-                                                                <li>
-                                                                    <i class="fa-solid fa-check"></i>
-                                                                    Blog & Travel Guides
-                                                                </li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Modern Semantic HTML5 &amp; CSS3</li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Schema Structured Data &amp; On-page SEO</li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> High-converting UI/UX Patterns</li>
                                                             </ul>
-                                                            <a href="about.html" class="theme-btn">Learn More Us</a>
+                                                            <a href="project.html" class="theme-btn mt-3">Explore Portfolio</a>
+                                                        </div>
+                                                    </div>
+                                                    <div id="Philosophy" class="tab-pane fade" role="tabpanel">
+                                                        <div class="content">
+                                                            <p>
+                                                                We believe that websites should work for you 24/7. That means clean code, zero clutter, accessible design, and transparent communication from Day 1 to deployment.
+                                                            </p>
+                                                            <ul class="list">
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Direct Developer Access &amp; Support</li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Fixed &amp; Transparent Project Pricing</li>
+                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Thorough Testing &amp; Post-launch Care</li>
+                                                            </ul>
+                                                            <a href="contact.html" class="theme-btn mt-3">Get in Touch</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -428,7 +279,7 @@
                                 <div class="col-lg-5">
                                     <div class="about-image-item">
                                         <div class="about-image-2 wow img-custom-anim-top">
-                                            <img src="assets/img/home-2/about/about-5.jpg" alt="img">
+                                            <img src="assets/img/banner/pswebstudio-2.jpg" alt="Responsive design showcase" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.12);">
                                         </div>
                                     </div>
                                 </div>
@@ -437,52 +288,41 @@
                     </div>
                 </section>
 
-                <!-- Video Section-2 Start -->
-                <div class="video-section-2 fix bg-cover" style="background-image: url(assets/img/home-2/video-bg.jpg);">
-                    <div class="container">
-                        <div class="video-content">
-                            <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
-                                <i class="fa-duotone fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Counter Section Start -->
-                <section class="counter-section-2 section-padding fix">
+                <!-- Impact Numbers / Counter Section Start -->
+                <section class="counter-section-2 section-padding fix header-bg">
                     <div class="container">
                         <div class="counter-wrapper-2">
                             <div class="section-title text-center mb-0">
-                                <h2 class="text-white text-anim">Unlimited Travel Experience</h2>
-                                <p class="text-white wow fadeInUp" data-wow-delay=".5s">Crafting journeys, creating memories plan smarter, travel better</p>
+                                <h2 class="text-white text-anim">Our Real-World Track Record</h2>
+                                <p class="text-white wow fadeInUp" data-wow-delay=".4s">Proven results delivered through clean code, speed optimization, and thoughtful UI design.</p>
                             </div>
                             <div class="row">
                                 <div class="counter-main-item-2">
-                                    <div class="counter-item wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="counter-item wow fadeInUp" data-wow-delay=".2s">
                                         <div class="icon">
-                                            <i class="flaticon-costumer"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h3><span class="count">30</span>k+</h3>
-                                            <p>Total worldwide satisfied clients</p>
-                                        </div>
-                                    </div>
-                                    <div class="counter-item wow fadeInUp" data-wow-delay=".5s">
-                                        <div class="icon">
-                                            <i class="flaticon-suitcase"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h3><span class="count">500</span>+</h3>
-                                            <p>World tours available in toun</p>
-                                        </div>
-                                    </div>
-                                    <div class="counter-item wow fadeInUp" data-wow-delay=".7s">
-                                        <div class="icon">
-                                            <i class="flaticon-excursion"></i>
+                                            <i class="fa-solid fa-laptop-code text-theme" style="font-size: 38px;"></i>
                                         </div>
                                         <div class="content">
                                             <h3><span class="count">20</span>+</h3>
-                                            <p>Professional local tour guides</p>
+                                            <p>Websites Successfully Launched</p>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item wow fadeInUp" data-wow-delay=".4s">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-bolt text-theme" style="font-size: 38px;"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3><span class="count">95</span>+</h3>
+                                            <p>Average PageSpeed Performance Score</p>
+                                        </div>
+                                    </div>
+                                    <div class="counter-item wow fadeInUp" data-wow-delay=".6s">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-mobile-screen-button text-theme" style="font-size: 38px;"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h3><span class="count">100</span>%</h3>
+                                            <p>Mobile Responsive &amp; Cross-Browser</p>
                                         </div>
                                     </div>
                                 </div>
@@ -491,375 +331,227 @@
                     </div>
                 </section>
 
-                <!-- Team Section-2 Start -->
-                <div class="team-section section-padding fix">
+                <!-- Core Technologies & Expertise Section Start -->
+                <section class="benefit-tour-section section-padding fix">
                     <div class="container">
                         <div class="section-title text-center">
-                            <h2 class="text-anim">Meet Our Travel Guide</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">The leadership team guiding Togo’s success</p>
+                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-microchip text-theme me-2"></i> Tech Stack</span>
+                            <h2 class="text-anim">Modern Tools We Build With</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".4s">We choose reliable, high-performance technologies to build websites that are fast, stable, and easy to maintain.</p>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6 col-lg-3">
-                                <div class="team-image-item">
-                                    <div class="team-image">
-                                        <img src="assets/img/home-2/team/01.jpg" alt="img">
+                        <div class="row g-4">
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="choose-us-box h-100" style="padding: 30px; border-radius: 12px; background: #fff; border: 1px solid #eef2f6; transition: all 0.3s ease;">
+                                    <div class="icon mb-3" style="width: 55px; height: 55px; border-radius: 10px; background: rgba(99, 102, 241, 0.1); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fa-brands fa-html5" style="font-size: 28px; color: #e34c26;"></i>
                                     </div>
-                                    <div class="team-content">
-                                        <h3><a href="team-details.html">Emma Williams</a></h3>
-                                        <p>Senior Tour Guide</p>   
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 col-lg-3">
-                                <div class="team-image-item">
-                                    <div class="team-image">
-                                        <img src="assets/img/home-2/team/02.jpg" alt="img">
-                                    </div>
-                                    <div class="team-content">
-                                        <h3><a href="team-details.html">James Anderson</a></h3>
-                                        <p>Travel Specialist</p>   
+                                    <div class="choose-us-content">
+                                        <h5 class="mb-2">HTML5 &amp; Modern CSS3</h5>
+                                        <p class="text-muted">Semantic markup, flexbox, CSS grid, and responsive styling designed for maximum accessibility and SEO compliance.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6 col-lg-3">
-                                <div class="team-image-item">
-                                    <div class="team-image">
-                                        <img src="assets/img/home-2/team/03.jpg" alt="img">
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="choose-us-box h-100" style="padding: 30px; border-radius: 12px; background: #fff; border: 1px solid #eef2f6; transition: all 0.3s ease;">
+                                    <div class="icon mb-3" style="width: 55px; height: 55px; border-radius: 10px; background: rgba(247, 223, 30, 0.15); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fa-brands fa-js" style="font-size: 28px; color: #d4a000;"></i>
                                     </div>
-                                    <div class="team-content">
-                                        <h3><a href="team-details.html">Sophia Martinez</a></h3>
-                                        <p>Cultural Guide</p>   
+                                    <div class="choose-us-content">
+                                        <h5 class="mb-2">JavaScript &amp; Interactivity</h5>
+                                        <p class="text-muted">Clean ES6+ JavaScript, smooth GSAP animations, dynamic filters, modal systems, and responsive touch sliders.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6 col-lg-3">
-                                <div class="team-image-item">
-                                    <div class="team-image">
-                                        <img src="assets/img/home-2/team/04.jpg" alt="img">
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="choose-us-box h-100" style="padding: 30px; border-radius: 12px; background: #fff; border: 1px solid #eef2f6; transition: all 0.3s ease;">
+                                    <div class="icon mb-3" style="width: 55px; height: 55px; border-radius: 10px; background: rgba(13, 110, 253, 0.1); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fa-brands fa-bootstrap" style="font-size: 28px; color: #7952b3;"></i>
                                     </div>
-                                    <div class="team-content">
-                                        <h3><a href="team-details.html">Ava Thompson</a></h3>
-                                        <p>Holiday Planner</p>   
+                                    <div class="choose-us-content">
+                                        <h5 class="mb-2">Bootstrap &amp; Tailwind CSS</h5>
+                                        <p class="text-muted">Industry-standard CSS frameworks customized with lean utility classes for agile, pixel-perfect responsive layouts.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="choose-us-box h-100" style="padding: 30px; border-radius: 12px; background: #fff; border: 1px solid #eef2f6; transition: all 0.3s ease;">
+                                    <div class="icon mb-3" style="width: 55px; height: 55px; border-radius: 10px; background: rgba(0, 117, 143, 0.1); display: flex; align-items: center; justify-content: center;">
+                                        <i class="fa-solid fa-database" style="font-size: 26px; color: #00758f;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5 class="mb-2">PHP, MySQL &amp; Supabase</h5>
+                                        <p class="text-muted">Dynamic backend routing, asynchronous AJAX form handling, Supabase database queries, and secure email notifications.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Choose Section-2 Start -->
-                <div class="choose-us-section section-padding fix bg-cover" style="background-image: url(assets/img/home-2/bg.jpg);">
+                <!-- Our 4-Step Process Section Start -->
+                <section class="activities-section section-padding fix header-bg">
                     <div class="container">
                         <div class="section-title text-center">
-                            <h2 class="text-anim">People Why Choose Us</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">We offer personalized itineraries, competitive pricing</p>
+                            <span class="sub-title text-white wow fadeInUp"><i class="fa-solid fa-list-check text-theme me-2"></i> How We Work</span>
+                            <h2 class="text-white text-anim">Our 4-Step Development Process</h2>
+                            <p class="text-white wow fadeInUp" data-wow-delay=".4s">A structured, transparent workflow ensuring timely delivery without hidden surprises.</p>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="choose-us-box">
-                                    <div class="icon">
-                                        <i class="flaticon-travel-agency-1"></i>
+                        <div class="row g-4">
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 01</span>
+                                        <i class="fa-solid fa-comments text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
-                                    <div class="choose-us-content">
-                                        <h5>Personal Tour Plans</h5>
-                                        <p>Tailored itineraries to match your interests and budget.</p>   
-                                    </div>
+                                    <h4 class="text-white mb-2">Discovery &amp; Strategy</h4>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">We analyze your brand, business goals, target audience, and competitors to establish site architecture and requirements.</p>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="choose-us-box">
-                                    <div class="icon">
-                                    <i class="flaticon-price-tag"></i>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 02</span>
+                                        <i class="fa-solid fa-pen-ruler text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
-                                    <div class="choose-us-content">
-                                        <h5>Best Price Guarantee</h5>
-                                        <p>Competitive tours rates without compromising quality.</p>   
+                                    <h4 class="text-white mb-2">UI/UX Design</h4>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">We design clean, modern layouts with high-contrast typography, strategic calls-to-action, and mobile-first navigation.</p>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 03</span>
+                                        <i class="fa-solid fa-code text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
+                                    <h4 class="text-white mb-2">Clean Development</h4>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Writing standards-compliant, semantic HTML, CSS, and JS with fast asset loading, secure forms, and smooth animations.</p>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="choose-us-box">
-                                    <div class="icon">
-                                        <i class="flaticon-booking"></i>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 04</span>
+                                        <i class="fa-solid fa-rocket text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
-                                    <div class="choose-us-content">
-                                        <h5>Hassle-Free Booking</h5>
-                                        <p>Easy safe and hassle-free online reservation process.</p>   
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-6 col-md-6">
-                                <div class="choose-us-box">
-                                    <div class="icon">
-                                        <i class="flaticon-destination"></i>
-                                    </div>
-                                    <div class="choose-us-content">
-                                        <h5>Range of Destinations</h5>
-                                        <p>From popular hotspots to hidden gems worldwide.</p>   
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                    <!-- Activities Section Start -->
-                <section class="activities-section section-padding fix">
-                    <div class="container custom-container">
-                        <div class="activities-wrapper row g-4 g-xl-2 row-cols-xl-5 row-cols-lg-4 row-cols-md-2 row-cols-1">
-                            <div class="col activities-card-item wow fadeInUp">
-                                <div class="activities-image">
-                                    <img src="assets/img/home-1/activiti/01.jpg" alt="img">
-                                </div>
-                                <div class="activities-content">
-                                    <h4>
-                                        <a href="destination-details.html">Snorkeling & Scuba Diving</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col activities-card-item wow fadeInUp" data-wow-delay=".2s">
-                                <div class="activities-image">
-                                    <img src="assets/img/home-1/activiti/02.jpg" alt="img">
-                                </div>
-                                <div class="activities-content">
-                                    <h4>
-                                        <a href="destination-details.html">Desert Safari & Camel Rides</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col activities-card-item wow fadeInUp" data-wow-delay=".4s">
-                                <div class="activities-image">
-                                    <img src="assets/img/home-1/activiti/03.jpg" alt="img">
-                                </div>
-                                <div class="activities-content">
-                                    <h4>
-                                        <a href="destination-details.html">Hiking & Nature Trails</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col activities-card-item wow fadeInUp" data-wow-delay=".6s">
-                                <div class="activities-image">
-                                    <img src="assets/img/home-1/activiti/04.jpg" alt="img">
-                                </div>
-                                <div class="activities-content">
-                                    <h4>
-                                        <a href="destination-details.html">Cultural Heritage Tours</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="col activities-card-item wow fadeInUp" data-wow-delay=".8s">
-                                <div class="activities-image">
-                                    <img src="assets/img/home-1/activiti/05.jpg" alt="img">
-                                </div>
-                                <div class="activities-content">
-                                    <h4>
-                                        <a href="destination-details.html">Wildlife Safaris</a>
-                                    </h4>
+                                    <h4 class="text-white mb-2">SEO, QA &amp; Launch</h4>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Comprehensive cross-browser testing, Core Web Vitals audit, schema setup, live domain deployment, and handover.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Testimonial Section Start -->
-                <section class="testimonial-section style-2 section-padding fix">
+                <!-- Why Choose Us Section Start -->
+                <section class="choose-us-section section-padding fix">
                     <div class="container">
                         <div class="section-title text-center">
-                            <h2 class="text-anim">100k+ Customer Say Us</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Join over 100,000 satisfied travelers who have experienced</p>
+                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-star text-theme me-2"></i> Why Choose Us</span>
+                            <h2 class="text-anim">Why Clients Trust PS Web Studio</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".4s">The benefits of working directly with a dedicated web specialist rather than an oversized agency.</p>
                         </div>
-                        <div class="testimonial-wrapper">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="testimonial-content style-2">
-                                        <div class="swiper testimonial-slider">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="content">
-                                                        <div class="icon">
-                                                            <i class="flaticon-left-quote"></i>
-                                                        </div>
-                                                        <p>
-                                                            "Booking with this agency was
-                                                            the best decision for our Bali trip!
-                                                            from flights to accommodations!"
-                                                        </p>
-                                                        <div class="client-image">
-                                                            <img src="assets/img/home-1/testimonial/client.png" alt="img">
-                                                        </div>
-                                                        <h4>Michael Thompson</h4>
-                                                        <span>World traveler</span>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="content">
-                                                        <div class="icon">
-                                                        <i class="flaticon-left-quote"></i>
-                                                        </div>
-                                                        <p>
-                                                            "Booking with this agency was
-                                                            the best decision for our Bali trip!
-                                                            from flights to accommodations!"
-                                                        </p>
-                                                        <div class="client-image">
-                                                            <img src="assets/img/home-1/testimonial/client.png" alt="img">
-                                                        </div>
-                                                        <h4>Michael Thompson</h4>
-                                                        <span>World traveler</span>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="content">
-                                                        <div class="icon">
-                                                            <i class="flaticon-left-quote"></i>
-                                                        </div>
-                                                        <p>
-                                                            "Booking with this agency was
-                                                            the best decision for our Bali trip!
-                                                            from flights to accommodations!"
-                                                        </p>
-                                                        <div class="client-image">
-                                                            <img src="assets/img/home-1/testimonial/client.png" alt="img">
-                                                        </div>
-                                                        <h4>Michael Thompson</h4>
-                                                        <span>World traveler</span>
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="content">
-                                                        <div class="icon">
-                                                            <i class="flaticon-left-quote"></i>
-                                                        </div>
-                                                        <p>
-                                                            "Booking with this agency was
-                                                            the best decision for our Bali trip!
-                                                            from flights to accommodations!"
-                                                        </p>
-                                                        <div class="client-image">
-                                                            <img src="assets/img/home-1/testimonial/client.png" alt="img">
-                                                        </div>
-                                                        <h4>Michael Thompson</h4>
-                                                        <span>World traveler</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-dot style-2">
-                                            <div class="dot2"></div>
-                                        </div>
+                        <div class="row g-4">
+                            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
+                                    <div class="icon mb-3">
+                                        <i class="fa-solid fa-user-check text-theme" style="font-size: 32px;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5>Direct Developer Access</h5>
+                                        <p>You speak directly with the developer building your site. No account managers, miscommunication, or lost requirements.</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                <div class="testimonial-right-item">
-                                    <div class="row g-2">
-                                        <div class="col-xl-7 col-md-6 wow img-custom-anim-left">
-                                            <div class="testimonial-image">
-                                                <img src="assets/img/home-1/testimonial/01.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-5 col-md-6 wow img-custom-anim-right">
-                                            <div class="testimonial-image">
-                                                <img src="assets/img/home-1/testimonial/02.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-5 col-md-6 wow img-custom-anim-left">
-                                            <div class="testimonial-image">
-                                                <img src="assets/img/home-1/testimonial/03.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-7 col-md-6 wow img-custom-anim-right">
-                                            <div class="testimonial-image">
-                                                <img src="assets/img/home-1/testimonial/04.jpg" alt="img">
-                                                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn video-popup">
-                                                    <i class="fa-duotone fa-play"></i>
-                                                </a>
-                                            </div>
-                                        </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
+                                    <div class="icon mb-3">
+                                        <i class="fa-solid fa-gauge-high text-theme" style="font-size: 32px;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5>Built for Extreme Speed</h5>
+                                        <p>We do not use bloated page builders that slow down your pages. Clean code guarantees rapid load times and happy visitors.</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
+                                    <div class="icon mb-3">
+                                        <i class="fa-solid fa-magnifying-glass-chart text-theme" style="font-size: 32px;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5>Search Engine Optimized</h5>
+                                        <p>Every website is built with clean heading tags, metadata, XML sitemaps, OpenGraph cards, and schema structured data.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
+                                    <div class="icon mb-3">
+                                        <i class="fa-solid fa-tags text-theme" style="font-size: 32px;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5>Transparent Pricing</h5>
+                                        <p>Upfront fixed-price quotes with clear scopes of work. No hidden charges, recurring surprise bills, or lock-ins.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
+                                    <div class="icon mb-3">
+                                        <i class="fa-solid fa-clock-rotate-left text-theme" style="font-size: 32px;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5>Fast Turnaround Times</h5>
+                                        <p>Most commercial website builds and redesigns are completed within 7 to 14 days, delivered with rigorous QA.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
+                                    <div class="icon mb-3">
+                                        <i class="fa-solid fa-headset text-theme" style="font-size: 32px;"></i>
+                                    </div>
+                                    <div class="choose-us-content">
+                                        <h5>Post-Launch Support</h5>
+                                        <p>We do not disappear after launch. We provide ongoing support, bug fixes, updates, and maintenance when you need it.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Brand Section Start -->
-                <section class="brand-section section-padding fix">
-                    <div class="container custom-container-2">
-                        <div class="brand-wrapper">
-                            <h6>Relied upon by top-performing teams worldwide</h6>
-                            <div class="swiper brand-slider">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/01.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/02.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/03.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/04.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/05.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/06.png" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="brand-image text-center">
-                                            <img src="assets/img/home-1/brand/07.png" alt="img">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-       
-                <!-- Contact Section Start -->
+                <!-- Call to Action Section Start -->
                 <section class="contact-section section-padding pb-0">
-                        <div class="container">
-                            <div class="contact-wrapper">
-                                <div class="row g-4 align-items-end">
-                                    <div class="col-lg-6">
-                                        <div class="contact-image">
-                                            <img data-speed=".8" src="assets/img/home-1/Image.jpg" alt="img">
-                                        </div>
+                    <div class="container">
+                        <div class="contact-wrapper">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-lg-6">
+                                    <div class="contact-image">
+                                        <img src="assets/img/banner/pswebstudio-3.jpg" alt="PS Web Studio web design preview" style="border-radius: 16px; object-fit: cover; max-height: 440px; width: 100%;">
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-content">
-                                            <div class="logo-image">
-                                                <a href="index.html"><img src="assets/img/logo/white-logo.svg" alt="img"></a>
-                                            </div>
-                                            <div class="section-title mb-0">
-                                                <h2 class="sec-title text-white text-anim">
-                                                    Adventure Is Calling – Are You Ready?
-                                                </h2>
-                                            </div>
-                                            <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                            Get ready to embark on unforgettable journeys with us. whether you’re seeking thrilling adventures, relaxing escapes
-                                            </p>
-                                            <a href="tour-details.html" class="theme-btn">Explore Our Tours</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="contact-content">
+                                        <div class="logo-image mb-3">
+                                            <a href="index.html"><img src="assets/img/logo/psweb-logo-trans.png" alt="PS Web Studio logo"></a>
+                                        </div>
+                                        <div class="section-title mb-0">
+                                            <h2 class="sec-title text-white text-anim">
+                                                Ready To Build A Website That Drives Growth?
+                                            </h2>
+                                        </div>
+                                        <p class="text text-white-50 wow fadeInUp" data-wow-delay=".3s">
+                                            Whether you are planning a fresh web build from scratch or looking to revamp an existing site for higher conversions, we are here to help.
+                                        </p>
+                                        <div class="d-flex flex-wrap gap-3 mt-4">
+                                            <a href="contact.html" class="theme-btn">Get In Touch Today</a>
+                                            <a href="project.html" class="theme-btn" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);">View Projects</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </section>
 
                 <!-- Footer Section Start -->
@@ -867,40 +559,40 @@
                     <div class="container">
                         <div class="footer-widget-wrapper">
                             <div class="row">
-                                <div class="col-xl-2 col-md-4 col-lg-3">
+                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
                                     <div class="single-footer-widget">
                                         <div class="wid-title">
                                             <h4>Services</h4>
                                         </div>
                                         <ul class="list-area">
                                             <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    Best Tour Guide
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
+                                                <a href="index.html#services">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                    Tour Booking
+                                                    Website Development
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="contact.html">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                    Hotel Booking
+                                                    Responsive UI Design
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="contact.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    Ticket Booking
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    SEO Optimization
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    MySQL &amp; AJAX Integration
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3">
+                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
                                     <div class="single-footer-widget">
                                         <div class="wid-title">
                                             <h4>Company</h4>
@@ -908,135 +600,171 @@
                                         <ul class="list-area">
                                             <li>
                                                 <a href="about.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
+                                                    <i class="fa-solid fa-chevron-right"></i>
                                                     About Us
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="contact.html">
+                                                <a href="project.html">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                    Community
+                                                    Projects
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="blog.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Blog
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="contact.html">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                    Jobs Careers
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="news-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    News Blog
+                                                    Contact
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3">
+                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
                                     <div class="single-footer-widget">
                                         <div class="wid-title">
-                                            <h4>Destinations</h4>
+                                            <h4>Technologies</h4>
                                         </div>
                                         <ul class="list-area">
                                             <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                African Safaris
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
+                                                <a href="about.html">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                    Alaska & Canada
+                                                    HTML5 &amp; CSS3
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="tour-details.html">
+                                                <a href="about.html">
                                                     <i class="fa-solid fa-chevron-right"></i>
-                                                    South America
+                                                    JavaScript &amp; jQuery
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Middle East
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Bootstrap &amp; Tailwind
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    MySQL &amp; AJAX
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-md-6 col-lg-3">
+                                <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
                                     <div class="single-footer-widget">
                                         <div class="wid-title">
                                             <h4>Get In Touch</h4>
                                         </div>
-                                    <div class="contact-item">
+                                        <div class="contact-item">
                                             <div class="icon">
                                                 <i class="fa-regular fa-map-location-dot"></i>
                                             </div>
                                             <div class="content">
                                                 <h6>
-                                                    578 Level, D-block Street <br>
-                                                    Melbourne, Australia
+                                                    Mumbai, Maharashtra <br>
+                                                    India
                                                 </h6>
                                             </div>
-                                    </div>
-                                    <div class="contact-item">
+                                        </div>
+                                        <div class="contact-item">
                                             <div class="icon">
-                                            <i class="fa-regular fa-envelope"></i>
+                                                <i class="fa-regular fa-envelope"></i>
                                             </div>
                                             <div class="content">
                                                 <h6>
-                                                <a href="mailto:supportrevelo@gmail.com">supportrevelo@gmail.com</a>
+                                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
                                                 </h6>
                                             </div>
-                                    </div>
-                                    <div class="contact-item mb-0">
+                                        </div>
+                                        <div class="contact-item mb-0">
                                             <div class="icon">
-                                            <i class="fa-regular fa-phone-volume"></i>
+                                                <i class="fa-regular fa-phone-volume"></i>
                                             </div>
                                             <div class="content">
                                                 <h6>
-                                                <a href="tel:+88012334588">+880 123 345 88</a>
+                                                    <a href="tel:+918793400545">+91 87934 00545</a>
                                                 </h6>
                                             </div>
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-md-6 col-lg-6">
+                                <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
                                     <div class="single-footer-widget">
                                         <div class="wid-title">
-                                            <h4>Subscribe Our Newsletter to <br>
-                                                get more offer & Tips
+                                            <h4>Subscribe for Web Dev <br>
+                                                Tips &amp; Updates
                                             </h4>
                                         </div>
-                                    <div class="newsletter-content">
-                                        <p>
-                                            Stay connected & never miss a deal! subscribe
-                                            to our newsletter and get travel offers
-                                        </p>
-                                        <form action="#">
-                                            <div class="form-clt">
-                                                <input type="text" name="email" id="email" placeholder="Email Address">
-                                                <button type="submit" class="theme-btn">
-                                                    Subscribe
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        <div class="newsletter-content">
+                                            <p>
+                                                Occasional notes on web performance, SEO, and new projects - no spam.
+                                            </p>
+                                            <form action="#">
+                                                <div class="form-clt">
+                                                    <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                    <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                    <button type="submit" class="theme-btn">
+                                                        Subscribe
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-bottom">
+                    <div class="footer-bottom style-1">
                         <div class="container">
                             <div class="footer-wrapper">
-                                <h2>Roavio</h2>
-                                <div class="text-item">
-                                    <p>@Copy 2025 <span>ROAVIO,</span> All rights reserved</p>
-                                    <a href="#" class="icon"><i class="fa-solid fa-chevron-up"></i></a>
+                                <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                    <p>© 2026 <span>PS Web Studio,</span> All rights reserved</p>
+                                    <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+                                    
+                                    <!-- WhatsApp Popup -->
+                                    <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+                                        <div class="psws-whatsapp-header">
+                                            <div class="psws-whatsapp-header-icon">
+                                                <i class="fa-brands fa-whatsapp"></i>
+                                            </div>
+                                            <div class="psws-whatsapp-header-info">
+                                                <div class="psws-whatsapp-title">PSWeb Studio</div>
+                                                <div class="psws-whatsapp-status">● Typically replies instantly</div>
+                                            </div>
+                                            <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </button>
+                                        </div>
+                                        <div class="psws-whatsapp-body">
+                                            <div class="psws-whatsapp-message">
+                                                <p>How can I help you? :)</p>
+                                                <div class="psws-whatsapp-time" id="pswsWhatsappTime">Now</div>
+                                            </div>
+                                        </div>
+                                        <div class="psws-whatsapp-footer">
+                                            <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                                                <div class="psws-whatsapp-input-wrapper">
+                                                    <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                                                    <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!-- Floating WhatsApp Button -->
+                                    <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1045,38 +773,21 @@
             </div>
         </div>
 
-
-        <!--<< All JS Plugins >>-->
+        <!-- Scripts -->
         <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Viewport Js >>-->
         <script src="assets/js/viewport.jquery.js"></script>
-        <!--<< Bootstrap Js >>-->
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-         <!--<< Gsap Min Js >>-->
         <script src="assets/js/gsap.min.js"></script>
-        <!--<< ScrollTrigger Min Js >>-->
         <script src="assets/js/ScrollTrigger.min.js"></script>
-        <!--<< ScrollSmoother Min Js >>-->
         <script src="assets/js/ScrollSmoother.min.js"></script>
-        <!--<< ScrollToPlugin Min Js >>-->
         <script src="assets/js/split-type.min.js"></script>
-        <!--<< SplitText Min Js >>-->
         <script src="assets/js/SplitText.min.js"></script>
-        <!--<< nice-selec Js >>-->
         <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Waypoints Js >>-->
         <script src="assets/js/jquery.waypoints.js"></script>
-        <!--<< Counterup Js >>-->
         <script src="assets/js/jquery.counterup.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
         <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
         <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Wow Animation Js >>-->
         <script src="assets/js/wow.min.js"></script>
-        <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
     </body>
 </html>

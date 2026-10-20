@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="PS Web Studio">
+    <title id="page-title">Project · PS Web Studio</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
+    <link rel="shortcut icon" href="assets/img/favico/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/flacticon.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        :root {
+          --body: #fff;
+          --black: #000;
+          --white: #fff;
+          --theme: #0d9ce0;
+          --theme-2: #163e8e;
+          --header: #151515;
+          --text: #696969;
+          --border: #C9C9C9;
+          --bg: #F7F7F7;
+          --bg-2: #EDF2DE;
+          --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
+        }
+
+        .project-detail-wrapper{
+            padding:70px 0 90px;
+           background: var(--white);
+           
+            color:var(--header);
+        }
+
+        /* ---------- Breadcrumb ---------- */
+        .breadcrumb-wrapper-4{
+            padding:46px 0 34px;
+            position:relative;
+            background-size:cover;
+            background-position:center;
+        }
+        .breadcrumb-wrapper-4::before{
+            content:'';
+            position:absolute;
+            inset:0;
+            background:linear-gradient(to top, rgb(26 105 161 / 90%) 0%, rgb(255 255 255 / 4%) 100%);
+        }
+        .breadcrumb-wrapper-4 .container{ position:relative; z-index:1; }
+        .breadcrumb-wrapper-4 .eyebrow{
+            font-size: 15px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--bs-body-bg);
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .breadcrumb-wrapper-4 h1{
+            color:var(--white);
+           
+            font-size:38px;
+            font-weight:700;
+            letter-spacing:-.01em;
+            margin-bottom:14px;
+        }
+        .breadcrumb-wrapper-4 .breadcrumb-items{
+            list-style:none;
+            padding:0;
+            display:flex;
+            gap:8px;
+            font-size:15px;
+            color:rgba(255,255,255,.55);
+            margin-bottom:0;
+        }
+        .breadcrumb-wrapper-4 .breadcrumb-items li a{
+            color:rgba(255,255,255,.55);
+            text-decoration:none;
+        }
+        .breadcrumb-wrapper-4 .breadcrumb-items li a:hover{ color:var(--white); }
+        .breadcrumb-wrapper-4 .breadcrumb-items .style-2{ color:var(--black); }
+
+        /* ---------- Gallery ---------- */
+        .project-gallery .g-item{
+            position:relative;
+            border-radius:6px;
+            overflow:hidden;
+            margin-bottom:20px;
+            border:1px solid var(--border);
+            box-shadow:var(--box-shadow);
+        }
+        .project-gallery img{
+            width:100%;
+            aspect-ratio: 4 / 3;
+            object-fit:cover;
+            display:block;
+            transition:transform .5s cubic-bezier(.2,.8,.2,1);
+        }
+        .project-gallery .g-item:hover img{ transform:scale(1.05); }
+
+        /* ---------- Section headings ---------- */
+        .section-block{ margin-top:30px; }
+        .section-block h3{
+           
+            font-size:22px;
+            font-weight:700;
+            color:var(--header);
+            display:flex;
+            align-items:center;
+            gap:10px;
+            margin-bottom:18px;
+        }
+        .section-block h3::before{
+            content:'';
+            width:10px;
+            height:10px;
+            border-radius:1px;
+           background: var(--bs-danger);
+            display:inline-block;
+            transform:rotate(45deg);
+        }
+        .project-detail-wrapper p.body-text{
+            color:var(--text);
+            line-height:1.75;
+            font-size:15.5px;
+        }
+
+        /* ---------- Feature list ---------- */
+        .feature-list{ list-style:none; padding:0; }
+        .feature-list li{
+            padding:12px 0;
+            display:flex;
+            align-items:flex-start;
+            gap:12px;
+            border-bottom:1px dashed var(--border);
+            font-size:15px;
+            text-align: justify;
+            color:var(--header);
+        }
+        .feature-list li:last-child{ border-bottom:none; }
+        .feature-list li i{
+            color:var(--theme);
+            margin-top:4px;
+            font-size:15px;
+        }
+
+        /* ---------- Tech tokens ---------- */
+        .tech-group h5{
+           
+            font-size:12px;
+            letter-spacing:.1em;
+            text-transform:uppercase;
+            color:var(--text);
+            margin-bottom:12px;
+            font-weight:600;
+        }
+        .tech-tag{
+            display:inline-block;
+            background:var(--white);
+            border:1px solid var(--border);
+            border-left:3px solid var(--theme);
+            padding:6px 14px;
+           
+            font-size:12.5px;
+            margin:0 8px 8px 0;
+            color:var(--header);
+            border-radius:2px;
+        }
+        .tech-group.backend .tech-tag{ border-left-color:var(--theme-2); }
+        .tech-tag:hover{ background:var(--header); color:var(--white); border-color:var(--header); }
+
+        /* ---------- Scope cards ---------- */
+        .scope-card{
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #cccccc69;
+            border-top: 3px solid var(--theme);
+            height: 100%;
+        }
+        .scope-card h5{
+           
+            font-weight:700;
+            color:var(--header);
+            font-size:16px;
+            margin-bottom:8px;
+        }
+        .scope-card h5 i{ color:var(--theme); margin-right:8px; }
+        .scope-card p{ color:var(--text); font-size:14px; margin-bottom:0; }
+
+        /* ---------- Testimonial ---------- */
+        .testimonial-box{
+            background: linear-gradient(to left, #7a7a7a, var(--black));
+    color: var(--bg);
+    padding: 28px 30px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.8;
+    position: relative;
+    text-align: justify;
+        }
+        .testimonial-box .cmt{ color:var(--theme); opacity:.9; }
+        .testimonial-box p{ margin:6px 0 14px; color:var(--bg); }
+        .testimonial-box .author{
+            color:var(--theme);
+            font-weight:600;
+        }
+
+        /* ---------- Back link ---------- */
+        .back-link{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+           
+            font-size:13px;
+            color:var(--header);
+            text-decoration:none;
+            border-bottom:1px solid var(--header);
+            padding-bottom:2px;
+        }
+        .back-link:hover{ color:var(--theme); border-color:var(--theme); }
+
+        /* ---------- Sidebar ---------- */
+        .project-info-sidebar{
+            background:var(--white);
+            border:1px solid var(--border);
+            border-radius:10px;
+            overflow:hidden;
+            position:sticky;
+            top:100px;
+
+        }
+        .editor-chrome{
+            background:var(--header);
+            padding:12px 16px;
+            display:flex;
+            align-items:center;
+            gap:8px;
+        }
+        .editor-chrome span{
+            width:9px; height:9px; border-radius:50%;
+            display:inline-block;
+            background:var(--text);
+        }
+        .editor-chrome span:nth-child(1){ background:var(--theme); }
+        .editor-chrome span:nth-child(2){ background:var(--theme-2); }
+        .editor-chrome span:nth-child(3){ background:var(--border); }
+  
+        .sidebar-body{ padding:24px; }
+        .sidebar-body .kv-list{ list-style:none; padding:0; margin:0 0 20px; }
+        .sidebar-body .kv-list li{
+            display:flex;
+            justify-content:space-between;
+            gap:10px;
+            padding:9px 0;
+            border-bottom:1px solid var(--border);
+            font-size:14px;
+        }
+        .sidebar-body .kv-list li:last-child{ border-bottom:none; }
+        .sidebar-body .kv-list li .k{
+            text-transform: capitalize;
+            font-size: 16px;
+            color: var(--text);
+        }
+        .sidebar-body .kv-list li .v{
+            font-weight:600;
+            color:var(--header);
+            text-align:right;
+        }
+        .status-dot{
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+           
+            font-size:12.5px;
+        }
+        .status-dot::before{
+            content:'';
+            width:7px; height:7px;
+            border-radius:50%;
+            background: #30930d;
+            box-shadow:0 0 0 3px rgba(13,156,224,.18);
+        }
+        .status-dot.paused::before{ background:var(--theme-2); box-shadow:0 0 0 3px rgba(22,62,142,.18); }
+
+        .btn-live{
+            display:block;
+            width:100%;
+            padding:13px;
+            background:var(--theme);
+            color:var(--white);
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:600;
+            font-size:14.5px;
+            text-align:center;
+            transition:background .25s ease;
+        }
+        .btn-live:hover{ background:var(--theme-2); color:var(--white); }
+        .btn-quote{
+            display:block;
+            width:100%;
+            padding:13px;
+            background:transparent;
+            border:1px solid var(--header);
+            color:var(--header);
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:600;
+            font-size:14.5px;
+            text-align:center;
+            transition:all .25s ease;
+        }
+        .btn-quote:hover{ background:var(--header); color:var(--white); }
+
+        .sidebar-cta{
+            border-top:1px dashed var(--border);
+            margin-top:22px;
+            padding-top:20px;
+        }
+        .sidebar-cta h5{
+           
+            font-size:15px;
+            font-weight:700;
+            color:var(--header);
+            margin-bottom:6px;
+        }
+        .sidebar-cta p{
+            color:var(--text);
+            font-size:13px;
+            margin-bottom:14px;
+        }
+
+        .loading-spinner{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:500px;
+        }
+        .project-not-found{ text-align:center; padding:110px 20px; }
+        .project-not-found h2{ color:var(--theme-2); }
+
+        @media (max-width: 768px){
+            .project-gallery img{ height:190px; }
+            .project-info-sidebar{ position:relative; top:0; margin-top:34px; }
+            .breadcrumb-wrapper-4 h1{ font-size:26px; }
+            .breadcrumb-wrapper-4 .breadcrumb-items{ flex-wrap:wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Back To Top Start -->
+    <button id="back-top" class="back-to-top show">
+        <i class="fa-regular fa-arrow-up"></i>
+    </button>
+
+    <!-- MouseCursor Start -->
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"></div>
+
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href='index.html'>
+                                <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services.
+                    </p>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Get Appointment</h3>
+                        <form action="#" id="contact-form" method="POST" class="contact-form-items">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="form-clt">
+                                        <input type="text" name="name" id="name33" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-clt">
+                                        <input type="text" name="email" id="email33" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-clt">
+                                        <textarea name="message" id="message2" placeholder="Enter message..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+
+    <!-- Header-Top Section Start -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p>
+                    Welcome to <span>PS Web Studio</span> creative agency, need smart ideas for your business <b>Let's Talk</b>
+                </p>
+                <div class="header-right">
+                    <div class="flag-wrap">
+                        <i class="fa-solid fa-globe"></i>
+                        <div class="nice-select" tabindex="0">
+                            <span class="current">English</span>
+                            <ul class="list">
+                                <li data-value="1" class="option selected focus">English</li>
+                                <li data-value="1" class="option">Bangla</li>
+                                <li data-value="1" class="option">Hindi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="header-list">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:pswebstudio.dev@gmail.com">Email : pswebstudio.dev@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone-flip"></i>
+                            <a href="tel:+918793400545">Call : +91 87934 00545</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section Start -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/img/logo/psweb-logo.png" alt="logo-img">
+                            </a>
+                        </div>
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="index.html#services"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li class="active"><a href="project.html"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="search-widget">
+                            <form action="#">
+                                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <input type="text" placeholder="Search">
+                            </form>
+                        </div>
+                        <div class="header-button">
+                            <a href="contact.html" class="theme-btn">Get a Quote</a>
+                        </div>
+                        <div class="header__hamburger d-xl-none my-auto">
+                            <div class="sidebar__toggle">
+                                <i class="fas fa-bars"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Dynamic Project Content -->
+            <div id="projectContent">
+                <div class="loading-spinner">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Section Start -->
+            <footer class="footer-section fix header-bg">
+                    <div class="container">
+                        <div class="footer-widget-wrapper">
+                            <div class="row">
+                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title">
+                                            <h4>Services</h4>
+                                        </div>
+                                        <ul class="list-area">
+                                            <li>
+                                                <a href="#portfolio">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Website Development
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Responsive UI Design
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    SEO Optimization
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    MySQL & AJAX Integration
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title">
+                                            <h4>Company</h4>
+                                        </div>
+                                        <ul class="list-area">
+                                            <li>
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    About Us
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="project/">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Portfolio
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="news.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Blog
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="contact.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Contact
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title">
+                                            <h4>Technologies</h4>
+                                        </div>
+                                        <ul class="list-area">
+                                            <li>
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    HTML5 & CSS3
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    JavaScript & jQuery
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    Bootstrap & Tailwind
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html">
+                                                    <i class="fa-solid fa-chevron-right"></i>
+                                                    MySQL & AJAX
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title">
+                                            <h4>Get In Touch</h4>
+                                        </div>
+                                        <div class="contact-item">
+                                            <div class="icon">
+                                                <i class="fa-regular fa-map-location-dot"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h6>
+                                                    Mumbai, Maharashtra <br>
+                                                    India
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="contact-item">
+                                            <div class="icon">
+                                                <i class="fa-regular fa-envelope"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h6>
+                                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="contact-item mb-0">
+                                            <div class="icon">
+                                                <i class="fa-regular fa-phone-volume"></i>
+                                            </div>
+                                            <div class="content">
+                                                <h6>
+                                                    <a href="tel:+918793400545">+91 87934 00545</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title">
+                                            <h4>Subscribe for Web Dev <br>
+                                                Tips & Updates
+                                            </h4>
+                                        </div>
+                                        <div class="newsletter-content">
+                                            <p>
+                                                Occasional notes on web performance, SEO, and new projects - no spam.
+                                            </p>
+                                            <form action="#">
+                                                <div class="form-clt">
+                                                    <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                    <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                    <button type="submit" class="theme-btn">
+                                                        Subscribe
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom style-1">
+                        <div class="container">
+                            <div class="footer-wrapper">
+                                <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                    <p>© 2026 <span>PS Web Studio,</span> All rights reserved</p>
+                                    <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+                                    <!-- PSWeb Studio WhatsApp -->
+                               <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+
+    <!-- Header -->
+    <div class="psws-whatsapp-header">
+
+        <div class="psws-whatsapp-header-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div class="psws-whatsapp-header-info">
+            <div class="psws-whatsapp-title">
+                PSWeb Studio
+            </div>
+            <div class="psws-whatsapp-status">
+                ● Typically replies instantly
+            </div>
+        </div>
+
+        <!-- Close -->
+        <button
+            type="button"
+            class="psws-whatsapp-close"
+            id="pswsWhatsappClose"
+            aria-label="Close WhatsApp">
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+
+    </div>
+
+
+    <!-- Body -->
+    <div class="psws-whatsapp-body">
+
+        <div class="psws-whatsapp-message">
+            <p>How can I help you? :)</p>
+            <div class="psws-whatsapp-time" id="pswsWhatsappTime">
+                23:03
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <div class="psws-whatsapp-footer">
+
+        <form
+            class="psws-whatsapp-form"
+            id="pswsWhatsappForm">
+
+            <div class="psws-whatsapp-input-wrapper">
+
+                <input
+                    type="text"
+                    id="pswsWhatsappInput"
+                    class="psws-whatsapp-input"
+                    placeholder="Write your message..."
+                    autocomplete="off"
+                    aria-label="WhatsApp Message"
+                >
+
+                <button
+                    type="submit"
+                    class="psws-whatsapp-send"
+                    aria-label="Send WhatsApp message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================================
+     FLOATING WHATSAPP BUTTON
+================================= -->
+
+                        <button
+                            type="button"
+                            class="psws-whatsapp-launcher"
+                            id="pswsWhatsappLauncher"
+                            aria-label="Open WhatsApp Chat">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+        </div>
+    </div>
+
+    <!--<< All JS Plugins >>-->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/split-type.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Preloader Hide Fix -->
+    <script>
+    (function() {
+        function hidePreloader() {
+            var preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('hide');
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }
+        hidePreloader();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', hidePreloader);
+        }
+        setTimeout(hidePreloader, 2000);
+    })();
+    </script>
+
+    <!-- Supabase Import Map -->
+    <script type="importmap">
+    {
+        "imports": {
+            "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm"
+        }
+    }
+    </script>
+
+    <!-- Dynamic Project Detail Loader -->
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
+
+    const supabaseUrl = 'https://jerlrkqevhevulupcowu.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg';
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Project slug mapping for URL compatibility
+    const projectSlugMap = {
+        'andaman-dmc': 'andaman-dmc',
+        'andaman-vacations': 'andaman-vacations',
+        'andaman-travel-agent': 'andaman-travel-agent',
+        'quest-guide-india': 'quest-guide-india',
+        'madhya-pradesh-dmc': 'madhya-pradesh-dmc',
+        'mpdmc': 'mpdmc',
+        'hotel-in-andaman': 'hotel-in-andaman',
+        'markaa': 'markaa',
+        'ladakhlife': 'ladakhlife',
+        'ladakhdmc': 'ladakhdmc',
+        'tscprinters': 'tscprinters'
+    };
+
+    async function loadProjectDetail() {
+        const container = document.getElementById('projectContent');
+        if (!container) return;
+
+        // Get slug from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let slug = urlParams.get('slug');
+
+        // If no slug, try to get from path (project/andaman-dmc)
+        if (!slug) {
+            const pathParts = window.location.pathname.split('/');
+            if (pathParts.length >= 3 && pathParts[1] === 'project') {
+                slug = pathParts[2];
+            }
+        }
+
+        // Also check for 'project' parameter (backward compatibility)
+        if (!slug) {
+            slug = urlParams.get('project');
+        }
+
+        // Default fallback
+        if (!slug) {
+            slug = 'andaman-dmc';
+        }
+
+        // Map to correct slug if needed
+        const mappedSlug = projectSlugMap[slug] || slug;
+
+        try {
+            console.log('🔍 Loading project detail:', mappedSlug);
+
+            const { data: project, error } = await supabase
+                .from('projects')
+                .select('*')
+                .eq('slug', mappedSlug)
+                .eq('is_enabled', true)
+                .single();
+
+            if (error || !project) {
+                console.error('❌ Project not found:', error);
+                showNotFound(container);
+                return;
+            }
+
+            console.log('✅ Found project:', project.title);
+            renderProjectDetail(container, project);
+
+        } catch (error) {
+            console.error('❌ Error loading project:', error);
+            showError(container, error);
+        }
+    }
+
+    function renderProjectDetail(container, project) {
+        // Update page title
+        document.title = `${project.title} · PS Web Studio`;
+        document.getElementById('page-title').textContent = project.title + ' · PS Web Studio';
+
+        // Generate features HTML
+        const featuresHtml = project.features && project.features.length > 0
+            ? project.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')
+            : '<li>No features listed</li>';
+
+        // Generate frontend tech
+        const frontendTech = project.tech_stack?.frontend
+            ? project.tech_stack.frontend.map(t => `<span class="tech-tag">${t}</span>`).join('')
+            : '<span class="tech-tag">n/a</span>';
+
+        // Generate backend tech
+        const backendTech = project.tech_stack?.backend
+            ? project.tech_stack.backend.map(t => `<span class="tech-tag">${t}</span>`).join('')
+            : '<span class="tech-tag">n/a</span>';
+
+        // Generate scope HTML
+        const scopeKeys = ['design', 'development', 'database', 'deployment'];
+        const scopeLabels = {
+            design: 'Design',
+            development: 'Development',
+            database: 'Database',
+            deployment: 'Deployment'
+        };
+        const scopeIcons = {
+            design: 'fa-pen-ruler',
+            development: 'fa-code',
+            database: 'fa-database',
+            deployment: 'fa-rocket'
+        };
+
+        let scopeHtml = '';
+        if (project.scope) {
+            scopeKeys.forEach(key => {
+                if (project.scope[key]) {
+                    scopeHtml += `
+                        <div class="col-sm-6">
+                            <div class="scope-card">
+                                <h5><i class="fas ${scopeIcons[key] || 'fa-circle'}"></i>${scopeLabels[key] || key}</h5>
+                                <p>${project.scope[key]}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Generate gallery HTML
+        let galleryHtml = '';
+        if (project.images && project.images.length > 0) {
+            galleryHtml = project.images.map(img => `
+                <div class="col-md-4 col-sm-6">
+                    <div class="g-item">
+                        <img src="assets/img/project-banner/${img}" alt="${project.title}" loading="lazy">
+                    </div>
+                </div>
+            `).join('');
+        } else {
+            galleryHtml = `
+                <div class="col-12">
+                    <p class="text-muted">No gallery images available</p>
+                </div>
+            `;
+        }
+
+        const statusClass = project.status === 'Live' ? '' : 'paused';
+
+        container.innerHTML = `
+            <!-- Breadcrumb -->
+            <div class="breadcrumb-wrapper-4 fix bg-cover" style="background-image: url(assets/img/banner/portfolio-banner1.png);">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <span class="eyebrow wow fadeInUp" data-wow-delay=".1s">${project.industry || 'Case Study'}</span>
+                            <h1 class="wow fadeInUp" data-wow-delay=".3s">${project.title}</h1>
+                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                                <li><a href="index.html">Home</a></li>
+                                <li>/</li>
+                                <li><a href="project.html">Portfolio</a></li>
+                                <li>/</li>
+                                <li class="style-2">${project.title}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Detail Content -->
+            <section class="project-detail-wrapper">
+                <div class="container">
+                   <!-- Gallery -->
+                            <div class="project-gallery">
+                                <div class="row g-3">
+                                    ${galleryHtml}
+                                </div>
+                            </div>
+                    <div class="row g-4">
+                        <!-- Main Content -->
+                        <div class="col-lg-8">
+                         
+
+                            <!-- Description -->
+                            <div class="section-block">
+                                <h3>Overview</h3>
+                                <p class="body-text">${project.description || 'No description available.'}</p>
+                            </div>
+
+                            <!-- Features -->
+                            <div class="section-block">
+                                <h3>Key Features</h3>
+                                <ul class="feature-list">
+                                    ${featuresHtml}
+                                </ul>
+                            </div>
+
+                            <!-- Tech Stack -->
+                            <div class="section-block">
+                                <h3>Stack</h3>
+                                <div class="row g-4">
+                                    <div class="col-md-6 tech-group frontend">
+                                        <h5>Frontend</h5>
+                                        <div>${frontendTech}</div>
+                                    </div>
+                                    <div class="col-md-6 tech-group backend">
+                                        <h5>Backend</h5>
+                                        <div>${backendTech}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Scope -->
+                            ${scopeHtml ? `
+                                <div class="section-block">
+                                    <h3>Scope of Work</h3>
+                                    <div class="row g-3">
+                                        ${scopeHtml}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <!-- Testimonial -->
+                            ${project.testimonial ? `
+                                <div class="section-block">
+                                    <div class="testimonial-box">
+                                        <span class="cmt"><i class="fa fa-quote-left"></i></span>
+                                        <p>"${project.testimonial}"</p>
+                                        <span class="author">— ${project.testimonial_author || 'Client'}</span>
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <!-- Back Button -->
+                            <div class="section-block">
+                                <a href="project.html" class="back-link">
+                                    <i class="fas fa-arrow-left"></i> back to portfolio
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <div class="project-info-sidebar">
+                                <div class="editor-chrome">
+                                    <span></span><span></span><span></span>
+                                    
+                                </div>
+                                <div class="sidebar-body">
+                                    <ul class="kv-list">
+                                        <li><span class="k">client</span><span class="v">${project.client || 'N/A'}</span></li>
+                                        <li><span class="k">industry</span><span class="v">${project.industry || 'N/A'}</span></li>
+                                        <li><span class="k">type</span><span class="v">${project.type || 'Custom Web Development'}</span></li>
+                                        <li><span class="k">timeline</span><span class="v">${project.timeline || 'N/A'}</span></li>
+                                        <li><span class="k">team</span><span class="v">${project.team || 'N/A'}</span></li>
+                                        <li><span class="k">year</span><span class="v">${project.year || '2026'}</span></li>
+                                        <li><span class="k">status</span><span class="v"><span class="status-dot ${statusClass}">${project.status || 'Live'}</span></span></li>
+                                    </ul>
+
+                                    ${project.live_url ? `
+                                        <a href="${project.live_url}" target="_blank" rel="noopener noreferrer" class="btn-live mb-2">
+                                            <i class="fas fa-external-link-alt me-2"></i> Visit Website
+                                        </a>
+                                    ` : ''}
+
+                                    <div class="sidebar-cta">
+                                        <h5>Need something similar?</h5>
+                                        <p>Let's talk through your requirements and scope it out.</p>
+                                        <a href="contact.html" class="btn-quote">
+                                            <i class="fas fa-paper-plane me-2"></i> Get a Quote
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+
+        // Reinitialize WOW.js
+        if (typeof WOW !== 'undefined') {
+            new WOW().init();
+        }
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showNotFound(container) {
+        container.innerHTML = `
+            <div class="project-not-found">
+                <div class="container">
+                    <h2><i class="fas fa-exclamation-circle"></i> Project Not Found</h2>
+                    <p class="text-muted">The project you're looking for doesn't exist or has been moved.</p>
+                    <a href="project.html" class="theme-btn mt-3"><i class="fas fa-arrow-left me-2"></i> Back to Portfolio</a>
+                </div>
+            </div>
+        `;
+    }
+
+    function showError(container, error) {
+        container.innerHTML = `
+            <div class="project-not-found">
+                <div class="container">
+                    <h2 class="text-danger"><i class="fas fa-exclamation-triangle"></i> Error Loading Project</h2>
+                    <p class="text-muted">${error.message || 'An unexpected error occurred.'}</p>
+                    <a href="project.html" class="theme-btn mt-3"><i class="fas fa-arrow-left me-2"></i> Back to Portfolio</a>
+                </div>
+            </div>
+        `;
+    }
+
+    // Load project on page load
+    document.addEventListener('DOMContentLoaded', loadProjectDetail);
+    </script>
+</body>
+</html>
