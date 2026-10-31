@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    PSWEB STUDIO - OTT HERO BANNER & BIG THUMBNAIL TRAY
    Colors now come from the site theme tokens. No hardcoded blues, slate
    greys or magenta remain.
@@ -736,13 +736,14 @@
     font-size: 16px;
   }
   .ott-tray-section {
-    padding: 0 16px 35px;
+    padding: 0 16px 30px;
   }
   .ott-tray-heading {
     font-size: 18px;
   }
   .ott-big-card {
-    width: 150px;
+    width: clamp(135px, 38vw, 160px);
+  }
   }
 }
 
@@ -824,40 +825,95 @@
 
   .ott-hero-content-wrap {
     align-items: flex-end;
-    padding-inline: 20px;
+    padding-inline: 16px;
   }
 
   .ott-hero-details {
-    padding: 90px 0 32px;
+    padding: 80px 0 24px;
   }
 
   .ott-hero-title-display {
     overflow-wrap: anywhere;
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
   }
 
   .ott-hero-actions {
     flex-wrap: wrap;
+    gap: 10px;
   }
 
   .ott-hero-sound-btn {
-    top: 18px;
-    right: 18px;
+    top: 16px;
+    right: 16px;
+  }
+
+  .ott-tray-section {
+    padding: 0 16px 28px;
   }
 
   .ott-tray-header {
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 12px;
   }
 
   .ott-tray-heading {
     min-width: 0;
+    font-size: 18px;
   }
 
   .ott-tray-nav-arrows {
-    flex-shrink: 0;
+    display: none; /* Swipe on mobile */
+  }
+
+  .ott-tray-track {
+    gap: 12px;
+    padding: 8px 4px 16px;
   }
 
   .ott-big-card {
-    width: clamp(140px, 42vw, 170px);
+    width: clamp(135px, 38vw, 160px);
+    border-radius: 8px;
+  }
+
+  .ott-big-card-tag {
+    top: 8px;
+    left: 8px;
+    font-size: 8.5px;
+    padding: 2px 6px;
+  }
+
+  .ott-big-card-content {
+    padding: 10px 8px;
+  }
+
+  .ott-big-card-title {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .ott-big-card-category {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .ott-big-card-meta {
+    font-size: 9.5px;
+    gap: 4px;
+  }
+
+  .ott-big-card-meta .meta-pill {
+    padding: 0 3px;
+    font-size: 8.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ott-big-card {
+    width: 130px;
+  }
+
+  .ott-tray-section {
+    padding: 0 12px 24px;
   }
 }
 
@@ -1163,288 +1219,3 @@
   .ott-svc-card-thumb img,
   .ott-svc-arrow { transition: none !important; }
 }
-
-
-/* ==========================================================================
-   OTT SERVICES TRAY — Hotstar Documentary-Section Pattern
-   Dark tray, 16:9 widescreen cards, horizontal scroll, peek-a-boo overflow,
-   hover scale + glow, category badge, icon overlay.
-   ========================================================================== */
-
-.ott-services-tray-section {
-  background: var(--ott-dark-bg);
-  padding: 52px 0 52px;
-  overflow: hidden;
-}
-
-/* ---- Header row ---- */
-.ott-svc-tray-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 8px 24px;
-  padding: 0 48px 28px;
-}
-
-.ott-svc-tray-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--ott-accent);
-  width: 100%;
-}
-
-.ott-svc-tray-label-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--ott-accent);
-  flex-shrink: 0;
-  box-shadow: 0 0 8px var(--ott-accent);
-}
-
-.ott-svc-tray-heading {
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 800;
-  color: var(--white);
-  margin: 0;
-  flex: 1 1 auto;
-  line-height: 1.15;
-}
-
-.ott-svc-tray-sub {
-  flex-basis: 100%;
-  font-size: 14px;
-  color: var(--ott-text-synopsis);
-  margin: 4px 0 0;
-  max-width: 620px;
-}
-
-.ott-svc-tray-arrows {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
-  align-self: center;
-}
-
-.ott-svc-arrow {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(var(--border-rgb), 0.35);
-  background: rgba(255,255,255,0.07);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
-}
-.ott-svc-arrow:hover {
-  background: var(--ott-accent);
-  border-color: var(--ott-accent);
-  transform: scale(1.1);
-}
-
-/* ---- Scrollable track ---- */
-.ott-svc-carousel-wrap {
-  position: relative;
-  padding: 0 32px;
-}
-
-/* Fade-out peek on right edge */
-.ott-svc-carousel-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, var(--ott-dark-bg));
-  pointer-events: none;
-  z-index: 2;
-}
-
-.ott-svc-track {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  cursor: grab;
-  padding-bottom: 8px;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-}
-.ott-svc-track::-webkit-scrollbar { display: none; }
-.ott-svc-track.is-dragging { cursor: grabbing; }
-
-/* ---- Individual card ---- */
-.ott-svc-card {
-  flex: 0 0 280px;
-  scroll-snap-align: start;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #1a1a1a;
-  border: 1.5px solid rgba(255,255,255,0.07);
-  transition: transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94),
-              box-shadow 0.28s ease,
-              border-color 0.25s ease;
-  outline: none;
-  position: relative;
-}
-
-.ott-svc-card:hover,
-.ott-svc-card:focus-visible {
-  transform: translateY(-6px) scale(1.025);
-  box-shadow: 0 18px 48px rgba(0,0,0,0.55),
-              0 0 0 1.5px var(--ott-accent);
-  border-color: var(--ott-accent);
-  z-index: 3;
-}
-
-/* 16:9 thumbnail */
-.ott-svc-card-thumb {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-.ott-svc-card-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.ott-svc-card:hover .ott-svc-card-thumb img {
-  transform: scale(1.07);
-}
-
-/* Gradient overlay on thumb */
-.ott-svc-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.55) 70%,
-    rgba(0,0,0,0.82) 100%
-  );
-  pointer-events: none;
-}
-
-/* Icon badge on thumb */
-.ott-svc-card-icon {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(var(--theme-rgb), 0.18);
-  border: 1.5px solid rgba(var(--theme-rgb), 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ott-accent);
-  font-size: 17px;
-  backdrop-filter: blur(4px);
-  transition: background 0.2s, border-color 0.2s;
-}
-.ott-svc-card:hover .ott-svc-card-icon {
-  background: rgba(var(--theme-rgb), 0.35);
-  border-color: var(--ott-accent);
-}
-
-/* ---- Card body ---- */
-.ott-svc-card-body {
-  padding: 14px 16px 18px;
-}
-
-/* Badge chips */
-.ott-svc-badge {
-  display: inline-block;
-  font-size: 9.5px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 3px;
-  margin-bottom: 8px;
-}
-.badge-blue  { background: rgba(var(--theme-rgb), 0.18); color: var(--ott-accent); border: 1px solid rgba(var(--theme-rgb), 0.35); }
-.badge-gold  { background: rgba(255,185,0,0.14); color: #f5c518; border: 1px solid rgba(255,185,0,0.35); }
-.badge-green { background: rgba(52,211,153,0.14); color: #34d399; border: 1px solid rgba(52,211,153,0.35); }
-.badge-pink  { background: rgba(236,72,153,0.14); color: #ec4899; border: 1px solid rgba(236,72,153,0.35); }
-
-.ott-svc-card-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--white);
-  margin: 0 0 7px;
-  line-height: 1.3;
-}
-
-.ott-svc-card-desc {
-  font-size: 12.5px;
-  color: var(--ott-text-synopsis);
-  line-height: 1.55;
-  margin: 0 0 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.ott-svc-card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 14px;
-}
-
-.ott-svc-card-meta span {
-  font-size: 11px;
-  color: var(--ott-text-muted);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.ott-svc-card-meta i {
-  color: var(--ott-accent);
-  font-size: 11px;
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 1199px) {
-  .ott-svc-tray-header { padding: 0 28px 24px; }
-  .ott-svc-carousel-wrap { padding: 0 16px; }
-  .ott-svc-card { flex: 0 0 250px; }
-}
-
-@media (max-width: 767px) {
-  .ott-services-tray-section { padding: 36px 0; }
-  .ott-svc-tray-header { padding: 0 16px 18px; gap: 6px 12px; }
-  .ott-svc-tray-heading { font-size: 20px; }
-  .ott-svc-tray-sub { font-size: 13px; }
-  .ott-svc-carousel-wrap { padding: 0 12px; }
-  .ott-svc-card { flex: 0 0 clamp(220px, 68vw, 260px); }
-  .ott-svc-arrow { width: 34px; height: 34px; font-size: 13px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ott-svc-card,
-  .ott-svc-card-thumb img,
-  .ott-svc-arrow { transition: none !important; }
-}
-

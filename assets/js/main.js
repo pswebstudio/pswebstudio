@@ -646,6 +646,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = document.getElementById("pswsWhatsappInput");
     const timeElement = document.getElementById("pswsWhatsappTime");
 
+    if (!launcher || !popup) return;
+
+    // Ensure floating elements are attached directly to document.body so position: fixed attaches to viewport
+    if (launcher.parentElement !== document.body) {
+        document.body.appendChild(launcher);
+    }
+    if (popup.parentElement !== document.body) {
+        document.body.appendChild(popup);
+    }
+
     /* WhatsApp number */
     const whatsappNumber = "918793400545";
 

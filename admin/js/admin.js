@@ -24,7 +24,7 @@ function escapeHtml(value) {
 async function checkAuth() {
     const isAuth = await api.isAuthenticated();
     if (!isAuth) {
-        window.location.href = '/pswebstudio/admin/login.html';
+        window.location.href = 'login.html';
         return false;
     }
     
@@ -430,7 +430,7 @@ document.getElementById('logoutBtn')?.addEventListener('click', async () => {
     if (confirm('Are you sure you want to logout?')) {
         try {
             await api.signOut();
-            window.location.href = '/pswebstudio/admin/login.html';
+            window.location.href = 'login.html';
         } catch (error) {
             console.error('Error logging out:', error);
             showToast('Failed to logout', 'danger');

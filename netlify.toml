@@ -8,12 +8,17 @@
   status = 200
 
 [[redirects]]
-  from = "/admin"
+  from = "/admin/login"
+  to = "/admin/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
   to = "/admin/index.html"
   status = 200
 
 [[redirects]]
-  from = "/admin/*"
+  from = "/admin"
   to = "/admin/index.html"
   status = 200
 

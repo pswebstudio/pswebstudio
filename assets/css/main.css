@@ -10429,7 +10429,7 @@ gap: 15px;
   display: inline-block;
   z-index: 9999;
   right: 30px;
-  bottom: 30px;
+  bottom: 95px;
   transition: all 0.4s ease-in-out;
   opacity: 0;
   visibility: hidden;
@@ -10616,6 +10616,15 @@ gap: 15px;
 }
 
 @media (max-width: 767px) {
+  .feature-memories-wrapper .feature-memories-right .list-box-item .award-box{
+    width: 100%;
+  }
+  .feature-memories-wrapper .feature-memories-right .list-box-item .award-box h5{
+    margin-top: 10px;
+  }
+  .feature-memories-content h2{
+    font-size: 24px;
+  }
   .search-popup.active .search-popup__overlay {
     position: absolute;
     top: 0;
@@ -16439,7 +16448,7 @@ gap: 15px;
 .psws-whatsapp-launcher {
     position: fixed !important;
     right: 25px !important;
-    bottom: 15px !important;
+    bottom: 25px !important;
 
     width: 60px;
     height: 60px;
@@ -16498,7 +16507,7 @@ gap: 15px;
     position: fixed !important;
 
     right: 25px !important;
-    bottom: 88px !important;
+    bottom: 95px !important;
 
     width: 360px;
     max-width: calc(100vw - 30px);
