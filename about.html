@@ -48,7 +48,7 @@
         <div class="mouseCursor cursor-outer"></div>
         <div class="mouseCursor cursor-inner"></div>
 
-        <!-- Offcanvas Sidebar -->
+        <!-- Offcanvas Mobile Menu Start -->
         <div class="fix-area">
             <div class="offcanvas__info">
                 <div class="offcanvas__wrapper">
@@ -60,47 +60,73 @@
                                 </a>
                             </div>
                             <div class="offcanvas__close">
-                                <button aria-label="Close offcanvas menu">
+                                <button aria-label="Close menu">
                                     <i class="fa-solid fa-xmark"></i>
                                 </button>
                             </div>
                         </div>
                         <p class="text d-none d-xl-block">
-                            PS Web Studio builds fast, responsive, and SEO-friendly websites for growing businesses — from custom frontend builds to database-driven web applications.
+                            PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
                         </p>
                         <div class="mobile-menu fix mb-3"></div>
                         <div class="offcanvas__contact">
-                            <h3>Get In Touch</h3>
-                            <!-- Netlify Form (PHP is not supported on Netlify).
-                                 If assets/js/main.js sends #contact-form to contact.php via AJAX, update that code too. -->
-                            <form name="offcanvas-contact" action="/contact.html" id="contact-form" method="POST" class="contact-form-items" data-netlify="true" netlify-honeypot="bot-field">
-                                <input type="hidden" name="form-name" value="offcanvas-contact">
-                                <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
-                                <div class="row g-4">
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <input type="text" name="name" id="name33" placeholder="Your Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <input type="email" name="email" id="email33" placeholder="Email Address" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <textarea name="message" id="message2" placeholder="Enter message..." required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="submit" class="theme-btn w-100">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <h3>Let's Build Something Great</h3>
+
+                            <div class="contact-info mt-3 mb-4">
+                                <p class="text text-md">
+                                    <i class="fa-solid fa-envelope me-2"></i>
+                                    <a href="mailto:pswebstudio.dev@gmail.com">
+                                        pswebstudio.dev@gmail.com
+                                    </a>
+                                </p>
+
+                                <p class="text text-md mt-2">
+                                    <i class="fa-solid fa-phone me-2"></i>
+                                    <a href="tel:+918793400545">
+                                        +91 87934 00545
+                                    </a>
+                                </p>
+
+                                <p class="text text-md mt-2">
+                                    <i class="fa-solid fa-globe me-2"></i>
+                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
+                                        pswebstudio.netlify.app
+                                    </a>
+                                </p>
+                            </div>
+
+                            <a href="javascript:void(0);" onclick="openQuoteModal()"
+                            class="theme-btn theme-btn-sm gap-2 log-bt">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Start a Project
+                            </a>
+
+                            <h3 class="mb-0 mt-4">Connect With Us</h3>
+
                             <div class="social-icon d-flex align-items-center">
-                                <a href="https://github.com/pswebstudio" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-                                <a href="mailto:pswebstudio.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="https://wa.me/918793400545" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/your-instagram/"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+
+                                <a href="https://www.linkedin.com/company/your-company/"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+
+                                <a href="https://www.facebook.com/your-page/"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="Facebook">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+
+                                <a href="https://wa.me/918793400545"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -109,22 +135,26 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-        <!-- Header Top -->
+                <!-- Header Top Section Start -->
         <div class="header-top-section">
             <div class="container-fluid">
                 <div class="header-top-wrapper">
                     <p>
-                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <b>Let's Talk</b>
+                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
                     </p>
                     <div class="header-right">
                         <ul class="header-list">
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:pswebstudio.dev@gmail.com">Email : pswebstudio.dev@gmail.com</a>
+                                <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
                             </li>
                             <li>
-                                <i class="fa-solid fa-phone-flip"></i>
-                                <a href="tel:+918793400545">Call : +91 87934 00545</a>
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+918793400545">+91 87934 00545</a>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                             </li>
                         </ul>
                     </div>
@@ -132,7 +162,7 @@
             </div>
         </div>
 
-        <!-- Header -->
+        <!-- Header Main Section Start -->
         <header id="header-sticky" class="header-1">
             <div class="container-fluid">
                 <div class="mega-menu-wrapper">
@@ -143,28 +173,28 @@
                                     <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
                                 </a>
                             </div>
-                            <div class="mean__menu-wrapper">
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                             <div class="mean__menu-wrapper">
                                 <div class="main-menu">
                                     <nav id="mobile-menu">
                                         <ul>
-                                            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li><a href="index.html#services"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                                            <li><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                            <li class=""><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                            <li class=""><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                            <li class=""><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                            <li class=""><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
                                             <li class="active"><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                            <li class=""><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
-                        </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
                             <div class="header-button">
-                                <a href="contact.html" class="theme-btn">Get a Quote</a>
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
                             </div>
-                            <div class="header__hamburger d-xl-none my-auto">
+                            <div class="header__hamburger my-auto">
                                 <div class="sidebar__toggle">
-                                    <i class="fa-solid fa-bars"></i>
+                                    <i class="fa-solid fa-bars-staggered"></i>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +203,7 @@
             </div>
         </header>
 
-        <div id="smooth-wrapper">
+       <div id="smooth-wrapper">
             <div id="smooth-content">
 
                 <!-- Breadcrumb -->
@@ -192,101 +222,144 @@
                 </div>
 
                 <!-- About Overview -->
-                <section class="about-section-2 section-padding fix">
-                    <div class="container">
-                        <div class="about-wrapper-2 style-2">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-lg-7">
-                                    <div class="about-content">
-                                        <div class="section-title mb-0">
-                                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-code text-theme me-2"></i> About Our Studio</span>
-                                            <h2 class="text-anim">
-                                                Crafting Fast, Responsive &amp; Conversion-Driven Web Experiences
-                                            </h2>
-                                        </div>
-                                        <p class="text wow fadeInUp" data-wow-delay=".4s">
-                                            Founded in 2023, <b>PS Web Studio</b> is a specialized web development and UI engineering studio based in Mumbai, India. We partner directly with growing businesses, travel operators, healthcare providers, and local brands who need high-performing websites that look stunning, load in milliseconds, and rank at the top of search results.
-                                        </p>
-                                        <div class="about-item">
-                                            <div class="about-image wow img-custom-anim-left">
-                                                <img src="assets/img/banner/pswebstudio-1.jpg" alt="PS Web Studio development workspace" loading="lazy" width="600" height="400" style="border-radius: 12px; object-fit: cover;">
-                                            </div>
-                                            <div class="right-content wow fadeInUp" data-wow-delay=".5s">
-                                                <ul class="nav" role="tablist">
-                                                    <li class="nav-item">
-                                                        <a href="#Mission" data-bs-toggle="tab" class="nav-link active" role="tab">Our Mission</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="#Vision" data-bs-toggle="tab" class="nav-link" role="tab">Our Vision</a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="#Philosophy" data-bs-toggle="tab" class="nav-link" role="tab">Our Philosophy</a>
-                                                    </li>
-                                                </ul>
-                                                <div class="tab-content">
-                                                    <div id="Mission" class="tab-pane fade show active" role="tabpanel">
-                                                        <div class="content">
-                                                            <p>
-                                                                To eliminate bloated templates and provide clean, custom-coded web solutions that deliver measurable business growth, fast load speeds, and intuitive user experiences.
-                                                            </p>
-                                                            <ul class="list">
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> 100% Mobile Responsive Layouts</li>
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Sub-second Core Web Vitals Performance</li>
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Conversion-Optimized Inquiry Funnels</li>
-                                                            </ul>
-                                                            <a href="contact.html" class="theme-btn mt-3">Start a Project</a>
-                                                        </div>
-                                                    </div>
-                                                    <div id="Vision" class="tab-pane fade" role="tabpanel">
-                                                        <div class="content">
-                                                            <p>
-                                                                To be the go-to technical partner for brands who value speed, craftsmanship, and direct collaboration over bulky agency bureaucracy and slow turnaround times.
-                                                            </p>
-                                                            <ul class="list">
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Modern Semantic HTML5 &amp; CSS3</li>
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Schema Structured Data &amp; On-page SEO</li>
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> High-converting UI/UX Patterns</li>
-                                                            </ul>
-                                                            <a href="project/" class="theme-btn mt-3">Explore Portfolio</a>
-                                                        </div>
-                                                    </div>
-                                                    <div id="Philosophy" class="tab-pane fade" role="tabpanel">
-                                                        <div class="content">
-                                                            <p>
-                                                                We believe that websites should work for you 24/7. That means clean code, zero clutter, accessible design, and transparent communication from Day 1 to deployment.
-                                                            </p>
-                                                            <ul class="list">
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Direct Developer Access &amp; Support</li>
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Fixed &amp; Transparent Project Pricing</li>
-                                                                <li><i class="fa-solid fa-circle-check text-theme"></i> Thorough Testing &amp; Post-launch Care</li>
-                                                            </ul>
-                                                            <a href="contact.html" class="theme-btn mt-3">Get in Touch</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+<section class="about-section-2 section-padding fix" aria-labelledby="about-heading">
+    <div class="container">
+        <div class="about-wrapper-2 style-2">
+            <div class="row g-4 align-items-center">
+
+                <div class="col-lg-7">
+                    <div class="about-content">
+
+                        <div class="section-title mb-0">
+                            <span class="sub-title wow fadeInUp">
+                                <i class="fa-solid fa-code text-theme me-2" aria-hidden="true"></i>
+                                About the Studio
+                            </span>
+
+                            <h2 id="about-heading" class="text-anim">
+                                Web Products Engineered for Performance, Visibility and Growth
+                            </h2>
+                        </div>
+
+                        <p class="text wow fadeInUp" data-wow-delay=".4s">
+                            <strong>PS Web Studio</strong> is a digital engineering studio founded in 2023 and based in Mumbai, India. We design and build websites, web platforms and business systems for clients across travel, healthcare, enterprise services and growing commercial brands, delivered remotely to clients in any region.
+                        </p>
+                        <p class="text wow fadeInUp" data-wow-delay=".45s">
+                            Our work covers corporate websites, dynamic portals, booking and enquiry systems, CRM and admin dashboards, and technical SEO. Every project follows the same standards: clean code, mobile-first interfaces, fast load times and a structure search engines can read.
+                        </p>
+                        <div class="about-image wow img-custom-anim-left">
+                            <img
+                                src="assets/img/banner/pswebstudio-1.jpg"
+                                alt="PS Web Studio web engineering and design workspace"
+                                loading="lazy"
+                                decoding="async"
+                                width="600"
+                                height="400"
+                                style="border-radius: 12px; object-fit: cover;"
+                            >
+                        </div>
+                        <div class="about-item">
+                            <div class="right-content wow fadeInUp" data-wow-delay=".5s">
+
+                                <ul class="nav" id="aboutTabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#mission" type="button" role="tab" aria-controls="mission" aria-selected="true">
+                                            Our Mission
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="vision-tab" data-bs-toggle="tab" data-bs-target="#vision" type="button" role="tab" aria-controls="vision" aria-selected="false">
+                                            Our Vision
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="philosophy-tab" data-bs-toggle="tab" data-bs-target="#philosophy" type="button" role="tab" aria-controls="philosophy" aria-selected="false">
+                                            Our Approach
+                                        </button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+
+                                    <!-- Mission -->
+                                    <div id="mission" class="tab-pane fade show active" role="tabpanel" aria-labelledby="mission-tab" tabindex="0">
+                                        <div class="content">
+                                            <p>
+                                                To build reliable, high-performing web products that remove complexity for our clients and turn their websites into working business assets.
+                                            </p>
+                                            <ul class="list">
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Mobile-First, Responsive Interfaces</li>
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Core Web Vitals and Page Speed Focus</li>
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Enquiry and Booking Flows Built to Convert</li>
+                                            </ul>
+                                            <a href="contact.html" class="theme-btn mt-3">Start a Project</a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="about-image-item">
-                                        <div class="about-image-2 wow img-custom-anim-top">
-                                            <img src="assets/img/banner/pswebstudio-2.jpg" alt="Responsive design showcase" loading="lazy" width="500" height="600" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.12);">
+
+                                    <!-- Vision -->
+                                    <div id="vision" class="tab-pane fade" role="tabpanel" aria-labelledby="vision-tab" tabindex="0">
+                                        <div class="content">
+                                            <p>
+                                                To be a long-term technology partner for businesses that value quality engineering, measurable performance and clear communication.
+                                            </p>
+                                            <ul class="list">
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Semantic HTML5 and Modern CSS3</li>
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Structured Data and On-Page SEO</li>
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Scalable Platforms on PHP, Laravel and MySQL</li>
+                                            </ul>
+                                            <a href="project/" class="theme-btn mt-3">View Our Work</a>
                                         </div>
                                     </div>
+
+                                    <!-- Approach -->
+                                    <div id="philosophy" class="tab-pane fade" role="tabpanel" aria-labelledby="philosophy-tab" tabindex="0">
+                                        <div class="content">
+                                            <p>
+                                                A website should earn its place in the business. We work from a written scope, build with clean and maintainable code, test before launch, and stay available after it.
+                                            </p>
+                                            <ul class="list">
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> One Accountable Point of Contact</li>
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Fixed Scope and Transparent Pricing</li>
+                                                <li><i class="fa-solid fa-circle-check text-theme" aria-hidden="true"></i> Pre-Launch Testing and Post-Launch Support</li>
+                                            </ul>
+                                            <a href="contact.html" class="theme-btn mt-3">Get in Touch</a>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="about-image-item">
+                        <div class="about-image-2 wow img-custom-anim-top">
+                            <img
+                                src="assets/img/banner/pswebstudio-2.jpg"
+                                alt="PS Web Studio responsive website design showcase"
+                                loading="lazy"
+                                decoding="async"
+                                width="500"
+                                height="600"
+                                style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.12);"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
                 <!-- Counters -->
                 <section class="counter-section-2 section-padding fix header-bg">
                     <div class="container">
                         <div class="counter-wrapper-2">
                             <div class="section-title text-center mb-0">
-                                <h2 class="text-white text-anim">Our Real-World Track Record</h2>
-                                <p class="text-white wow fadeInUp" data-wow-delay=".4s">Proven results delivered through clean code, speed optimization, and thoughtful UI design.</p>
+                                <h2 class="text-white text-anim">Delivery Record</h2>
+                                <p class="text-white wow fadeInUp" data-wow-delay=".4s">Live projects across multiple industries, built on the same engineering standards.</p>
                             </div>
                             <div class="row">
                                 <div class="counter-main-item-2">
@@ -295,26 +368,26 @@
                                             <i class="fa-solid fa-laptop-code text-theme" style="font-size: 38px;"></i>
                                         </div>
                                         <div class="content">
-                                            <h3><span class="count">20</span>+</h3>
-                                            <p>Websites Successfully Launched</p>
+                                            <h3><span class="count">14</span>+</h3>
+                                            <p>Projects Delivered</p>
                                         </div>
                                     </div>
                                     <div class="counter-item wow fadeInUp" data-wow-delay=".4s">
                                         <div class="icon">
-                                            <i class="fa-solid fa-bolt text-theme" style="font-size: 38px;"></i>
+                                            <i class="fa-solid fa-industry text-theme" style="font-size: 38px;"></i>
                                         </div>
                                         <div class="content">
-                                            <h3><span class="count">95</span>+</h3>
-                                            <p>Average PageSpeed Performance Score</p>
+                                            <h3><span class="count">3</span>+</h3>
+                                            <p>Industries Served</p>
                                         </div>
                                     </div>
                                     <div class="counter-item wow fadeInUp" data-wow-delay=".6s">
                                         <div class="icon">
-                                            <i class="fa-solid fa-mobile-screen-button text-theme" style="font-size: 38px;"></i>
+                                            <i class="fa-solid fa-calendar-check text-theme" style="font-size: 38px;"></i>
                                         </div>
                                         <div class="content">
-                                            <h3><span class="count">100</span>%</h3>
-                                            <p>Mobile Responsive &amp; Cross-Browser</p>
+                                            <h3><span class="count">3</span>+</h3>
+                                            <p>Years of Delivery</p>
                                         </div>
                                     </div>
                                 </div>
@@ -327,9 +400,9 @@
                 <section class="benefit-tour-section section-padding fix">
                     <div class="container">
                         <div class="section-title text-center">
-                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-microchip text-theme me-2"></i> Tech Stack</span>
-                            <h2 class="text-anim">Modern Tools We Build With</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".4s">We choose reliable, high-performance technologies to build websites that are fast, stable, and easy to maintain.</p>
+                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-microchip text-theme me-2"></i> Technology</span>
+                            <h2 class="text-anim">The Stack Behind Our Builds</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".4s">Proven technologies chosen for speed, stability and ease of maintenance.</p>
                         </div>
                         <div class="row g-4">
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
@@ -338,8 +411,8 @@
                                         <i class="fa-brands fa-html5" style="font-size: 28px; color: #e34c26;"></i>
                                     </div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5 mb-2">HTML5 &amp; Modern CSS3</h3>
-                                        <p class="text-muted">Semantic markup, flexbox, CSS grid, and responsive styling designed for maximum accessibility and SEO compliance.</p>
+                                        <h3 class="h5 mb-2">HTML5 &amp; CSS3</h3>
+                                        <p class="text-muted">Semantic markup, flexbox and grid layouts, built for accessibility and search compliance.</p>
                                     </div>
                                 </div>
                             </div>
@@ -349,8 +422,8 @@
                                         <i class="fa-brands fa-js" style="font-size: 28px; color: #d4a000;"></i>
                                     </div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5 mb-2">JavaScript &amp; Interactivity</h3>
-                                        <p class="text-muted">Clean ES6+ JavaScript, smooth GSAP animations, dynamic filters, modal systems, and responsive touch sliders.</p>
+                                        <h3 class="h5 mb-2">JavaScript</h3>
+                                        <p class="text-muted">ES6+ JavaScript, GSAP animation, dynamic filters, modal systems and touch-friendly sliders.</p>
                                     </div>
                                 </div>
                             </div>
@@ -361,7 +434,7 @@
                                     </div>
                                     <div class="choose-us-content">
                                         <h3 class="h5 mb-2">Bootstrap &amp; Tailwind CSS</h3>
-                                        <p class="text-muted">Industry-standard CSS frameworks customized with lean utility classes for agile, pixel-perfect responsive layouts.</p>
+                                        <p class="text-muted">Industry-standard frameworks, customised to match your design without extra weight.</p>
                                     </div>
                                 </div>
                             </div>
@@ -371,8 +444,8 @@
                                         <i class="fa-solid fa-database" style="font-size: 26px; color: #00758f;"></i>
                                     </div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5 mb-2">PHP, MySQL &amp; Supabase</h3>
-                                        <p class="text-muted">Dynamic backend routing, asynchronous AJAX form handling, Supabase database queries, and secure email notifications.</p>
+                                        <h3 class="h5 mb-2">PHP, Laravel &amp; MySQL</h3>
+                                        <p class="text-muted">Dynamic platforms, booking and CRM systems, AJAX forms, Supabase integration and email notifications.</p>
                                     </div>
                                 </div>
                             </div>
@@ -385,48 +458,48 @@
                     <div class="container">
                         <div class="section-title text-center">
                             <span class="sub-title text-white wow fadeInUp"><i class="fa-solid fa-list-check text-theme me-2"></i> How We Work</span>
-                            <h2 class="text-white text-anim">Our 4-Step Development Process</h2>
-                            <p class="text-white wow fadeInUp" data-wow-delay=".4s">A structured, transparent workflow ensuring timely delivery without hidden surprises.</p>
+                            <h2 class="text-white text-anim">A Four-Stage Delivery Process</h2>
+                            <p class="text-white wow fadeInUp" data-wow-delay=".4s">A defined workflow with a written scope, so you know what is being built, when, and for how much.</p>
                         </div>
                         <div class="row g-4">
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 01</span>
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Stage 01</span>
                                         <i class="fa-solid fa-comments text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
-                                    <h3 class="h4 text-white mb-2">Discovery &amp; Strategy</h3>
-                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">We analyze your brand, business goals, target audience, and competitors to establish site architecture and requirements.</p>
+                                    <h3 class="h4 text-white mb-2">Discovery &amp; Scope</h3>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">We review your goals, audience and competitors, then define the site structure, features and a written scope.</p>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                                 <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 02</span>
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Stage 02</span>
                                         <i class="fa-solid fa-pen-ruler text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
                                     <h3 class="h4 text-white mb-2">UI/UX Design</h3>
-                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">We design clean, modern layouts with high-contrast typography, strategic calls-to-action, and mobile-first navigation.</p>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Clean layouts with readable typography, clear calls to action and mobile-first navigation, approved before development.</p>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                                 <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 03</span>
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Stage 03</span>
                                         <i class="fa-solid fa-code text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
-                                    <h3 class="h4 text-white mb-2">Clean Development</h3>
-                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Writing standards-compliant, semantic HTML, CSS, and JS with fast asset loading, secure forms, and smooth animations.</p>
+                                    <h3 class="h4 text-white mb-2">Development</h3>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Standards-compliant code with optimised assets, validated and secured forms, and back-end logic where the project needs it.</p>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                                 <div class="p-4 rounded-3 h-100" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Step 04</span>
+                                        <span class="badge bg-danger px-3 py-2" style="font-size: 13px;">Stage 04</span>
                                         <i class="fa-solid fa-rocket text-white" style="font-size: 24px; opacity: 0.8;"></i>
                                     </div>
-                                    <h3 class="h4 text-white mb-2">SEO, QA &amp; Launch</h3>
-                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Comprehensive cross-browser testing, Core Web Vitals audit, schema setup, live domain deployment, and handover.</p>
+                                    <h3 class="h4 text-white mb-2">QA, SEO &amp; Launch</h3>
+                                    <p class="text-white-50" style="font-size: 14px; line-height: 1.6;">Cross-browser testing, Core Web Vitals review, schema setup, deployment to your domain and a documented handover.</p>
                                 </div>
                             </div>
                         </div>
@@ -437,17 +510,17 @@
                 <section class="choose-us-section section-padding fix">
                     <div class="container">
                         <div class="section-title text-center">
-                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-star text-theme me-2"></i> Why Choose Us</span>
-                            <h2 class="text-anim">Why Clients Trust PS Web Studio</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".4s">The benefits of working directly with a dedicated web specialist rather than an oversized agency.</p>
+                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-star text-theme me-2"></i> Why PS Web Studio</span>
+                            <h2 class="text-anim">What You Can Expect From Us</h2>
+                            <p class="wow fadeInUp" data-wow-delay=".4s">Focused delivery, clear commitments and no unnecessary layers between you and the work.</p>
                         </div>
                         <div class="row g-4">
                             <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
                                     <div class="icon mb-3"><i class="fa-solid fa-user-check text-theme" style="font-size: 32px;"></i></div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5">Direct Developer Access</h3>
-                                        <p>You speak directly with the developer building your site. No account managers, miscommunication, or lost requirements.</p>
+                                        <h3 class="h5">Direct Communication</h3>
+                                        <p>One accountable point of contact from brief to launch. Requirements are documented, so nothing is lost between conversations.</p>
                                     </div>
                                 </div>
                             </div>
@@ -455,8 +528,8 @@
                                 <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
                                     <div class="icon mb-3"><i class="fa-solid fa-gauge-high text-theme" style="font-size: 32px;"></i></div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5">Built for Extreme Speed</h3>
-                                        <p>We do not use bloated page builders that slow down your pages. Clean code guarantees rapid load times and happy visitors.</p>
+                                        <h3 class="h5">Performance by Design</h3>
+                                        <p>We hand-code instead of relying on heavy page builders, which keeps pages light and fast on mobile networks.</p>
                                     </div>
                                 </div>
                             </div>
@@ -464,8 +537,8 @@
                                 <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
                                     <div class="icon mb-3"><i class="fa-solid fa-magnifying-glass-chart text-theme" style="font-size: 32px;"></i></div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5">Search Engine Optimized</h3>
-                                        <p>Every website is built with clean heading tags, metadata, XML sitemaps, OpenGraph cards, and schema structured data.</p>
+                                        <h3 class="h5">Search-Ready Structure</h3>
+                                        <p>Clean heading hierarchy, metadata, XML sitemaps, Open Graph tags and schema markup are part of every build.</p>
                                     </div>
                                 </div>
                             </div>
@@ -474,7 +547,7 @@
                                     <div class="icon mb-3"><i class="fa-solid fa-tags text-theme" style="font-size: 32px;"></i></div>
                                     <div class="choose-us-content">
                                         <h3 class="h5">Transparent Pricing</h3>
-                                        <p>Upfront fixed-price quotes with clear scopes of work. No hidden charges, recurring surprise bills, or lock-ins.</p>
+                                        <p>Fixed quotes against a written scope. Changes are priced before they are built, with no hidden charges or lock-ins.</p>
                                     </div>
                                 </div>
                             </div>
@@ -482,8 +555,8 @@
                                 <div class="choose-us-box p-4" style="background: #f8fafc; border-radius: 12px; height: 100%;">
                                     <div class="icon mb-3"><i class="fa-solid fa-clock-rotate-left text-theme" style="font-size: 32px;"></i></div>
                                     <div class="choose-us-content">
-                                        <h3 class="h5">Fast Turnaround Times</h3>
-                                        <p>Most commercial website builds and redesigns are completed within 7 to 14 days, delivered with rigorous QA.</p>
+                                        <h3 class="h5">Agreed Timelines</h3>
+                                        <p>Delivery dates are set in the proposal and tracked through each stage, with testing completed before launch.</p>
                                     </div>
                                 </div>
                             </div>
@@ -492,7 +565,7 @@
                                     <div class="icon mb-3"><i class="fa-solid fa-headset text-theme" style="font-size: 32px;"></i></div>
                                     <div class="choose-us-content">
                                         <h3 class="h5">Post-Launch Support</h3>
-                                        <p>We do not disappear after launch. We provide ongoing support, bug fixes, updates, and maintenance when you need it.</p>
+                                        <p>Bug fixes and minor updates are covered for an agreed support period, with maintenance plans available afterwards.</p>
                                     </div>
                                 </div>
                             </div>
@@ -517,14 +590,14 @@
                                         </div>
                                         <div class="section-title mb-0">
                                             <h2 class="sec-title text-white text-anim">
-                                                Ready To Build A Website That Drives Growth?
+                                                Planning a New Website or Platform?
                                             </h2>
                                         </div>
                                         <p class="text text-white-50 wow fadeInUp" data-wow-delay=".3s">
-                                            Whether you are planning a fresh web build from scratch or looking to revamp an existing site for higher conversions, we are here to help.
+                                            Whether it is a new build or a rebuild of an existing site, share your requirements and we will respond with a scope, timeline and quote.
                                         </p>
                                         <div class="d-flex flex-wrap gap-3 mt-4">
-                                            <a href="contact.html" class="theme-btn">Get In Touch Today</a>
+                                            <a href="contact.html" class="theme-btn">Request a Proposal</a>
                                             <a href="project/" class="theme-btn" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);">View Projects</a>
                                         </div>
                                     </div>
@@ -534,8 +607,146 @@
                     </div>
                 </section>
 
-                <!-- Footer -->
-                <footer class="footer-section fix header-bg">
+        <!-- Contact / Quote Modal -->
+        <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
+                <button class="modal-close" id="closeModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="row g-0">
+                    <!-- LEFT PANEL -->
+                    <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
+                        <div class="mb-4">
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
+                                <i class="fa-regular fa-file-lines fs-3"></i>
+                            </span>
+                            <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="text-white-50 mb-0">
+                                Confirm your project details and share your contact information. We will send a tailored proposal.
+                            </p>
+                        </div>
+                        <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
+                            <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
+                                <i class="fa-regular fa-clipboard me-1"></i> Project Overview
+                            </p>
+                            <div class="summary-content">
+                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
+                                    <span class="summary-label small text-white-50">Service</span>
+                                    <span class="summary-value small fw-semibold text-end" id="summaryService">Custom Web Development</span>
+                                </div>
+                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
+                                    <span class="summary-label small text-white-50">Estimated Budget</span>
+                                    <span class="summary-value small fw-semibold text-end" id="summaryBudget">Flexible</span>
+                                </div>
+                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
+                                    <span class="summary-label small text-white-50">Category</span>
+                                    <span class="summary-value small fw-semibold text-end" id="summaryType">Commercial Website</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled small mt-auto mb-0">
+                            <li class="d-flex align-items-center gap-3 mb-3">
+                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2"><i class="fa-regular fa-clock"></i></span>
+                                <span>Response within one business day</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-3">
+                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2"><i class="fa-solid fa-list-check"></i></span>
+                                <span>Scope, timeline and cost breakdown</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-3 mb-0">
+                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2"><i class="fa-solid fa-lock"></i></span>
+                                <span>Your details stay confidential</span>
+                            </li>
+                        </ul>
+                    </aside>
+                    <!-- RIGHT PANEL -->
+                    <div class="col-lg-7 p-4 p-lg-5 bg-white">
+                        <h3 class="h4 fw-bold mb-1">Contact Details</h3>
+                        <p class="small text-muted mb-4">Fields marked * are required.</p>
+                        <form id="contactForm" class="modal-form" name="contact" method="POST">
+                            <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="service" id="modalService">
+                            <input type="hidden" name="budget" id="modalBudget">
+                            <input type="hidden" name="project-type" id="modalProjectType">
+                            <div class="row g-3">
+                                <div class="col-12 form-group">
+                                    <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
+                                        <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6" placeholder="Full name" autocomplete="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
+                                        <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6" placeholder="name@company.com" autocomplete="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
+                                        <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6" placeholder="Include country code" autocomplete="tel" inputmode="tel" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="modalCompany" class="form-label small fw-semibold">Company</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
+                                        <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6" placeholder="Company name" autocomplete="organization">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
+                                        <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
+                                            <option value="">Select timeline</option>
+                                            <option>Within 2 weeks</option>
+                                            <option>1 month</option>
+                                            <option>2-3 months</option>
+                                            <option>Flexible</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
+                                    <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                </div>
+                                <div class="col-12 form-group checkbox-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required>
+                                        <label for="modalAgree" class="form-check-label small text-muted">
+                                            I agree to be contacted about this enquiry.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
+                                        <span class="btn-text"><i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry</span>
+                                        <span class="btn-spinner d-none"><i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Success Message -->
+                            <div class="form-success d-none text-center py-5">
+                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
+                                    <i class="fa-solid fa-circle-check fs-1"></i>
+                                </span>
+                                <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
+                                <p class="text-muted mb-0">
+                                    We will review your requirements and respond within one business day.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer-section fix header-bg">
                     <div class="container">
                         <div class="footer-widget-wrapper">
                             <div class="row">
@@ -544,9 +755,9 @@
                                         <div class="wid-title"><h4>Services</h4></div>
                                         <ul class="list-area">
                                             <li><a href="index.html#services"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
-                                            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
-                                            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimization</a></li>
-                                            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX Integration</a></li>
+                                            <li><a href="index.html#services"><i class="fa-solid fa-chevron-right"></i> Web Platforms</a></li>
+                                            <li><a href="index.html#services"><i class="fa-solid fa-chevron-right"></i> CRM &amp; Dashboards</a></li>
+                                            <li><a href="index.html#services"><i class="fa-solid fa-chevron-right"></i> SEO Optimisation</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -554,9 +765,9 @@
                                     <div class="single-footer-widget">
                                         <div class="wid-title"><h4>Company</h4></div>
                                         <ul class="list-area">
-                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
                                             <li><a href="project/"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
-                                            <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                                            <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
                                             <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
                                         </ul>
                                     </div>
@@ -565,9 +776,9 @@
                                     <div class="single-footer-widget">
                                         <div class="wid-title"><h4>Technologies</h4></div>
                                         <ul class="list-area">
-                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
-                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5, CSS3 &amp; JavaScript</a></li>
                                             <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> PHP &amp; Laravel</a></li>
                                             <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
                                         </ul>
                                     </div>
@@ -577,33 +788,25 @@
                                         <div class="wid-title"><h4>Get In Touch</h4></div>
                                         <div class="contact-item">
                                             <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
-                                            <div class="content">
-                                                <h6>Mumbai, Maharashtra <br> India</h6>
-                                            </div>
+                                            <div class="content"><h6>Mumbai, India <br> Serving clients worldwide</h6></div>
                                         </div>
                                         <div class="contact-item">
                                             <div class="icon"><i class="fa-regular fa-envelope"></i></div>
-                                            <div class="content">
-                                                <h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6>
-                                            </div>
+                                            <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
                                         </div>
                                         <div class="contact-item mb-0">
                                             <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
-                                            <div class="content">
-                                                <h6><a href="tel:+918793400545">+91 87934 00545</a></h6>
-                                            </div>
+                                            <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
                                     <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4>
-                                        </div>
+                                        <div class="wid-title"><h4>Web Performance <br> &amp; SEO Insights</h4></div>
                                         <div class="newsletter-content">
-                                            <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
+                                            <p>Occasional notes on web performance, SEO and new work. No spam.</p>
                                             <!-- Netlify Form -->
-                                            <form name="newsletter" method="POST" action="/about.html" data-netlify="true" netlify-honeypot="bot-field">
+                                            <form name="newsletter" method="POST" action="/about.html">
                                                 <input type="hidden" name="form-name" value="newsletter">
                                                 <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
                                                 <div class="form-clt">
@@ -622,10 +825,8 @@
                         <div class="container">
                             <div class="footer-wrapper">
                                 <div class="text-item wow fadeInUp" data-wow-delay=".5s">
-                                    <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                    <p>© 2026 <span>PS Web Studio.</span> All rights reserved.</p>
                                     <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
-
-                                    
                                 </div>
                             </div>
                         </div>
@@ -650,6 +851,7 @@
         <script src="assets/js/jquery.meanmenu.min.js"></script>
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/form-handler.js"></script>
     
         <!-- WhatsApp Floating Chat & Popup -->
         <!-- WhatsApp Popup -->

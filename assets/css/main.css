@@ -6214,7 +6214,19 @@ gap: 15px;
 }
 @media (max-width: 1199px) {
   .header-top-section .container-fluid {
+    padding: 0 15px;
+  }
+  .header-top-wrapper {
+    justify-content: center;
+    text-align: center;
+    padding: 7px 0;
+  }
+  .header-top-wrapper .header-right {
     display: none;
+  }
+  .header-top-wrapper p {
+    font-size: 13px;
+    margin-bottom: 0;
   }
 }
 
@@ -6238,6 +6250,31 @@ gap: 15px;
   color: var(--white);
   font-weight: 600;
   border-bottom: 1px solid var(--white);
+}
+.topbar-lets-talk {
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.topbar-lets-talk:hover {
+  color: var(--theme) !important;
+  border-bottom-color: var(--theme) !important;
+}
+.topbar-lets-talk b {
+  color: inherit !important;
+  border-bottom: none !important;
+}
+.topbar-lets-talk i {
+  font-size: 11px;
+  transition: transform 0.25s ease;
+}
+.topbar-lets-talk:hover i {
+  transform: translateX(3px);
 }
 .header-top-wrapper .header-right {
   display: flex;
@@ -6285,7 +6322,7 @@ gap: 15px;
 .header-top-wrapper .header-right .header-list {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 25px;
 }
 .header-top-wrapper .header-right .header-list li {
   font-size: 14px;
@@ -6395,9 +6432,9 @@ gap: 15px;
   display: inline-block;
   margin-inline-end: 35px;
 }
-.header-main .main-menu ul li:last-child {
+/* .header-main .main-menu ul li:last-child {
   margin-inline-end: 0;
-}
+} */
 .header-main .main-menu ul li a {
   display: inline-block;
   font-size: 16px;
@@ -6760,7 +6797,12 @@ gap: 15px;
   }
 }
 .header-1 .header-main .header-right .header-button .theme-btn {
-  padding: 14px 35px;
+    text-transform: math-auto;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    background: var(--bs-primary-text-emphasis);
 }
 .header-1 .header-main .sidebar__toggle {
   color: var(--header);
@@ -7045,6 +7087,15 @@ gap: 15px;
 }
 .offcanvas__wrapper .offcanvas__content .text {
   color: var(--text);
+  text-align: justify;
+}
+.log-bt{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: var(--bs-primary-text-emphasis);
+  font-weight: 500;
 }
 @media (max-width: 1399px) {
   .offcanvas__wrapper .offcanvas__content .offcanvas__logo img {
@@ -7096,7 +7147,8 @@ gap: 15px;
   border: 1px solid var(--theme);
 }
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact h3 {
-  font-size: 28px;
+    font-size: 1.25rem;
+    font-weight: 500;
   margin-bottom: 15px;
 }
 .offcanvas__wrapper .offcanvas__content .offcanvas__contact .form-clt input, .offcanvas__wrapper .offcanvas__content .offcanvas__contact .form-clt textarea {

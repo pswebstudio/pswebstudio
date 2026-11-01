@@ -74,35 +74,63 @@
                         </p>
                         <div class="mobile-menu fix mb-3"></div>
                         <div class="offcanvas__contact">
-                            <h3>Get In Touch</h3>
-                            <form action="#" id="contact-form" method="POST" class="contact-form-items">
-                                <div class="row g-4">
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <label for="name33" class="visually-hidden">Name</label>
-                                            <input type="text" name="name" id="name33" placeholder="Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <label for="email33" class="visually-hidden">Email Address</label>
-                                            <input type="email" name="email" id="email33" placeholder="Email Address" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <label for="message2" class="visually-hidden">Message</label>
-                                            <textarea name="message" id="message2" placeholder="Enter message..." required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="submit" class="theme-btn w-100">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <h3>Let's Build Something Great</h3>
+
+                            <div class="contact-info mt-3 mb-4">
+                                <p class="text text-md">
+                                    <i class="fa-solid fa-envelope me-2"></i>
+                                    <a href="mailto:pswebstudio.dev@gmail.com">
+                                        pswebstudio.dev@gmail.com
+                                    </a>
+                                </p>
+
+                                <p class="text text-md mt-2">
+                                    <i class="fa-solid fa-phone me-2"></i>
+                                    <a href="tel:+918793400545">
+                                        +91 87934 00545
+                                    </a>
+                                </p>
+
+                                <p class="text text-md mt-2">
+                                    <i class="fa-solid fa-globe me-2"></i>
+                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
+                                        pswebstudio.netlify.app
+                                    </a>
+                                </p>
+                            </div>
+
+                            <a href="javascript:void(0);" onclick="openQuoteModal()"
+                            class="theme-btn theme-btn-sm gap-2 log-bt">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                Start a Project
+                            </a>
+
+                            <h3 class="mb-0 mt-4">Connect With Us</h3>
+
                             <div class="social-icon d-flex align-items-center">
-                                <a href="https://github.com/pswebstudio" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-                                <a href="mailto:pswebstudio.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="https://www.instagram.com/your-instagram/"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+
+                                <a href="https://www.linkedin.com/company/your-company/"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+
+                                <a href="https://www.facebook.com/your-page/"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="Facebook">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+
+                                <a href="https://wa.me/918793400545"
+                                target="_blank" rel="nofollow noopener noreferrer"
+                                aria-label="WhatsApp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -111,22 +139,26 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-        <!-- Header Top Section Start -->
+                <!-- Header Top Section Start -->
         <div class="header-top-section">
             <div class="container-fluid">
                 <div class="header-top-wrapper">
                     <p>
-                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <b>Let's Talk</b>
+                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
                     </p>
                     <div class="header-right">
                         <ul class="header-list">
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:pswebstudio.dev@gmail.com">Email : pswebstudio.dev@gmail.com</a>
+                                <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
                             </li>
                             <li>
-                                <i class="fa-solid fa-phone-flip"></i>
-                                <a href="tel:+918793400545">Call : +91 87934 00545</a>
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+918793400545">+91 87934 00545</a>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                             </li>
                         </ul>
                     </div>
@@ -145,28 +177,28 @@
                                     <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
                                 </a>
                             </div>
-                            <div class="mean__menu-wrapper">
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                             <div class="mean__menu-wrapper">
                                 <div class="main-menu">
                                     <nav id="mobile-menu">
                                         <ul>
                                             <li class="active"><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li><a href="#services"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                                            <li><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
-                                            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                            <li class=""><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                            <li class=""><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                            <li class=""><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                            <li class=""><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                            <li class=""><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
-                        </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
                             <div class="header-button">
-                                <a href="contact.html" class="theme-btn">Get a Quote</a>
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
                             </div>
-                            <div class="header__hamburger d-xl-none my-auto">
+                            <div class="header__hamburger my-auto">
                                 <div class="sidebar__toggle">
-                                    <i class="fa-solid fa-bars"></i>
+                                    <i class="fa-solid fa-bars-staggered"></i>
                                 </div>
                             </div>
                         </div>
@@ -176,67 +208,82 @@
         </header>
 
         <!-- Main Wrapper -->
-        <div id="smooth-wrapper">
+       <div id="smooth-wrapper">
             <div id="smooth-content">
-            <!-- PSWeb Studio Hero Banner Section Start -->
-                <!-- PSWeb Studio Hero Banner Section Start -->
-                <section class="ott-hero-section" id="ottHeroBanner" aria-label="PSWeb Studio Showcase">
+                <!-- PS Web Studio Hero Banner Section Start -->
+                <section class="ott-hero-section" id="ottHeroBanner" aria-label="PS Web Studio Showcase">
                     <div class="ott-hero-slides">
                         <!-- Slide 0: Studio -->
                         <div class="ott-hero-slide is-active" data-index="0"
-                            data-lead="PSWEB STUDIO"
-                            data-title="PSWEB STUDIO"
+                            data-lead="PS WEB STUDIO"
+                            data-title="PS WEB STUDIO"
                             data-accent="STUDIO"
-                            data-rank="Independent Web Studio, Mumbai"
-                            data-tag="Open for Projects"
+                            data-rank="Digital Engineering Studio"
+                            data-tag="Accepting New Projects"
                             data-year="2026"
-                            data-ua="Freelance"
+                            data-ua="Global"
                             data-duration="15+ Projects Delivered"
-                            data-langs="3+ Years in Frontend"
-                            data-synopsis="PSWeb Studio builds fast, responsive websites for travel, healthcare and service businesses. One developer, direct communication, no agency layers."
-                            data-genres="Frontend Dev|Custom UI|Responsive Design|SEO"
-                            data-video="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+                            data-langs="Since 2023"
+                            data-synopsis="PS Web Studio designs and builds fast, secure and scalable websites and web platforms for businesses across industries and regions."
+                            data-genres="Web Development|Web Applications|UI Engineering|Search Optimisation"
                             data-link="#portfolio">
                             <video class="ott-hero-slide-bg" src="assets/video/Developer_desk_glowing_monitor.mp4" autoplay muted playsinline tabindex="-1" aria-hidden="true"></video>
                         </div>
 
-                        <!-- Slide 1: Frontend Development -->
+                        <!-- Slide 1: Web Development -->
                         <div class="ott-hero-slide" data-index="1"
                             data-lead="WHAT WE BUILD"
-                            data-title="CUSTOM FRONTEND"
-                            data-accent="FRONTEND"
-                            data-rank="Hand-Coded, No Page-Builder Bloat"
+                            data-title="WEBSITE DEVELOPMENT"
+                            data-accent="DEVELOPMENT"
+                            data-rank="Custom-Coded, Standards-Based"
                             data-tag="Core Service"
                             data-year="2026"
                             data-ua="Service"
                             data-duration="Pixel-Accurate Builds"
                             data-langs="Mobile First"
-                            data-synopsis="Clean HTML5, CSS3 and JavaScript, built to your design and tested on real devices. Bootstrap or Tailwind CSS where it fits the project."
-                            data-genres="HTML5 &amp; CSS3|JavaScript &amp; jQuery|Bootstrap|Tailwind CSS"
+                            data-synopsis="Corporate sites, landing pages and brand platforms built to your design, tested across devices and browsers, and engineered for long-term maintainability."
+                            data-genres="Corporate Websites|Landing Pages|Responsive Design|Design Implementation"
                             data-link="#services">
                             <video class="ott-hero-slide-bg" src="assets/video/Code_editor_lines_scrolling.mp4" autoplay muted playsinline tabindex="-1" aria-hidden="true"></video>
                         </div>
 
-                        <!-- Slide 2: Travel & Tourism -->
+                        <!-- Slide 2: Web Applications -->
                         <div class="ott-hero-slide" data-index="2"
-                            data-lead="OUR SPECIALTY"
-                            data-title="TRAVEL WEBSITES"
-                            data-accent="WEBSITES"
-                            data-rank="Built for Tour Operators &amp; DMCs"
-                            data-tag="Industry Focus"
+                            data-lead="BEYOND STATIC PAGES"
+                            data-title="WEB PLATFORMS"
+                            data-accent="PLATFORMS"
+                            data-rank="Dynamic, Database-Driven Systems"
+                            data-tag="Custom Built"
                             data-year="2026"
-                            data-ua="Specialty"
-                            data-duration="Itinerary &amp; Package Pages"
-                            data-langs="Enquiry Forms"
-                            data-synopsis="Destination pages, package listings and enquiry flows for travel and tourism brands, backed by day-to-day work on travel sites."
-                            data-genres="Destination Pages|Package Listings|Enquiry Forms|Travel SEO"
-                            data-link="#portfolio">
-                            <video class="ott-hero-slide-bg" src="assets/video/Drone_gliding_over_tropical_coast.mp4" title="Travel and tourism websites by PSWeb Studio" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" tabindex="-1" aria-hidden="true"></video>
+                            data-ua="Service"
+                            data-duration="Portals &amp; Listings"
+                            data-langs="PHP, Laravel &amp; MySQL"
+                            data-synopsis="Booking engines, listing platforms, B2B portals and enquiry systems on PHP, Laravel and MySQL, with AJAX for fast, reload-free interactions."
+                            data-genres="Booking Systems|B2B Portals|Search &amp; Filters|API Integration"
+                            data-link="#services">
+                            <video class="ott-hero-slide-bg" src="assets/video/dynamic-sites.mp4" tabindex="-1" aria-hidden="true"></video>
                         </div>
 
-                        <!-- Slide 3: Speed & SEO -->
+                        <!-- Slide 3: CRM & Dashboards -->
                         <div class="ott-hero-slide" data-index="3"
-                            data-lead="BUILT TO RANK"
+                            data-lead="BUSINESS SYSTEMS"
+                            data-title="CRM &amp; DASHBOARDS"
+                            data-accent="DASHBOARDS"
+                            data-rank="Run Operations From One Place"
+                            data-tag="Custom Built"
+                            data-year="2026"
+                            data-ua="Service"
+                            data-duration="Admin Panels"
+                            data-langs="Role-Based Access"
+                            data-synopsis="Custom CRM and admin dashboards for managing leads, enquiries, bookings and records, with secure login and clear reporting."
+                            data-genres="Lead Management|Admin Dashboards|Role-Based Login|Reporting"
+                            data-link="#services">
+                            <video class="ott-hero-slide-bg" src="assets/video/crm-dashboards.mp4" tabindex="-1" aria-hidden="true"></video>
+                        </div>
+
+                        <!-- Slide 4: Performance & SEO -->
+                        <div class="ott-hero-slide" data-index="4"
+                            data-lead="BUILT TO PERFORM"
                             data-title="SPEED &amp; SEO"
                             data-accent="SEO"
                             data-rank="Performance Is Part of the Build"
@@ -244,45 +291,28 @@
                             data-year="2026"
                             data-ua="Included"
                             data-duration="Lean, Optimised Pages"
-                            data-langs="On-Page SEO"
-                            data-synopsis="Compressed images, tidy markup, proper headings, meta tags and schema. Pages load quickly and give search engines a clear structure to read."
+                            data-langs="Technical SEO"
+                            data-synopsis="Compressed assets, clean markup, correct heading structure, meta tags and schema. Pages load quickly and give search engines a clear structure to index."
                             data-genres="Page Speed|On-Page SEO|Schema Markup|Core Web Vitals"
                             data-link="#services">
-                            <video class="ott-hero-slide-bg" src="assets/video/seo-speed.mp4" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" tabindex="-1" aria-hidden="true"></video>
+                            <video class="ott-hero-slide-bg" src="assets/video/seo-speed.mp4" tabindex="-1" aria-hidden="true"></video>
                         </div>
 
-                        <!-- Slide 4: Data-connected sites -->
-                        <div class="ott-hero-slide" data-index="4"
-                            data-lead="BEYOND STATIC PAGES"
-                            data-title="DYNAMIC SITES"
-                            data-accent="SITES"
-                            data-rank="Frontend Connected to Your Data"
-                            data-tag="On Request"
-                            data-year="2026"
-                            data-ua="Add-on"
-                            data-duration="Forms &amp; Listings"
-                            data-langs="MySQL &amp; AJAX"
-                            data-synopsis="Search, filters, enquiry forms and database-driven listings using MySQL and AJAX, without full page reloads."
-                            data-genres="MySQL|AJAX Forms|Search &amp; Filters|Content Listings"
-                            data-link="#services">
-                            <video class="ott-hero-slide-bg" src="assets/video/dynamic-sites.mp4" title="Dynamic website features by PSWeb Studio" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" tabindex="-1" aria-hidden="true"></video>
-                        </div>
-
-                        <!-- Slide 5: CRM & Dashboards -->
+                        <!-- Slide 5: Industries -->
                         <div class="ott-hero-slide" data-index="5"
-                            data-lead="BUSINESS TOOLS"
-                            data-title="CRM &amp; DASHBOARDS"
-                            data-accent="DASHBOARDS"
-                            data-rank="Manage Leads and Enquiries in One Place"
-                            data-tag="Custom Built"
+                            data-lead="INDUSTRIES"
+                            data-title="BUILT FOR ANY SECTOR"
+                            data-accent="SECTOR"
+                            data-rank="Travel, Healthcare, Enterprise &amp; More"
+                            data-tag="Worldwide"
                             data-year="2026"
-                            data-ua="Service"
-                            data-duration="Admin Panels"
-                            data-langs="Healthcare &amp; Travel"
-                            data-synopsis="Custom CRM and admin dashboards for tracking leads, enquiries, bookings and records, with secure login and clean reporting views."
-                            data-genres="Lead Tracking|Admin Dashboard|Role-Based Login|Reports"
-                            data-link="#services">
-                            <video class="ott-hero-slide-bg" src="assets/video/crm-dashboards.mp4" title="CRM and dashboards by PSWeb Studio" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" tabindex="-1" aria-hidden="true"></video>
+                            data-ua="Global"
+                            data-duration="Multi-Industry Delivery"
+                            data-langs="Remote-First"
+                            data-synopsis="Delivered for travel, healthcare and enterprise service clients. The same engineering standards apply to retail, education, real estate, SaaS and professional services."
+                            data-genres="Travel &amp; Hospitality|Healthcare|Enterprise Services|E-commerce"
+                            data-link="#portfolio">
+                            <video class="ott-hero-slide-bg" src="assets/video/Drone_gliding_over_tropical_coast.mp4" tabindex="-1" aria-hidden="true"></video>
                         </div>
 
                         <!-- Slide 6: Contact -->
@@ -290,16 +320,16 @@
                             data-lead="LET'S WORK TOGETHER"
                             data-title="START A PROJECT"
                             data-accent="PROJECT"
-                            data-rank="Free Quote, Reply Within a Day"
+                            data-rank="Scoped Proposal Before Work Begins"
                             data-tag="Get in Touch"
                             data-year="2026"
                             data-ua="Open"
                             data-duration="Clear Scope &amp; Timeline"
-                            data-langs="Direct Contact"
-                            data-synopsis="Tell us what you need. You get a scoped quote and a timeline before any work starts."
-                            data-genres="Free Quote|Clear Scope|Fixed Timeline|Ongoing Support"
+                            data-langs="Remote Delivery"
+                            data-synopsis="Share your requirements. You receive a defined scope, timeline and fixed quote before any work starts."
+                            data-genres="Free Quote|Defined Scope|Agreed Timeline|Ongoing Support"
                             data-link="#contact">
-                            <video class="ott-hero-slide-bg" src="assets/video/start-project.mp4" title="Start a project with PSWeb Studio" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" tabindex="-1" aria-hidden="true"></video>
+                            <video class="ott-hero-slide-bg" src="assets/video/start-project.mp4" tabindex="-1" aria-hidden="true"></video>
                         </div>
                     </div>
 
@@ -314,41 +344,41 @@
                             <div class="ott-hero-brand-header">
                                 <div class="ott-hero-tagline-lead" id="ottLead">
                                     <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                    <span>PSWEB STUDIO</span>
+                                    <span>PS WEB STUDIO</span>
                                 </div>
                                 <h1 class="ott-hero-title-display" id="ottTitle">
-                                    PSWEB <span class="title-accent">STUDIO</span>
+                                    PS WEB <span class="title-accent">STUDIO</span>
                                 </h1>
                             </div>
 
                             <div class="ott-hero-badge-row">
-                                <span id="ottRank">Independent Web Studio, Mumbai</span>
+                                <span id="ottRank">Digital Engineering Studio</span>
                                 <span class="badge-dot">•</span>
-                                <span class="badge-sub" id="ottTag">Open for Projects</span>
+                                <span class="badge-sub" id="ottTag">Accepting New Projects</span>
                             </div>
 
                             <div class="ott-hero-meta-row">
                                 <span id="ottYear">2026</span>
                                 <span class="meta-dot">•</span>
-                                <span class="ott-ua-badge" id="ottUa">Freelance</span>
+                                <span class="ott-ua-badge" id="ottUa">Global</span>
                                 <span class="meta-dot">•</span>
                                 <span id="ottDuration">15+ Projects Delivered</span>
                                 <span class="meta-dot">•</span>
-                                <span id="ottLangs">3+ Years in Frontend</span>
+                                <span id="ottLangs">Since 2023</span>
                             </div>
 
                             <p class="ott-hero-synopsis" id="ottSynopsis">
-                                PSWeb Studio builds fast, responsive websites for travel, healthcare and service businesses. One developer, direct communication, no agency layers.
+                                PS Web Studio designs and builds fast, secure and scalable websites and web platforms for businesses across industries and regions.
                             </p>
 
                             <div class="ott-hero-genres" id="ottGenres">
-                                <span class="ott-genre-item">Frontend Dev</span>
+                                <span class="ott-genre-item">Web Development</span>
                                 <span class="ott-genre-sep">|</span>
-                                <span class="ott-genre-item">Custom UI</span>
+                                <span class="ott-genre-item">Web Applications</span>
                                 <span class="ott-genre-sep">|</span>
-                                <span class="ott-genre-item">Responsive Design</span>
+                                <span class="ott-genre-item">UI Engineering</span>
                                 <span class="ott-genre-sep">|</span>
-                                <span class="ott-genre-item">SEO</span>
+                                <span class="ott-genre-item">Search Optimisation</span>
                             </div>
 
                             <div class="ott-hero-actions">
@@ -368,10 +398,10 @@
                     </button>
                 </section>
 
-                <!-- Tray: PSWeb Studio services -->
-                <section class="ott-tray-section" id="ottBigThumbSection" aria-label="PSWeb Studio Services">
+                <!-- Tray: Services -->
+                <section class="ott-tray-section" id="ottBigThumbSection" aria-label="PS Web Studio Services">
                     <div class="ott-tray-header">
-                        <h2 class="ott-tray-heading">What PSWeb Studio Does</h2>
+                        <h2 class="ott-tray-heading">What PS Web Studio Delivers</h2>
                         <div class="ott-tray-nav-arrows">
                             <button type="button" class="ott-tray-arrow" id="trayPrevBtn" aria-label="Previous">
                                 <i class="fa-solid fa-chevron-left"></i>
@@ -384,28 +414,28 @@
 
                     <div class="ott-tray-carousel-wrap">
                         <div class="ott-tray-track" id="ottTrayTrack">
-                            <article class="ott-big-card is-active" data-slide="0" tabindex="0" role="button" aria-label="PSWeb Studio">
-                                <img src="assets/thumb/ps-thumb.png" alt="PSWeb Studio" class="ott-big-card-img" loading="lazy">
+                            <article class="ott-big-card is-active" data-slide="0" tabindex="0" role="button" aria-label="PS Web Studio">
+                                <img src="assets/thumb/ps-thumb.png" alt="PS Web Studio" class="ott-big-card-img" loading="lazy">
                                 <div class="ott-big-card-overlay"></div>
                                 <span class="ott-big-card-tag tag-gold">THE STUDIO</span>
                                 <div class="ott-big-card-content">
-                                    <h3 class="ott-big-card-title">PSWeb Studio</h3>
-                                    <div class="ott-big-card-category">Independent Web Studio</div>
+                                    <h3 class="ott-big-card-title">PS Web Studio</h3>
+                                    <div class="ott-big-card-category">Digital Engineering Studio</div>
                                     <div class="ott-big-card-meta">
                                         <span>2026</span>
-                                        <span class="meta-pill">Mumbai</span>
+                                        <span class="meta-pill">Global</span>
                                         <span>15+ Projects</span>
                                     </div>
                                 </div>
                             </article>
 
-                            <article class="ott-big-card" data-slide="1" tabindex="0" role="button" aria-label="Custom Frontend Development">
-                                <img src="assets/thumb/custom-frontend.png" alt="Custom frontend development" class="ott-big-card-img" loading="lazy">
+                            <article class="ott-big-card" data-slide="1" tabindex="0" role="button" aria-label="Website Development">
+                                <img src="assets/thumb/custom-frontend.png" alt="Website development" class="ott-big-card-img" loading="lazy">
                                 <div class="ott-big-card-overlay"></div>
                                 <span class="ott-big-card-tag tag-gold">CORE SERVICE</span>
                                 <div class="ott-big-card-content">
-                                    <h3 class="ott-big-card-title">Custom Frontend</h3>
-                                    <div class="ott-big-card-category">HTML, CSS, JavaScript</div>
+                                    <h3 class="ott-big-card-title">Website Development</h3>
+                                    <div class="ott-big-card-category">Corporate &amp; Brand Websites</div>
                                     <div class="ott-big-card-meta">
                                         <span>2026</span>
                                         <span class="meta-pill">Service</span>
@@ -414,22 +444,37 @@
                                 </div>
                             </article>
 
-                            <article class="ott-big-card" data-slide="2" tabindex="0" role="button" aria-label="Travel Websites">
-                                <img src="assets/thumb/travel-thumb.png" alt="Travel websites" class="ott-big-card-img" loading="lazy">
+                            <article class="ott-big-card" data-slide="2" tabindex="0" role="button" aria-label="Web Platforms">
+                                <img src="assets/thumb/dynamic-thumb.png" alt="Dynamic web platforms" class="ott-big-card-img" loading="lazy">
                                 <div class="ott-big-card-overlay"></div>
-                                <span class="ott-big-card-tag tag-pink">SPECIALTY</span>
+                                <span class="ott-big-card-tag tag-pink">PLATFORMS</span>
                                 <div class="ott-big-card-content">
-                                    <h3 class="ott-big-card-title">Travel Websites</h3>
-                                    <div class="ott-big-card-category">Tours, DMCs &amp; Packages</div>
+                                    <h3 class="ott-big-card-title">Web Platforms</h3>
+                                    <div class="ott-big-card-category">PHP, Laravel &amp; MySQL</div>
                                     <div class="ott-big-card-meta">
                                         <span>2026</span>
-                                        <span class="meta-pill">Specialty</span>
-                                        <span>Enquiry Flows</span>
+                                        <span class="meta-pill">Custom</span>
+                                        <span>Portals &amp; Booking</span>
                                     </div>
                                 </div>
                             </article>
 
-                            <article class="ott-big-card" data-slide="3" tabindex="0" role="button" aria-label="Speed and SEO">
+                            <article class="ott-big-card" data-slide="3" tabindex="0" role="button" aria-label="CRM and Dashboards">
+                                <img src="assets/thumb/crm-thumb.png" alt="CRM and dashboards" class="ott-big-card-img" loading="lazy">
+                                <div class="ott-big-card-overlay"></div>
+                                <span class="ott-big-card-tag tag-pink">BUSINESS SYSTEMS</span>
+                                <div class="ott-big-card-content">
+                                    <h3 class="ott-big-card-title">CRM &amp; Dashboards</h3>
+                                    <div class="ott-big-card-category">Leads, Enquiries &amp; Records</div>
+                                    <div class="ott-big-card-meta">
+                                        <span>2026</span>
+                                        <span class="meta-pill">Service</span>
+                                        <span>Admin Panels</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="ott-big-card" data-slide="4" tabindex="0" role="button" aria-label="Speed and SEO">
                                 <img src="assets/thumb/seo.png" alt="Speed and SEO" class="ott-big-card-img" loading="lazy">
                                 <div class="ott-big-card-overlay"></div>
                                 <span class="ott-big-card-tag">INCLUDED</span>
@@ -444,32 +489,17 @@
                                 </div>
                             </article>
 
-                            <article class="ott-big-card" data-slide="4" tabindex="0" role="button" aria-label="Dynamic Sites">
-                                <img src="assets/thumb/dynamic-thumb.png" alt="Dynamic sites with MySQL and AJAX" class="ott-big-card-img" loading="lazy">
+                            <article class="ott-big-card" data-slide="5" tabindex="0" role="button" aria-label="Industries">
+                                <img src="assets/thumb/travel-thumb.png" alt="Industries served" class="ott-big-card-img" loading="lazy">
                                 <div class="ott-big-card-overlay"></div>
-                                <span class="ott-big-card-tag tag-gold">ADD-ON</span>
+                                <span class="ott-big-card-tag tag-gold">INDUSTRIES</span>
                                 <div class="ott-big-card-content">
-                                    <h3 class="ott-big-card-title">Dynamic Sites</h3>
-                                    <div class="ott-big-card-category">MySQL &amp; AJAX</div>
+                                    <h3 class="ott-big-card-title">Multi-Industry</h3>
+                                    <div class="ott-big-card-category">Travel, Healthcare, Enterprise</div>
                                     <div class="ott-big-card-meta">
                                         <span>2026</span>
-                                        <span class="meta-pill">Add-on</span>
-                                        <span>Forms &amp; Filters</span>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="ott-big-card" data-slide="5" tabindex="0" role="button" aria-label="CRM and Dashboards">
-                                <img src="assets/thumb/crm-thumb.png" alt="CRM and dashboards" class="ott-big-card-img" loading="lazy">
-                                <div class="ott-big-card-overlay"></div>
-                                <span class="ott-big-card-tag tag-pink">BUSINESS TOOLS</span>
-                                <div class="ott-big-card-content">
-                                    <h3 class="ott-big-card-title">CRM &amp; Dashboards</h3>
-                                    <div class="ott-big-card-category">Leads, Enquiries &amp; Records</div>
-                                    <div class="ott-big-card-meta">
-                                        <span>2026</span>
-                                        <span class="meta-pill">Service</span>
-                                        <span>Admin Panels</span>
+                                        <span class="meta-pill">Worldwide</span>
+                                        <span>Remote Delivery</span>
                                     </div>
                                 </div>
                             </article>
@@ -484,7 +514,7 @@
                                     <div class="ott-big-card-meta">
                                         <span>2026</span>
                                         <span class="meta-pill">Open</span>
-                                        <span>Clear Scope</span>
+                                        <span>Defined Scope</span>
                                     </div>
                                 </div>
                             </article>
@@ -492,87 +522,90 @@
                     </div>
                 </section>
 
-                <!-- Interactive Quote & Capabilities Section Start -->
-                <section class="feature-memories-section section-padding fix header-bg  my-4 p-4">
-                    <div class="container-fluid ">
+                <!-- Quote & Capabilities Section Start -->
+               <section class="feature-memories-section section-padding fix header-bg my-4 p-4" id="services">
+                    <div class="container-fluid">
                         <div class="feature-memories-wrapper">
                             <div class="row g-4 align-items-center">
-                               <div class="col-lg-7">
-                                <div class="feature-memories-content">
-                                    <div class="section-title mb-0">
-                                        <h2 class="text-white text-anim">
-                                            Websites Built to Actually Work
-                                        </h2>
-                                    </div>
-                                    <p class="text">
-                                        Fast-loading, SEO-ready websites that convert visitors into customers not just portfolio pieces. 15+ projects delivered across travel, healthcare, and service industries, each one built to handle real traffic and rank on Google.
-                                    </p>
-                                    <div class="contact-from-wrapper">
-                                        <div class="contact-right">
-                                            <h3>Get Your Website Quote</h3>
-                                            <p>
-                                                Tell us what you need we'll get back with a clear plan and price, no obligation.
-                                            </p>
-                                            <form id="quoteForm" class="box-item">
-                                                <div class="form-clt">
-                                                    <label for="service-required" class="visually-hidden">Service Required</label>
-                                                    <select id="service-required" class="single-select w-100" required>
-                                                        <option value="">Service Required</option>
-                                                        <option value="Business Website">Business Website</option>
-                                                        <option value="E-commerce Website">E-commerce Website</option>
-                                                        <option value="Portfolio Website">Portfolio Website</option>
-                                                        <option value="Custom Web App">Custom Web App</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-clt">
-                                                    <label for="budget-range" class="visually-hidden">Budget Range</label>
-                                                    <select id="budget-range" class="single-select w-100" required>
-                                                        <option value="">Budget Range</option>
-                                                        <option value="₹5k - ₹15k">₹5k - ₹15k</option>
-                                                        <option value="₹15k - ₹50k">₹15k - ₹50k</option>
-                                                        <option value="₹50k+">₹50k+</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-clt">
-                                                    <label for="project-type" class="visually-hidden">Project Type</label>
-                                                    <select id="project-type" class="single-select w-100" required>
-                                                        <option value="">Project Type</option>
-                                                        <option value="Static Website">Static Website</option>
-                                                        <option value="Dynamic Website">Dynamic Website</option>
-                                                        <option value="Full Web Application">Full Web Application</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-clt">
-                                                    <button type="button" class="theme-btn" onclick="openQuoteModal(); return false;">
-                                                        Get My Quote
-                                                    </button>
-                                                </div>
-                                            </form>
+                                <div class="col-lg-7">
+                                    <div class="feature-memories-content">
+                                        <div class="section-title mb-0">
+                                            <h2 class="text-white text-anim">
+                                                Digital Products Engineered <br>for Business Results
+                                            </h2>
+                                        </div>
+                                        <p class="text">
+                                            Since 2023, PS Web Studio has built fast, reliable websites and web systems for startups, growing businesses and established companies that rely on search to bring in customers, delivered remotely to clients worldwide.
+                                        </p>
+                                        <div class="contact-from-wrapper">
+                                            <div class="contact-right">
+                                                <h3>Request a Project Quote</h3>
+                                                <p>
+                                                    Tell us what you need. You will receive a defined scope, timeline and price, with no obligation.
+                                                </p>
+                                                <form id="quoteForm" class="box-item">
+                                                    <div class="form-clt">
+                                                        <label for="service-required" class="visually-hidden">Service Required</label>
+                                                        <select id="service-required" class="single-select w-100" required>
+                                                            <option value="">Service Required</option>
+                                                            <option value="Corporate Website">Corporate Website</option>
+                                                            <option value="E-commerce Website">E-commerce Website</option>
+                                                            <option value="Web Application / Portal">Web Application / Portal</option>
+                                                            <option value="CRM / Admin Dashboard">CRM / Admin Dashboard</option>
+                                                            <option value="Redesign / Optimisation">Redesign / Optimisation</option>
+                                                            <option value="Not Sure Yet">Not Sure Yet</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-clt">
+                                                        <label for="budget-range" class="visually-hidden">Budget Range</label>
+                                                        <select id="budget-range" class="single-select w-100" required>
+                                                            <option value="">Budget Range</option>
+                                                            <option value="₹5k - ₹15k">₹5k - ₹15k</option>
+                                                            <option value="₹15k - ₹50k">₹15k - ₹50k</option>
+                                                            <option value="₹50k+">₹50k+</option>
+                                                            <option value="Prefer to Discuss">Prefer to Discuss</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-clt">
+                                                        <label for="project-type" class="visually-hidden">Project Type</label>
+                                                        <select id="project-type" class="single-select w-100" required>
+                                                            <option value="">Project Type</option>
+                                                            <option value="Static Website">Static Website</option>
+                                                            <option value="Dynamic Website">Dynamic Website</option>
+                                                            <option value="Full Web Application">Full Web Application</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-clt">
+                                                        <button type="button" class="theme-btn" onclick="openQuoteModal(); return false;">
+                                                            Get My Quote
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
                                 <div class="col-lg-5">
                                     <div class="feature-memories-right">
                                         <p class="text-2">
-                                            Since 2023, we have built websites for startups, freelancers, and small businesses that need to load fast and show up in search - not just look good in a screenshot.
+                                            Clients choose us when they need a website that loads quickly, stays reliable under real traffic and gets found in search.
                                         </p>
                                         <div class="list-box-item">
                                             <ul class="list">
-                                                <li><i class="fa-solid fa-circle-check"></i> Custom CRM Systems Built for Business Needs</li>
-                                                <li><i class="fa-solid fa-circle-check"></i> 20+ Real-World Web Projects Delivered</li>
-                                                <li><i class="fa-solid fa-circle-check"></i> Mobile-First Responsive UI Across All Devices</li>
-                                                <li><i class="fa-solid fa-circle-check"></i> Business &amp; Freelance Websites Built from Scratch</li>
-                                                <li><i class="fa-solid fa-circle-check"></i> MySQL-Backed Data Integration &amp; AJAX</li>
-                                                <li><i class="fa-solid fa-circle-check"></i> SEO-Ready, Performance-Optimized Architecture</li>
+                                                <li><i class="fa-solid fa-circle-check"></i> Custom CRM and Admin Dashboards</li>
+                                                <li><i class="fa-solid fa-circle-check"></i> 14+ Projects Delivered Across Industries</li>
+                                                <li><i class="fa-solid fa-circle-check"></i> Mobile-First, Responsive Interfaces</li>
+                                                <li><i class="fa-solid fa-circle-check"></i> PHP, Laravel and MySQL Platforms</li>
+                                                <li><i class="fa-solid fa-circle-check"></i> AJAX-Driven Forms, Search and Filters</li>
+                                                <li><i class="fa-solid fa-circle-check"></i> SEO-Ready, Performance-Focused Builds</li>
                                             </ul>
                                             <div class="award-box">
                                                 <div class="icon">
-                                                    <img src="assets/img/home-3/award.png" alt="Award Icon" loading="lazy">
+                                                    <img src="assets/img/home-3/award.png" alt="" loading="lazy">
                                                 </div>
                                                 <h5>
-                                                    Trusted Since <br>
+                                                    Established <br>
                                                     2023
                                                 </h5>
                                             </div>
@@ -584,15 +617,13 @@
                     </div>
                 </section>
 
-
-
-                <!-- Projects Showcase Section Start -->
+                <!-- Selected Work Section Start -->
                 <section class="tour-place-section section-padding fix" id="portfolio">
                     <div class="container-fluid px-4">
                         <div class="section-title text-center">
-                            <h2 class="text-anim">Projects I've Built &amp; Delivered</h2>
+                            <h2 class="text-anim">Selected Work</h2>
                             <p class="wow fadeInUp" data-wow-delay=".5s">
-                                <span class="count" id="projectCount">14</span><b>+</b> live websites, mostly travel and tourism, healthcare, and enterprise services
+                                <span class="count" id="projectCount">14</span><b>+</b> live projects across travel, healthcare and enterprise services
                             </p>
                         </div>
                         <div class="row g-4" id="projectsContainer">
@@ -600,7 +631,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="tour-place-item">
                                     <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/andaman-vacations.png" alt="Andaman Vacations Website" loading="lazy">
+                                        <img src="assets/img/project-banner/andaman-vacations.png" alt="Andaman Vacations website" loading="lazy">
                                         <div class="icon">
                                             <i class="fa-solid fa-globe text-primary"></i>
                                         </div>
@@ -608,13 +639,12 @@
                                     <div class="tour-place-content">
                                         <h3>
                                             <a href="project.html?project=andaman-vacations">
-                                                Andaman Vacations <br>Travel &amp; Tourism
+                                                Andaman Vacations <br>Travel Website
                                             </a>
                                         </h3>
                                         <ul class="tour-list">
-                                            <li><i class="fa-solid fa-location-dot"></i> Andaman Vacations</li>
                                             <li><i class="fa-solid fa-globe"></i> andamanvacations.com</li>
-                                            <li><i class="fa-solid fa-briefcase"></i> Tour Agency</li>
+                                            <li><i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -623,7 +653,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                                 <div class="tour-place-item">
                                     <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/andaman-dmc.png" alt="Andaman DMC Portal" loading="lazy">
+                                        <img src="assets/img/project-banner/andaman-dmc.png" alt="Andaman DMC B2B portal" loading="lazy">
                                         <div class="icon">
                                             <i class="fa-solid fa-globe text-primary"></i>
                                         </div>
@@ -631,13 +661,12 @@
                                     <div class="tour-place-content">
                                         <h3>
                                             <a href="project.html?project=andaman-dmc">
-                                                Andaman DMC <br>B2B Travel Portal
+                                                Andaman DMC <br>B2B Portal
                                             </a>
                                         </h3>
                                         <ul class="tour-list">
-                                            <li><i class="fa-solid fa-location-dot"></i> Andaman DMC</li>
                                             <li><i class="fa-solid fa-globe"></i> andamandmc.in</li>
-                                            <li><i class="fa-solid fa-briefcase"></i> B2B Portal</li>
+                                            <li><i class="fa-solid fa-briefcase"></i> B2B Platform</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -646,7 +675,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
                                 <div class="tour-place-item">
                                     <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/qg.png" alt="Quest Guide India Website" loading="lazy">
+                                        <img src="assets/img/project-banner/qg.png" alt="Quest Guide India website" loading="lazy">
                                         <div class="icon">
                                             <i class="fa-solid fa-globe text-primary"></i>
                                         </div>
@@ -658,7 +687,6 @@
                                             </a>
                                         </h3>
                                         <ul class="tour-list">
-                                            <li><i class="fa-solid fa-location-dot"></i> Quest Guide</li>
                                             <li><i class="fa-solid fa-globe"></i> questguideindia.com</li>
                                             <li><i class="fa-solid fa-briefcase"></i> Travel &amp; Hospitality</li>
                                         </ul>
@@ -669,7 +697,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                                 <div class="tour-place-item">
                                     <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/mp.png" alt="Madhya Pradesh DMC Website" loading="lazy">
+                                        <img src="assets/img/project-banner/mp.png" alt="Madhya Pradesh DMC website" loading="lazy">
                                         <div class="icon">
                                             <i class="fa-solid fa-globe text-primary"></i>
                                         </div>
@@ -681,7 +709,6 @@
                                             </a>
                                         </h3>
                                         <ul class="tour-list">
-                                            <li><i class="fa-solid fa-location-dot"></i> MP DMC</li>
                                             <li><i class="fa-solid fa-globe"></i> mpdmc.com</li>
                                             <li><i class="fa-solid fa-briefcase"></i> Tourism Operations</li>
                                         </ul>
@@ -692,126 +719,116 @@
                     </div>
                 </section>
 
-                <!-- Full-Stack Engineering & Tech Standards Start -->
-                <section class="feature-exprience-section-2 fix header-bg section-padding">
-                    <div class="container custom-container-4">
-                        <div class="feature-exprience-wrapper">
-                            <div class="row g-4 align-items-center">
-                                <div class="col-xl-4 col-lg-6 wow img-custom-anim-left">
-                                    <div class="about-wrapper-3">
-                                        <div class="row g-4">
-                                            <div class="about-right-item">
-                                                <div class="about-box">
-                                                    <h3>
-                                                        Built With MySQL &amp; AJAX <br>
-                                                        for Real Business Workflows
-                                                    </h3>
-                                                    <div class="icon-item">
-                                                        <div class="icon">
-                                                            <i class="fa-solid fa-calendar-check"></i>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h5>Booking &amp; Reservation Interfaces</h5>
-                                                            <p>
-                                                                Built AJAX-driven booking and reservation forms on a MySQL backend for travel and hospitality clients - live availability checks without full page reloads.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="icon-item style-2">
-                                                        <div class="icon">
-                                                            <i class="fa-solid fa-chart-line"></i>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h5>Client Data Dashboards</h5>
-                                                            <p>
-                                                                Built frontend dashboards backed by MySQL and Supabase for tracking bookings, inquiries, and client records with instant data response.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                <!-- Engineering & Capabilities Start -->
+       <section class="feature-exprience-section-2 fix header-bg section-padding">
+    <div class="container custom-container-4">
+        <div class="feature-exprience-wrapper">
+            <div class="row g-4 align-items-center">
+                <div class="col-xl-4 col-lg-6 wow img-custom-anim-left">
+                    <div class="about-wrapper-3">
+                        <div class="row g-4">
+                            <div class="about-right-item">
+                                <div class="about-box">
+                                    <h3>
+                                        Built Around <br>
+                                        How Your Business Runs
+                                    </h3>
+                                    <div class="icon-item">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-calendar-check"></i>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-4 col-lg-6">
-                                    <div class="counter-main-box wow img-custom-anim-top">
                                         <div class="content">
-                                            <h2>
-                                                <span class="count" id="projectCount2">14</span>+
-                                            </h2>
+                                            <h5>Booking &amp; Reservation Systems</h5>
                                             <p>
-                                                Completed projects including business websites, dashboards, and frontend interfaces
+                                                Fast, AJAX-powered booking and enquiry flows on a MySQL backend. Customers see live availability and confirm instantly, with no page reloads.
                                             </p>
                                         </div>
-                                        <div class="right-box">
-                                            <h2>
-                                                <span class="count">3</span>+
-                                            </h2>
+                                    </div>
+                                    <div class="icon-item style-2">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h5>Operational Dashboards</h5>
                                             <p>
-                                                Years building responsive layouts, clean code, and SEO-ready frontends
+                                                One clear view of your bookings, enquiries and client records, powered by MySQL and Supabase so your team can act on real-time data.
                                             </p>
-                                            <div class="star-item">
-                                                <img src="assets/img/home-2/feature/Image.png" alt="Star rating" loading="lazy">
-                                                <div class="star">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="adventure-box-2 wow img-custom-anim-bottom">
-                                        <div class="shape-2">
-                                            <img src="assets/img/home-2/feature/shape-bg.png" alt="Shape" loading="lazy">
-                                        </div>
-                                        <h3 class="h5 pt-5 mt-3">
-                                            <a href="contact.html">
-                                                Frontend Development <br>
-                                                for Modern Businesses
-                                            </a>
-                                        </h3>
-                                        <div class="info-item">
-                                            <img src="assets/img/home-1/adventure/client.png" alt="Client" loading="lazy">
-                                            <div class="content">
-                                                <h5>PS Web Studio</h5>
-                                                <span>Web Developer, Mumbai</span>
-                                            </div>
-                                        </div>
-                                        <div class="shape">
-                                            <img src="assets/img/home-1/adventure/shape.png" alt="Shape" loading="lazy">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xl-4 col-lg-6 wow img-custom-anim-right">
-                                    <div class="left-image">
-                                        <img src="assets/img/home-2/feature/02.jpg" alt="Dashboard interface preview" loading="lazy">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+
+                <div class="col-xl-4 col-lg-6">
+                    <div class="counter-main-box wow img-custom-anim-top">
+                        <div class="content">
+                            <h2>
+                                <span class="count" id="projectCount2">14</span>+
+                            </h2>
+                            <p>
+                                Projects delivered, from business websites and client portals to dashboards and custom web interfaces
+                            </p>
+                        </div>
+                        <div class="right-box">
+                            <h2>
+                                <span class="count">3</span>+
+                            </h2>
+                            <p>
+                                Years crafting responsive, SEO-ready and easy-to-maintain web products
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="adventure-box-2 wow img-custom-anim-bottom">
+                        <div class="shape-2">
+                            <img src="assets/img/home-2/feature/shape-bg.png" alt="" loading="lazy">
+                        </div>
+                        <h3 class="h5 pt-5 mt-3">
+                            <a href="contact.html">
+                                Web Engineering <br>
+                                That Helps Businesses Grow
+                            </a>
+                        </h3>
+                        <div class="info-item">
+                            <img src="assets/img/home-1/adventure/client.png" alt="PS Web Studio" loading="lazy">
+                            <div class="content">
+                                <h5>PS Web Studio</h5>
+                                <span>Digital Engineering Studio</span>
+                            </div>
+                        </div>
+                        <div class="shape">
+                            <img src="assets/img/home-1/adventure/shape.png" alt="" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-6 wow img-custom-anim-right">
+                    <div class="left-image">
+                        <img src="assets/img/home-2/feature/02.jpg" alt="Business dashboard interface showing bookings and client data" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
                 <!-- Why Choose Us Start -->
                 <section class="why-choose-us-section-3 section-padding fix bg-color-5">
                     <div class="left-shape">
-                        <img src="assets/img/home-3/destination/shape-1.png" alt="Shape" loading="lazy">
+                        <img src="assets/img/home-3/destination/shape-1.png" alt="" loading="lazy">
                     </div>
                     <div class="right-shape">
-                        <img src="assets/img/home-3/destination/shape-2.png" alt="Shape" loading="lazy">
+                        <img src="assets/img/home-3/destination/shape-2.png" alt="" loading="lazy">
                     </div>
                     <div class="bottom-shape">
-                        <img src="assets/img/home-3/destination/shape-3.png" alt="Shape" loading="lazy">
+                        <img src="assets/img/home-3/destination/shape-3.png" alt="" loading="lazy">
                     </div>
                     <div class="container-fluid px-4">
                         <div class="section-title text-center">
                             <h2 class="text-white text-anim">Why Work With PS Web Studio</h2>
-                            <p class="text-white wow fadeInUp" data-wow-delay=".5s">Straight answers, clear pricing, and a site that's actually yours when it's done.</p>
+                            <p class="text-white wow fadeInUp" data-wow-delay=".5s">Clear scope, transparent pricing and full ownership of what we deliver.</p>
                         </div>
                         <div class="row g-4">
                             <div class="col-xl-3 col-lg-6 col-md-6">
@@ -821,7 +838,7 @@
                                     </div>
                                     <h5>Direct Communication</h5>
                                     <p>
-                                        You work directly with the developer building your site - no account managers, no relay delays.
+                                        One point of contact from brief to launch. Decisions move quickly because there are no relay layers.
                                     </p>
                                 </div>
                             </div>
@@ -832,7 +849,7 @@
                                     </div>
                                     <h5>Transparent Pricing</h5>
                                     <p>
-                                        Scope and cost are agreed upfront - no surprise charges or hidden fees once the project starts.
+                                        Scope and cost are agreed in writing before work starts. Changes are quoted before they are built.
                                     </p>
                                 </div>
                             </div>
@@ -843,7 +860,7 @@
                                     </div>
                                     <h5>Mobile-First Builds</h5>
                                     <p>
-                                        Every site is designed and tested for phones and tablets first, desktop second.
+                                        Every interface is designed and tested for phones and tablets first, then scaled up to desktop.
                                     </p>
                                 </div>
                             </div>
@@ -854,252 +871,352 @@
                                     </div>
                                     <h5>Post-Launch Support</h5>
                                     <p>
-                                        Bug fixes and small updates after launch are part of the deal, not a separate invoice.
+                                        Bug fixes and minor updates after launch are covered for an agreed support period.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+               <section>
+                <div class="container">
 
-                <!-- Brand Partners Section Start -->
-            
+<section class="content-section news-section section-padding fix">
+    <div class="section-title">
+        <div class="d-flex flex-center-between">
+            <h2 class="mb-0">Insights on Web Performance, SEO &amp; Development</h2>
+            <a href="/blog/" class="link-btn">
+                View All
+            </a>
+        </div>
+        <p class="mt-1">
+            Practical guides for businesses planning, rebuilding or improving their website.
+        </p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".1s">
+            <div class="content-card news-card-items related">
+                <div class="content-image news-image">
+                    <img src="/assets/img/blog/website-redesign-checklist.webp" alt="Website redesign checklist for businesses" width="600" height="400" loading="lazy">
+                    <span>12 Aug 2026</span>
+                </div>
+                <div class="content-body news-content">
+                    <span>Web Strategy</span>
+                    <h3 class="ellipsis two-lines">
+                        <a href="/blog/website-redesign-checklist">
+                            Website Redesign Checklist: What to Audit Before You Rebuild
+                        </a>
+                    </h3>
+                    <a href="/blog/website-redesign-checklist" class="link-btn" aria-label="Read more: Website Redesign Checklist">
+                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+            <div class="content-card news-card-items related">
+                <div class="content-image news-image">
+                    <img src="/assets/img/blog/core-web-vitals-guide.webp" alt="Core Web Vitals explained for website owners" width="600" height="400" loading="lazy">
+                    <span>09 Sep 2026</span>
+                </div>
+                <div class="content-body news-content">
+                    <span>Performance &amp; SEO</span>
+                    <h3 class="ellipsis two-lines">
+                        <a href="/blog/core-web-vitals-what-to-fix-first">
+                            Core Web Vitals Explained: What to Fix First
+                        </a>
+                    </h3>
+                    <a href="/blog/core-web-vitals-what-to-fix-first" class="link-btn" aria-label="Read more: Core Web Vitals Explained">
+                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+            <div class="content-card news-card-items related">
+                <div class="content-image news-image">
+                    <img src="/assets/img/blog/static-vs-dynamic-website.webp" alt="Static versus dynamic website comparison" width="600" height="400" loading="lazy">
+                    <span>07 Oct 2026</span>
+                </div>
+                <div class="content-body news-content">
+                    <span>Web Development</span>
+                    <h3 class="ellipsis two-lines">
+                        <a href="/blog/static-vs-dynamic-website">
+                            Static vs Dynamic Websites: Which Does Your Business Need?
+                        </a>
+                    </h3>
+                    <a href="/blog/static-vs-dynamic-website" class="link-btn" aria-label="Read more: Static vs Dynamic Websites">
+                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
+            <div class="content-card news-card-items related">
+                <div class="content-image news-image">
+                    <img src="/assets/img/blog/enquiry-booking-system.webp" alt="How an online enquiry and booking system works" width="600" height="400" loading="lazy">
+                    <span>28 Oct 2026</span>
+                </div>
+                <div class="content-body news-content">
+                    <span>Web Platforms</span>
+                    <h3 class="ellipsis two-lines">
+                        <a href="/blog/how-enquiry-booking-systems-work">
+                            How an Online Enquiry and Booking System Works
+                        </a>
+                    </h3>
+                    <a href="/blog/how-enquiry-booking-systems-work" class="link-btn" aria-label="Read more: How an Online Enquiry and Booking System Works">
+                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</div>
+               </section>
                 <!-- FAQ Section Start -->
-                <section class="faq-section-3 section-padding fix header-bg pt-0 mx-0">
-                    <div class="container">
-                        <div class="section-title text-center">
-                            <h2 class="text-white text-anim">Frequently Asked Questions</h2>
-                            <p class="text-white wow fadeInUp" data-wow-delay=".5s">What clients usually ask before we start a project</p>
-                        </div>
-                        <div class="faq-wrapper-3">
-                            <div class="row g-4">
-                                <div class="col-lg-12">
-                                    <div class="faq-content">
-                                        <div class="faq-items-5">
-                                            <div class="accordion" id="technicalAccordion">
+              <section class="faq-section-3 section-padding fix header-bg mx-0">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2 class="text-white text-anim">Frequently Asked Questions</h2>
+            <p class="text-white wow fadeInUp" data-wow-delay=".5s">Answers to what clients ask before a project starts</p>
+        </div>
+        <div class="faq-wrapper-3">
+            <div class="row g-4">
+                <div class="col-lg-12">
+                    <div class="faq-content">
+                        <div class="faq-items-5">
+                            <div class="accordion" id="technicalAccordion">
 
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="technicalHeadingOne">
-                                                        <button class="accordion-button" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#technicalCollapseOne"
-                                                            aria-expanded="true"
-                                                            aria-controls="technicalCollapseOne">
-                                                            <span>01</span>
-                                                            What services does PS Web Studio provide?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="technicalCollapseOne"
-                                                        class="accordion-collapse collapse show"
-                                                        aria-labelledby="technicalHeadingOne"
-                                                        data-bs-parent="#technicalAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                PS Web Studio specializes in frontend website development - responsive UI, landing pages, business websites, and MySQL/AJAX-backed dynamic pages, built for performance and SEO.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="technicalHeadingTwo">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#technicalCollapseTwo"
-                                                            aria-expanded="false"
-                                                            aria-controls="technicalCollapseTwo">
-                                                            <span>02</span>
-                                                            Do you handle backend/database work?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="technicalCollapseTwo"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="technicalHeadingTwo"
-                                                        data-bs-parent="#technicalAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                My core strength is frontend development. I work with MySQL, Supabase, and AJAX for dynamic content and forms, and I have solid PHP experience for dynamic commercial workflows.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="technicalHeadingThree">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#technicalCollapseThree"
-                                                            aria-expanded="false"
-                                                            aria-controls="technicalCollapseThree">
-                                                            <span>03</span>
-                                                            Are your websites mobile friendly?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="technicalCollapseThree"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="technicalHeadingThree"
-                                                        data-bs-parent="#technicalAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                Yes. Every site is built responsive and tested across mobile, tablet, and desktop screens as a default standard.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="technicalHeadingFour">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#technicalCollapseFour"
-                                                            aria-expanded="false"
-                                                            aria-controls="technicalCollapseFour">
-                                                            <span>04</span>
-                                                            Do you provide SEO optimization services?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="technicalCollapseFour"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="technicalHeadingFour"
-                                                        data-bs-parent="#technicalAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                Yes. Sites are built with SEO-friendly structure, fast loading speed, responsive layouts, and clean coding practices to help with search visibility.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion-item mb-0">
-                                                    <h2 class="accordion-header" id="technicalHeadingFive">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#technicalCollapseFive"
-                                                            aria-expanded="false"
-                                                            aria-controls="technicalCollapseFive">
-                                                            <span>05</span>
-                                                            Why should clients choose PS Web Studio?
-                                                        </button>
-                                                    </h2>
-                                                    <div id="technicalCollapseFive"
-                                                        class="accordion-collapse collapse"
-                                                        aria-labelledby="technicalHeadingFive"
-                                                        data-bs-parent="#technicalAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                Direct communication, clean coding standards, and business-focused websites that combine performance, a professional look, and long-term reliability.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseOne" aria-expanded="true" aria-controls="technicalCollapseOne">
+                                            <span>01</span>
+                                            What services does PS Web Studio provide?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseOne" class="accordion-collapse collapse show" aria-labelledby="technicalHeadingOne" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                We design and build corporate websites, landing pages, dynamic web platforms, CRM and admin dashboards, and handle technical SEO. Each project is built for speed, security and long-term maintainability.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseTwo" aria-expanded="false" aria-controls="technicalCollapseTwo">
+                                            <span>02</span>
+                                            Do you build dynamic, database-driven systems?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseTwo" class="accordion-collapse collapse" aria-labelledby="technicalHeadingTwo" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Yes. We build booking and enquiry systems, portals, listings and dashboards using PHP, Laravel, MySQL, Supabase and AJAX. The stack is confirmed in the proposal, based on what your project actually needs.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseThree" aria-expanded="false" aria-controls="technicalCollapseThree">
+                                            <span>03</span>
+                                            Do you work with clients outside India?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseThree" class="accordion-collapse collapse" aria-labelledby="technicalHeadingThree" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Yes. Projects are delivered remotely with a written scope, scheduled progress updates and a defined timeline, whatever your location or time zone.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseFour" aria-expanded="false" aria-controls="technicalCollapseFour">
+                                            <span>04</span>
+                                            How is a project priced?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseFour" class="accordion-collapse collapse" aria-labelledby="technicalHeadingFour" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                You receive a fixed quote against a written scope before work begins. Anything outside that scope is priced and approved by you before it is built, so there are no surprise charges.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseFive" aria-expanded="false" aria-controls="technicalCollapseFive">
+                                            <span>05</span>
+                                            How long does a project take?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseFive" class="accordion-collapse collapse" aria-labelledby="technicalHeadingFive" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                It depends on scope. A brochure website takes far less time than a booking platform or CRM. The delivery timeline is set in your proposal and tracked at each stage through to launch.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseSix" aria-expanded="false" aria-controls="technicalCollapseSix">
+                                            <span>06</span>
+                                            Are the websites mobile friendly and SEO ready?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseSix" class="accordion-collapse collapse" aria-labelledby="technicalHeadingSix" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Yes. Every site is built mobile-first and tested on phone, tablet and desktop. Page structure, speed, meta tags and schema markup are set up for search visibility from the start.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="technicalHeadingSeven">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseSeven" aria-expanded="false" aria-controls="technicalCollapseSeven">
+                                            <span>07</span>
+                                            What happens after the website goes live?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseSeven" class="accordion-collapse collapse" aria-labelledby="technicalHeadingSeven" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Bug fixes and minor updates are covered for an agreed support period after launch. Ongoing maintenance, content updates and new features are available as a separate plan if you want them.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item mb-0">
+                                    <h2 class="accordion-header" id="technicalHeadingEight">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technicalCollapseEight" aria-expanded="false" aria-controls="technicalCollapseEight">
+                                            <span>08</span>
+                                            Can you rebuild or improve an existing website?
+                                        </button>
+                                    </h2>
+                                    <div id="technicalCollapseEight" class="accordion-collapse collapse" aria-labelledby="technicalHeadingEight" data-bs-parent="#technicalAccordion">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Yes. We start with an audit of speed, structure and search visibility, then recommend whether to optimise what you have or rebuild. Rankings are protected through proper redirects and metadata handling.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                </section>
-<div class="marquee-section">
-    <div class="mycustom-marque">
-        <div class="scrolling-wrap style-2">
-
-            <div class="comm">
-
-                <div></div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=markaa.in&sz=32"
-                        alt="Markaa"
-                        width="24"
-                        height="24">
-                    Markaa.in
                 </div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=tscbarcodeprinters.com&sz=32"
-                        alt="TSC Barcode Printers"
-                        width="24"
-                        height="24">
-                    TSC Barcode Printers
-                </div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=andamanvacation.com&sz=32"
-                        alt="Andaman Vacation"
-                        width="24"
-                        height="24">
-                    Andaman Vacation
-                </div>
-
             </div>
-
-            <!-- Duplicate for infinite marquee -->
-            <div class="comm">
-
-                <div></div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=markaa.in&sz=32"
-                        alt="Markaa"
-                        width="24"
-                        height="24">
-                    Markaa.in
-                </div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=tscbarcodeprinters.com&sz=32"
-                        alt="TSC Barcode Printers"
-                        width="24"
-                        height="24">
-                    TSC Barcode Printers
-                </div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=andamanvacation.com&sz=32"
-                        alt="Andaman Vacation"
-                        width="24"
-                        height="24">
-                    Andaman Vacation
-                </div>
-
-            </div>
-
-            <!-- Third duplicate -->
-            <div class="comm">
-
-                <div></div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=markaa.in&sz=32"
-                        alt="Markaa"
-                        width="24"
-                        height="24">
-                    Markaa.in
-                </div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=tscbarcodeprinters.com&sz=32"
-                        alt="TSC Barcode Printers"
-                        width="24"
-                        height="24">
-                    TSC Barcode Printers
-                </div>
-
-                <div class="cmn-textslide">
-                    <img src="https://www.google.com/s2/favicons?domain=andamanvacation.com&sz=32"
-                        alt="Andaman Vacation"
-                        width="24"
-                        height="24">
-                    Andaman Vacation
-                </div>
-
-            </div>
-
         </div>
     </div>
-</div>
+
+    <!-- FAQPage structured data: keep wording identical to the visible answers above -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does PS Web Studio provide?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We design and build corporate websites, landing pages, dynamic web platforms, CRM and admin dashboards, and handle technical SEO. Each project is built for speed, security and long-term maintainability." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you build dynamic, database-driven systems?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build booking and enquiry systems, portals, listings and dashboards using PHP, Laravel, MySQL, Supabase and AJAX. The stack is confirmed in the proposal, based on what your project actually needs." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with clients outside India?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Projects are delivered remotely with a written scope, scheduled progress updates and a defined timeline, whatever your location or time zone." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is a project priced?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You receive a fixed quote against a written scope before work begins. Anything outside that scope is priced and approved by you before it is built, so there are no surprise charges." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a project take?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on scope. A brochure website takes far less time than a booking platform or CRM. The delivery timeline is set in your proposal and tracked at each stage through to launch." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the websites mobile friendly and SEO ready?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every site is built mobile-first and tested on phone, tablet and desktop. Page structure, speed, meta tags and schema markup are set up for search visibility from the start." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the website goes live?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Bug fixes and minor updates are covered for an agreed support period after launch. Ongoing maintenance, content updates and new features are available as a separate plan if you want them." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you rebuild or improve an existing website?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We start with an audit of speed, structure and search visibility, then recommend whether to optimise what you have or rebuild. Rankings are protected through proper redirects and metadata handling." }
+        }
+      ]
+    }
+    </script>
+</section>
+
+                <!-- Capability Marquee (replaces client-logo strip; add real client logos only with permission) -->
+                <div class="marquee-section">
+                    <div class="mycustom-marque">
+                        <div class="scrolling-wrap style-2">
+                            <div class="comm">
+                                <div></div>
+                                <div class="cmn-textslide">Corporate Websites</div>
+                                <div class="cmn-textslide">Web Platforms</div>
+                                <div class="cmn-textslide">CRM &amp; Dashboards</div>
+                                <div class="cmn-textslide">Technical SEO</div>
+                                <div class="cmn-textslide">PHP &amp; Laravel</div>
+                                <div class="cmn-textslide">MySQL &amp; AJAX</div>
+                            </div>
+                            <div class="comm">
+                                <div></div>
+                                <div class="cmn-textslide">Corporate Websites</div>
+                                <div class="cmn-textslide">Web Platforms</div>
+                                <div class="cmn-textslide">CRM &amp; Dashboards</div>
+                                <div class="cmn-textslide">Technical SEO</div>
+                                <div class="cmn-textslide">PHP &amp; Laravel</div>
+                                <div class="cmn-textslide">MySQL &amp; AJAX</div>
+                            </div>
+                            <div class="comm">
+                                <div></div>
+                                <div class="cmn-textslide">Corporate Websites</div>
+                                <div class="cmn-textslide">Web Platforms</div>
+                                <div class="cmn-textslide">CRM &amp; Dashboards</div>
+                                <div class="cmn-textslide">Technical SEO</div>
+                                <div class="cmn-textslide">PHP &amp; Laravel</div>
+                                <div class="cmn-textslide">MySQL &amp; AJAX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Footer Section Start -->
                 <footer class="footer-section fix header-bg">
                     <div class="container">
@@ -1107,159 +1224,64 @@
                             <div class="row">
                                 <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
                                     <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Services</h4>
-                                        </div>
+                                        <div class="wid-title"><h4>Services</h4></div>
                                         <ul class="list-area">
-                                            <li>
-                                                <a href="#portfolio">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Website Development
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Responsive UI Design
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    SEO Optimization
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    MySQL &amp; AJAX Integration
-                                                </a>
-                                            </li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Web Platforms</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> CRM &amp; Dashboards</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimisation</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
                                     <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Company</h4>
-                                        </div>
+                                        <div class="wid-title"><h4>Company</h4></div>
                                         <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    About Us
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="project.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Portfolio
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Blog
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Contact
-                                                </a>
-                                            </li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+                                            <li><a href="project.html"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                            <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                                            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
                                     <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Technologies</h4>
-                                        </div>
+                                        <div class="wid-title"><h4>Technologies</h4></div>
                                         <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    HTML5 &amp; CSS3
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    JavaScript &amp; jQuery
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Bootstrap &amp; Tailwind
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    MySQL &amp; AJAX
-                                                </a>
-                                            </li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5, CSS3 &amp; JavaScript</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> PHP &amp; Laravel</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
                                     <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Get In Touch</h4>
+                                        <div class="wid-title"><h4>Get In Touch</h4></div>
+                                        <div class="contact-item">
+                                            <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                            <div class="content"><h6>Mumbai, India <br>Serving clients worldwide</h6></div>
                                         </div>
                                         <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-map-location-dot"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    Mumbai, Maharashtra <br>
-                                                    India
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-regular fa-envelope"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                                                </h6>
-                                            </div>
+                                            <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                            <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
                                         </div>
                                         <div class="contact-item mb-0">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-phone-volume"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="tel:+918793400545">+91 87934 00545</a>
-                                                </h6>
-                                            </div>
+                                            <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                            <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
                                     <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Subscribe for Web Dev <br>
-                                                Tips &amp; Updates
-                                            </h4>
-                                        </div>
+                                        <div class="wid-title"><h4>Web Performance <br>&amp; SEO Insights</h4></div>
                                         <div class="newsletter-content">
-                                            <p>
-                                                Occasional notes on web performance, SEO, and new projects - no spam.
-                                            </p>
+                                            <p>Occasional notes on web performance, SEO and new work. No spam.</p>
                                             <form action="#">
                                                 <div class="form-clt">
                                                     <label for="newsletter-email" class="visually-hidden">Email Address</label>
                                                     <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
-                                                    <button type="submit" class="theme-btn">
-                                                        Subscribe
-                                                    </button>
+                                                    <button type="submit" class="theme-btn">Subscribe</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -1272,10 +1294,8 @@
                         <div class="container">
                             <div class="footer-wrapper">
                                 <div class="text-item wow fadeInUp" data-wow-delay=".5s">
-                                    <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                    <p>© 2026 <span>PS Web Studio.</span> All rights reserved.</p>
                                     <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
-                                    
-                                    
                                 </div>
                             </div>
                         </div>
@@ -1285,96 +1305,195 @@
         </div>
 
         <!-- Contact / Quote Modal -->
-        <div class="modal-overlay" id="contactModal">
-            <div class="modal-box">
-                <button class="modal-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                
-                <div class="modal-header">
-                    <div class="modal-icon">
-                        <i class="fa-regular fa-file-lines"></i>
-                    </div>
-                    <h2>Complete Your Quote Request</h2>
-                    <p>Review your project details and add your personal information.</p>
+           
+         <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
+
+        <button class="modal-close" id="closeModal" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="row g-0">
+
+            <!-- LEFT PANEL -->
+            <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
+
+                <div class="mb-4">
+                    <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
+                        <i class="fa-regular fa-file-lines fs-3"></i>
+                    </span>
+                    <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
+                    <p class="text-white-50 mb-0">
+                        Confirm your project details and share your contact information.
+                        We will send a tailored proposal.
+                    </p>
                 </div>
 
-                <!-- Project Summary - Shows selected details -->
-                <div class="project-summary" id="projectSummary">
-                    <h4><i class="fa-regular fa-clipboard"></i> Your Project Details</h4>
+                <!-- Project Summary -->
+                <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
+                    <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
+                        <i class="fa-regular fa-clipboard me-1"></i> Project Overview
+                    </p>
+
                     <div class="summary-content">
-                        <div class="summary-row">
-                            <span class="summary-label">Service:</span>
-                            <span class="summary-value" id="summaryService">-</span>
+                        <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
+                            <span class="summary-label small text-white-50">Service</span>
+                            <span class="summary-value small fw-semibold text-end" id="summaryService">-</span>
                         </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Budget:</span>
-                            <span class="summary-value" id="summaryBudget">-</span>
+                        <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
+                            <span class="summary-label small text-white-50">Estimated Budget</span>
+                            <span class="summary-value small fw-semibold text-end" id="summaryBudget">-</span>
                         </div>
-                        <div class="summary-row">
-                            <span class="summary-label">Project Type:</span>
-                            <span class="summary-value" id="summaryType">-</span>
+                        <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
+                            <span class="summary-label small text-white-50">Category</span>
+                            <span class="summary-value small fw-semibold text-end" id="summaryType">-</span>
                         </div>
                     </div>
                 </div>
 
-                <form id="contactForm" class="modal-form" method="POST" data-netlify="true" netlify>
+                <!-- What happens next -->
+                <ul class="list-unstyled small mt-auto mb-0">
+                    <li class="d-flex align-items-center gap-3 mb-3">
+                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
+                            <i class="fa-regular fa-clock"></i>
+                        </span>
+                        <span>Response within one business day</span>
+                    </li>
+                    <li class="d-flex align-items-center gap-3 mb-3">
+                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
+                            <i class="fa-solid fa-list-check"></i>
+                        </span>
+                        <span>Scope, timeline and cost breakdown</span>
+                    </li>
+                    <li class="d-flex align-items-center gap-3 mb-0">
+                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <span>Your details stay confidential</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- RIGHT PANEL -->
+            <div class="col-lg-7 p-4 p-lg-5 bg-white">
+
+                <h3 class="h4 fw-bold mb-1">Contact Details</h3>
+                <p class="small text-muted mb-4">Fields marked * are required.</p>
+
+                <form id="contactForm" class="modal-form" name="contact"
+                    method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
                     <input type="hidden" name="form-name" value="contact">
                     <input type="hidden" name="service" id="modalService">
                     <input type="hidden" name="budget" id="modalBudget">
                     <input type="hidden" name="project-type" id="modalProjectType">
-                    
-                    <div class="form-group">
-                        <label for="modalName">
-                            <i class="fa-regular fa-user"></i> Full Name *
-                        </label>
-                        <input type="text" id="modalName" name="name" placeholder="John Doe" required>
+
+                    <!-- Spam trap -->
+                    <p class="d-none">
+                        <label>Do not fill this out: <input name="bot-field"></label>
+                    </p>
+
+                    <div class="row g-3">
+
+                        <div class="col-12 form-group">
+                            <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
+                                <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6"
+                                    placeholder="John Smith" autocomplete="name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
+                                <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6"
+                                    placeholder="name@company.com" autocomplete="email" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
+                                <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6"
+                                    placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label for="modalCompany" class="form-label small fw-semibold">Company</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
+                                <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6"
+                                    placeholder="Company name" autocomplete="organization">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
+                                <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
+                                    <option value="">Select timeline</option>
+                                    <option>Within 2 weeks</option>
+                                    <option>1 month</option>
+                                    <option>2-3 months</option>
+                                    <option>Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 form-group">
+                            <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
+                            <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6"
+                                placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                        </div>
+
+                        <div class="col-12 form-group checkbox-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required>
+                                <label for="modalAgree" class="form-check-label small text-muted">
+                                    I agree to the
+                                    <a href="/terms" target="_blank" rel="noopener" class="fw-semibold">Terms &amp; Conditions</a>
+                                    and
+                                    <a href="/privacy-policy" target="_blank" rel="noopener" class="fw-semibold">Privacy Policy</a>.
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
+                                <span class="btn-text">
+                                    <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
+                                </span>
+                                <span class="btn-spinner d-none">
+                                    <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
+                                </span>
+                            </button>
+                        </div>
+
                     </div>
 
-                    <div class="form-group">
-                        <label for="modalEmail">
-                            <i class="fa-regular fa-envelope"></i> Email Address *
-                        </label>
-                        <input type="email" id="modalEmail" name="email" placeholder="john@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="modalPhone">
-                            <i class="fa-solid fa-phone"></i> Phone Number *
-                        </label>
-                        <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="modalMessage">
-                            <i class="fa-regular fa-message"></i> Additional Details / Requirements
-                        </label>
-                        <textarea id="modalMessage" name="message" rows="4" 
-                            placeholder="Tell us more about your project requirements, timeline, or specific features you need..."></textarea>
-                    </div>
-
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="modalAgree" name="agree" required>
-                        <label for="modalAgree">
-                            I agree to the Terms &amp; Conditions and Privacy Policy.
-                        </label>
-                    </div>
-
-                    <button type="submit" class="theme-btn submit-btn" id="submitBtn">
-                        <span class="btn-text"><i class="fa-regular fa-paper-plane"></i> Submit Quote Request</span>
-                        <span class="btn-spinner d-none">
-                            <i class="fa-solid fa-spinner fa-spin"></i> Sending...
+                    <!-- Success Message -->
+                    <div class="form-success d-none text-center py-5">
+                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
+                            <i class="fa-solid fa-circle-check fs-1"></i>
                         </span>
-                    </button>
-
-                    <div class="form-success d-none">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <h3>Quote Request Sent!</h3>
-                        <p>We'll review your project details and get back to you within 24 hours.</p>
+                        <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
+                        <p class="text-muted mb-0">
+                            Our team will review your requirements and contact you
+                            within one business day.
+                        </p>
                     </div>
+
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Success Toast Notification -->
         <div class="toast-notification" id="toastNotification">
@@ -1403,6 +1522,7 @@
         <script src="assets/js/jquery.meanmenu.min.js"></script>
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/form-handler.js"></script>
         
         <!-- Supabase Client -->
         <script type="module">
@@ -1856,114 +1976,87 @@
         });
         </script>
 
-        <!-- Modal Script -->
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('contactModal');
-            const closeBtn = document.getElementById('closeModal');
-            const contactForm = document.getElementById('contactForm');
-            const submitBtn = document.getElementById('submitBtn');
-            
-            window.openQuoteModal = function() {
-                const service = document.getElementById('service-required') ? document.getElementById('service-required').value : '';
-                const budget = document.getElementById('budget-range') ? document.getElementById('budget-range').value : '';
-                const projectType = document.getElementById('project-type') ? document.getElementById('project-type').value : '';
-                
-                document.getElementById('modalService').value = service || 'Custom Web Development';
-                document.getElementById('modalBudget').value = budget || 'Flexible';
-                document.getElementById('modalProjectType').value = projectType || 'Commercial Website';
-                
-                document.getElementById('summaryService').textContent = service || 'Custom Web Development';
-                document.getElementById('summaryBudget').textContent = budget || 'Flexible';
-                document.getElementById('summaryType').textContent = projectType || 'Commercial Website';
-                
-                modal.classList.add('active');
-                document.body.classList.add('overflow-hidden');
-                resetForm();
-            };
-            
-            function closeModal() {
-                modal.classList.remove('active');
-                document.body.classList.remove('overflow-hidden');
-            }
-            
-            function resetForm() {
-                contactForm.reset();
-                const successDiv = document.querySelector('.form-success');
-                if (successDiv) successDiv.classList.add('d-none');
-                const btnText = document.querySelector('.submit-btn .btn-text');
-                const btnSpinner = document.querySelector('.submit-btn .btn-spinner');
-                if (btnText) btnText.classList.remove('d-none');
-                if (btnSpinner) btnSpinner.classList.add('d-none');
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('d-none');
-                }
-            }
-            
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closeModal);
-            }
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeModal();
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeModal();
-            });
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    submitBtn.disabled = true;
-                    const btnText = document.querySelector('.submit-btn .btn-text');
-                    const btnSpinner = document.querySelector('.submit-btn .btn-spinner');
-                    if (btnText) btnText.classList.add('d-none');
-                    if (btnSpinner) btnSpinner.classList.remove('d-none');
-                    
-                    try {
-                        const formData = new FormData(this);
-                        const response = await fetch('/', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                            body: new URLSearchParams(formData).toString()
-                        });
-                        
-                        if (response.ok) {
-                            const successDiv = document.querySelector('.form-success');
-                            if (successDiv) successDiv.classList.remove('d-none');
-                            if (submitBtn) submitBtn.classList.add('d-none');
-                            showToast('Quote request sent successfully! We\'ll get back to you soon.');
-                            setTimeout(() => {
-                                closeModal();
-                            }, 4500);
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
-                    } catch (error) {
-                        console.error('Error submitting form:', error);
-                        alert('There was an error sending your request. Please try again.');
-                        submitBtn.disabled = false;
-                        if (btnText) btnText.classList.remove('d-none');
-                        if (btnSpinner) btnSpinner.classList.add('d-none');
-                    }
-                });
-            }
-            
-            function showToast(message) {
-                const toast = document.getElementById('toastNotification');
-                if (toast) {
-                    const toastContent = toast.querySelector('.toast-content p');
-                    if (toastContent) toastContent.textContent = message;
-                    toast.classList.add('show');
-                    setTimeout(() => {
-                        toast.classList.remove('show');
-                    }, 4000);
-                }
-            }
-        });
-        </script>
+        <!-- Modal Script (open/close only — form submit handled by form-handler.js) -->
+     <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return; // page has no quote modal
+
+    const closeBtn = document.getElementById('closeModal');
+    let lastFocus = null;
+
+    function val(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+    }
+
+    function setValue(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.value = value;
+    }
+
+    function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+    }
+
+    window.openQuoteModal = function () {
+        lastFocus = document.activeElement;
+
+        // Read the selections before the form is reset
+        const service = val('service-required') || 'Custom Web Development';
+        const budget = val('budget-range') || 'Flexible';
+        const projectType = val('project-type') || 'Commercial Website';
+
+        // Reset form state first, then populate hidden fields
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) contactForm.reset();
+
+        const successDiv = document.querySelector('.form-success');
+        if (successDiv) successDiv.classList.add('d-none');
+
+        const submitBtn = document.getElementById('submitBtn');
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('d-none');
+        }
+        const btnText = document.querySelector('.submit-btn .btn-text');
+        const btnSpinner = document.querySelector('.submit-btn .btn-spinner');
+        if (btnText) btnText.classList.remove('d-none');
+        if (btnSpinner) btnSpinner.classList.add('d-none');
+
+        setValue('modalService', service);
+        setValue('modalBudget', budget);
+        setValue('modalProjectType', projectType);
+
+        setText('summaryService', service);
+        setText('summaryBudget', budget);
+        setText('summaryType', projectType);
+
+        modal.classList.add('active');
+        document.body.classList.add('overflow-hidden');
+
+        const firstField = document.getElementById('modalName');
+        if (firstField) firstField.focus();
+    };
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.classList.remove('overflow-hidden');
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+});
+</script>
     
         <!-- WhatsApp Floating Chat & Popup -->
         <!-- WhatsApp Popup -->
