@@ -32,7 +32,7 @@ const fallbackProjects = [
     industry: "Travel & Tourism",
     client: "Andaman Vacations Pvt Ltd",
     description: "Premium island vacation booking experience featuring interactive multi-day itineraries, instant WhatsApp booking, and responsive UI.",
-    image: "assets/img/project-banner/andaman-vacations.png",
+    image: "assets/img/project-banner/andaman.vacation1.png",
     tech: ["React.js", "Tailwind CSS", "Node.js", "REST API"],
     live_url: "https://www.andaman.vacations",
     speed: "⚡ 0.7s Load",

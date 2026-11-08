@@ -631,7 +631,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="tour-place-item">
                                     <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/andaman-vacations.png" alt="Andaman Vacations website" loading="lazy">
+                                        <img src="assets/img/project-banner/andaman.vacation1.png" alt="Andaman Vacations website" loading="lazy">
                                         <div class="icon">
                                             <i class="fa-solid fa-globe text-primary"></i>
                                         </div>
@@ -1306,136 +1306,106 @@
 
         <!-- Contact / Quote Modal -->
            
-         <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
+ <!-- Contact / Quote Modal -->
+<div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="psm-box">
 
-        <button class="modal-close" id="closeModal" aria-label="Close modal">
+        <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-        <div class="row g-0">
+        <!-- LEFT PANEL -->
+        <aside class="psm-side">
+            <div class="psm-side-top">
+                <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                <p class="psm-lead">
+                    Confirm your project details and share your contact information.
+                    We will send a tailored proposal.
+                </p>
+            </div>
 
-            <!-- LEFT PANEL -->
-            <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
-
-                <div class="mb-4">
-                    <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
-                        <i class="fa-regular fa-file-lines fs-3"></i>
-                    </span>
-                    <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
-                    <p class="text-white-50 mb-0">
-                        Confirm your project details and share your contact information.
-                        We will send a tailored proposal.
-                    </p>
+            <div class="psm-summary" id="projectSummary">
+                <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                <div class="psm-row">
+                    <span class="psm-row-label">Service</span>
+                    <span class="psm-row-value" id="summaryService">-</span>
                 </div>
-
-                <!-- Project Summary -->
-                <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
-                    <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
-                        <i class="fa-regular fa-clipboard me-1"></i> Project Overview
-                    </p>
-
-                    <div class="summary-content">
-                        <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                            <span class="summary-label small text-white-50">Service</span>
-                            <span class="summary-value small fw-semibold text-end" id="summaryService">-</span>
-                        </div>
-                        <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                            <span class="summary-label small text-white-50">Estimated Budget</span>
-                            <span class="summary-value small fw-semibold text-end" id="summaryBudget">-</span>
-                        </div>
-                        <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
-                            <span class="summary-label small text-white-50">Category</span>
-                            <span class="summary-value small fw-semibold text-end" id="summaryType">-</span>
-                        </div>
-                    </div>
+                <div class="psm-row">
+                    <span class="psm-row-label">Estimated Budget</span>
+                    <span class="psm-row-value" id="summaryBudget">-</span>
                 </div>
+                <div class="psm-row">
+                    <span class="psm-row-label">Category</span>
+                    <span class="psm-row-value" id="summaryType">-</span>
+                </div>
+            </div>
 
-                <!-- What happens next -->
-                <ul class="list-unstyled small mt-auto mb-0">
-                    <li class="d-flex align-items-center gap-3 mb-3">
-                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                            <i class="fa-regular fa-clock"></i>
-                        </span>
-                        <span>Response within one business day</span>
-                    </li>
-                    <li class="d-flex align-items-center gap-3 mb-3">
-                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                            <i class="fa-solid fa-list-check"></i>
-                        </span>
-                        <span>Scope, timeline and cost breakdown</span>
-                    </li>
-                    <li class="d-flex align-items-center gap-3 mb-0">
-                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                            <i class="fa-solid fa-lock"></i>
-                        </span>
-                        <span>Your details stay confidential</span>
-                    </li>
-                </ul>
-            </aside>
+            <ul class="psm-perks">
+                <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+            </ul>
+        </aside>
 
-            <!-- RIGHT PANEL -->
-            <div class="col-lg-7 p-4 p-lg-5 bg-white">
+        <!-- RIGHT PANEL -->
+        <div class="psm-main">
+            <h3 class="psm-main-title">Contact Details</h3>
+            <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
 
-                <h3 class="h4 fw-bold mb-1">Contact Details</h3>
-                <p class="small text-muted mb-4">Fields marked * are required.</p>
+            <form id="contactForm" class="modal-form psm-form" name="contact"
+                  method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
 
-                <form id="contactForm" class="modal-form" name="contact"
-                    method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <input type="hidden" name="service" id="modalService">
+                <input type="hidden" name="budget" id="modalBudget">
+                <input type="hidden" name="project-type" id="modalProjectType">
 
-                    <input type="hidden" name="form-name" value="contact">
-                    <input type="hidden" name="service" id="modalService">
-                    <input type="hidden" name="budget" id="modalBudget">
-                    <input type="hidden" name="project-type" id="modalProjectType">
+                <!-- Spam trap -->
+                <p class="d-none">
+                    <label>Do not fill this out: <input name="bot-field"></label>
+                </p>
 
-                    <!-- Spam trap -->
-                    <p class="d-none">
-                        <label>Do not fill this out: <input name="bot-field"></label>
-                    </p>
+                <div class="psm-fields">
+                    <div class="psm-grid">
 
-                    <div class="row g-3">
-
-                        <div class="col-12 form-group">
-                            <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
-                                <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6"
-                                    placeholder="John Smith" autocomplete="name" required>
+                        <div class="psm-field psm-full form-group">
+                            <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                            <div class="psm-input">
+                                <i class="fa-regular fa-user"></i>
+                                <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
                             </div>
                         </div>
 
-                        <div class="col-md-6 form-group">
-                            <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
-                                <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6"
-                                    placeholder="name@company.com" autocomplete="email" required>
+                        <div class="psm-field form-group">
+                            <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                            <div class="psm-input">
+                                <i class="fa-regular fa-envelope"></i>
+                                <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
                             </div>
                         </div>
 
-                        <div class="col-md-6 form-group">
-                            <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
-                                <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6"
-                                    placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                        <div class="psm-field form-group">
+                            <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                            <div class="psm-input">
+                                <i class="fa-solid fa-phone"></i>
+                                <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
                             </div>
                         </div>
 
-                        <div class="col-md-6 form-group">
-                            <label for="modalCompany" class="form-label small fw-semibold">Company</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
-                                <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6"
-                                    placeholder="Company name" autocomplete="organization">
+                        <div class="psm-field form-group">
+                            <label for="modalCompany">Company</label>
+                            <div class="psm-input">
+                                <i class="fa-regular fa-building"></i>
+                                <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
                             </div>
                         </div>
 
-                        <div class="col-md-6 form-group">
-                            <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
-                                <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
+                        <div class="psm-field form-group">
+                            <label for="modalTimeline">Preferred Timeline</label>
+                            <div class="psm-input psm-select">
+                                <i class="fa-regular fa-calendar"></i>
+                                <select id="modalTimeline" name="timeline">
                                     <option value="">Select timeline</option>
                                     <option>Within 2 weeks</option>
                                     <option>1 month</option>
@@ -1445,51 +1415,47 @@
                             </div>
                         </div>
 
-                        <div class="col-12 form-group">
-                            <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
-                            <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6"
-                                placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
-                        </div>
-
-                        <div class="col-12 form-group checkbox-group">
-                            <div class="form-check">
-                                <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required>
-                                <label for="modalAgree" class="form-check-label small text-muted">
-                                    I agree to the
-                                    <a href="/terms" target="_blank" rel="noopener" class="fw-semibold">Terms &amp; Conditions</a>
-                                    and
-                                    <a href="/privacy-policy" target="_blank" rel="noopener" class="fw-semibold">Privacy Policy</a>.
-                                </label>
+                        <div class="psm-field psm-full form-group">
+                            <label for="modalMessage">Project Requirements</label>
+                            <div class="psm-input psm-textarea">
+                                <textarea id="modalMessage" name="message" rows="4"
+                                    placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
                             </div>
                         </div>
 
-                        <div class="col-12">
-                            <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
+                        <div class="psm-full form-group checkbox-group">
+                            <label class="psm-check" for="modalAgree">
+                                <input type="checkbox" id="modalAgree" name="agree" required>
+                                <span>
+                                    I agree to the
+                                    <a href="/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                                    and
+                                    <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="psm-full">
+                            <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
                                 <span class="btn-text">
-                                    <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
+                                    <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
                                 </span>
                                 <span class="btn-spinner d-none">
-                                    <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
+                                    <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
                                 </span>
                             </button>
                         </div>
 
                     </div>
+                </div>
 
-                    <!-- Success Message -->
-                    <div class="form-success d-none text-center py-5">
-                        <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
-                            <i class="fa-solid fa-circle-check fs-1"></i>
-                        </span>
-                        <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
-                        <p class="text-muted mb-0">
-                            Our team will review your requirements and contact you
-                            within one business day.
-                        </p>
-                    </div>
-
-                </form>
-            </div>
+                <!-- Success Message -->
+                <div class="form-success psm-success d-none">
+                    <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                    <h3>Inquiry Submitted Successfully</h3>
+                    <p>Our team will review your requirements and contact you within one business day.</p>
+                </div>
+            </form>
         </div>
     </div>
 </div>
