@@ -1,7 +1,7 @@
 /* ==========================================================================
-   PSWEB STUDIO - OTT HERO BANNER & BIG THUMBNAIL TRAY
-   Colors now come from the site theme tokens. No hardcoded blues, slate
-   greys or magenta remain.
+   PSWEB STUDIO - OTT HERO BANNER, BIG THUMBNAIL TRAY & SERVICES TRAY
+   v2: syntax fix, shared gutter token, edge-bleed carousels, touch support,
+   slide progress dots, theme-tokenised badge colours.
    ========================================================================== */
 
 :root {
@@ -17,53 +17,60 @@
   --bg: #F7F7F7;
   --bg-2: #EDF2DE;
 
-  /* RGB channels for rgba() use */
   --theme-rgb: 13, 156, 224;
   --header-rgb: 21, 21, 21;
 
-  /* OTT aliases mapped to the theme */
+  /* OTT aliases */
   --ott-accent: var(--theme);
   --ott-accent-2: var(--theme-2);
   --ott-accent-light: color-mix(in srgb, var(--theme) 65%, var(--white));
   --ott-dark-bg: var(--header);
-  /* --text (#696969) is only ~3.3:1 on #151515 and fails AA, so muted text on dark is derived from --border */
+  --ott-card-bg: color-mix(in srgb, var(--header) 88%, var(--white));
+  /* --text is ~3.3:1 on #151515 (fails AA), so muted text on dark derives from --border */
   --ott-text-muted: color-mix(in srgb, var(--border) 78%, var(--header));
   --ott-text-synopsis: var(--border);
   --ott-gradient: linear-gradient(90deg, var(--theme) 0%, var(--theme-2) 100%);
+
+  /* Badge colours (semantic, kept out of the rules) */
+  --ott-gold-rgb: 245, 197, 24;
+  --ott-green-rgb: 52, 211, 153;
+  --ott-pink-rgb: 236, 72, 153;
+
+  /* Layout + motion */
+  --ott-gutter: clamp(16px, 4vw, 48px);
+  --ott-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ott-slide-duration: 6s; /* match your JS autoplay interval */
 }
 
-/* Main Banner Container */
+/* ==========================================================================
+   HERO
+   ========================================================================== */
 .ott-hero-section {
   position: relative;
   width: 100%;
   min-height: 560px;
   height: clamp(520px, 72vh, 680px);
+  height: clamp(520px, 72svh, 680px);
   background-color: var(--ott-dark-bg);
   overflow: hidden;
   color: var(--white);
   display: flex;
   align-items: center;
-  user-select: none;
 }
 
-/* Background Slide Showcase */
 .ott-hero-slides {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   z-index: 1;
 }
 
 .ott-hero-slide {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
-  will-change: opacity, transform;
+  will-change: opacity;
 }
 
 .ott-hero-slide.is-active {
@@ -76,15 +83,15 @@
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
-  transform: scale(1.0);
-  transition: transform 9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(1);
+  transition: transform 9s var(--ott-ease);
 }
 
 .ott-hero-slide.is-active .ott-hero-slide-bg {
   transform: scale(1.045);
 }
 
-/* Vignette Gradients */
+/* Vignettes */
 .ott-hero-vignette {
   position: absolute;
   inset: 0;
@@ -104,7 +111,6 @@
     rgba(var(--header-rgb), 0.18) 82%,
     transparent 100%
   );
-  pointer-events: none;
 }
 
 .ott-hero-vignette-bottom {
@@ -114,19 +120,16 @@
     0deg,
     var(--header) 0%,
     rgba(var(--header-rgb), 0.96) 15%,
-    rgba(var(--header-rgb), 0.80) 28%,
+    rgba(var(--header-rgb), 0.8) 28%,
     rgba(var(--header-rgb), 0.45) 44%,
     rgba(var(--header-rgb), 0.12) 58%,
     transparent 70%
   );
-  pointer-events: none;
 }
 
 .ott-hero-vignette-top {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto 0;
   height: 160px;
   background: linear-gradient(
     180deg,
@@ -136,31 +139,30 @@
   );
 }
 
-/* Content Wrapper */
+/* Content wrapper: gutter was missing on desktop, text touched the viewport edge */
 .ott-hero-content-wrap {
   position: relative;
   z-index: 5;
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
+  padding-inline: var(--ott-gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  min-width: 0;
 }
 
-/* Left Details Column */
 .ott-hero-details {
-  max-width: 600px;
+  width: min(100%, 600px);
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 50px 0;
 }
 
-.ott-hero-brand-header {
-  margin-bottom: 14px;
-}
+.ott-hero-brand-header { margin-bottom: 14px; }
 
 .ott-hero-tagline-lead {
   display: inline-flex;
@@ -182,18 +184,19 @@
 
 .ott-hero-title-display {
   font-family: 'Inter Tight', 'Montserrat', -apple-system, sans-serif;
-  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  font-size: clamp(1.8rem, 4.6vw, 3.8rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: var(--white);
   margin: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(var(--theme-rgb), 0.28);
   transition: opacity 0.35s ease;
 }
 
-/* Gradient stays in the theme family: light tint > --theme > a blend toward --theme-2 */
 .ott-hero-title-display .title-accent {
   background: linear-gradient(
     135deg,
@@ -206,7 +209,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Badge Row */
 .ott-hero-badge-row {
   display: flex;
   align-items: center;
@@ -214,8 +216,7 @@
   font-size: 14.5px;
   font-weight: 700;
   color: var(--ott-accent);
-  margin-top: 10px;
-  margin-bottom: 12px;
+  margin: 10px 0 12px;
   letter-spacing: 0.2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
@@ -231,7 +232,6 @@
   font-weight: 600;
 }
 
-/* Metadata Row */
 .ott-hero-meta-row {
   display: flex;
   align-items: center;
@@ -245,7 +245,7 @@
 
 .ott-hero-meta-row .meta-dot {
   font-size: 14px;
-  color: rgba(var(--border-rgb, 201, 201, 201), 0.6);
+  color: rgba(var(--border-rgb), 0.6);
 }
 
 .ott-ua-badge {
@@ -260,10 +260,10 @@
   border-radius: 4px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
-/* Synopsis */
 .ott-hero-synopsis {
   font-size: 15px;
   line-height: 1.6;
@@ -279,12 +279,10 @@
   transition: opacity 0.35s ease;
 }
 
-/* Genres */
 .ott-hero-genres {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0;
   font-size: 14px;
   font-weight: 700;
   color: var(--bg);
@@ -293,9 +291,7 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 
-.ott-genre-item {
-  color: var(--white);
-}
+.ott-genre-item { color: var(--white); }
 
 .ott-genre-sep {
   color: rgba(255, 255, 255, 0.35);
@@ -303,24 +299,26 @@
   font-weight: 400;
 }
 
-/* Action Buttons Row */
+/* Actions */
 .ott-hero-actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 14px;
   margin-top: 4px;
 }
 
-/* Primary Button: --theme to --theme-2 */
+/* Was padding: 13px 100px, which overflowed narrow screens. Now sized by min-width. */
 .ott-btn-watch {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 13px 100px;
+  min-width: 240px;
+  padding: 14px 40px;
   font-size: 15.5px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--white) !important;
   text-decoration: none;
   background: var(--ott-gradient);
@@ -329,112 +327,114 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: all 0.35s ease;
-  box-shadow: 0 4px 18px rgba(var(--theme-rgb), 0.35);
-  outline: none;
+  transition: background-position 0.35s ease, transform 0.35s ease,
+              box-shadow 0.35s ease, filter 0.35s ease;
 }
 
 .ott-btn-watch:hover {
   background-position: right center;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(var(--theme-rgb), 0.5);
   filter: brightness(1.08);
-  color: var(--white);
 }
 
-.ott-btn-watch:active {
-  transform: translateY(0);
-}
+.ott-btn-watch:active { transform: translateY(0); }
 
-.ott-btn-watch:focus-visible,
-.ott-btn-plus:focus-visible,
-.ott-tray-arrow:focus-visible {
-  outline: 2px solid var(--ott-accent-light);
-  outline-offset: 3px;
-}
+.ott-btn-watch i { font-size: 14px; }
 
-.ott-btn-watch i {
-  font-size: 14px;
-  margin-right: 2px;
-}
-
-/* Secondary Button */
 .ott-btn-plus {
   width: 48px;
   height: 48px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
   font-size: 18px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  outline: none;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .ott-btn-plus:hover {
   background: rgba(var(--theme-rgb), 0.22);
   border-color: var(--ott-accent);
   transform: translateY(-2px);
-  color: var(--white);
 }
 
-.ott-btn-plus:active {
-  transform: translateY(0);
+.ott-btn-plus:active { transform: translateY(0); }
+
+.ott-btn-watch:focus-visible,
+.ott-btn-plus:focus-visible,
+.ott-tray-arrow:focus-visible,
+.ott-svc-arrow:focus-visible,
+.ott-hero-dot:focus-visible {
+  outline: 2px solid var(--ott-accent-light);
+  outline-offset: 3px;
 }
 
-/* Right Sound Control */
-.ott-hero-sound-btn {
-  position: absolute;
-  right: 45px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--white);
+/* NEW: slide progress dots. Markup:
+   <div class="ott-hero-dots"><button class="ott-hero-dot is-active" aria-label="Slide 1"></button>...</div> */
+.ott-hero-dots {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.25s ease;
+  gap: 8px;
+  margin-top: 26px;
 }
 
-.ott-hero-sound-btn:hover {
-  background: rgba(0, 0, 0, 0.75);
-  border-color: var(--ott-accent);
-  color: var(--ott-accent);
-  transform: translateY(-50%) scale(1.08);
+.ott-hero-dot {
+  position: relative;
+  width: 32px;
+  height: 12px;           /* 12px hit area, 3px visible line */
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ott-hero-dot::before,
+.ott-hero-dot::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4.5px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.ott-hero-dot::before { background: rgba(255, 255, 255, 0.28); }
+
+.ott-hero-dot.is-active::after {
+  background: var(--ott-gradient);
+  transform-origin: left;
+  animation: ott-dot-fill var(--ott-slide-duration) linear forwards;
+}
+
+@keyframes ott-dot-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ==========================================================================
-   BOTTOM BIG THUMBNAIL TRAY
+   BIG THUMBNAIL TRAY
    ========================================================================== */
 .ott-tray-section {
   position: relative;
   background: var(--ott-dark-bg);
-  padding: 10px 45px 55px;
+  padding: 10px var(--ott-gutter) 55px;
   margin-top: -30px;
   z-index: 10;
+  overflow: hidden;
 }
 
 .ott-tray-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   margin-bottom: 18px;
-  padding: 0 4px;
 }
 
 .ott-tray-heading {
@@ -444,6 +444,7 @@
   color: var(--white);
   letter-spacing: -0.01em;
   margin: 0;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -451,17 +452,14 @@
 
 .ott-tray-heading::before {
   content: '';
+  flex: none;
   width: 4px;
   height: 20px;
   background: linear-gradient(180deg, var(--theme), var(--theme-2));
   border-radius: 2px;
-  display: inline-block;
 }
 
-.ott-tray-nav-arrows {
-  display: flex;
-  gap: 10px;
-}
+.ott-tray-nav-arrows { display: flex; gap: 10px; }
 
 .ott-tray-arrow {
   width: 38px;
@@ -475,55 +473,65 @@
   justify-content: center;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease;
   -webkit-backdrop-filter: blur(6px);
-  outline: none;
+  backdrop-filter: blur(6px);
 }
 
 .ott-tray-arrow:hover {
   background: var(--ott-accent);
   border-color: var(--ott-accent);
-  color: var(--white);
   transform: scale(1.08);
   box-shadow: 0 0 14px rgba(var(--theme-rgb), 0.6);
 }
 
-/* Horizontal Scrolling Carousel Tray */
+/* Carousel bleeds to the viewport edges so the next card peeks in */
 .ott-tray-carousel-wrap {
   position: relative;
-  width: 100%;
-  overflow: hidden;
+  margin-inline: calc(var(--ott-gutter) * -1);
+}
+
+.ott-tray-carousel-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: clamp(40px, 6vw, 90px);
+  background: linear-gradient(90deg, transparent, var(--ott-dark-bg));
+  pointer-events: none;
+  z-index: 2;
 }
 
 .ott-tray-track {
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  padding: 14px var(--ott-gutter) 26px;
+  scroll-padding-inline: var(--ott-gutter);
+  scroll-snap-type: x proximity;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding: 12px 6px 24px;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
   cursor: grab;
 }
 
-.ott-tray-track::-webkit-scrollbar {
-  display: none;
-}
+.ott-tray-track::-webkit-scrollbar { display: none; }
 
-/* Square thumbnail cards (1:1) */
 .ott-big-card {
   flex: 0 0 auto;
   box-sizing: border-box;
-  width: clamp(190px, 14.5vw, 225px);
+  width: clamp(130px, 14.5vw, 225px);
   aspect-ratio: 1 / 1;
   border-radius: 10px;
-  border: 2px solid transparent;
   overflow: hidden;
   position: relative;
-  background: color-mix(in srgb, var(--header) 85%, var(--white));
+  background: var(--ott-card-bg);
   cursor: pointer;
   user-select: none;
+  scroll-snap-align: start;
+  transition: transform 0.32s var(--ott-ease), box-shadow 0.32s ease;
 }
 
 .ott-big-card-img {
@@ -531,11 +539,11 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  display: block;
+  transition: transform 0.55s var(--ott-ease);
+  -webkit-user-drag: none;
 }
 
-/* ── OTT Big Card: Image-only by default, details slide up on hover ────── */
-
-/* Hidden overlay — only appears on hover */
 .ott-big-card-overlay {
   position: absolute;
   inset: 0;
@@ -551,19 +559,13 @@
   transition: opacity 0.35s ease;
 }
 
-.ott-big-card:hover .ott-big-card-overlay,
-.ott-big-card:focus-visible .ott-big-card-overlay {
-  opacity: 1;
-}
-
-/* Card tag — hidden by default, fades in on hover */
 .ott-big-card-tag {
   position: absolute;
   top: 12px;
   left: 12px;
   z-index: 3;
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 3px 9px;
@@ -575,33 +577,25 @@
   transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
 }
 
-.ott-big-card-tag.tag-gold { color: var(--bg-2); border-color: rgba(237,242,222,0.45); }
-.ott-big-card-tag.tag-pink { color: var(--white); border-color: rgba(255,255,255,0.4); }
-
-.ott-big-card:hover .ott-big-card-tag,
-.ott-big-card:focus-visible .ott-big-card-tag {
-  opacity: 1;
-  transform: translateY(0);
+/* Variants now change the background (the old ones only set a border that never existed) */
+.ott-big-card-tag.tag-gold {
+  color: var(--header);
+  background: rgb(var(--ott-gold-rgb));
 }
 
-/* Content panel — sits below card by default, slides up on hover */
+.ott-big-card-tag.tag-pink {
+  color: var(--white);
+  background: rgb(var(--ott-pink-rgb));
+}
+
 .ott-big-card-content {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: auto 0 0 0;
   padding: 16px 14px;
   z-index: 3;
   transform: translateY(100%);
   opacity: 0;
-  transition: transform 0.36s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity 0.3s ease;
-}
-
-.ott-big-card:hover .ott-big-card-content,
-.ott-big-card:focus-visible .ott-big-card-content {
-  transform: translateY(0);
-  opacity: 1;
+  transition: transform 0.36s var(--ott-ease), opacity 0.3s ease;
 }
 
 .ott-big-card-title {
@@ -615,7 +609,7 @@
 
 .ott-big-card-category {
   font-size: 11.5px;
-  color: var(--ott-accent);
+  color: var(--ott-accent-light);
   font-weight: 600;
   margin: 0 0 6px;
 }
@@ -629,7 +623,7 @@
 }
 
 .ott-big-card-meta .meta-pill {
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0 5px;
   border-radius: 3px;
   font-size: 10px;
@@ -637,363 +631,110 @@
   color: var(--bg);
 }
 
-
-
-
-
-/* Active state defined in corrections block below */
-
-/* Responsive */
-@media (max-width: 1199px) {
-  .ott-hero-section {
-    min-height: 520px;
-    height: 65vh;
-  }
-  .ott-hero-content-wrap {
-    padding: 0 30px;
-  }
-  .ott-tray-section {
-    padding: 0 30px 45px;
-  }
-  .ott-big-card {
-    width: 185px;
-  }
-}
-
-@media (max-width: 991px) {
-  .ott-hero-section {
-    height: auto;
-    min-height: 520px;
-    padding-bottom: 40px;
-  }
-  .ott-hero-details {
-    max-width: 100%;
-    padding: 60px 0 20px;
-  }
-  .ott-hero-vignette-left {
-    background: linear-gradient(
-      90deg,
-      rgba(var(--header-rgb), 0.96) 0%,
-      rgba(var(--header-rgb), 0.88) 50%,
-      rgba(var(--header-rgb), 0.65) 100%
-    );
-  }
-  .ott-hero-sound-btn {
-    top: 25px;
-    right: 25px;
-    transform: none;
-  }
-  .ott-hero-sound-btn:hover {
-    transform: scale(1.08);
-  }
-  .ott-tray-section {
-    padding: 0 20px 40px;
-    margin-top: -15px;
-  }
-  .ott-big-card {
-    width: 170px;
-  }
-}
-
-@media (max-width: 767px) {
-  .ott-hero-section {
-    min-height: 480px;
-  }
-  .ott-hero-content-wrap {
-    padding: 0 20px;
-  }
-  .ott-hero-details {
-    padding: 40px 0 20px;
-  }
-  .ott-hero-title-display {
-    font-size: 2.1rem;
-  }
-  .ott-hero-badge-row {
-    font-size: 13px;
-  }
-  .ott-hero-meta-row {
-    font-size: 12.5px;
-    gap: 6px;
-  }
-  .ott-hero-synopsis {
-    font-size: 14px;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-  }
-  .ott-hero-genres {
-    font-size: 12.5px;
-  }
-  .ott-genre-sep {
-    margin: 0 5px;
-  }
-  .ott-btn-watch {
-    padding: 11px 22px;
-    font-size: 14px;
-  }
-  .ott-btn-plus {
-    width: 44px;
-    height: 44px;
-    font-size: 16px;
-  }
-  .ott-tray-section {
-    padding: 0 16px 30px;
-  }
-  .ott-tray-heading {
-    font-size: 18px;
-  }
-  .ott-big-card {
-    width: clamp(135px, 38vw, 160px);
-  }
-  }
-}
-
-/* ==========================================================================
-   CORRECTIONS: card states, layout safety, accessibility
-   ========================================================================== */
-
-/* Card lift on hover — no border, no glow */
-.ott-big-card {
-  transition: transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.32s ease;
-}
-
+/* Hover + keyboard focus */
 .ott-big-card:hover,
 .ott-big-card:focus-visible {
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.55);
-  outline: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
   z-index: 5;
 }
 
-/* Image zooms gently on hover */
-.ott-big-card-img {
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.ott-big-card:focus-visible {
+  outline: 2px solid var(--ott-accent-light);
+  outline-offset: 3px;
 }
+
 .ott-big-card:hover .ott-big-card-img,
-.ott-big-card:focus-visible .ott-big-card-img {
-  transform: scale(1.08);
+.ott-big-card:focus-visible .ott-big-card-img { transform: scale(1.08); }
+
+.ott-big-card:hover .ott-big-card-overlay,
+.ott-big-card:focus-visible .ott-big-card-overlay { opacity: 1; }
+
+.ott-big-card:hover .ott-big-card-tag,
+.ott-big-card:focus-visible .ott-big-card-tag {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Active: image only, no border, no detail reveal */
-.ott-big-card.is-active {
-  border-color: transparent;
-  box-shadow: none;
+.ott-big-card:hover .ott-big-card-content,
+.ott-big-card:focus-visible .ott-big-card-content {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-/* Prevent flex children from forcing horizontal overflow. */
-.ott-hero-content-wrap,
-.ott-hero-details {
-  min-width: 0;
+/* Active card: accent bar instead of a border */
+.ott-big-card.is-active::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: var(--ott-gradient);
+  z-index: 4;
 }
 
-.ott-hero-details {
-  width: min(100%, 600px);
+/* Touch devices have no hover, so titles were never visible. Show details always. */
+@media (hover: none) {
+  .ott-big-card-overlay { opacity: 1; }
+  .ott-big-card-content { transform: none; opacity: 1; }
+  .ott-big-card-tag { opacity: 1; transform: none; }
+  .ott-big-card:hover { transform: none; box-shadow: none; }
+  .ott-big-card:hover .ott-big-card-img { transform: none; }
 }
-
-.ott-tray-section {
-  overflow: hidden;
-}
-
-.ott-tray-track {
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* display:block already set in the hover-image transition rule above */
-
-/* Make the main content spacing predictable on smaller screens. */
-@media (max-width: 991px) {
-  .ott-hero-content-wrap {
-    align-items: flex-end;
-  }
-
-  .ott-hero-details {
-    width: 100%;
-  }
-
-  .ott-hero-sound-btn {
-    z-index: 11;
-  }
-}
-
-@media (max-width: 767px) {
-  .ott-hero-section {
-    height: auto;
-    min-height: 480px;
-    height: clamp(480px, 78svh, 620px);
-  }
-
-  .ott-hero-content-wrap {
-    align-items: flex-end;
-    padding-inline: 16px;
-  }
-
-  .ott-hero-details {
-    padding: 80px 0 24px;
-  }
-
-  .ott-hero-title-display {
-    overflow-wrap: anywhere;
-    font-size: clamp(1.8rem, 7vw, 2.3rem);
-  }
-
-  .ott-hero-actions {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .ott-hero-sound-btn {
-    top: 16px;
-    right: 16px;
-  }
-
-  .ott-tray-section {
-    padding: 0 16px 28px;
-  }
-
-  .ott-tray-header {
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .ott-tray-heading {
-    min-width: 0;
-    font-size: 18px;
-  }
-
-  .ott-tray-nav-arrows {
-    display: none; /* Swipe on mobile */
-  }
-
-  .ott-tray-track {
-    gap: 12px;
-    padding: 8px 4px 16px;
-  }
-
-  .ott-big-card {
-    width: clamp(135px, 38vw, 160px);
-    border-radius: 8px;
-  }
-
-  .ott-big-card-tag {
-    top: 8px;
-    left: 8px;
-    font-size: 8.5px;
-    padding: 2px 6px;
-  }
-
-  .ott-big-card-content {
-    padding: 10px 8px;
-  }
-
-  .ott-big-card-title {
-    font-size: 13px;
-    margin-bottom: 2px;
-  }
-
-  .ott-big-card-category {
-    font-size: 10px;
-    margin-bottom: 4px;
-  }
-
-  .ott-big-card-meta {
-    font-size: 9.5px;
-    gap: 4px;
-  }
-
-  .ott-big-card-meta .meta-pill {
-    padding: 0 3px;
-    font-size: 8.5px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ott-big-card {
-    width: 130px;
-  }
-
-  .ott-tray-section {
-    padding: 0 12px 24px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ott-hero-slide,
-  .ott-hero-slide-bg,
-  .ott-btn-watch,
-  .ott-btn-plus,
-  .ott-hero-sound-btn,
-  .ott-tray-arrow,
-  .ott-tray-track,
-  .ott-big-card {
-    scroll-behavior: auto !important;
-    transition: none !important;
-    animation: none !important;
-  }
-
-  .ott-hero-slide.is-active .ott-hero-slide-bg {
-    transform: none;
-  }
-}
-
 
 /* ==========================================================================
-   OTT SERVICES TRAY — Hotstar Documentary-Section Pattern
-   Dark tray, 16:9 widescreen cards, horizontal scroll, peek-a-boo overflow,
-   hover scale + glow, category badge, icon overlay.
+   SERVICES TRAY (16:9 cards)
    ========================================================================== */
-
 .ott-services-tray-section {
   background: var(--ott-dark-bg);
-  padding: 52px 0 52px;
+  padding: 52px 0;
   overflow: hidden;
 }
 
-/* ---- Header row ---- */
 .ott-svc-tray-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 8px 24px;
-  padding: 0 48px 28px;
+  padding: 0 var(--ott-gutter) 28px;
 }
 
 .ott-svc-tray-label {
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 100%;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--ott-accent);
-  width: 100%;
 }
 
 .ott-svc-tray-label-dot {
+  flex-shrink: 0;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--ott-accent);
-  flex-shrink: 0;
   box-shadow: 0 0 8px var(--ott-accent);
 }
 
 .ott-svc-tray-heading {
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 800;
-  color: var(--white);
-  margin: 0;
   flex: 1 1 auto;
+  margin: 0;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 800;
   line-height: 1.15;
+  color: var(--white);
+  text-wrap: balance;
 }
 
 .ott-svc-tray-sub {
   flex-basis: 100%;
-  font-size: 14px;
-  color: var(--ott-text-synopsis);
-  margin: 4px 0 0;
   max-width: 620px;
+  margin: 4px 0 0;
+  font-size: clamp(13px, 1.4vw, 14px);
+  color: var(--ott-text-synopsis);
 }
 
 .ott-svc-tray-arrows {
@@ -1008,7 +749,7 @@
   height: 38px;
   border-radius: 50%;
   border: 1.5px solid rgba(var(--border-rgb), 0.35);
-  background: rgba(255,255,255,0.07);
+  background: rgba(255, 255, 255, 0.07);
   color: var(--white);
   display: flex;
   align-items: center;
@@ -1017,26 +758,21 @@
   font-size: 14px;
   transition: background 0.2s, border-color 0.2s, transform 0.15s;
 }
+
 .ott-svc-arrow:hover {
   background: var(--ott-accent);
   border-color: var(--ott-accent);
   transform: scale(1.1);
 }
 
-/* ---- Scrollable track ---- */
-.ott-svc-carousel-wrap {
-  position: relative;
-  padding: 0 32px;
-}
+/* Wrap has no side padding now; the track carries the gutter so cards bleed to the edge */
+.ott-svc-carousel-wrap { position: relative; }
 
-/* Fade-out peek on right edge */
 .ott-svc-carousel-wrap::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 80px;
-  height: 100%;
+  inset: 0 0 0 auto;
+  width: clamp(40px, 6vw, 90px);
   background: linear-gradient(90deg, transparent, var(--ott-dark-bg));
   pointer-events: none;
   z-index: 2;
@@ -1046,42 +782,40 @@
   display: flex;
   gap: 18px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  padding: 10px var(--ott-gutter) 16px;
+  scroll-padding-inline: var(--ott-gutter);
+  /* mandatory fights JS drag-scrolling; proximity keeps snapping without the fight */
+  scroll-snap-type: x proximity;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  cursor: grab;
-  padding-bottom: 8px;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
+  cursor: grab;
 }
-.ott-svc-track::-webkit-scrollbar { display: none; }
-.ott-svc-track.is-dragging { cursor: grabbing; }
 
-/* ---- Individual card ---- */
+.ott-svc-track::-webkit-scrollbar { display: none; }
+.ott-svc-track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+
 .ott-svc-card {
-  flex: 0 0 280px;
+  position: relative;
+  flex: 0 0 clamp(230px, 22vw, 290px);
   scroll-snap-align: start;
   border-radius: 10px;
   overflow: hidden;
-  background: #1a1a1a;
-  border: 1.5px solid rgba(255,255,255,0.07);
-  transition: transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94),
-              box-shadow 0.28s ease,
-              border-color 0.25s ease;
+  background: var(--ott-card-bg);
+  border: 1.5px solid rgba(255, 255, 255, 0.07);
   outline: none;
-  position: relative;
+  transition: transform 0.28s var(--ott-ease), box-shadow 0.28s ease, border-color 0.25s ease;
 }
 
 .ott-svc-card:hover,
 .ott-svc-card:focus-visible {
   transform: translateY(-6px) scale(1.025);
-  box-shadow: 0 18px 48px rgba(0,0,0,0.55),
-              0 0 0 1.5px var(--ott-accent);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55), 0 0 0 1.5px var(--ott-accent);
   border-color: var(--ott-accent);
   z-index: 3;
 }
 
-/* 16:9 thumbnail */
 .ott-svc-card-thumb {
   position: relative;
   width: 100%;
@@ -1093,33 +827,30 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.55s var(--ott-ease);
+  -webkit-user-drag: none;
 }
 
-.ott-svc-card:hover .ott-svc-card-thumb img {
-  transform: scale(1.07);
-}
+.ott-svc-card:hover .ott-svc-card-thumb img,
+.ott-svc-card:focus-visible .ott-svc-card-thumb img { transform: scale(1.07); }
 
-/* Gradient overlay on thumb */
 .ott-svc-card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.55) 70%,
-    rgba(0,0,0,0.82) 100%
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 70%,
+    rgba(0, 0, 0, 0.82) 100%
   );
   pointer-events: none;
 }
 
-/* Icon badge on thumb */
 .ott-svc-card-icon {
   position: absolute;
-  bottom: 12px;
   right: 14px;
+  bottom: 12px;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -1128,50 +859,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ott-accent);
+  color: var(--ott-accent-light);
   font-size: 17px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   transition: background 0.2s, border-color 0.2s;
 }
-.ott-svc-card:hover .ott-svc-card-icon {
+
+.ott-svc-card:hover .ott-svc-card-icon,
+.ott-svc-card:focus-visible .ott-svc-card-icon {
   background: rgba(var(--theme-rgb), 0.35);
   border-color: var(--ott-accent);
 }
 
-/* ---- Card body ---- */
-.ott-svc-card-body {
-  padding: 14px 16px 18px;
-}
+.ott-svc-card-body { padding: 14px 16px 18px; }
 
-/* Badge chips */
 .ott-svc-badge {
   display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 3px;
   font-size: 9.5px;
   font-weight: 800;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 3px;
-  margin-bottom: 8px;
 }
-.badge-blue  { background: rgba(var(--theme-rgb), 0.18); color: var(--ott-accent); border: 1px solid rgba(var(--theme-rgb), 0.35); }
-.badge-gold  { background: rgba(255,185,0,0.14); color: #f5c518; border: 1px solid rgba(255,185,0,0.35); }
-.badge-green { background: rgba(52,211,153,0.14); color: #34d399; border: 1px solid rgba(52,211,153,0.35); }
-.badge-pink  { background: rgba(236,72,153,0.14); color: #ec4899; border: 1px solid rgba(236,72,153,0.35); }
+
+.badge-blue  { background: rgba(var(--theme-rgb), 0.18);     color: var(--ott-accent-light);       border: 1px solid rgba(var(--theme-rgb), 0.35); }
+.badge-gold  { background: rgba(var(--ott-gold-rgb), 0.14);  color: rgb(var(--ott-gold-rgb));      border: 1px solid rgba(var(--ott-gold-rgb), 0.35); }
+.badge-green { background: rgba(var(--ott-green-rgb), 0.14); color: rgb(var(--ott-green-rgb));     border: 1px solid rgba(var(--ott-green-rgb), 0.35); }
+.badge-pink  { background: rgba(var(--ott-pink-rgb), 0.14);  color: rgb(var(--ott-pink-rgb));      border: 1px solid rgba(var(--ott-pink-rgb), 0.35); }
 
 .ott-svc-card-title {
+  margin: 0 0 7px;
   font-size: 15px;
   font-weight: 700;
-  color: var(--white);
-  margin: 0 0 7px;
   line-height: 1.3;
+  color: var(--white);
 }
 
 .ott-svc-card-desc {
-  font-size: 12.5px;
-  color: var(--ott-text-synopsis);
-  line-height: 1.55;
   margin: 0 0 10px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ott-text-synopsis);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -1186,36 +917,122 @@
 }
 
 .ott-svc-card-meta span {
-  font-size: 11px;
-  color: var(--ott-text-muted);
   display: flex;
   align-items: center;
   gap: 5px;
+  font-size: 11px;
+  color: var(--ott-text-muted);
 }
+
 .ott-svc-card-meta i {
   color: var(--ott-accent);
   font-size: 11px;
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 1199px) {
-  .ott-svc-tray-header { padding: 0 28px 24px; }
-  .ott-svc-carousel-wrap { padding: 0 16px; }
-  .ott-svc-card { flex: 0 0 250px; }
+/* ==========================================================================
+   RESPONSIVE (gutter token handles most spacing, so this block is short)
+   ========================================================================== */
+@media (max-width: 991px) {
+  .ott-hero-section {
+    height: auto;
+    min-height: 520px;
+    padding-bottom: 40px;
+  }
+
+  .ott-hero-content-wrap { align-items: flex-end; }
+
+  .ott-hero-details {
+    width: 100%;
+    padding: 60px 0 20px;
+  }
+
+  .ott-hero-vignette-left {
+    background: linear-gradient(
+      90deg,
+      rgba(var(--header-rgb), 0.96) 0%,
+      rgba(var(--header-rgb), 0.88) 50%,
+      rgba(var(--header-rgb), 0.65) 100%
+    );
+  }
+
+  .ott-tray-section { margin-top: -15px; }
 }
 
 @media (max-width: 767px) {
+  .ott-hero-section {
+    min-height: 480px;
+    height: clamp(480px, 78svh, 620px);
+    padding-bottom: 0;
+  }
+  .header-top-wrapper{
+    display: none;
+  }
+  .ott-hero-details { padding: 80px 0 24px; }
+
+  .ott-hero-badge-row { font-size: 13px; }
+
+  .ott-hero-meta-row { font-size: 12.5px; gap: 6px; }
+
+  .ott-hero-synopsis {
+    font-size: 14px;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .ott-hero-genres { font-size: 12.5px; }
+  .ott-genre-sep { margin: 0 5px; }
+
+  .ott-hero-actions { gap: 10px; }
+
+  .ott-btn-watch {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .ott-btn-plus { width: 44px; height: 44px; font-size: 16px; }
+
+  .ott-tray-section { padding-bottom: 28px; }
+  .ott-tray-header { margin-bottom: 12px; }
+  .ott-tray-heading { font-size: 18px; }
+  .ott-tray-nav-arrows { display: none; } /* swipe on mobile */
+  .ott-tray-track { gap: 12px; padding-block: 8px 16px; }
+
+  .ott-big-card { border-radius: 8px; }
+  .ott-big-card-tag { top: 8px; left: 8px; font-size: 8.5px; padding: 2px 6px; }
+  .ott-big-card-content { padding: 10px 8px; }
+  .ott-big-card-title { font-size: 13px; margin-bottom: 2px; }
+  .ott-big-card-category { font-size: 10px; margin-bottom: 4px; }
+  .ott-big-card-meta { font-size: 9.5px; gap: 4px; }
+  .ott-big-card-meta .meta-pill { padding: 0 3px; font-size: 8.5px; }
+
   .ott-services-tray-section { padding: 36px 0; }
-  .ott-svc-tray-header { padding: 0 16px 18px; gap: 6px 12px; }
-  .ott-svc-tray-heading { font-size: 20px; }
-  .ott-svc-tray-sub { font-size: 13px; }
-  .ott-svc-carousel-wrap { padding: 0 12px; }
-  .ott-svc-card { flex: 0 0 clamp(220px, 68vw, 260px); }
+  .ott-svc-tray-header { padding-bottom: 18px; gap: 6px 12px; }
   .ott-svc-arrow { width: 34px; height: 34px; font-size: 13px; }
+  .ott-svc-card { flex-basis: clamp(220px, 68vw, 260px); }
 }
 
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+  .ott-hero-slide,
+  .ott-hero-slide-bg,
+  .ott-btn-watch,
+  .ott-btn-plus,
+  .ott-tray-arrow,
+  .ott-tray-track,
+  .ott-big-card,
+  .ott-big-card-img,
   .ott-svc-card,
   .ott-svc-card-thumb img,
-  .ott-svc-arrow { transition: none !important; }
+  .ott-svc-arrow {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .ott-hero-slide.is-active .ott-hero-slide-bg { transform: none; }
+  .ott-hero-dot.is-active::after { animation: none; }
 }

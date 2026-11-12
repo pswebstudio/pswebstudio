@@ -1,8 +1,8 @@
 /*
-Theme Name: Roavio 
-Author: 
+Theme Name: Roavio
+Author:
 Author URI: https://themeforest.net/user/webtend/portfolio
-Description: Roavio - Travel & Tour Booking Html Template 
+Description: Roavio - Travel & Tour Booking Html Template
 Version: 1.0.0
 */
 /*CSS Table Of Content Ends Here*/
@@ -13,10 +13,10 @@ Version: 1.0.0
 01. Variables & Mixins
 02. Typography
 03. Buttons
-04. About 
+04. About
 05. Adventure
-06. Animation 
-07. Brand 
+06. Animation
+07. Brand
 08. Contact
 09. Cta
 10. Faq
@@ -189,6 +189,7 @@ h1 {
   h1 {
     font-size: 32px;
   }
+
 }
 @media (max-width: 575px) {
   h1 {
@@ -598,7 +599,6 @@ span {
 
 .about-wrapper-3 .about-content .text {
   margin-top: 40px;
-  max-width: 492px;
 }
 @media (max-width: 1399px) {
   .about-wrapper-3 .about-content .text {
@@ -608,15 +608,10 @@ span {
 .about-wrapper-3 .about-content .about-left-item {
   display: flex;
   align-items: center;
-  gap: 50px;
-  margin-left: -300px;
+  gap: 25px;
   margin-top: 50px;
 }
-@media (max-width: 1600px) {
-  .about-wrapper-3 .about-content .about-left-item {
-    margin-left: -70px;
-  }
-}
+
 @media (max-width: 1399px) {
   .about-wrapper-3 .about-content .about-left-item {
     margin-left: 0;
@@ -4051,7 +4046,7 @@ span {
   margin-top: 15px;
 }
 .feature-memories-content h2{
-      font-size: 43px;
+      font-size: 31px;
           line-height: 130%;
 }
 #service-required option,
@@ -16359,6 +16354,8 @@ gap: 15px;
     font-size: 13px;
     color: #555;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .modal-form .checkbox-group label a {
@@ -16472,11 +16469,11 @@ gap: 15px;
     .modal-box {
         padding: 25px 20px;
     }
-    
+
     .modal-header h2 {
         font-size: 20px;
     }
-    
+
     .toast-notification {
         bottom: 15px;
         right: 15px;
@@ -17026,7 +17023,7 @@ gap: 15px;
 
 /* ---------- Right panel ---------- */
 .psm-main {
-    padding: 40px 40px 36px;
+    padding: 15px;
     overflow-y: auto;
     background: var(--body);
 }
@@ -17038,10 +17035,8 @@ gap: 15px;
 }
 .psm-main-sub {
     margin: 0 0 24px;
-    padding-bottom: 20px;
     font-size: 13px;
     color: var(--text);
-    border-bottom: 1px solid var(--border);
 }
 .psm-req { color: var(--psm-error); }
 
@@ -17197,4 +17192,73 @@ gap: 15px;
     transition: opacity .2s ease, visibility .2s ease;
     overflow-y: auto;
     font-family: inherit;
+}
+
+/* Homepage Mobile Bottom Navigation */
+.home-bottom-nav {
+    display: none;
+}
+
+@media (max-width: 991px) {
+
+    .home-bottom-nav {
+           position: fixed;
+        bottom: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-radius: 18px 18px 0px 0px;
+        margin: 0px !important;
+        width: 100%;}
+
+    .bottom-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        color: #777;
+        text-decoration: none;
+
+        font-size: 10px;
+        font-weight: 600;
+
+        transition: all 0.25s ease;
+    }
+
+    .bottom-nav-item i {
+        font-size: 19px;
+        transition: all 0.25s ease;
+    }
+
+    .bottom-nav-item span {
+        line-height: 1;
+    }
+
+    .bottom-nav-item.active {
+        color: #2563eb;
+    }
+
+    .bottom-nav-item.active i {
+        transform: translateY(-2px);
+    }
+
+    .bottom-nav-item:hover {
+        color: #2563eb;
+    }
+}
+
+/* Hide bottom navigation on desktop */
+@media (min-width: 992px) {
+    .home-bottom-nav {
+        display: none !important;
+    }
 }
