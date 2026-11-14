@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -656,103 +656,281 @@
                 </section>
 
                 <!-- Selected Work Section Start -->
-                <section class="tour-place-section section-padding fix" id="portfolio">
+                <section class="tour-place-section section-padding fix pt-5" id="portfolio">
                     <div class="container-fluid px-4">
-                        <div class="section-title text-center">
-                            <h2 class="text-anim">Selected Work</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">
-                                <span class="count" id="projectCount">14</span><b>+</b> live projects across travel, healthcare and enterprise services
-                            </p>
+                        <div class="section-title-area d-flex justify-content-between align-items-end mb-4 flex-wrap gap-3">
+                           <div class="section-title mb-0">
+                              <h2 class="text-anim">Our Selected Projects</h2>
+                              <p class="wow fadeInUp" data-wow-delay=".5s">
+                                  <span class="count" id="projectCount">15</span><b>+</b>
+                                  projects successfully delivered across diverse industries,
+                                  including travel, healthcare, corporate and enterprise solutions.
+                              </p>
+                          </div>
+
+                            <div class="work-slider-nav">
+                                <button type="button" class="work-slider-arrow work-slider-prev" aria-label="Previous Slide">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+                                <button type="button" class="work-slider-arrow work-slider-next" aria-label="Next Slide">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="row g-4" id="projectsContainer">
-                            <!-- Pre-rendered fallback while Supabase loads -->
-                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                                <div class="tour-place-item">
-                                    <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/andaman.vacation1.png" alt="Andaman Vacations website" loading="lazy">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-globe text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="tour-place-content">
-                                        <h3>
-                                            <a href="project.html?project=andaman-vacations">
-                                                Andaman Vacations <br>Travel Website
-                                            </a>
-                                        </h3>
-                                        <ul class="tour-list">
-                                            <li><i class="fa-solid fa-globe"></i> andamanvacations.com</li>
-                                            <li><i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="tour-place-item">
-                                    <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/andaman-dmc.png" alt="Andaman DMC B2B portal" loading="lazy">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-globe text-primary"></i>
+                        <!-- Selected Work Swiper Slider -->
+                        <div class="swiper selected-work-slider">
+                            <div class="swiper-wrapper" id="projectsContainer">
+                                <!-- Slide 1: Andaman DMC -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/andaman-dmc.png" alt="Andaman DMC" loading="lazy">
                                         </div>
-                                    </div>
-                                    <div class="tour-place-content">
-                                        <h3>
-                                            <a href="project.html?project=andaman-dmc">
-                                                Andaman DMC <br>B2B Portal
-                                            </a>
-                                        </h3>
-                                        <ul class="tour-list">
-                                            <li><i class="fa-solid fa-globe"></i> andamandmc.in</li>
-                                            <li><i class="fa-solid fa-briefcase"></i> B2B Platform</li>
-                                        </ul>
-                                    </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=andaman-dmc">Andaman DMC</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=andaman-dmc" class="selected-work-arrow-btn" aria-label="View Andaman DMC project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Complete travel solutions for Andaman Islands.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">JavaScript</span>
+                                                <span class="selected-work-tech-pill">PHP</span>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </div>
 
-                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                                <div class="tour-place-item">
-                                    <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/qg.png" alt="Quest Guide India website" loading="lazy">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-globe text-primary"></i>
+                                <!-- Slide 2: Andaman Vacation -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/andaman.vacation1.png" alt="Andaman Vacation" loading="lazy">
                                         </div>
-                                    </div>
-                                    <div class="tour-place-content">
-                                        <h3>
-                                            <a href="project.html?project=quest-guide-india">
-                                                Quest Guide India <br>Tour Services
-                                            </a>
-                                        </h3>
-                                        <ul class="tour-list">
-                                            <li><i class="fa-solid fa-globe"></i> questguideindia.com</li>
-                                            <li><i class="fa-solid fa-briefcase"></i> Travel &amp; Hospitality</li>
-                                        </ul>
-                                    </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=andaman-vacations">Andaman Vacation</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=andaman-vacations" class="selected-work-arrow-btn" aria-label="View Andaman Vacation project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Explore Andaman with ease.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">JavaScript</span>
+                                                <span class="selected-work-tech-pill">MySQL</span>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </div>
 
-                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="tour-place-item">
-                                    <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/mp.png" alt="Madhya Pradesh DMC website" loading="lazy">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-globe text-primary"></i>
+                                <!-- Slide 3: Andaman Travel Expert -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/andaman-travel-expert.png" alt="Andaman Travel Expert" loading="lazy">
                                         </div>
-                                    </div>
-                                    <div class="tour-place-content">
-                                        <h3>
-                                            <a href="project.html?project=madhya-pradesh-dmc">
-                                                Madhya Pradesh DMC <br>Tourism Portal
-                                            </a>
-                                        </h3>
-                                        <ul class="tour-list">
-                                            <li><i class="fa-solid fa-globe"></i> mpdmc.com</li>
-                                            <li><i class="fa-solid fa-briefcase"></i> Tourism Operations</li>
-                                        </ul>
-                                    </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=andaman-travel-expert">Andaman Travel Expert</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=andaman-travel-expert" class="selected-work-arrow-btn" aria-label="View Andaman Travel Expert project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Expert travel &amp; holiday packages.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">PHP</span>
+                                                <span class="selected-work-tech-pill">MySQL</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 4: Explore Andamans -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/explore-andamans.png" alt="Explore Andamans" loading="lazy">
+                                        </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=explore-andamans">Explore Andamans</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=explore-andamans" class="selected-work-arrow-btn" aria-label="View Explore Andamans project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Discover the beauty of Andaman.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">JavaScript</span>
+                                                <span class="selected-work-tech-pill">MySQL</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 5: Andaman Travel Agent -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/andaman-travel-agent.png" alt="Andaman Travel Agent" loading="lazy">
+                                        </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=andaman-travel-agent">Andaman Travel Agent</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=andaman-travel-agent" class="selected-work-arrow-btn" aria-label="View Andaman Travel Agent project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Plan your dream vacation.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">Bootstrap</span>
+                                                <span class="selected-work-tech-pill">PHP</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 6: Madhya Pradesh DMC -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/mp.png" alt="Madhya Pradesh DMC" loading="lazy">
+                                        </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=madhya-pradesh-dmc">Madhya Pradesh DMC</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Tourism &amp; Travel
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=madhya-pradesh-dmc" class="selected-work-arrow-btn" aria-label="View Madhya Pradesh DMC project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Explore Madhya Pradesh.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">JavaScript</span>
+                                                <span class="selected-work-tech-pill">PHP</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 7: Andaman Islands -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/andaman-travel-expert.png" alt="Andaman Islands" loading="lazy">
+                                        </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=andaman-islands">Andaman Islands</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=andaman-islands" class="selected-work-arrow-btn" aria-label="View Andaman Islands project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Travel to Andaman Islands.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">PHP</span>
+                                                <span class="selected-work-tech-pill">MySQL</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- Slide 8: Andaman Islands -->
+                                <div class="swiper-slide">
+                                    <article class="selected-work-card">
+                                        <div class="selected-work-thumb">
+                                            <img src="assets/img/project-banner/explore-andamans.png" alt="Andaman Islands" loading="lazy">
+                                        </div>
+                                        <div class="selected-work-body">
+                                            <div class="selected-work-header">
+                                                <div class="selected-work-title-wrap">
+                                                    <h3 class="selected-work-title">
+                                                        <a href="project.html?project=explore-andamans">Andaman Islands</a>
+                                                    </h3>
+                                                    <div class="selected-work-category">
+                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
+                                                    </div>
+                                                </div>
+                                                <a href="project.html?project=explore-andamans" class="selected-work-arrow-btn" aria-label="View Andaman Islands project">
+                                                    <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <p class="selected-work-desc">Discover Andaman Islands.</p>
+                                            <div class="selected-work-tech">
+                                                <span class="selected-work-tech-pill">HTML</span>
+                                                <span class="selected-work-tech-pill">CSS</span>
+                                                <span class="selected-work-tech-pill">JavaScript</span>
+                                                <span class="selected-work-tech-pill">PHP</span>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
                             </div>
+                            <!-- Pagination Dots -->
+                            <div class="selected-work-pagination"></div>
                         </div>
                     </div>
                 </section>
@@ -1644,19 +1822,172 @@
 
         const projectImages = {
             'andaman-dmc': 'andaman-dmc.png',
-            'andaman-vacations': 'andaman-vacations.png',
+            'andaman-vacations': 'andaman.vacation1.png',
+            'andaman-travel-expert': 'andaman-travel-expert.png',
+            'explore-andamans': 'explore-andamans.png',
             'andaman-travel-agent': 'andaman-travel-agent.png',
-            'quest-guide-india': 'qg.png',
             'madhya-pradesh-dmc': 'mp.png',
+            'andaman-islands': 'andaman-travel-expert-2.png',
+            'quest-guide-india': 'qg.png',
             'mpdmc': 'mpdmc.png',
             'hotel-in-andaman': 'hia.png',
             'markaa': 'markaa.png'
         };
 
+        const defaultSelectedProjects = [
+            {
+                title: "Andaman DMC",
+                slug: "andaman-dmc",
+                industry: "Travel & Tourism",
+                image: "andaman-dmc.png",
+                desc: "Complete travel solutions for Andaman Islands.",
+                tech: ["HTML", "CSS", "JavaScript", "PHP"]
+            },
+            {
+                title: "Andaman Vacation",
+                slug: "andaman-vacations",
+                industry: "Travel & Tourism",
+                image: "andaman.vacation1.png",
+                desc: "Explore Andaman with ease.",
+                tech: ["HTML", "CSS", "JavaScript", "MySQL"]
+            },
+            {
+                title: "Andaman Travel Expert",
+                slug: "andaman-travel-expert",
+                industry: "Travel & Tourism",
+                image: "andaman-travel-expert.png",
+                desc: "Expert travel & holiday packages.",
+                tech: ["HTML", "CSS", "PHP", "MySQL"]
+            },
+            {
+                title: "Explore Andamans",
+                slug: "explore-andamans",
+                industry: "Travel & Tourism",
+                image: "explore-andamans.png",
+                desc: "Discover the beauty of Andaman.",
+                tech: ["HTML", "CSS", "JavaScript", "MySQL"]
+            },
+            {
+                title: "Andaman Travel Agent",
+                slug: "andaman-travel-agent",
+                industry: "Travel & Tourism",
+                image: "andaman-travel-agent.png",
+                desc: "Plan your dream vacation.",
+                tech: ["HTML", "CSS", "Bootstrap", "PHP"]
+            },
+            {
+                title: "Madhya Pradesh DMC",
+                slug: "madhya-pradesh-dmc",
+                industry: "Tourism & Travel",
+                image: "mp.png",
+                desc: "Explore Madhya Pradesh.",
+                tech: ["HTML", "CSS", "JavaScript", "PHP"]
+            },
+            {
+                title: "Andaman Islands",
+                slug: "andaman-islands",
+                industry: "Travel & Tourism",
+                image: "andaman-travel-expert-2.png",
+                desc: "Travel to Andaman Islands.",
+                tech: ["HTML", "CSS", "PHP", "MySQL"]
+            },
+            {
+                title: "Andaman Islands",
+                slug: "explore-andamans",
+                industry: "Travel & Tourism",
+                image: "explore-andamans-2.png",
+                desc: "Discover Andaman Islands.",
+                tech: ["HTML", "CSS", "JavaScript", "PHP"]
+            }
+        ];
+
+        let workSwiper = null;
+
+        function initWorkSlider() {
+            if (typeof Swiper === 'undefined') {
+                setTimeout(initWorkSlider, 200);
+                return;
+            }
+            if (workSwiper && typeof workSwiper.destroy === 'function') {
+                workSwiper.destroy(true, true);
+            }
+            workSwiper = new Swiper('.selected-work-slider', {
+                slidesPerView: 1.15,
+                spaceBetween: 24,
+                speed: 700,
+                loop: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                navigation: {
+                    prevEl: '.work-slider-prev',
+                    nextEl: '.work-slider-next'
+                },
+                pagination: {
+                    el: '.selected-work-pagination',
+                    clickable: true
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 24
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                        spaceBetween: 24
+                    }
+                }
+            });
+        }
+
+        function renderWorkCardHtml(project) {
+            const techPills = (project.tech || ['HTML', 'CSS', 'JavaScript', 'PHP'])
+                .map(t => `<span class="selected-work-tech-pill">${t}</span>`)
+                .join('');
+
+            return `
+                <div class="swiper-slide">
+                    <article class="selected-work-card">
+                        <div class="selected-work-thumb">
+                            <img src="assets/img/project-banner/${project.image}" alt="${project.title}" loading="lazy" onerror="this.src='assets/img/project-banner/andaman-dmc.png'">
+                        </div>
+                        <div class="selected-work-body">
+                            <div class="selected-work-header">
+                                <div class="selected-work-title-wrap">
+                                    <h3 class="selected-work-title">
+                                        <a href="project.html?project=${project.slug}">${project.title}</a>
+                                    </h3>
+                                    <div class="selected-work-category">
+                                        <i class="fa-solid fa-briefcase"></i> ${project.industry || 'Travel & Tourism'}
+                                    </div>
+                                </div>
+                                <a href="project.html?project=${project.slug}" class="selected-work-arrow-btn" aria-label="View ${project.title} project">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            <p class="selected-work-desc">${project.desc}</p>
+                            <div class="selected-work-tech">
+                                ${techPills}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            `;
+        }
+
         async function loadProjects() {
             const container = document.getElementById('projectsContainer');
             const projectCount = document.getElementById('projectCount');
             const projectCount2 = document.getElementById('projectCount2');
+
+            // Initialize swiper on pre-rendered slides immediately
+            initWorkSlider();
 
             if (!container) return;
 
@@ -1665,61 +1996,39 @@
                     .from('projects')
                     .select('*')
                     .eq('is_enabled', true)
-                    .order('display_order', { ascending: true });
+                    .order('display_order', { ascending: true })
+                    .limit(8);
 
                 if (error) throw error;
 
-                if (projects && projects.length > 0) {
-                    const count = projects.length;
-                    if (projectCount) projectCount.textContent = count;
-                    if (projectCount2) projectCount2.textContent = count;
+                if (projects && projects.length >= 8) {
+                    if (projectCount) projectCount.textContent = '8';
+                    if (projectCount2) projectCount2.textContent = '8';
 
-                    container.innerHTML = projects.map(project => {
-                        const slug = project.slug || project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                        const imageName = projectImages[slug] || 'andaman-vacations.png';
-                        const domain = project.live_url ? new URL(project.live_url).hostname : '';
+                    container.innerHTML = projects.slice(0, 8).map((p, idx) => {
+                        const slug = p.slug || p.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                        const img = projectImages[slug] || (defaultSelectedProjects[idx] ? defaultSelectedProjects[idx].image : 'andaman-dmc.png');
+                        const desc = p.description || (defaultSelectedProjects[idx] ? defaultSelectedProjects[idx].desc : 'High performance web development.');
+                        const tech = Array.isArray(p.tech_stack) ? p.tech_stack : (p.tech_stack?.frontend || (defaultSelectedProjects[idx] ? defaultSelectedProjects[idx].tech : ['HTML', 'CSS', 'JavaScript', 'PHP']));
 
-                        return `
-                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                                <div class="tour-place-item">
-                                    <div class="tour-place-image">
-                                        <img src="assets/img/project-banner/${imageName}" alt="${project.title} Website" loading="lazy" onerror="this.src='assets/img/project-banner/andaman-vacations.png'">
-                                        <div class="icon">
-                                            <img src="https://www.google.com/s2/favicons?domain=${domain}&sz=32" alt="${domain}" width="18" height="18" onerror="this.parentElement.style.display='none'">
-                                        </div>
-                                    </div>
-                                    <div class="tour-place-content">
-                                        <h3>
-                                            <a href="project.html?project=${slug}">
-                                                ${project.title} <br>${project.industry || 'Web Development'}
-                                            </a>
-                                        </h3>
-                                        <ul class="tour-list">
-                                            <li>
-                                                <i class="fa-solid fa-location-dot"></i>
-                                                ${project.client || 'Direct Client'}
-                                            </li>
-                                            <li>
-                                                <i class="fa-solid fa-globe"></i>
-                                                ${domain || 'Live Site'}
-                                            </li>
-                                            <li>
-                                                <i class="fa-solid fa-briefcase"></i>
-                                                ${project.industry || 'Technology'}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
+                        return renderWorkCardHtml({
+                            title: p.title,
+                            slug: slug,
+                            industry: p.industry || 'Travel & Tourism',
+                            image: img,
+                            desc: desc,
+                            tech: tech
+                        });
                     }).join('');
 
-                    if (typeof WOW !== 'undefined') {
-                        new WOW().init();
-                    }
+                    initWorkSlider();
+                } else {
+                    container.innerHTML = defaultSelectedProjects.map(p => renderWorkCardHtml(p)).join('');
+                    initWorkSlider();
                 }
             } catch (error) {
-                console.error('Error loading projects:', error);
+                container.innerHTML = defaultSelectedProjects.map(p => renderWorkCardHtml(p)).join('');
+                initWorkSlider();
             }
         }
 
