@@ -31,113 +31,312 @@
         <link rel="stylesheet" href="assets/css/flacticon.css">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="assets/css/main.css">
-        <style>
-            :root {
-                --pj-green: #12a05c;
-                --pj-green-dark: #0c8449;
-                --pj-green-soft: #e6f5ec;
-                --pj-text: #1b1b1b;
-                --pj-muted: #6e6e6e;
-                --pj-line: #e7e7e7;
-                --pj-page: #f4f4f4;
-                --pj-panel: #f9f9f9;
-            }
+    <style>
+      .pj-page {
+    background: var(--bg);
+    padding: 36px 0 70px;
+    color: var(--header);
+}
 
-            .pj-page { background: var(--pj-page); padding: 36px 0 70px; color: var(--pj-text); }
-            .pj-page a { text-decoration: none; }
-            .pj-card { background: #fff; border-radius: 16px; border: 1px solid var(--pj-line); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+.pj-page a { text-decoration: none; }
 
-            /* Banner */
-            .pj-banner { position: relative; padding: 60px 0 50px; background-size: cover; background-position: center; margin-top: 150px; }
-            .pj-banner::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.62); }
-            .pj-banner .container { position: relative; z-index: 1; }
-            .pj-banner h1 { margin: 0; color: #fff; font-size: 42px; font-weight: 800; line-height: 1.15; }
-            .pj-banner p { margin: 14px 0 16px; max-width: 620px; color: rgba(255,255,255,.85); font-size: 18px; }
-            .pj-crumbs { display: flex; gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; color: rgba(255,255,255,.7); font-size: 14px; }
-            .pj-crumbs a { color: rgba(255,255,255,.7); }
-            .pj-crumbs a:hover { color: #fff; }
-            .pj-crumbs li + li::before { content: "/"; margin-right: 10px; }
-            .pj-crumbs .cur { color: #fff; }
-            .pj-banner .pj-btn.green { padding: 11px 22px; }
-            .pj-bstats { display: flex; gap: 40px; }
-            .pj-bstats h2 { margin: 0; color: #fff; font-size: 32px; font-weight: 700; }
-            .pj-bstats span { color: rgba(255,255,255,.7); font-size: 14px; }
+.pj-card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
 
-            .pj-btn {
-                display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-                padding: 11px 18px; border: 1px solid var(--pj-line); border-radius: 10px;
-                background: #fff; color: var(--pj-text); font-size: 14px; font-weight: 600; line-height: 1.2; cursor: pointer;
-                transition: all .2s ease;
-            }
-            .pj-btn:hover { border-color: #bdbdbd; color: var(--pj-text); }
-            .pj-btn.green { background: var(--pj-green); border-color: var(--pj-green); color: #fff; }
-            .pj-btn.green:hover { background: var(--pj-green-dark); border-color: var(--pj-green-dark); color: #fff; }
-            .pj-btn:focus-visible, .pj-field:focus-visible { outline: 2px solid var(--pj-green); outline-offset: 2px; }
+/* Banner */
+.pj-banner {
+    position: relative;
+    padding: 60px 0 50px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 150px;
+}
 
-            /* Contact Dashboard Layout */
-            .ct-section { padding: 24px; }
-            .ct-card-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: var(--pj-text); }
-            .ct-card-subtitle { font-size: 14px; color: var(--pj-muted); margin-bottom: 24px; line-height: 1.6; }
+.pj-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.62);
+}
 
-            /* Contact Info Tiles */
-            .ct-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-            .ct-info-tile {
-                display: flex; gap: 14px; padding: 16px; border-radius: 12px;
-                background: var(--pj-panel); border: 1px solid var(--pj-line);    flex-direction: column;
-                transition: all .2s ease;
-            }
-            .ct-info-tile:hover {
-                border-color: #c9e8d6;
-                background: #fff;
-                box-shadow: 0 4px 14px rgba(18,160,92,0.06);
-            }
-            .ct-ico {
-                flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
-                width: 42px; height: 42px; border: 1px solid rgba(18,160,92,0.25); border-radius: 10px;
-                background: var(--pj-green-soft); color: var(--pj-green-dark); font-size: 17px;
-            }
-            .ct-tile-text h5 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--pj-text); }
-            .ct-tile-text p, .ct-tile-text a { margin: 0; font-size: 13.5px; color: var(--pj-muted); line-height: 1.45; }
-            .ct-tile-text a:hover { color: var(--pj-green); }
+.pj-banner .container {
+    position: relative;
+    z-index: 1;
+}
 
-            /* Quick direct contact bar */
-            .ct-direct-card {
-                margin-top: 18px; padding: 18px 20px; border-radius: 12px;
-                background: #fff; border: 1px solid var(--pj-line);
-                display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-            }
-            .ct-direct-left h6 { margin: 0 0 2px; font-size: 14px; font-weight: 600; }
-            .ct-direct-left p { margin: 0; font-size: 12.5px; color: var(--pj-muted); }
+.pj-banner h1 {
+    margin: 0;
+    color: var(--white);
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+}
 
-            /* Form Elements */
-            .pj-form-group { margin-bottom: 16px; }
-            .pj-form-label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #333; }
-            .pj-form-label span { color: #dc3545; }
-            .pj-input-wrap { position: relative; }
-            .pj-input-wrap i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--pj-muted); }
-            .pj-field {
-                width: 100%; height: 44px; padding: 0 14px 0 40px; border: 1px solid var(--pj-line); border-radius: 10px;
-                background: #fff; color: var(--pj-text); font-size: 14px; transition: border-color .2s;
-            }
-            .pj-field:focus { border-color: var(--pj-green); }
-            textarea.pj-field { height: 110px; padding: 12px 14px 12px 40px; resize: vertical; }
-            .pj-input-wrap.textarea i { top: 18px; transform: none; }
+.pj-banner p {
+    margin: 14px 0 16px;
+    max-width: 620px;
+    color: rgba(255,255,255,.85);
+    font-size: 18px;
+}
 
-            /* Map Frame */
-            .ct-map-card { margin-top: 24px; padding: 14px; overflow: hidden; border-radius: 16px; }
-            .ct-map-card iframe { width: 100%; height: 320px; border: 0; border-radius: 10px; display: block; }
+.pj-crumbs {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+}
 
-            @media (max-width: 991px) {
-                .ct-info-grid { grid-template-columns: 1fr; }
-            }
-            @media (max-width: 767px) {
-                .pj-banner h1 { font-size: 28px; }
-                .pj-banner p { font-size: 15px; }
-                .pj-bstats { gap: 20px; flex-wrap: wrap; }
-                .pj-bstats h2 { font-size: 24px; }
-                .ct-section { padding: 18px; }
-            }
-        </style>
+.pj-crumbs a { color: rgba(255,255,255,.7); }
+.pj-crumbs a:hover { color: var(--white); }
+
+.pj-crumbs li + li::before {
+    content: "/";
+    margin-right: 10px;
+}
+
+.pj-crumbs .cur { color: var(--white); }
+
+.pj-banner .pj-btn.green { padding: 11px 22px; }
+
+.pj-bstats {
+    display: flex;
+    gap: 40px;
+}
+
+.pj-bstats h2 {
+    margin: 0;
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.pj-bstats span {
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+}
+
+.pj-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--header);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.pj-btn:hover {
+    border-color: var(--text);
+    color: var(--header);
+}
+.pj-btn.green {
+    background: #198754;
+    border-color: #198754;
+    color: var(--white);
+}
+
+.pj-btn.green:hover {
+    background: #146C43;
+    border-color: #146C43;
+    color: var(--white);
+}
+
+.pj-btn:focus-visible,
+.pj-field:focus-visible {
+    outline: 2px solid var(--theme);
+    outline-offset: 2px;
+}
+
+/* Contact Dashboard Layout */
+.ct-section { padding: 24px; }
+
+.ct-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--header);
+}
+
+.ct-card-subtitle {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/* Contact Info Tiles */
+.ct-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.ct-info-tile {
+    display: flex;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    flex-direction: column;
+    transition: all .2s ease;
+}
+
+.ct-info-tile:hover {
+    border-color: var(--theme);
+    background: var(--white);
+    box-shadow: 0 4px 14px rgba(var(--theme-rgb),0.06);
+}
+
+.ct-ico {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(var(--theme-rgb),0.25);
+    border-radius: 10px;
+background: #fdfdfd;
+    color: var(--theme-2);
+    font-size: 17px;
+}
+
+.ct-tile-text h5 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--header);
+}
+
+.ct-tile-text p,
+.ct-tile-text a {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.45;
+}
+
+.ct-tile-text a:hover { color: var(--theme); }
+
+/* Quick Direct Contact Bar */
+.ct-direct-card {
+    margin-top: 18px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ct-direct-left h6 {
+    margin: 0 0 2px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ct-direct-left p {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--text);
+}
+
+/* Form Elements */
+.pj-form-group { margin-bottom: 16px; }
+
+.pj-form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--header);
+}
+
+.pj-form-label span { color: #dc3545; }
+
+.pj-input-wrap { position: relative; }
+
+.pj-input-wrap i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text);
+}
+
+.pj-field {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px 0 40px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--header);
+    font-size: 14px;
+    transition: border-color .2s;
+}
+
+.pj-field:focus { border-color: var(--theme); }
+
+textarea.pj-field {
+    height: 110px;
+    padding: 12px 14px 12px 40px;
+    resize: vertical;
+}
+
+.pj-input-wrap.textarea i {
+    top: 18px;
+    transform: none;
+}
+
+/* Map Frame */
+.ct-map-card {
+    margin-top: 24px;
+    padding: 14px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.ct-map-card iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .ct-info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+    .pj-banner h1 { font-size: 28px; }
+    .pj-banner p { font-size: 15px; }
+    .pj-bstats { gap: 20px; flex-wrap: wrap; }
+    .pj-bstats h2 { font-size: 24px; }
+    .ct-section { padding: 18px; }
+}
+    </style>
     </head>
     <body>
 

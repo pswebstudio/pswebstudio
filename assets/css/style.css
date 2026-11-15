@@ -965,7 +965,7 @@
     padding-bottom: 0;
   }
   .header-top-wrapper{
-    display: none;
+    display: none !important;
   }
   .ott-hero-details { padding: 80px 0 24px; }
 
