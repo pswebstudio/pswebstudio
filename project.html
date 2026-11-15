@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="PS Web Studio">
+    <meta name="description" id="page-desc" content="Selected client work by PS Web Studio: websites for travel, healthcare and service businesses.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" id="og-title" content="Project · PS Web Studio">
+    <meta property="og:description" id="og-desc" content="">
+    <meta property="og:image" id="og-image" content="">
     <title id="page-title">Project · PS Web Studio</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
     <link rel="shortcut icon" href="assets/img/favico/favicon.ico">
@@ -20,341 +25,175 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <style>
-        :root {
-          --body: #fff;
-          --black: #000;
-          --white: #fff;
-          --theme: #0d9ce0;
-          --theme-2: #163e8e;
-          --header: #151515;
-          --text: #696969;
-          --border: #C9C9C9;
-          --bg: #F7F7F7;
-          --bg-2: #EDF2DE;
-          --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
-        }
+<style>
 
-        .project-detail-wrapper{
-            padding:70px 0 90px;
-           background: var(--white);
-           
-            color:var(--header);
-        }
+:root {
+    --body: #fff;
+    --black: #000;
+    --white: #fff;
+    --theme: #0d9ce0;
+    --theme-2: #163e8e;
+    --header: #151515;
+    --text: #696969;
+    --border: #C9C9C9;
+    --bg: #F7F7F7;
+    --bg-2: #EDF2DE;
+    --box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
 
-        /* ---------- Breadcrumb ---------- */
-        .breadcrumb-wrapper-4{
-            padding:46px 0 34px;
-            position:relative;
-            background-size:cover;
-            background-position:center;
-        }
-        .breadcrumb-wrapper-4::before{
-            content:'';
-            position:absolute;
-            inset:0;
-            background:linear-gradient(to top, rgb(26 105 161 / 90%) 0%, rgb(255 255 255 / 4%) 100%);
-        }
-        .breadcrumb-wrapper-4 .container{ position:relative; z-index:1; }
-        .breadcrumb-wrapper-4 .eyebrow{
-            font-size: 15px;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--bs-body-bg);
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-        .breadcrumb-wrapper-4 h1{
-            color:var(--white);
-           
-            font-size:38px;
-            font-weight:700;
-            letter-spacing:-.01em;
-            margin-bottom:14px;
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items{
-            list-style:none;
-            padding:0;
-            display:flex;
-            gap:8px;
-            font-size:15px;
-            color:rgba(255,255,255,.55);
-            margin-bottom:0;
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items li a{
-            color:rgba(255,255,255,.55);
-            text-decoration:none;
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items li a:hover{ color:var(--white); }
-        .breadcrumb-wrapper-4 .breadcrumb-items .style-2{ color:var(--black); }
+    --pd-green: #12a05c;
+    --pd-green-dark: #0c8449;
+    --pd-green-soft: #e6f5ec;
+    --pd-text: #1b1b1b;
+    --pd-muted: #6e6e6e;
+    --pd-line: #e7e7e7;
+    --pd-page: #f4f4f4;
+    --pd-card: #fff;
+    --pd-panel: #f5f5f5;
+}
 
-        /* ---------- Gallery ---------- */
-        .project-gallery .g-item{
-            position:relative;
-            border-radius:6px;
-            overflow:hidden;
-            margin-bottom:20px;
-            border:1px solid var(--border);
-            box-shadow:var(--box-shadow);
-        }
-        .project-gallery img{
-            width:100%;
-            aspect-ratio: 4 / 3;
-            object-fit:cover;
-            display:block;
-            transition:transform .5s cubic-bezier(.2,.8,.2,1);
-        }
-        .project-gallery .g-item:hover img{ transform:scale(1.05); }
+/* ===== Project detail: dashboard style (green, soft cards) ===== */
+.pd-page { background: var(--pd-page); padding: 28px 0 72px; color: var(--pd-text); }
+.pd-page img { max-width: 100%; }
+.pd-page a { text-decoration: none; }
 
-        /* ---------- Section headings ---------- */
-        .section-block{ margin-top:30px; }
-        .section-block h3{
-           
-            font-size:22px;
-            font-weight:700;
-            color:var(--header);
-            display:flex;
-            align-items:center;
-            gap:10px;
-            margin-bottom:18px;
-        }
-        .section-block h3::before{
-            content:'';
-            width:10px;
-            height:10px;
-            border-radius:1px;
-           background: var(--bs-danger);
-            display:inline-block;
-            transform:rotate(45deg);
-        }
-        .project-detail-wrapper p.body-text{
-            color:var(--text);
-            line-height:1.75;
-            font-size:15.5px;
-        }
+/* Top bar */
+.pd-top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; margin-top: 130px; }
+.pd-top-title { flex: 1; min-width: 0; }
+.pd-top-title h1 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--pd-text); }
+.pd-top-title p { margin: 2px 0 0; font-size: 13.5px; color: var(--pd-muted); }
+.pd-top-actions { display: flex; gap: 10px; }
 
-        /* ---------- Feature list ---------- */
-        .feature-list{ list-style:none; padding:0; }
-        .feature-list li{
-            padding:12px 0;
-            display:flex;
-            align-items:flex-start;
-            gap:12px;
-            border-bottom:1px dashed var(--border);
-            font-size:15px;
-            text-align: justify;
-            color:var(--header);
-        }
-        .feature-list li:last-child{ border-bottom:none; }
-        .feature-list li i{
-            color:var(--theme);
-            margin-top:4px;
-            font-size:15px;
-        }
+.pd-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border: 1px solid var(--pd-line); border-radius: 10px;
+    background: #fff; color: var(--pd-text); font-size: 14px; font-weight: 500;
+    cursor: pointer; line-height: 1.2;
+}
+.pd-btn:hover { border-color: #bdbdbd; }
+.pd-btn.green { background: var(--pd-green); border-color: var(--pd-green); color: #fff; }
+.pd-btn.green:hover { background: var(--pd-green-dark); border-color: var(--pd-green-dark); }
+.pd-btn:focus-visible, .pd-shot:focus-visible, .pd-nav:focus-visible { outline: 2px solid var(--pd-green); outline-offset: 2px; }
 
-        /* ---------- Tech tokens ---------- */
-        .tech-group h5{
-           
-            font-size:12px;
-            letter-spacing:.1em;
-            text-transform:uppercase;
-            color:var(--text);
-            margin-bottom:12px;
-            font-weight:600;
-        }
-        .tech-tag{
-            display:inline-block;
-            background:var(--white);
-            border:1px solid var(--border);
-            border-left:3px solid var(--theme);
-            padding:6px 14px;
-           
-            font-size:12.5px;
-            margin:0 8px 8px 0;
-            color:var(--header);
-            border-radius:2px;
-        }
-        .tech-group.backend .tech-tag{ border-left-color:var(--theme-2); }
-        .tech-tag:hover{ background:var(--header); color:var(--white); border-color:var(--header); }
+/* Cards */
+.pd-card { background: var(--pd-card); border-radius: 16px; }
 
-        /* ---------- Scope cards ---------- */
-        .scope-card{
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #cccccc69;
-            border-top: 3px solid var(--theme);
-            height: 100%;
-        }
-        .scope-card h5{
-           
-            font-weight:700;
-            color:var(--header);
-            font-size:16px;
-            margin-bottom:8px;
-        }
-        .scope-card h5 i{ color:var(--theme); margin-right:8px; }
-        .scope-card p{ color:var(--text); font-size:14px; margin-bottom:0; }
+/* Hero row */
+.pd-hero { display: grid; grid-template-columns: minmax(0, 2.25fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.pd-left { display: grid; gap: 12px; min-width: 0; }
 
-        /* ---------- Testimonial ---------- */
-        .testimonial-box{
-            background: linear-gradient(to left, #7a7a7a, var(--black));
-    color: var(--bg);
-    padding: 28px 30px;
-    border-radius: 8px;
-    font-size: 15px;
-    line-height: 1.8;
-    position: relative;
-    text-align: justify;
-        }
-        .testimonial-box .cmt{ color:var(--theme); opacity:.9; }
-        .testimonial-box p{ margin:6px 0 14px; color:var(--bg); }
-        .testimonial-box .author{
-            color:var(--theme);
-            font-weight:600;
-        }
+.pd-gallery { position: relative; padding: 0; overflow: hidden; }
+.pd-shot { all: unset; display: block; width: 100%; aspect-ratio: 16 / 9; cursor: zoom-in; background: #e9e9e9; }
+.pd-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-        /* ---------- Back link ---------- */
-        .back-link{
-            display:inline-flex;
-            align-items:center;
-            gap:8px;
-           
-            font-size:13px;
-            color:var(--header);
-            text-decoration:none;
-            border-bottom:1px solid var(--header);
-            padding-bottom:2px;
-        }
-        .back-link:hover{ color:var(--theme); border-color:var(--theme); }
+.pd-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 34px; height: 34px; border: 0; border-radius: 50%;
+    background: #fff; color: var(--pd-text); cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15); font-size: 13px;
+}
+.pd-nav.prev { left: 14px; }
+.pd-nav.next { right: 14px; }
+.pd-dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; gap: 6px; }
+.pd-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .6); cursor: pointer; }
+.pd-dots button[aria-current="true"] { background: var(--pd-green); }
 
-        /* ---------- Sidebar ---------- */
-        .project-info-sidebar{
-            background:var(--white);
-            border:1px solid var(--border);
-            border-radius:10px;
-            overflow:hidden;
-            position:sticky;
-            top:100px;
+/* Accordions */
+.pd-acc { padding: 0; }
+.pd-acc summary {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px; font-size: 14px; font-weight: 500; cursor: pointer; list-style: none;
+}
+.pd-acc summary::-webkit-details-marker { display: none; }
+.pd-acc summary i { font-size: 12px; color: var(--pd-muted); transition: transform .2s; }
+.pd-acc[open] summary i { transform: rotate(180deg); }
+.pd-acc-body { padding: 0 18px 18px; font-size: 15px; line-height: 1.7; color: #3d3d3d; }
+.pd-acc-body p { margin: 0; text-align: justify; }
+.pd-acc-body ul { margin: 0; padding-left: 18px; }
+.pd-acc-body li { margin-bottom: 6px; }
+.pd-acc-body .who { margin-top: 10px; font-size: 13.5px; color: var(--pd-muted); }
 
-        }
-        .editor-chrome{
-            background:var(--header);
-            padding:12px 16px;
-            display:flex;
-            align-items:center;
-            gap:8px;
-        }
-        .editor-chrome span{
-            width:9px; height:9px; border-radius:50%;
-            display:inline-block;
-            background:var(--text);
-        }
-        .editor-chrome span:nth-child(1){ background:var(--theme); }
-        .editor-chrome span:nth-child(2){ background:var(--theme-2); }
-        .editor-chrome span:nth-child(3){ background:var(--border); }
-  
-        .sidebar-body{ padding:24px; }
-        .sidebar-body .kv-list{ list-style:none; padding:0; margin:0 0 20px; }
-        .sidebar-body .kv-list li{
-            display:flex;
-            justify-content:space-between;
-            gap:10px;
-            padding:9px 0;
-            border-bottom:1px solid var(--border);
-            font-size:14px;
-        }
-        .sidebar-body .kv-list li:last-child{ border-bottom:none; }
-        .sidebar-body .kv-list li .k{
-            text-transform: capitalize;
-            font-size: 16px;
-            color: var(--text);
-        }
-        .sidebar-body .kv-list li .v{
-            font-weight:600;
-            color:var(--header);
-            text-align:right;
-        }
-        .status-dot{
-            display:inline-flex;
-            align-items:center;
-            gap:6px;
-           
-            font-size:12.5px;
-        }
-        .status-dot::before{
-            content:'';
-            width:7px; height:7px;
-            border-radius:50%;
-            background: #30930d;
-            box-shadow:0 0 0 3px rgba(13,156,224,.18);
-        }
-        .status-dot.paused::before{ background:var(--theme-2); box-shadow:0 0 0 3px rgba(22,62,142,.18); }
+/* Summary card */
+.pd-summary { padding: 20px; }
+.pd-summary h2 { margin: 0 0 8px; font-size: 20px; font-weight: 600; }
+.pd-loc { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font-size: 13.5px; color: var(--pd-muted); }
+.pd-facts { margin: 0; padding: 6px 16px; border-radius: 12px; background: var(--pd-panel); }
+.pd-facts div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; font-size: 13px; }
+.pd-facts dt { margin: 0; font-weight: 400; color: #4a4a4a; }
+.pd-facts dd { margin: 0; text-align: right; font-weight: 600; color: var(--pd-text); }
 
-        .btn-live{
-            display:block;
-            width:100%;
-            padding:13px;
-            background:var(--theme);
-            color:var(--white);
-            border-radius:6px;
-            text-decoration:none;
-            font-weight:600;
-            font-size:14.5px;
-            text-align:center;
-            transition:background .25s ease;
-        }
-        .btn-live:hover{ background:var(--theme-2); color:var(--white); }
-        .btn-quote{
-            display:block;
-            width:100%;
-            padding:13px;
-            background:transparent;
-            border:1px solid var(--header);
-            color:var(--header);
-            border-radius:6px;
-            text-decoration:none;
-            font-weight:600;
-            font-size:14.5px;
-            text-align:center;
-            transition:all .25s ease;
-        }
-        .btn-quote:hover{ background:var(--header); color:var(--white); }
+.pd-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.pd-chip {
+    display: inline-block; padding: 3px 10px; border: 1px solid #222; border-radius: 999px;
+    font-size: 12px; font-weight: 500; line-height: 1.5; background: #fff; color: #222;
+}
+.pd-chip.ok { border-color: var(--pd-green); color: var(--pd-green-dark); background: var(--pd-green-soft); }
 
-        .sidebar-cta{
-            border-top:1px dashed var(--border);
-            margin-top:22px;
-            padding-top:20px;
-        }
-        .sidebar-cta h5{
-           
-            font-size:15px;
-            font-weight:700;
-            color:var(--header);
-            margin-bottom:6px;
-        }
-        .sidebar-cta p{
-            color:var(--text);
-            font-size:13px;
-            margin-bottom:14px;
-        }
+/* Stat cards */
+.pd-stats {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  gap: 16px;
+  margin-top: 16px;
+}
+.pd-stat { padding: 18px 20px; }
+.pd-stat-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.pd-stat-label { font-size: 14px; color: #555; }
+.pd-ico {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border: 1px solid var(--pd-line); border-radius: 9px;
+    color: var(--pd-green); font-size: 14px;
+}
+.pd-stat-num { margin: 10px 0 12px; font-size: 32px; font-weight: 400; line-height: 1; }
+.pd-stat-foot { display: flex; flex-wrap: wrap; gap: 6px; }
+.pd-tag { padding: 3px 8px; border-radius: 6px; background: var(--pd-green-soft); color: var(--pd-green-dark); font-size: 12px; }
 
-        .loading-spinner{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            min-height:500px;
-        }
-        .project-not-found{ text-align:center; padding:110px 20px; }
-        .project-not-found h2{ color:var(--theme-2); }
+/* Table */
+.pd-table-card { margin-top: 16px; padding: 18px 16px 8px; }
+.pd-table-card h3 { margin: 0 0 14px 6px; font-size: 16px; font-weight: 600; }
+.pd-scroll { overflow-x: auto; }
+.pd-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 13.5px; }
+.pd-table th {
+    padding: 11px 12px; background: var(--pd-panel); text-align: left;
+    font-size: 13px; font-weight: 500; color: #555; border-top: 1px solid var(--pd-line); border-bottom: 1px solid var(--pd-line);
+}
+.pd-table td { padding: 14px 12px; border-bottom: 1px solid var(--pd-line); vertical-align: top; line-height: 1.55; }
+.pd-table tr:last-child td { border-bottom: 0; }
+.pd-table td:first-child { width: 150px; font-weight: 600; }
 
-        @media (max-width: 768px){
-            .project-gallery img{ height:190px; }
-            .project-info-sidebar{ position:relative; top:0; margin-top:34px; }
-            .breadcrumb-wrapper-4 h1{ font-size:26px; }
-            .breadcrumb-wrapper-4 .breadcrumb-items{ flex-wrap:wrap; }
-        }
-    </style>
+/* Bottom CTA */
+.pd-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; padding: 22px 24px; }
+.pd-cta h2 { margin: 0 0 4px; font-size: 20px; font-weight: 600; }
+.pd-cta p { margin: 0; color: var(--pd-muted); font-size: 14.5px; }
+
+/* Lightbox */
+.pd-lightbox { width: 100%; max-width: min(1200px, 94vw); padding: 0; overflow: visible; border: 0; background: transparent; }
+.pd-lightbox::backdrop { background: rgba(0, 0, 0, .85); }
+.pd-lightbox img { display: block; width: 100%; max-height: 86vh; object-fit: contain; }
+.pd-lightbox button { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border: 0; border-radius: 50%; background: #fff; color: #111; cursor: pointer; }
+
+/* Loading / empty */
+.pd-skel { min-height: 70vh; background: var(--pd-page); }
+.pd-skel i { display: block; height: 18px; margin-bottom: 18px; border-radius: 4px; background: #e2e2e2; }
+.pd-empty { padding: 100px 20px; text-align: center; }
+.pd-empty h2 { color: #1a1a1a; font-weight: 600; }
+.pd-empty p { color: var(--pd-muted); }
+
+/* Responsive */
+@media (max-width: 991px) {
+    .pd-hero { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+    .pd-top { flex-wrap: wrap; }
+    .pd-top-actions { width: 100%; }
+    .pd-top-actions .pd-btn.green { flex: 1; justify-content: center; }
+    .pd-stats { grid-template-columns: minmax(0, 1fr); }
+    .pd-cta .pd-btn { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pd-acc summary i { transition: none; }
+}
+
+</style>
 </head>
 <body>
 
@@ -372,7 +211,7 @@
     <div class="mouseCursor cursor-outer"></div>
     <div class="mouseCursor cursor-inner"></div>
 
-            <!-- Offcanvas Mobile Menu Start -->
+        <!-- Offcanvas Mobile Menu Start -->
         <div class="fix-area">
             <div class="offcanvas__info">
                 <div class="offcanvas__wrapper">
@@ -399,28 +238,19 @@
                             <div class="contact-info mt-3 mb-4">
                                 <p class="text text-md">
                                     <i class="fa-solid fa-envelope me-2"></i>
-                                    <a href="mailto:pswebstudio.dev@gmail.com">
-                                        pswebstudio.dev@gmail.com
-                                    </a>
+                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
                                 </p>
-
                                 <p class="text text-md mt-2">
                                     <i class="fa-solid fa-phone me-2"></i>
-                                    <a href="tel:+918793400545">
-                                        +91 87934 00545
-                                    </a>
+                                    <a href="tel:+918793400545">+91 87934 00545</a>
                                 </p>
-
                                 <p class="text text-md mt-2">
                                     <i class="fa-solid fa-globe me-2"></i>
-                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                        pswebstudio.netlify.app
-                                    </a>
+                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">pswebstudio.netlify.app</a>
                                 </p>
                             </div>
 
-                            <a href="javascript:void(0);" onclick="openQuoteModal()"
-                            class="theme-btn theme-btn-sm gap-2 log-bt">
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn theme-btn-sm gap-2 log-bt">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 Start a Project
                             </a>
@@ -428,29 +258,10 @@
                             <h3 class="mb-0 mt-4">Connect With Us</h3>
 
                             <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.instagram.com/your-instagram/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-
-                                <a href="https://www.linkedin.com/company/your-company/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-
-                                <a href="https://www.facebook.com/your-page/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
-
-                                <a href="https://wa.me/918793400545"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="WhatsApp">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </a>
+                                <a href="https://www.instagram.com/your-instagram/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/your-company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://www.facebook.com/your-page/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>
@@ -459,8 +270,7 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-    <!-- Header-Top Section Start -->
-            <!-- Header Top Section Start -->
+        <!-- Header Top Section Start -->
         <div class="header-top-section">
             <div class="container-fluid">
                 <div class="header-top-wrapper">
@@ -469,18 +279,9 @@
                     </p>
                     <div class="header-right">
                         <ul class="header-list">
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
-                                <a href="tel:+918793400545">+91 87934 00545</a>
-                            </li>
-                            <li>
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                            </li>
+                            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></li>
+                            <li><i class="fa-solid fa-phone"></i> <a href="tel:+918793400545">+91 87934 00545</a></li>
+                            <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
                         </ul>
                     </div>
                 </div>
@@ -500,16 +301,16 @@
                             </div>
                         </div>
                         <div class="header-right d-flex justify-content-end align-items-center">
-                             <div class="mean__menu-wrapper">
+                            <div class="mean__menu-wrapper">
                                 <div class="main-menu">
                                     <nav id="mobile-menu">
                                         <ul>
-                                            <li class=""><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li class=""><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
                                             <li class="active"><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li class=""><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
-                                            <li class=""><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li class=""><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                            <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                            <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -532,343 +333,245 @@
         <div id="smooth-content">
 
             <!-- Dynamic Project Content -->
-            <div id="projectContent">
-                <div class="loading-spinner">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Loading...</span>
+            <main id="projectContent">
+                <div class="pd-skel" aria-busy="true" aria-label="Loading project">
+                    <div class="container" style="padding-top:120px;max-width:720px;margin-left:0;">
+                        <i style="width:90px"></i>
+                        <i style="width:80%;height:46px"></i>
+                        <i style="width:55%;height:46px"></i>
                     </div>
                 </div>
-            </div>
+            </main>
 
-            <!-- Footer Section Start -->
-                    <!-- Contact / Quote Modal -->
-        <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
-                <button class="modal-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="row g-0">
+            <!-- Contact / Quote Modal (Same as Home Page) -->
+            <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="psm-box">
+                    <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
                     <!-- LEFT PANEL -->
-                    <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
-                        <div class="mb-4">
-                            <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
-                                <i class="fa-regular fa-file-lines fs-3"></i>
-                            </span>
-                            <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
-                            <p class="text-white-50 mb-0">
+                    <aside class="psm-side">
+                        <div class="psm-side-top">
+                            <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                            <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="psm-lead">
                                 Confirm your project details and share your contact information.
                                 We will send a tailored proposal.
                             </p>
                         </div>
-                        <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
-                            <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
-                                <i class="fa-regular fa-clipboard me-1"></i> Project Overview
-                            </p>
-                            <div class="summary-content">
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Service</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryService">Custom Web Development</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Estimated Budget</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryBudget">Flexible</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
-                                    <span class="summary-label small text-white-50">Category</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryType">Commercial Website</span>
-                                </div>
+
+                        <div class="psm-summary" id="projectSummary">
+                            <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Service</span>
+                                <span class="psm-row-value" id="summaryService">Custom Web Development</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Estimated Budget</span>
+                                <span class="psm-row-value" id="summaryBudget">Flexible</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Category</span>
+                                <span class="psm-row-value" id="summaryType">Commercial Website</span>
                             </div>
                         </div>
-                        <ul class="list-unstyled small mt-auto mb-0">
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span>
-                                <span>Response within one business day</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-list-check"></i>
-                                </span>
-                                <span>Scope, timeline and cost breakdown</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-0">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-lock"></i>
-                                </span>
-                                <span>Your details stay confidential</span>
-                            </li>
+
+                        <ul class="psm-perks">
+                            <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
                         </ul>
                     </aside>
+
                     <!-- RIGHT PANEL -->
-                    <div class="col-lg-7 p-4 p-lg-5 bg-white">
-                        <h3 class="h4 fw-bold mb-1">Contact Details</h3>
-                        <p class="small text-muted mb-4">Fields marked * are required.</p>
-                        <form id="contactForm" class="modal-form" name="contact" method="POST">
+                    <div class="psm-main">
+                        <h3 class="psm-main-title">Contact Details</h3>
+                        <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+
+                        <form id="contactForm" class="modal-form psm-form" name="contact"
+                              method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="service" id="modalService">
                             <input type="hidden" name="budget" id="modalBudget">
                             <input type="hidden" name="project-type" id="modalProjectType">
-                            <div class="row g-3">
-                                <div class="col-12 form-group">
-                                    <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
-                                        <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6" placeholder="John Smith" autocomplete="name" required>
+
+                            <div class="psm-fields">
+                                <div class="psm-grid">
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-user"></i>
+                                            <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
-                                        <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6" placeholder="name@company.com" autocomplete="email" required>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
-                                        <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalCompany" class="form-label small fw-semibold">Company</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
-                                        <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6" placeholder="Company name" autocomplete="organization">
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalCompany">Company</label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-building"></i>
+                                            <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
-                                        <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
-                                            <option value="">Select timeline</option>
-                                            <option>Within 2 weeks</option>
-                                            <option>1 month</option>
-                                            <option>2-3 months</option>
-                                            <option>Flexible</option>
-                                        </select>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalTimeline">Preferred Timeline</label>
+                                        <div class="psm-input psm-select">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <select id="modalTimeline" name="timeline">
+                                                <option value="">Select timeline</option>
+                                                <option>Within 2 weeks</option>
+                                                <option>1 month</option>
+                                                <option>2-3 months</option>
+                                                <option>Flexible</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 form-group">
-                                    <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
-                                    <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
-                                </div>
-                                <div class="col-12 form-group checkbox-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required checked>
-                                        <label for="modalAgree" class="form-check-label small text-muted">
-                                            I agree to receive project communication regarding my inquiry.
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalMessage">Project Requirements</label>
+                                        <div class="psm-input psm-textarea">
+                                            <textarea id="modalMessage" name="message" rows="4"
+                                                placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-full form-group checkbox-group">
+                                        <label class="psm-check" for="modalAgree">
+                                            <input type="checkbox" id="modalAgree" name="agree" required checked>
+                                            <span>
+                                                I agree to receive project communication regarding my inquiry.
+                                            </span>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
-                                        <span class="btn-text">
-                                            <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
-                                        </span>
-                                        <span class="btn-spinner d-none">
-                                            <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
-                                        </span>
-                                    </button>
+
+                                    <div class="psm-full">
+                                        <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
+                                            <span class="btn-text">
+                                                <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
+                                            </span>
+                                            <span class="btn-spinner d-none">
+                                                <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
+                                            </span>
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
+
                             <!-- Success Message -->
-                            <div class="form-success d-none text-center py-5">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
-                                    <i class="fa-solid fa-circle-check fs-1"></i>
-                                </span>
-                                <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
-                                <p class="text-muted mb-0">
-                                    Our team will review your requirements and contact you within one business day.
-                                </p>
+                            <div class="form-success psm-success d-none">
+                                <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                                <h3>Inquiry Submitted Successfully</h3>
+                                <p>Our team will review your requirements and contact you within one business day.</p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <footer class="footer-section fix header-bg">
+            <!-- Footer Section Start -->
+            <footer class="footer-section fix header-bg">
+                <div class="container">
+                    <div class="footer-widget-wrapper">
+                        <div class="row">
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Services</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimization</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX Integration</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Company</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                        <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Technologies</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Get In Touch</h4></div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                        <div class="content"><h6>Mumbai, Maharashtra <br> India</h6></div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                        <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
+                                    </div>
+                                    <div class="contact-item mb-0">
+                                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                        <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4></div>
+                                    <div class="newsletter-content">
+                                        <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
+                                        <form action="#">
+                                            <div class="form-clt">
+                                                <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                <button type="submit" class="theme-btn">Subscribe</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom style-1">
                     <div class="container">
-                        <div class="footer-widget-wrapper">
-                            <div class="row">
-                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Services</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="service.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Website Development
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Responsive UI Design
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    SEO Optimization
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    MySQL & AJAX Integration
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Company</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    About Us
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="project/">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Portfolio
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="news.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Blog
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Contact
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Technologies</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    HTML5 & CSS3
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    JavaScript & jQuery
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Bootstrap & Tailwind
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    MySQL & AJAX
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Get In Touch</h4>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-map-location-dot"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    Mumbai, Maharashtra <br>
-                                                    India
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-regular fa-envelope"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item mb-0">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-phone-volume"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="tel:+918793400545">+91 87934 00545</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Subscribe for Web Dev <br>
-                                                Tips & Updates
-                                            </h4>
-                                        </div>
-                                        <div class="newsletter-content">
-                                            <p>
-                                                Occasional notes on web performance, SEO, and new projects - no spam.
-                                            </p>
-                                            <form action="#">
-                                                <div class="form-clt">
-                                                    <label for="newsletter-email" class="visually-hidden">Email Address</label>
-                                                    <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
-                                                    <button type="submit" class="theme-btn">
-                                                        Subscribe
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="footer-wrapper">
+                            <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-bottom style-1">
-                        <div class="container">
-                            <div class="footer-wrapper">
-                                <div class="text-item wow fadeInUp" data-wow-delay=".5s">
-                                    <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
-                                    <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                </div>
+            </footer>
         </div>
     </div>
 
@@ -898,9 +601,7 @@
             var preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.classList.add('hide');
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                }, 500);
+                setTimeout(function() { preloader.style.display = 'none'; }, 500);
             }
         }
         hidePreloader();
@@ -911,425 +612,293 @@
     })();
     </script>
 
-    <!-- Supabase Import Map -->
-    <script type="importmap">
-    {
-        "imports": {
-            "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm"
-        }
-    }
-    </script>
-
     <!-- Dynamic Project Detail Loader -->
     <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
 
-    const supabaseUrl = 'https://jerlrkqevhevulupcowu.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg';
+    const supabase = createClient(
+        'https://jerlrkqevhevulupcowu.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg'
+    );
 
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const PORTFOLIO_URL = 'project/';   // change to 'project.html' if that is your listing page
+    const IMG_BASE = 'assets/img/project-banner/';
 
-    // Project slug mapping for URL compatibility
+    // Old / alternate URL slugs -> canonical slug in the database
     const projectSlugMap = {
-        'andaman-dmc': 'andaman-dmc',
-        'andaman-vacations': 'andaman-vacations',
-        'andaman-vacation': 'andaman-vacations',
-        'andaman-travel-agent': 'andaman-travel-agent',
-        'andaman-travel-expert': 'andaman-travel-agent',
-        'explore-andamans': 'andaman-dmc',
         'andaman-islands': 'andaman-vacations',
-        'quest-guide-india': 'quest-guide-india',
-        'madhya-pradesh-dmc': 'madhya-pradesh-dmc',
-        'mpdmc': 'mpdmc',
-        'hotel-in-andaman': 'hotel-in-andaman',
-        'markaa': 'markaa',
-        'ladakhlife': 'ladakhlife',
-        'ladakhdmc': 'ladakhdmc',
-        'tscprinters': 'tscprinters'
+        'ladakhdmc': 'ladakh-dmc',
+        'ladakhlife': 'ladakh-life',
+        'tscprinters': 'tsc-barcode-printers'
     };
+
+    // Escape anything coming from the database before it touches innerHTML
+    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+    const safeUrl = (u) => /^https?:\/\//i.test(u || '') ? esc(u) : '';
+
+    function getSlug() {
+        const params = new URLSearchParams(window.location.search);
+        let slug = params.get('slug') || params.get('project');
+        if (!slug) {
+            const parts = window.location.pathname.split('/').filter(Boolean);
+            const i = parts.indexOf('project');
+            if (i !== -1 && parts[i + 1]) slug = parts[i + 1].replace(/\.html$/, '');
+        }
+        slug = slug || 'andaman-dmc';
+        return projectSlugMap[slug] || slug;
+    }
 
     async function loadProjectDetail() {
         const container = document.getElementById('projectContent');
         if (!container) return;
-
-        // Get slug from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        let slug = urlParams.get('slug');
-
-        // If no slug, try to get from path (project/andaman-dmc)
-        if (!slug) {
-            const pathParts = window.location.pathname.split('/');
-            if (pathParts.length >= 3 && pathParts[1] === 'project') {
-                slug = pathParts[2];
-            }
-        }
-
-        // Also check for 'project' parameter (backward compatibility)
-        if (!slug) {
-            slug = urlParams.get('project');
-        }
-
-        // Default fallback
-        if (!slug) {
-            slug = 'andaman-dmc';
-        }
-
-        // Map to correct slug if needed
-        const mappedSlug = projectSlugMap[slug] || slug;
-
         try {
-            console.log('🔍 Loading project detail:', mappedSlug);
-
             const { data: project, error } = await supabase
-                .from('projects')
-                .select('*')
-                .eq('slug', mappedSlug)
-                .eq('is_enabled', true)
-                .single();
+                .from('projects').select('*')
+                .eq('slug', getSlug()).eq('is_enabled', true).single();
 
-            if (error || !project) {
-                console.error('❌ Project not found:', error);
-                showNotFound(container);
-                return;
-            }
-
-            console.log('✅ Found project:', project.title);
+            if (error || !project) return showNotFound(container);
             renderProjectDetail(container, project);
+        } catch (err) {
+            console.error('Error loading project:', err);
+            showError(container);
+        }
+    }
 
-        } catch (error) {
-            console.error('❌ Error loading project:', error);
-            showError(container, error);
+    function setMeta(project, firstImage) {
+        const title = `${project.title} · PS Web Studio`;
+        const desc = (project.description || '').replace(/\s+/g, ' ').trim().slice(0, 155);
+        document.title = title;
+        document.getElementById('og-title').setAttribute('content', title);
+        if (desc) {
+            document.getElementById('page-desc').setAttribute('content', desc);
+            document.getElementById('og-desc').setAttribute('content', desc);
+        }
+        if (firstImage) {
+            document.getElementById('og-image').setAttribute('content', new URL(IMG_BASE + firstImage, document.baseURI).href);
         }
     }
 
     function renderProjectDetail(container, project) {
-        // Update page title
-        document.title = `${project.title} · PS Web Studio`;
-        document.getElementById('page-title').textContent = project.title + ' · PS Web Studio';
+        const images = Array.isArray(project.images) ? project.images : [];
+        setMeta(project, images[0]);
 
-        // Generate features HTML
-        const featuresHtml = project.features && project.features.length > 0
-            ? project.features.map(f => `<li><i class="fa-solid fa-circle-check"></i> ${f}</li>`).join('')
-            : '<li>No features listed</li>';
+        const features = Array.isArray(project.features) ? project.features : [];
+        const front = project.tech_stack?.frontend || [];
+        const back = project.tech_stack?.backend || [];
+        const live = safeUrl(project.live_url);
+        const status = project.status || 'Live';
 
-        // Generate frontend tech
-        const frontendTech = project.tech_stack?.frontend
-            ? project.tech_stack.frontend.map(t => `<span class="tech-tag">${t}</span>`).join('')
-            : '<span class="tech-tag">n/a</span>';
+        const chips = (arr, cls = '') => arr.map(t => `<span class="pd-chip ${cls}">${esc(t)}</span>`).join('');
+        const tags = (arr) => arr.slice(0, 3).map(t => `<span class="pd-tag">${esc(t)}</span>`).join('');
 
-        // Generate backend tech
-        const backendTech = project.tech_stack?.backend
-            ? project.tech_stack.backend.map(t => `<span class="tech-tag">${t}</span>`).join('')
-            : '<span class="tech-tag">n/a</span>';
+        // Scope rows (design / development / database / deployment)
+        const scopeLabels = { design: 'Design', development: 'Development', database: 'Database', deployment: 'Deployment' };
+        const scopeRows = project.scope
+            ? Object.keys(scopeLabels).filter(k => project.scope[k]).map(k => `
+                <tr><td>${scopeLabels[k]}</td><td>${esc(project.scope[k])}</td><td><span class="pd-chip">Scope</span></td></tr>`).join('')
+            : '';
+        const stackRows = `
+            <tr><td>Frontend</td><td>${front.length ? front.map(esc).join(', ') : 'n/a'}</td><td><span class="pd-chip ok">Stack</span></td></tr>
+            <tr><td>Backend</td><td>${back.length ? back.map(esc).join(', ') : 'n/a'}</td><td><span class="pd-chip ok">Stack</span></td></tr>`;
 
-        // Generate scope HTML
-        const scopeKeys = ['design', 'development', 'database', 'deployment'];
-        const scopeLabels = {
-            design: 'Design',
-            development: 'Development',
-            database: 'Database',
-            deployment: 'Deployment'
-        };
-        const scopeIcons = {
-            design: 'fa-pen-ruler',
-            development: 'fa-code',
-            database: 'fa-database',
-            deployment: 'fa-rocket'
-        };
-
-        let scopeHtml = '';
-        if (project.scope) {
-            scopeKeys.forEach(key => {
-                if (project.scope[key]) {
-                    scopeHtml += `
-                        <div class="col-sm-6">
-                            <div class="scope-card">
-                                <h5><i class="fas ${scopeIcons[key] || 'fa-circle'}"></i>${scopeLabels[key] || key}</h5>
-                                <p>${project.scope[key]}</p>
-                            </div>
-                        </div>
-                    `;
-                }
-            });
-        }
-
-        // Generate gallery HTML
-        let galleryHtml = '';
-        if (project.images && project.images.length > 0) {
-            galleryHtml = project.images.map(img => `
-                <div class="col-md-4 col-sm-6">
-                    <div class="g-item">
-                        <img src="assets/img/project-banner/${img}" alt="${project.title}" loading="lazy">
-                    </div>
-                </div>
-            `).join('');
-        } else {
-            galleryHtml = `
-                <div class="col-12">
-                    <p class="text-muted">No gallery images available</p>
-                </div>
-            `;
-        }
-
-        const statusClass = project.status === 'Live' ? '' : 'paused';
+        const gallery = images.length ? `
+            <div class="pd-card pd-gallery" id="pdGallery">
+                <button type="button" class="pd-shot" aria-label="Open screenshot full size">
+                    <img src="${esc(IMG_BASE + images[0])}" alt="${esc(project.title)} screenshot 1" decoding="async">
+                </button>
+                ${images.length > 1 ? `
+                <button type="button" class="pd-nav prev" aria-label="Previous screenshot"><i class="fa-solid fa-chevron-left"></i></button>
+                <button type="button" class="pd-nav next" aria-label="Next screenshot"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="pd-dots">${images.map((_, i) => `<button type="button" aria-label="Screenshot ${i + 1}" ${i === 0 ? 'aria-current="true"' : ''}></button>`).join('')}</div>` : ''}
+            </div>` : '';
 
         container.innerHTML = `
-            <!-- Breadcrumb -->
-            <div class="breadcrumb-wrapper-4 fix bg-cover" style="background-image: url(assets/img/banner/portfolio-banner1.png);">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-8">
-                            <span class="eyebrow wow fadeInUp" data-wow-delay=".1s">${project.industry || 'Case Study'}</span>
-                            <h1 class="wow fadeInUp" data-wow-delay=".3s">${project.title}</h1>
-                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                                <li><a href="index.html">Home</a></li>
-                                <li>/</li>
-                                <li><a href="project.html">Portfolio</a></li>
-                                <li>/</li>
-                                <li class="style-2">${project.title}</li>
-                            </ul>
-                        </div>
+        <div class="pd-page">
+            <div class="container">
+
+                <div class="pd-top">
+                    <a href="${PORTFOLIO_URL}" class="pd-btn"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                    <div class="pd-top-title">
+                        <h1>Project details</h1>
+                        <p>Selected client work by PS Web Studio.</p>
                     </div>
+                    <div class="pd-top-actions">
+                        ${live ? `<a href="${live}" target="_blank" rel="noopener noreferrer" class="pd-btn green"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit live site</a>` : ''}
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn">Get a quote</a>
+                    </div>
+                </div>
+
+                <div class="pd-hero">
+                    <div class="pd-left">
+                        ${gallery}
+                        <details class="pd-card pd-acc" open>
+                            <summary>About the project <i class="fa-solid fa-chevron-down"></i></summary>
+                            <div class="pd-acc-body"><p>${esc(project.description || 'Details for this project are coming soon.')}</p></div>
+                        </details>
+                        ${features.length ? `
+                        <details class="pd-card pd-acc">
+                            <summary>What was built <i class="fa-solid fa-chevron-down"></i></summary>
+                            <div class="pd-acc-body"><ul>${features.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
+                        </details>` : ''}
+                        ${project.testimonial ? `
+                        <details class="pd-card pd-acc">
+                            <summary>Client feedback <i class="fa-solid fa-chevron-down"></i></summary>
+                            <div class="pd-acc-body">
+                                <p>“${esc(project.testimonial)}”</p>
+                                <p class="who">${esc(project.testimonial_author || 'Client')}</p>
+                            </div>
+                        </details>` : ''}
+                    </div>
+
+                    <aside class="pd-card pd-summary">
+                        <h2>${esc(project.title)}</h2>
+                        <p class="pd-loc"><i class="fa-regular fa-building"></i> ${[project.industry, project.type || 'Custom web development'].filter(Boolean).map(esc).join(', ')}</p>
+                        <dl class="pd-facts">
+                            <div><dt>Client</dt><dd>${esc(project.client || 'Confidential')}</dd></div>
+                            <div><dt>Industry</dt><dd>${esc(project.industry || 'N/A')}</dd></div>
+                            <div><dt>Timeline</dt><dd>${esc(project.timeline || 'N/A')}</dd></div>
+                            <div><dt>Team</dt><dd>${esc(project.team || 'N/A')}</dd></div>
+                            <div><dt>Year</dt><dd>${esc(project.year || '2026')}</dd></div>
+                            <div><dt>Status</dt><dd><span class="pd-chip ok">${esc(status)}</span></dd></div>
+                        </dl>
+                        ${(front.length || back.length) ? `<div class="pd-chips">${chips([...front, ...back])}</div>` : ''}
+                    </aside>
+                </div>
+
+                <div class="pd-stats">
+                    <div class="pd-card pd-stat">
+                        <div class="pd-stat-head"><span class="pd-stat-label">Frontend technologies</span><span class="pd-ico"><i class="fa-solid fa-code"></i></span></div>
+                        <div class="pd-stat-num">${front.length}</div>
+                        <div class="pd-stat-foot">${tags(front)}</div>
+                    </div>
+                    <div class="pd-card pd-stat">
+                        <div class="pd-stat-head"><span class="pd-stat-label">Backend technologies</span><span class="pd-ico"><i class="fa-solid fa-database"></i></span></div>
+                        <div class="pd-stat-num">${back.length}</div>
+                        <div class="pd-stat-foot">${tags(back)}</div>
+                    </div>
+                    <div class="pd-card pd-stat">
+                        <div class="pd-stat-head"><span class="pd-stat-label">Features delivered</span><span class="pd-ico"><i class="fa-regular fa-circle-check"></i></span></div>
+                        <div class="pd-stat-num">${features.length}</div>
+                        <div class="pd-stat-foot">${tags(features)}</div>
+                    </div>
+                </div>
+
+                <div class="pd-card pd-table-card">
+                    <h3>Stack and scope of work</h3>
+                    <div class="pd-scroll">
+                        <table class="pd-table">
+                            <thead><tr><th>Area</th><th>Details</th><th>Type</th></tr></thead>
+                            <tbody>${stackRows}${scopeRows}</tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pd-card pd-cta">
+                    <div>
+                        <h2>Have a similar site in mind?</h2>
+                        <p>Send the brief and you'll get a scope and price within one business day.</p>
+                    </div>
+                    <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green">Get a quote</a>
                 </div>
             </div>
+        </div>
 
-            <!-- Project Detail Content -->
-            <section class="project-detail-wrapper">
-                <div class="container">
-                   <!-- Gallery -->
-                            <div class="project-gallery">
-                                <div class="row g-3">
-                                    ${galleryHtml}
-                                </div>
-                            </div>
-                    <div class="row g-4">
-                        <!-- Main Content -->
-                        <div class="col-lg-8">
-                         
+        <dialog class="pd-lightbox" id="pdLightbox" aria-label="Screenshot viewer">
+            <button type="button" aria-label="Close viewer"><i class="fa-solid fa-xmark"></i></button>
+            <img alt="">
+        </dialog>`;
 
-                            <!-- Description -->
-                            <div class="section-block">
-                                <h3>Overview</h3>
-                                <p class="body-text">${project.description || 'No description available.'}</p>
-                            </div>
+        bindGallery(container, images, project.title);
+    }
 
-                            <!-- Features -->
-                            <div class="section-block">
-                                <h3>Key Features</h3>
-                                <ul class="feature-list">
-                                    ${featuresHtml}
-                                </ul>
-                            </div>
+    function bindGallery(root, images, title) {
+        const gal = root.querySelector('#pdGallery');
+        if (!gal) return;
+        const main = gal.querySelector('.pd-shot img');
+        const dots = [...gal.querySelectorAll('.pd-dots button')];
+        let i = 0;
 
-                            <!-- Tech Stack -->
-                            <div class="section-block">
-                                <h3>Stack</h3>
-                                <div class="row g-4">
-                                    <div class="col-md-6 tech-group frontend">
-                                        <h5>Frontend</h5>
-                                        <div>${frontendTech}</div>
-                                    </div>
-                                    <div class="col-md-6 tech-group backend">
-                                        <h5>Backend</h5>
-                                        <div>${backendTech}</div>
-                                    </div>
-                                </div>
-                            </div>
+        const show = (n) => {
+            i = (n + images.length) % images.length;
+            main.src = IMG_BASE + images[i];
+            main.alt = `${title} screenshot ${i + 1}`;
+            dots.forEach((d, k) => k === i ? d.setAttribute('aria-current', 'true') : d.removeAttribute('aria-current'));
+        };
+        gal.querySelector('.prev')?.addEventListener('click', () => show(i - 1));
+        gal.querySelector('.next')?.addEventListener('click', () => show(i + 1));
+        dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
 
-                            <!-- Scope -->
-                            ${scopeHtml ? `
-                                <div class="section-block">
-                                    <h3>Scope of Work</h3>
-                                    <div class="row g-3">
-                                        ${scopeHtml}
-                                    </div>
-                                </div>
-                            ` : ''}
-
-                            <!-- Testimonial -->
-                            ${project.testimonial ? `
-                                <div class="section-block">
-                                    <div class="testimonial-box">
-                                        <span class="cmt"><i class="fa fa-quote-left"></i></span>
-                                        <p>"${project.testimonial}"</p>
-                                        <span class="author">— ${project.testimonial_author || 'Client'}</span>
-                                    </div>
-                                </div>
-                            ` : ''}
-
-                            <!-- Back Button -->
-                            <div class="section-block">
-                                <a href="project.html" class="back-link">
-                                    <i class="fa-solid fa-arrow-left"></i> back to portfolio
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Sidebar -->
-                        <div class="col-lg-4">
-                            <div class="project-info-sidebar">
-                                <div class="editor-chrome">
-                                    <span></span><span></span><span></span>
-                                    
-                                </div>
-                                <div class="sidebar-body">
-                                    <ul class="kv-list">
-                                        <li><span class="k">client</span><span class="v">${project.client || 'N/A'}</span></li>
-                                        <li><span class="k">industry</span><span class="v">${project.industry || 'N/A'}</span></li>
-                                        <li><span class="k">type</span><span class="v">${project.type || 'Custom Web Development'}</span></li>
-                                        <li><span class="k">timeline</span><span class="v">${project.timeline || 'N/A'}</span></li>
-                                        <li><span class="k">team</span><span class="v">${project.team || 'N/A'}</span></li>
-                                        <li><span class="k">year</span><span class="v">${project.year || '2026'}</span></li>
-                                        <li><span class="k">status</span><span class="v"><span class="status-dot ${statusClass}">${project.status || 'Live'}</span></span></li>
-                                    </ul>
-
-                                    ${project.live_url ? `
-                                        <a href="${project.live_url}" target="_blank" rel="noopener noreferrer" class="btn-live mb-2">
-                                            <i class="fas fa-external-link-alt me-2"></i> Visit Website
-                                        </a>
-                                    ` : ''}
-
-                                    <div class="sidebar-cta">
-                                        <h5>Need something similar?</h5>
-                                        <p>Let's talk through your requirements and scope it out.</p>
-                                        <a href="contact.html" class="btn-quote">
-                                            <i class="fas fa-paper-plane me-2"></i> Get a Quote
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        `;
-
-        // Reinitialize WOW.js
-        if (typeof WOW !== 'undefined') {
-            new WOW().init();
-        }
-
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Lightbox
+        const dlg = root.querySelector('#pdLightbox');
+        if (!dlg || typeof dlg.showModal !== 'function') return;
+        const big = dlg.querySelector('img');
+        gal.querySelector('.pd-shot').addEventListener('click', () => {
+            big.src = main.src;
+            big.alt = main.alt;
+            dlg.showModal();
+        });
+        dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('button')) dlg.close(); });
     }
 
     function showNotFound(container) {
         container.innerHTML = `
-            <div class="project-not-found">
+            <div class="pd-empty">
                 <div class="container">
-                    <h2><i class="fas fa-exclamation-circle"></i> Project Not Found</h2>
-                    <p class="text-muted">The project you're looking for doesn't exist or has been moved.</p>
-                    <a href="project.html" class="theme-btn mt-3"><i class="fa-solid fa-arrow-left me-2"></i> Back to Portfolio</a>
+                    <h2>Project not found</h2>
+                    <p>This project doesn't exist or has been moved.</p>
+                    <a href="${PORTFOLIO_URL}" class="theme-btn mt-3">Back to portfolio</a>
                 </div>
-            </div>
-        `;
+            </div>`;
     }
 
-    function showError(container, error) {
+    function showError(container) {
         container.innerHTML = `
-            <div class="project-not-found">
+            <div class="pd-empty">
                 <div class="container">
-                    <h2 class="text-danger"><i class="fas fa-exclamation-triangle"></i> Error Loading Project</h2>
-                    <p class="text-muted">${error.message || 'An unexpected error occurred.'}</p>
-                    <a href="project.html" class="theme-btn mt-3"><i class="fa-solid fa-arrow-left me-2"></i> Back to Portfolio</a>
+                    <h2>Couldn't load this project</h2>
+                    <p>Check your connection and refresh the page.</p>
+                    <a href="${PORTFOLIO_URL}" class="theme-btn mt-3">Back to portfolio</a>
                 </div>
-            </div>
-        `;
+            </div>`;
     }
 
-    // Load project on page load
     document.addEventListener('DOMContentLoaded', loadProjectDetail);
     </script>
 
-        <!-- WhatsApp Floating Chat & Popup -->
-        <!-- PSWeb Studio WhatsApp -->
-                               <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
-
-    <!-- Header -->
-    <div class="psws-whatsapp-header">
-
-        <div class="psws-whatsapp-header-icon">
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-
-        <div class="psws-whatsapp-header-info">
-            <div class="psws-whatsapp-title">
-                PSWeb Studio
+    <!-- WhatsApp Floating Chat & Popup -->
+    <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+        <div class="psws-whatsapp-header">
+            <div class="psws-whatsapp-header-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="psws-whatsapp-header-info">
+                <div class="psws-whatsapp-title">PSWeb Studio</div>
+                <div class="psws-whatsapp-status">● Typically replies instantly</div>
             </div>
-            <div class="psws-whatsapp-status">
-                ● Typically replies instantly
-            </div>
+            <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
         </div>
-
-        <!-- Close -->
-        <button
-            type="button"
-            class="psws-whatsapp-close"
-            id="pswsWhatsappClose"
-            aria-label="Close WhatsApp">
-            <i class="fa-solid fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-
-    <!-- Body -->
-    <div class="psws-whatsapp-body">
-
-        <div class="psws-whatsapp-message">
-            <p>How can I help you? :)</p>
-            <div class="psws-whatsapp-time" id="pswsWhatsappTime">
-                23:03
+        <div class="psws-whatsapp-body">
+            <div class="psws-whatsapp-message">
+                <p>How can I help you? :)</p>
+                <div class="psws-whatsapp-time" id="pswsWhatsappTime">23:03</div>
             </div>
         </div>
-
+        <div class="psws-whatsapp-footer">
+            <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                <div class="psws-whatsapp-input-wrapper">
+                    <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                    <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
-
-    <!-- Footer -->
-    <div class="psws-whatsapp-footer">
-
-        <form
-            class="psws-whatsapp-form"
-            id="pswsWhatsappForm">
-
-            <div class="psws-whatsapp-input-wrapper">
-
-                <input
-                    type="text"
-                    id="pswsWhatsappInput"
-                    class="psws-whatsapp-input"
-                    placeholder="Write your message..."
-                    autocomplete="off"
-                    aria-label="WhatsApp Message"
-                >
-
-                <button
-                    type="submit"
-                    class="psws-whatsapp-send"
-                    aria-label="Send WhatsApp message">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- ================================
-     FLOATING WHATSAPP BUTTON
-================================= -->
-
-                        <button
-                            type="button"
-                            class="psws-whatsapp-launcher"
-                            id="pswsWhatsappLauncher"
-                            aria-label="Open WhatsApp Chat">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </button>
-    </body>
+    <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+</body>
 </html>

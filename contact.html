@@ -31,15 +31,122 @@
         <link rel="stylesheet" href="assets/css/flacticon.css">
         <!--<< Main.css >>-->
         <link rel="stylesheet" href="assets/css/main.css">
+        <style>
+            :root {
+                --pj-green: #12a05c;
+                --pj-green-dark: #0c8449;
+                --pj-green-soft: #e6f5ec;
+                --pj-text: #1b1b1b;
+                --pj-muted: #6e6e6e;
+                --pj-line: #e7e7e7;
+                --pj-page: #f4f4f4;
+                --pj-panel: #f9f9f9;
+            }
+
+            .pj-page { background: var(--pj-page); padding: 36px 0 70px; color: var(--pj-text); }
+            .pj-page a { text-decoration: none; }
+            .pj-card { background: #fff; border-radius: 16px; border: 1px solid var(--pj-line); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+
+            /* Banner */
+            .pj-banner { position: relative; padding: 60px 0 50px; background-size: cover; background-position: center; margin-top: 150px; }
+            .pj-banner::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.62); }
+            .pj-banner .container { position: relative; z-index: 1; }
+            .pj-banner h1 { margin: 0; color: #fff; font-size: 42px; font-weight: 800; line-height: 1.15; }
+            .pj-banner p { margin: 14px 0 16px; max-width: 620px; color: rgba(255,255,255,.85); font-size: 18px; }
+            .pj-crumbs { display: flex; gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; color: rgba(255,255,255,.7); font-size: 14px; }
+            .pj-crumbs a { color: rgba(255,255,255,.7); }
+            .pj-crumbs a:hover { color: #fff; }
+            .pj-crumbs li + li::before { content: "/"; margin-right: 10px; }
+            .pj-crumbs .cur { color: #fff; }
+            .pj-banner .pj-btn.green { padding: 11px 22px; }
+            .pj-bstats { display: flex; gap: 40px; }
+            .pj-bstats h2 { margin: 0; color: #fff; font-size: 32px; font-weight: 700; }
+            .pj-bstats span { color: rgba(255,255,255,.7); font-size: 14px; }
+
+            .pj-btn {
+                display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+                padding: 11px 18px; border: 1px solid var(--pj-line); border-radius: 10px;
+                background: #fff; color: var(--pj-text); font-size: 14px; font-weight: 600; line-height: 1.2; cursor: pointer;
+                transition: all .2s ease;
+            }
+            .pj-btn:hover { border-color: #bdbdbd; color: var(--pj-text); }
+            .pj-btn.green { background: var(--pj-green); border-color: var(--pj-green); color: #fff; }
+            .pj-btn.green:hover { background: var(--pj-green-dark); border-color: var(--pj-green-dark); color: #fff; }
+            .pj-btn:focus-visible, .pj-field:focus-visible { outline: 2px solid var(--pj-green); outline-offset: 2px; }
+
+            /* Contact Dashboard Layout */
+            .ct-section { padding: 24px; }
+            .ct-card-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: var(--pj-text); }
+            .ct-card-subtitle { font-size: 14px; color: var(--pj-muted); margin-bottom: 24px; line-height: 1.6; }
+
+            /* Contact Info Tiles */
+            .ct-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .ct-info-tile {
+                display: flex; gap: 14px; padding: 16px; border-radius: 12px;
+                background: var(--pj-panel); border: 1px solid var(--pj-line);    flex-direction: column;
+                transition: all .2s ease;
+            }
+            .ct-info-tile:hover {
+                border-color: #c9e8d6;
+                background: #fff;
+                box-shadow: 0 4px 14px rgba(18,160,92,0.06);
+            }
+            .ct-ico {
+                flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+                width: 42px; height: 42px; border: 1px solid rgba(18,160,92,0.25); border-radius: 10px;
+                background: var(--pj-green-soft); color: var(--pj-green-dark); font-size: 17px;
+            }
+            .ct-tile-text h5 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--pj-text); }
+            .ct-tile-text p, .ct-tile-text a { margin: 0; font-size: 13.5px; color: var(--pj-muted); line-height: 1.45; }
+            .ct-tile-text a:hover { color: var(--pj-green); }
+
+            /* Quick direct contact bar */
+            .ct-direct-card {
+                margin-top: 18px; padding: 18px 20px; border-radius: 12px;
+                background: #fff; border: 1px solid var(--pj-line);
+                display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+            }
+            .ct-direct-left h6 { margin: 0 0 2px; font-size: 14px; font-weight: 600; }
+            .ct-direct-left p { margin: 0; font-size: 12.5px; color: var(--pj-muted); }
+
+            /* Form Elements */
+            .pj-form-group { margin-bottom: 16px; }
+            .pj-form-label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: #333; }
+            .pj-form-label span { color: #dc3545; }
+            .pj-input-wrap { position: relative; }
+            .pj-input-wrap i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--pj-muted); }
+            .pj-field {
+                width: 100%; height: 44px; padding: 0 14px 0 40px; border: 1px solid var(--pj-line); border-radius: 10px;
+                background: #fff; color: var(--pj-text); font-size: 14px; transition: border-color .2s;
+            }
+            .pj-field:focus { border-color: var(--pj-green); }
+            textarea.pj-field { height: 110px; padding: 12px 14px 12px 40px; resize: vertical; }
+            .pj-input-wrap.textarea i { top: 18px; transform: none; }
+
+            /* Map Frame */
+            .ct-map-card { margin-top: 24px; padding: 14px; overflow: hidden; border-radius: 16px; }
+            .ct-map-card iframe { width: 100%; height: 320px; border: 0; border-radius: 10px; display: block; }
+
+            @media (max-width: 991px) {
+                .ct-info-grid { grid-template-columns: 1fr; }
+            }
+            @media (max-width: 767px) {
+                .pj-banner h1 { font-size: 28px; }
+                .pj-banner p { font-size: 15px; }
+                .pj-bstats { gap: 20px; flex-wrap: wrap; }
+                .pj-bstats h2 { font-size: 24px; }
+                .ct-section { padding: 18px; }
+            }
+        </style>
     </head>
     <body>
 
-      
-       
+
+
         <!-- Preloader Start -->
      <div id="preloader" class="preloader">
             <div class="spinner"></div>
-        </div> 
+        </div>
 
         <!-- Back To Top Start -->
         <button id="back-top" class="back-to-top show">
@@ -207,333 +314,166 @@
 
         <div id="smooth-wrapper">
              <div id="smooth-content">
-                <!-- Breadcrumb-Wrapper Section Start -->
-                <div class="breadcrumb-wrapper-3 fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb/bg-2.jpg);">
+                <!-- Main Banner (Project Pattern) -->
+                <div class="pj-banner fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb/bg-2.jpg);">
                     <div class="container">
-                        <div class="page-heading">
-                            <div class="breadcrumb-sub-title">
-                                <h1 class="wow fadeInUp" data-wow-delay=".3s">
-                                Contact
-                                </h1>
-                            </div>
-                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                            <li>
-                                <a href="index.html">
-                                    Home
+                        <div class="row align-items-end g-4">
+                            <div class="col-md-7">
+                                <h1>Get In Touch</h1>
+                                <p>Have a project in mind, need a redesign, or want reliable website maintenance? Let's talk and build something great.</p>
+                                <ul class="pj-crumbs">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="cur" aria-current="page">Contact</li>
+                                </ul>
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="pj-btn green">
+                                    <i class="fa-regular fa-paper-plane"></i> Request a Proposal
                                 </a>
-                            </li>
-                            <li class="style-2 style-3">
-                                Contact
-                            </li>
-                        </ul>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="pj-bstats">
+                                    <div><h2>&lt; 24h</h2><span>Fast Response</span></div>
+                                    <div><h2>100%</h2><span>Dedicated Support</span></div>
+                                    <div><h2>3+</h2><span>Years Experience</span></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Conatct-Us Section Start -->
-                <section class="conatct-us-section-3 section-padding fix">
+                <!-- Contact Dashboard Section (Project Pattern) -->
+                <main class="pj-page">
                     <div class="container">
-                        <div class="contact-us-wrapper-3">
-                            <div class="row g-4">
-                                <div class="col-xl-5 col-lg-6">
-                                    <div class="contact-us-content">
-                                        <div class="section-title mb-0">
-                                            <h2 class="text-anim">
-                                                Have A Project In Mind?
-                                                Let's Talk
-                                            </h2>
-                                        </div>
-                                        <p class="text">
-                                            Whether you need a new website, a redesign, or help fixing what's already broken, PS Web Studio can help. Reach out and I'll get back to you within a day.
+                        <div class="row g-4">
+                            <!-- Left: Contact Information Cards -->
+                            <div class="col-lg-5">
+                                <div class="pj-card ct-section h-100 d-flex flex-column justify-content-between">
+                                    <div>
+                                        <h2 class="ct-card-title">Let's Discuss Your Project</h2>
+                                        <p class="ct-card-subtitle">
+                                            Whether you need a full website build, UI revamp, or emergency fix, reach out directly. I respond quickly with clear pricing and turnaround.
                                         </p>
-                                        <div class="contact-us-item">
-                                            <div class="content">
-                                                <h5>
-                                                    <i class="fa-solid fa-envelope"></i>
-                                                    Email us
-                                                </h5>
-                                                <h6>
-                                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                                                </h6>
-                                                <h6>
-                                                    <a href="https://pswebstudio.netlify.app" target="_blank" rel="noopener">pswebstudio.netlify.app</a>
-                                                </h6>
+
+                                        <div class="ct-info-grid">
+                                            <div class="ct-info-tile">
+                                                <div class="ct-ico"><i class="fa-solid fa-envelope"></i></div>
+                                                <div class="ct-tile-text">
+                                                    <h5>Email Us</h5>
+                                                    <p><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></p>
+                                                    <p><a href="https://pswebstudio.netlify.app" target="_blank" rel="noopener">pswebstudio.netlify.app</a></p>
+                                                </div>
                                             </div>
-                                            <div class="content">
-                                                <h5>
+
+                                            <div class="ct-info-tile">
+                                                <div class="ct-ico"><i class="fa-solid fa-phone"></i></div>
+                                                <div class="ct-tile-text">
+                                                    <h5>Call Direct</h5>
+                                                    <p><a href="tel:+918793400545">+91 87934 00545</a></p>
+                                                    <p><small class="text-success fw-bold">● Available Mon-Sat</small></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="ct-info-tile">
+                                                <div class="ct-ico"><i class="fa-solid fa-clock"></i></div>
+                                                <div class="ct-tile-text">
+                                                    <h5>Office Hours</h5>
+                                                    <p>Mon - Sat: 9 AM - 7 PM</p>
+                                                    <p>Sunday: On Request</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="ct-info-tile">
+                                                <div class="ct-ico"><i class="fa-solid fa-location-dot"></i></div>
+                                                <div class="ct-tile-text">
+                                                    <h5>Location</h5>
+                                                    <p>Mumbai, Maharashtra</p>
+                                                    <p>Remote Worldwide &amp; On-Site</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Quick WhatsApp action card -->
+                                    <div class="ct-direct-card">
+                                        <div class="ct-direct-left">
+                                            <h6><i class="fa-brands fa-whatsapp text-success me-1"></i> Prefer instant chat?</h6>
+                                            <p>Message directly on WhatsApp for quick inquiries.</p>
+                                        </div>
+                                        <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer" class="pj-btn green">
+                                            <i class="fa-brands fa-whatsapp"></i> Chat Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Contact Form Card -->
+                            <div class="col-lg-7">
+                                <div class="pj-card ct-section">
+                                    <h2 class="ct-card-title">Send a Message</h2>
+                                    <p class="ct-card-subtitle">Fill out the form below and you'll receive a reply within 24 hours.</p>
+
+                                    <form action="#" id="contact-form1" method="POST">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 pj-form-group">
+                                                <label class="pj-form-label" for="name331">Full Name <span>*</span></label>
+                                                <div class="pj-input-wrap">
+                                                    <i class="fa-regular fa-user"></i>
+                                                    <input type="text" name="name" id="name331" class="pj-field" placeholder="John Doe" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 pj-form-group">
+                                                <label class="pj-form-label" for="phone22">Phone Number <span>*</span></label>
+                                                <div class="pj-input-wrap">
                                                     <i class="fa-solid fa-phone"></i>
-                                                    Call Us
-                                                </h5>
-                                                <h6>
-                                                    <a href="tel:+918793400545">+91 87934 00545</a>
-                                                </h6>
-                                                <h6>
-                                                    Available 24/7 hours
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-us-item mb-0">
-                                            <div class="content">
-                                                <h5>
-                                                    <i class="fas fa-clock"></i>
-                                                    Working Hours
-                                                </h5>
-                                                <h6>
-                                                    Sunday to Friday <br> 08:00 AM – 06:00 PM
-                                                </h6>
-                                            </div>
-                                            <div class="content">
-                                                <h5>
-                                                    <i class="fa-solid fa-earth-americas"></i>
-                                                    Location
-                                                </h5>
-                                                <h6>
-                                                    Mumbai, Maharashtra, India <br>
-                                                    Remote & on-site
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7 col-lg-6">
-                                    <div class="contact-box">
-                                        <form action="#" id="contact-form1" method="POST" class="contact-form-items">
-                                            <div class="row g-4">
-                                                <div class="col-lg-6">
-                                                    <div class="form-clt">
-                                                        <span>Full Name *</span>
-                                                        <input type="text" name="name" id="name331" placeholder="Your Full Name" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-clt">
-                                                        <span>Phone Number *</span>
-                                                        <input type="tel" name="phone" id="phone22" placeholder="+91 98765 43210" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-clt">
-                                                        <span>Email Address *</span>
-                                                        <input type="email" name="email" id="email11" placeholder="you@company.com" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-clt">
-                                                        <span>Subject / Service Needed</span>
-                                                        <input type="text" name="subject" id="subject24" placeholder="e.g. Website Redesign / New Site">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="form-clt">
-                                                        <span>Project Details & Requirements *</span>
-                                                        <textarea name="message" id="message1" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <button type="submit" class="theme-btn">
-                                                        <i class="fa-solid fa-paper-plane me-2"></i> Send Message
-                                                    </button>
+                                                    <input type="tel" name="phone" id="phone22" class="pj-field" placeholder="+91 98765 43210" required>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- Map Section Start -->
-                <div class="map-section section-padding fix pt-0">
-                    <div class="container">
-                        <div class="map-items">
-                            <div class="googpemap">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.6813344294!2d72.71633396835938!3d19.0821978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1641984054261!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-      
-                <!-- Contact Section Start -->
-                <section class="contact-section section-padding pb-0">
-                        <div class="container">
-                            <div class="contact-wrapper">
-                                <div class="row g-4 align-items-end">
-                                    <div class="col-lg-6">
-                                        <div class="contact-image">
-                                            <img data-speed=".8" src="assets/img/home-1/Image.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-content">
-                                            <div class="logo-image">
-                                                <a href="index.html"><img src="assets/img/logo/psweb-logo-trans.png" alt="PS Web Studio logo"></a>
+                                            <div class="col-md-6 pj-form-group">
+                                                <label class="pj-form-label" for="email11">Email Address <span>*</span></label>
+                                                <div class="pj-input-wrap">
+                                                    <i class="fa-regular fa-envelope"></i>
+                                                    <input type="email" name="email" id="email11" class="pj-field" placeholder="you@company.com" required>
+                                                </div>
                                             </div>
-                                            <div class="section-title mb-0">
-                                                <h2 class="sec-title text-white text-anim">
-                                                    Got A Website That Needs Work?
-                                                </h2>
-                                            </div>
-                                            <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                            From new builds to fixing broken forms and slow pages, I take on frontend, SEO, and CMS work for travel, healthcare, and service businesses.
-                                            </p>
-                                            <a href="about.html" class="theme-btn">View My Work</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </section>
 
-                <!-- Footer Section Start -->
-                        <!-- Contact / Quote Modal -->
-        <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
-                <button class="modal-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="row g-0">
-                    <!-- LEFT PANEL -->
-                    <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
-                        <div class="mb-4">
-                            <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
-                                <i class="fa-regular fa-file-lines fs-3"></i>
-                            </span>
-                            <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
-                            <p class="text-white-50 mb-0">
-                                Confirm your project details and share your contact information.
-                                We will send a tailored proposal.
-                            </p>
-                        </div>
-                        <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
-                            <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
-                                <i class="fa-regular fa-clipboard me-1"></i> Project Overview
-                            </p>
-                            <div class="summary-content">
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Service</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryService">Custom Web Development</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Estimated Budget</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryBudget">Flexible</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
-                                    <span class="summary-label small text-white-50">Category</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryType">Commercial Website</span>
+                                            <div class="col-md-6 pj-form-group">
+                                                <label class="pj-form-label" for="subject24">Subject / Service Needed</label>
+                                                <div class="pj-input-wrap">
+                                                    <i class="fa-solid fa-layer-group"></i>
+                                                    <input type="text" name="subject" id="subject24" class="pj-field" placeholder="e.g. Website Redesign / Full Build">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 pj-form-group">
+                                                <label class="pj-form-label" for="message1">Project Details &amp; Requirements <span>*</span></label>
+                                                <div class="pj-input-wrap textarea">
+                                                    <i class="fa-regular fa-message"></i>
+                                                    <textarea name="message" id="message1" class="pj-field" placeholder="Tell us about your project, goals, reference sites, or timeline..." required></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 d-flex flex-wrap align-items-center justify-content-between gap-3 pt-2">
+                                                <button type="submit" class="pj-btn green" style="padding: 12px 28px; font-size: 15px;">
+                                                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                                                </button>
+                                                <span class="text-muted small"><i class="fa-solid fa-lock me-1"></i> Your details are kept completely private</span>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <ul class="list-unstyled small mt-auto mb-0">
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span>
-                                <span>Response within one business day</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-list-check"></i>
-                                </span>
-                                <span>Scope, timeline and cost breakdown</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-0">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-lock"></i>
-                                </span>
-                                <span>Your details stay confidential</span>
-                            </li>
-                        </ul>
-                    </aside>
-                    <!-- RIGHT PANEL -->
-                    <div class="col-lg-7 p-4 p-lg-5 bg-white">
-                        <h3 class="h4 fw-bold mb-1">Contact Details</h3>
-                        <p class="small text-muted mb-4">Fields marked * are required.</p>
-                        <form id="contactForm" class="modal-form" name="contact" method="POST">
-                            <input type="hidden" name="form-name" value="contact">
-                            <input type="hidden" name="service" id="modalService">
-                            <input type="hidden" name="budget" id="modalBudget">
-                            <input type="hidden" name="project-type" id="modalProjectType">
-                            <div class="row g-3">
-                                <div class="col-12 form-group">
-                                    <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
-                                        <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6" placeholder="John Smith" autocomplete="name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
-                                        <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6" placeholder="name@company.com" autocomplete="email" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
-                                        <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalCompany" class="form-label small fw-semibold">Company</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
-                                        <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6" placeholder="Company name" autocomplete="organization">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
-                                        <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
-                                            <option value="">Select timeline</option>
-                                            <option>Within 2 weeks</option>
-                                            <option>1 month</option>
-                                            <option>2-3 months</option>
-                                            <option>Flexible</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 form-group">
-                                    <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
-                                    <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
-                                </div>
-                                <div class="col-12 form-group checkbox-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required checked>
-                                        <label for="modalAgree" class="form-check-label small text-muted">
-                                            I agree to receive project communication regarding my inquiry.
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
-                                        <span class="btn-text">
-                                            <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
-                                        </span>
-                                        <span class="btn-spinner d-none">
-                                            <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Success Message -->
-                            <div class="form-success d-none text-center py-5">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
-                                    <i class="fa-solid fa-circle-check fs-1"></i>
-                                </span>
-                                <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
-                                <p class="text-muted mb-0">
-                                    Our team will review your requirements and contact you within one business day.
-                                </p>
-                            </div>
-                        </form>
+
+                        <!-- Embedded Location Map Card -->
+                        <div class="pj-card ct-map-card">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.6813344294!2d72.71633396835938!3d19.0821978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1641984054261!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </main>
+
+
+
 
         <footer class="footer-section fix header-bg">
                     <div class="container">
@@ -709,17 +649,159 @@
                                 <div class="text-item">
                                     <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
                                     <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
-
-                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </footer>
-             </div>
+            </div>
         </div>
 
-       
+        <!-- Contact / Quote Modal (Same as Home Page) -->
+        <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="psm-box">
+                <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <!-- LEFT PANEL -->
+                <aside class="psm-side">
+                    <div class="psm-side-top">
+                        <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                        <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                        <p class="psm-lead">
+                            Confirm your project details and share your contact information.
+                            We will send a tailored proposal.
+                        </p>
+                    </div>
+
+                    <div class="psm-summary" id="projectSummary">
+                        <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                        <div class="psm-row">
+                            <span class="psm-row-label">Service</span>
+                            <span class="psm-row-value" id="summaryService">Custom Web Development</span>
+                        </div>
+                        <div class="psm-row">
+                            <span class="psm-row-label">Estimated Budget</span>
+                            <span class="psm-row-value" id="summaryBudget">Flexible</span>
+                        </div>
+                        <div class="psm-row">
+                            <span class="psm-row-label">Category</span>
+                            <span class="psm-row-value" id="summaryType">Commercial Website</span>
+                        </div>
+                    </div>
+
+                    <ul class="psm-perks">
+                        <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                        <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                        <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+                    </ul>
+                </aside>
+
+                <!-- RIGHT PANEL -->
+                <div class="psm-main">
+                    <h3 class="psm-main-title">Contact Details</h3>
+                    <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+
+                    <form id="contactForm" class="modal-form psm-form" name="contact"
+                          method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
+                        <input type="hidden" name="form-name" value="contact">
+                        <input type="hidden" name="service" id="modalService">
+                        <input type="hidden" name="budget" id="modalBudget">
+                        <input type="hidden" name="project-type" id="modalProjectType">
+
+                        <div class="psm-fields">
+                            <div class="psm-grid">
+
+                                <div class="psm-field psm-full form-group">
+                                    <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                    <div class="psm-input">
+                                        <i class="fa-regular fa-user"></i>
+                                        <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                    <div class="psm-input">
+                                        <i class="fa-regular fa-envelope"></i>
+                                        <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                    <div class="psm-input">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalCompany">Company</label>
+                                    <div class="psm-input">
+                                        <i class="fa-regular fa-building"></i>
+                                        <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalTimeline">Preferred Timeline</label>
+                                    <div class="psm-input psm-select">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        <select id="modalTimeline" name="timeline">
+                                            <option value="">Select timeline</option>
+                                            <option>Within 2 weeks</option>
+                                            <option>1 month</option>
+                                            <option>2-3 months</option>
+                                            <option>Flexible</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field psm-full form-group">
+                                    <label for="modalMessage">Project Requirements</label>
+                                    <div class="psm-input psm-textarea">
+                                        <textarea id="modalMessage" name="message" rows="4"
+                                            placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="psm-full form-group checkbox-group">
+                                    <label class="psm-check" for="modalAgree">
+                                        <input type="checkbox" id="modalAgree" name="agree" required checked>
+                                        <span>
+                                            I agree to receive project communication regarding my inquiry.
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div class="psm-full">
+                                    <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
+                                        <span class="btn-text">
+                                            <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
+                                        </span>
+                                        <span class="btn-spinner d-none">
+                                            <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div class="form-success psm-success d-none">
+                            <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                            <h3>Inquiry Submitted Successfully</h3>
+                            <p>Our team will review your requirements and contact you within one business day.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!--<< All JS Plugins >>-->
         <script src="assets/js/jquery-3.7.1.min.js"></script>
         <!--<< Viewport Js >>-->
@@ -753,7 +835,7 @@
         <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
         <script src="assets/js/form-handler.js"></script>
-    
+
         <!-- WhatsApp Floating Chat & Popup -->
         <!-- WhatsApp Popup -->
                                     <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">

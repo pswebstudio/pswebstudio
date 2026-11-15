@@ -41,12 +41,98 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <style>
+            :root {
+                --pj-green: #12a05c;
+                --pj-green-dark: #0c8449;
+                --pj-green-soft: #e6f5ec;
+                --pj-text: #1b1b1b;
+                --pj-muted: #6e6e6e;
+                --pj-line: #e7e7e7;
+                --pj-page: #f4f4f4;
+                --pj-panel: #f9f9f9;
+            }
+
+            .pj-page { background: var(--pj-page); padding: 36px 0 70px; color: var(--pj-text); }
+            .pj-page a { text-decoration: none; }
+            .pj-card { background: #fff; border-radius: 16px; border: 1px solid var(--pj-line); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+
+            /* Project pattern banner */
+            .pj-banner { position: relative; padding: 60px 0 50px; background-size: cover; background-position: center;  }
+            .pj-banner::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.62); }
+            .pj-banner .container { position: relative; z-index: 1; }
+            .pj-banner h1 { margin: 0; color: #fff; font-size: 42px; font-weight: 800; line-height: 1.15; }
+            .pj-banner p { margin: 14px 0 16px; max-width: 620px; color: rgba(255,255,255,.85); font-size: 18px; }
+            .pj-crumbs { display: flex; gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; color: rgba(255,255,255,.7); font-size: 14px; }
+            .pj-crumbs a { color: rgba(255,255,255,.7); }
+            .pj-crumbs a:hover { color: #fff; }
+            .pj-crumbs li + li::before { content: "/"; margin-right: 10px; }
+            .pj-crumbs .cur { color: #fff; }
+            .pj-btn {
+                display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+                padding: 10px 18px; border: 1px solid var(--pj-line); border-radius: 10px;
+                background: #fff; color: var(--pj-text); font-size: 14px; font-weight: 500; line-height: 1.2; text-decoration: none; transition: all .25s ease;
+            }
+            .pj-btn:hover { border-color: #bbb; text-decoration: none; color: var(--pj-text); }
+            .pj-btn.green { background: var(--pj-green); border-color: var(--pj-green); color: #fff; }
+            .pj-btn.green:hover { background: var(--pj-green-dark); border-color: var(--pj-green-dark); color: #fff; }
+            .pj-bstats { display: flex; gap: 36px; }
+            .pj-bstats h2 { margin: 0; color: #fff; font-size: 32px; font-weight: 700; }
+            .pj-bstats span { color: rgba(255,255,255,.7); font-size: 13.5px; }
+
+            /* Value highlights */
+            .sv-highlight-bar {
+                background: #fff;
+                border-bottom: 1px solid var(--pj-line);
+                padding: 24px 0;
+            }
+            .sv-hi-item {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 12px 16px;
+                border-radius: 12px;
+                background: var(--pj-panel);
+                border: 1px solid var(--pj-line);
+                transition: transform .25s ease, border-color .25s ease;
+            }
+            .sv-hi-item:hover {
+                transform: translateY(-2px);
+                border-color: var(--pj-green);
+                background: #fff;
+            }
+            .sv-hi-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                background: var(--pj-green-soft);
+                color: var(--pj-green-dark);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+            .sv-hi-item h6 { margin: 0 0 2px; font-size: 15px; font-weight: 700; color: var(--pj-text); }
+            .sv-hi-item small { color: var(--pj-muted); font-size: 12.5px; }
+
+            /* Section header */
+            .sv-section-head { margin-bottom: 36px; }
+            .sv-tag-pill {
+                display: inline-flex; align-items: center; gap: 6px;
+                padding: 5px 14px; border-radius: 999px;
+                background: var(--pj-green-soft); color: var(--pj-green-dark);
+                font-size: 13px; font-weight: 600; margin-bottom: 12px;
+            }
+            .sv-section-title { font-size: 32px; font-weight: 800; color: var(--pj-text); margin-bottom: 10px; }
+            .sv-section-desc { font-size: 16px; color: var(--pj-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+            /* Modern Service Cards */
             .service-feature-card {
                 background: #ffffff;
                 border-radius: 16px;
-                padding: 32px 28px;
-                border: 1px solid #eef2f6;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+                padding: 30px 26px;
+                border: 1px solid var(--pj-line);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
                 transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
                 display: flex;
                 flex-direction: column;
@@ -54,77 +140,85 @@
             }
             .service-feature-card:hover {
                 transform: translateY(-6px);
-                box-shadow: 0 16px 36px rgba(13, 156, 224, 0.12);
-                border-color: rgba(13, 156, 224, 0.35);
+                box-shadow: 0 16px 36px rgba(18, 160, 92, 0.12);
+                border-color: rgba(18, 160, 92, 0.4);
             }
             .service-icon-wrap {
-                width: 64px;
-                height: 64px;
+                width: 58px;
+                height: 58px;
                 border-radius: 14px;
-                background: rgba(13, 156, 224, 0.1);
-                color: var(--theme);
+                background: var(--pj-green-soft);
+                color: var(--pj-green);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 28px;
+                font-size: 24px;
                 margin-bottom: 20px;
                 transition: background 0.3s ease, color 0.3s ease;
             }
             .service-feature-card:hover .service-icon-wrap {
-                background: var(--theme);
+                background: var(--pj-green);
                 color: #ffffff;
             }
             .service-feature-card h3 {
                 font-size: 20px;
                 font-weight: 700;
-                margin-bottom: 12px;
-                color: #1a1a2e;
+                margin-bottom: 10px;
+                color: var(--pj-text);
             }
             .service-feature-card p {
                 font-size: 14.5px;
-                color: #555;
+                color: var(--pj-muted);
                 line-height: 1.65;
-                margin-bottom: 20px;
+                margin-bottom: 18px;
                 flex-grow: 1;
             }
             .service-pill-list {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 8px;
-                margin-bottom: 20px;
+                gap: 7px;
+                margin-bottom: 22px;
             }
             .service-pill {
                 font-size: 12px;
-                padding: 4px 10px;
+                padding: 4px 11px;
                 border-radius: 50px;
-                background: #f1f5f9;
-                color: #334155;
+                background: var(--pj-panel);
+                border: 1px solid var(--pj-line);
+                color: #444;
                 font-weight: 500;
             }
             .service-feature-card:hover .service-pill {
-                background: rgba(13, 156, 224, 0.08);
-                color: var(--theme);
+                background: var(--pj-green-soft);
+                border-color: rgba(18,160,92,.25);
+                color: var(--pj-green-dark);
             }
+
+            /* Packages */
             .pricing-table-card {
                 background: #ffffff;
                 border-radius: 16px;
-                border: 1px solid #eef2f6;
-                padding: 36px 30px;
+                border: 1px solid var(--pj-line);
+                padding: 34px 28px;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
+                position: relative;
+            }
+            .pricing-table-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 16px 36px rgba(0,0,0,0.06);
             }
             .pricing-table-card.featured {
-                border: 2px solid var(--theme);
-                box-shadow: 0 12px 32px rgba(13, 156, 224, 0.15);
-                position: relative;
+                border: 2px solid var(--pj-green);
+                box-shadow: 0 12px 32px rgba(18, 160, 92, 0.15);
             }
             .pricing-badge {
                 position: absolute;
-                top: -14px;
-                right: 28px;
-                background: var(--theme);
+                top: -13px;
+                right: 24px;
+                background: var(--pj-green);
                 color: #fff;
                 font-size: 11px;
                 font-weight: 700;
@@ -134,21 +228,21 @@
                 border-radius: 50px;
             }
             .pricing-header h4 {
-                font-size: 22px;
+                font-size: 21px;
                 font-weight: 800;
                 margin-bottom: 8px;
-                color: #1a1a2e;
+                color: var(--pj-text);
             }
             .pricing-header p {
                 font-size: 14px;
-                color: #64748b;
-                margin-bottom: 20px;
+                color: var(--pj-muted);
+                margin-bottom: 16px;
             }
             .pricing-timeline {
                 font-size: 13px;
                 font-weight: 600;
-                color: var(--theme);
-                margin-bottom: 20px;
+                color: var(--pj-green-dark);
+                margin-bottom: 18px;
                 display: flex;
                 align-items: center;
                 gap: 6px;
@@ -156,27 +250,29 @@
             .pricing-features {
                 list-style: none;
                 padding: 0;
-                margin: 0 0 28px 0;
+                margin: 0 0 24px 0;
                 flex-grow: 1;
             }
             .pricing-features li {
                 font-size: 14px;
-                color: #334155;
+                color: #333;
                 padding: 8px 0;
                 display: flex;
                 align-items: flex-start;
                 gap: 10px;
-                border-bottom: 1px dashed #f1f5f9;
+                border-bottom: 1px dashed var(--pj-line);
             }
             .pricing-features li i {
-                color: #10b981;
+                color: var(--pj-green);
                 margin-top: 3px;
             }
+
+            /* Tech stack */
             .tech-pill-box {
-                background: #f8fafc;
-                border: 1px solid #e2e8f0;
+                background: #ffffff;
+                border: 1px solid var(--pj-line);
                 border-radius: 12px;
-                padding: 18px 24px;
+                padding: 16px 20px;
                 display: flex;
                 align-items: center;
                 gap: 14px;
@@ -184,20 +280,58 @@
             }
             .tech-pill-box:hover {
                 transform: translateY(-3px);
-                border-color: var(--theme);
-                background: #ffffff;
+                border-color: var(--pj-green);
             }
-            .tech-pill-box i {
-                font-size: 32px;
+            .tech-pill-box i { font-size: 28px; }
+            .tech-pill-box h5 { font-size: 15px; margin: 0 0 2px 0; font-weight: 700; color: var(--pj-text); }
+            .tech-pill-box span { font-size: 12px; color: var(--pj-muted); }
+
+            /* Workflow steps */
+            .sv-step-card {
+                padding: 26px 22px;
+                border-radius: 14px;
+                background: #fff;
+                border: 1px solid var(--pj-line);
+                box-shadow: 0 3px 15px rgba(0,0,0,0.02);
+                height: 100%;
+                text-align: center;
+                transition: transform .25s ease;
             }
-            .tech-pill-box h5 {
-                font-size: 16px;
-                margin: 0 0 2px 0;
-                font-weight: 700;
+            .sv-step-card:hover { transform: translateY(-3px); border-color: var(--pj-green); }
+            .sv-step-num {
+                width: 44px; height: 44px; border-radius: 50%;
+                background: var(--pj-green-soft); color: var(--pj-green-dark);
+                font-weight: 800; font-size: 15px;
+                display: flex; align-items: center; justify-content: center;
+                margin: 0 auto 16px;
             }
-            .tech-pill-box span {
-                font-size: 12.5px;
-                color: #64748b;
+            .sv-step-card h5 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: var(--pj-text); }
+            .sv-step-card p { font-size: 13.5px; color: var(--pj-muted); margin: 0; line-height: 1.55; }
+
+            /* Bottom CTA */
+            .sv-cta-banner {
+                background: #111;
+                border-radius: 20px;
+                padding: 50px 36px;
+                color: #fff;
+                position: relative;
+                overflow: hidden;
+            }
+            .sv-cta-banner::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at top right, rgba(18,160,92,.22), transparent 60%);
+                pointer-events: none;
+            }
+
+            @media (max-width: 768px) {
+                .pj-banner h1 { font-size: 28px; }
+                .pj-banner p { font-size: 15px; }
+                .pj-bstats { gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+                .pj-bstats h2 { font-size: 26px; }
+                .sv-section-title { font-size: 25px; }
+                .sv-cta-banner { padding: 36px 22px; }
             }
         </style>
     </head>
@@ -375,82 +509,71 @@
         <div id="smooth-wrapper">
             <div id="smooth-content">
 
-                <!-- Breadcrumb -->
-                <div class="breadcrumb-wrapper-3 fix bg-cover mt-0" style="background-image: url('assets/img/banner/portfolio-banner.png');">
+                <!-- Main Banner (Project Pattern) -->
+                <div class="pj-banner fix bg-cover" style="background-image: url('assets/img/banner/portfolio-banner.png');">
                     <div class="container">
-                        <div class="page-heading">
-                            <div class="breadcrumb-sub-title">
-                                <h1 class="wow fadeInUp" data-wow-delay=".3s">Web Development Services</h1>
+                        <div class="row align-items-end g-4">
+                            <div class="col-md-7">
+                                <h1>Web Development Services</h1>
+                                <p>From high-converting landing pages to complex booking engines and custom CRM dashboards - engineered for speed, clean code, and business growth.</p>
+                                <ul class="pj-crumbs">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="cur" aria-current="page">Services</li>
+                                </ul>
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="pj-btn green">
+                                    <i class="fa-regular fa-paper-plane"></i> Request a Proposal
+                                </a>
                             </div>
-                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="style-2 style-3">Services</li>
-                            </ul>
+                            <div class="col-md-5">
+                                <div class="pj-bstats">
+                                    <div><h2>&lt; 1s</h2><span>Core Web Vitals</span></div>
+                                    <div><h2>100%</h2><span>Mobile-First UI</span></div>
+                                    <div><h2>3+</h2><span>Years Experience</span></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Value Props Highlights Bar -->
-                <section class="section-padding py-5" style="background: #f8fafc; border-bottom: 1px solid #eef2f6;">
+                <div class="sv-highlight-bar">
                     <div class="container">
-                        <div class="row g-4">
+                        <div class="row g-3">
+                            <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".1s">
+                                <div class="sv-hi-item">
+                                    <div class="sv-hi-icon"><i class="fa-solid fa-bolt"></i></div>
+                                    <div><h6>Lightning Fast</h6><small>Sub-second Core Web Vitals</small></div>
+                                </div>
+                            </div>
                             <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                                <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 shadow-sm border h-100">
-                                    <div class="rounded-circle d-flex align-items-center justify-content-center text-primary flex-shrink-0" style="width: 50px; height: 50px; background: rgba(13, 156, 224, 0.1);">
-                                        <i class="fa-solid fa-bolt" style="font-size: 22px;"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Lightning Fast</h6>
-                                        <small class="text-muted">Sub-second Core Web Vitals</small>
-                                    </div>
+                                <div class="sv-hi-item">
+                                    <div class="sv-hi-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                    <div><h6>100% Mobile Ready</h6><small>Fluid on phones &amp; tablets</small></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 shadow-sm border h-100">
-                                    <div class="rounded-circle d-flex align-items-center justify-content-center text-primary flex-shrink-0" style="width: 50px; height: 50px; background: rgba(13, 156, 224, 0.1);">
-                                        <i class="fa-solid fa-mobile-screen-button" style="font-size: 22px;"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">100% Mobile Ready</h6>
-                                        <small class="text-muted">Fluid on phones &amp; tablets</small>
-                                    </div>
+                                <div class="sv-hi-item">
+                                    <div class="sv-hi-icon"><i class="fa-solid fa-code"></i></div>
+                                    <div><h6>Clean Semantic Code</h6><small>Hand-coded, zero bloat</small></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                                <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 shadow-sm border h-100">
-                                    <div class="rounded-circle d-flex align-items-center justify-content-center text-primary flex-shrink-0" style="width: 50px; height: 50px; background: rgba(13, 156, 224, 0.1);">
-                                        <i class="fa-solid fa-code" style="font-size: 22px;"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Clean Semantic Code</h6>
-                                        <small class="text-muted">Zero bloat, hand-coded</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 shadow-sm border h-100">
-                                    <div class="rounded-circle d-flex align-items-center justify-content-center text-primary flex-shrink-0" style="width: 50px; height: 50px; background: rgba(13, 156, 224, 0.1);">
-                                        <i class="fa-solid fa-handshake" style="font-size: 22px;"></i>
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-0 fw-bold">Direct Developer Access</h6>
-                                        <small class="text-muted">No agency bureaucracy</small>
-                                    </div>
+                                <div class="sv-hi-item">
+                                    <div class="sv-hi-icon"><i class="fa-solid fa-handshake"></i></div>
+                                    <div><h6>Direct Developer Access</h6><small>No agency bureaucracy</small></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
 
                 <!-- Core Services Grid Section -->
-                <section class="section-padding fix" id="service-list">
+                <section class="section-padding fix" id="service-list" style="background: var(--pj-page); padding: 60px 0 80px;">
                     <div class="container">
-                        <div class="section-title text-center">
-                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-layer-group text-theme me-2"></i> What We Do</span>
-                            <h2 class="text-anim">Comprehensive Web Development Services</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".4s">
-                                From single landing pages to complete travel booking portals and administrative dashboards, we engineer web solutions built for conversion, speed, and real business results.
-                            </p>
+                        <div class="sv-section-head text-center">
+                            <span class="sv-tag-pill"><i class="fa-solid fa-layer-group"></i> What We Do</span>
+                            <h2 class="sv-section-title">Comprehensive Web Development Services</h2>
+                            <p class="sv-section-desc">From single landing pages to complete travel booking portals and administrative dashboards, we engineer web solutions built for conversion, speed, and real business results.</p>
                         </div>
 
                         <div class="row g-4">
@@ -665,64 +788,52 @@
                 </section>
 
                 <!-- Technical Delivery Process -->
-                <section class="section-padding fix">
+                <section class="section-padding fix" style="background: var(--pj-page); padding: 70px 0;">
                     <div class="container">
-                        <div class="section-title text-center">
-                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-list-check text-theme me-2"></i> How We Deliver</span>
-                            <h2 class="text-anim">Our 5-Stage Engineering Workflow</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".4s">
-                                An agile, battle-tested development process with clear checkpoints and zero guesswork.
-                            </p>
+                        <div class="sv-section-head text-center">
+                            <span class="sv-tag-pill"><i class="fa-solid fa-list-check"></i> How We Deliver</span>
+                            <h2 class="sv-section-title">Our 5-Stage Engineering Workflow</h2>
+                            <p class="sv-section-desc">An agile, battle-tested development process with clear checkpoints and zero guesswork.</p>
                         </div>
 
                         <div class="row g-4">
+                            <div class="col-xl col-md-6 wow fadeInUp" data-wow-delay=".1s">
+                                <div class="sv-step-card">
+                                    <div class="sv-step-num">01</div>
+                                    <h5>Discovery</h5>
+                                    <p>We analyze your business model, customer journey, content assets, and competitors to map information architecture.</p>
+                                </div>
+                            </div>
+
                             <div class="col-xl col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                                <div class="p-4 rounded-3 h-100 border bg-white shadow-sm text-center">
-                                    <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 44px; height: 44px;">
-                                        01
-                                    </div>
-                                    <h5 class="fw-bold mb-2">Discovery</h5>
-                                    <p class="small text-muted mb-0">We analyze your business model, customer journey, content assets, and competitors to map out information architecture.</p>
+                                <div class="sv-step-card">
+                                    <div class="sv-step-num">02</div>
+                                    <h5>UI/UX Prototype</h5>
+                                    <p>We design responsive, mobile-first layouts prioritizing clear typographic hierarchy and intuitive enquiry actions.</p>
                                 </div>
                             </div>
 
                             <div class="col-xl col-md-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="p-4 rounded-3 h-100 border bg-white shadow-sm text-center">
-                                    <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 44px; height: 44px;">
-                                        02
-                                    </div>
-                                    <h5 class="fw-bold mb-2">UI/UX Prototype</h5>
-                                    <p class="small text-muted mb-0">We design responsive, mobile-first layouts prioritizing clear typographic hierarchy and intuitive enquiry actions.</p>
+                                <div class="sv-step-card">
+                                    <div class="sv-step-num">03</div>
+                                    <h5>Clean Coding</h5>
+                                    <p>Handcrafted frontend development using clean HTML5, CSS3, and ES6+ JavaScript, connected to databases and forms.</p>
                                 </div>
                             </div>
 
                             <div class="col-xl col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                                <div class="p-4 rounded-3 h-100 border bg-white shadow-sm text-center">
-                                    <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 44px; height: 44px;">
-                                        03
-                                    </div>
-                                    <h5 class="fw-bold mb-2">Clean Coding</h5>
-                                    <p class="small text-muted mb-0">Handcrafted frontend development using clean HTML5, CSS3, and ES6+ JavaScript, connected to databases and forms.</p>
+                                <div class="sv-step-card">
+                                    <div class="sv-step-num">04</div>
+                                    <h5>QA &amp; Speed Audit</h5>
+                                    <p>Rigorous cross-browser testing on physical iOS &amp; Android devices, Core Web Vitals optimization, and Schema SEO.</p>
                                 </div>
                             </div>
 
                             <div class="col-xl col-md-6 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="p-4 rounded-3 h-100 border bg-white shadow-sm text-center">
-                                    <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 44px; height: 44px;">
-                                        04
-                                    </div>
-                                    <h5 class="fw-bold mb-2">QA &amp; SEO Audit</h5>
-                                    <p class="small text-muted mb-0">Rigorous cross-browser testing on physical iOS and Android devices, PageSpeed optimization, and Schema schema injection.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-xl col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                                <div class="p-4 rounded-3 h-100 border bg-white shadow-sm text-center">
-                                    <div class="rounded-circle bg-primary text-white mx-auto mb-3 d-flex align-items-center justify-content-center fw-bold" style="width: 44px; height: 44px;">
-                                        05
-                                    </div>
-                                    <h5 class="fw-bold mb-2">Launch &amp; Care</h5>
-                                    <p class="small text-muted mb-0">Domain deployment, SSL certificate activation, Google Search Console verification, and handover with dedicated ongoing support.</p>
+                                <div class="sv-step-card">
+                                    <div class="sv-step-num">05</div>
+                                    <h5>Launch &amp; Care</h5>
+                                    <p>Domain deployment, SSL certificate activation, Google Search Console verification, and ongoing warranty support.</p>
                                 </div>
                             </div>
                         </div>
@@ -730,87 +841,61 @@
                 </section>
 
                 <!-- Tech Stack Section -->
-                <section class="section-padding fix bg-light">
+                <section class="section-padding fix" style="background: #ffffff; padding: 70px 0;">
                     <div class="container">
-                        <div class="section-title text-center">
-                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-microchip text-theme me-2"></i> Modern Engineering</span>
-                            <h2 class="text-anim">The Technologies We Leverage</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".4s">
-                                We select reliable, industry-standard technologies engineered for long-term maintainability, speed, and cross-browser resilience.
-                            </p>
+                        <div class="sv-section-head text-center">
+                            <span class="sv-tag-pill"><i class="fa-solid fa-microchip"></i> Modern Stack</span>
+                            <h2 class="sv-section-title">The Technologies We Leverage</h2>
+                            <p class="sv-section-desc">Reliable, industry-standard technologies engineered for long-term maintainability, speed, and cross-browser resilience.</p>
                         </div>
 
                         <div class="row g-3">
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".1s">
                                 <div class="tech-pill-box">
                                     <i class="fa-brands fa-html5 text-danger"></i>
-                                    <div>
-                                        <h5>HTML5 Semantic</h5>
-                                        <span>Accessible Markup</span>
-                                    </div>
+                                    <div><h5>HTML5 Semantic</h5><span>Accessible Markup</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="tech-pill-box">
                                     <i class="fa-brands fa-css3-alt text-primary"></i>
-                                    <div>
-                                        <h5>CSS3 &amp; Flex/Grid</h5>
-                                        <span>Fluid Modern Styling</span>
-                                    </div>
+                                    <div><h5>CSS3 &amp; Flex/Grid</h5><span>Fluid Modern Styling</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
                                 <div class="tech-pill-box">
                                     <i class="fa-brands fa-js text-warning"></i>
-                                    <div>
-                                        <h5>JavaScript ES6+</h5>
-                                        <span>Vanilla &amp; Asynchronous</span>
-                                    </div>
+                                    <div><h5>JavaScript ES6+</h5><span>Vanilla &amp; Asynchronous</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
                                 <div class="tech-pill-box">
                                     <i class="fa-brands fa-bootstrap" style="color: #7952b3;"></i>
-                                    <div>
-                                        <h5>Bootstrap 5</h5>
-                                        <span>Mobile-First Grid</span>
-                                    </div>
+                                    <div><h5>Bootstrap 5</h5><span>Mobile-First Grid</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
                                 <div class="tech-pill-box">
                                     <i class="fa-solid fa-wind text-info"></i>
-                                    <div>
-                                        <h5>Tailwind CSS</h5>
-                                        <span>Utility Class Architecture</span>
-                                    </div>
+                                    <div><h5>Tailwind CSS</h5><span>Utility Class Architecture</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".6s">
                                 <div class="tech-pill-box">
                                     <i class="fa-solid fa-database text-success"></i>
-                                    <div>
-                                        <h5>Supabase / MySQL</h5>
-                                        <span>Dynamic Database Backends</span>
-                                    </div>
+                                    <div><h5>Supabase / MySQL</h5><span>Dynamic Database Backends</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".7s">
                                 <div class="tech-pill-box">
                                     <i class="fa-brands fa-php" style="color: #8892be;"></i>
-                                    <div>
-                                        <h5>PHP &amp; AJAX Forms</h5>
-                                        <span>Instant Serverless &amp; Backend API</span>
-                                    </div>
+                                    <div><h5>PHP &amp; AJAX Forms</h5><span>Instant Backend &amp; EmailJS</span></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay=".8s">
                                 <div class="tech-pill-box">
-                                    <i class="fa-solid fa-wand-magic-sparkles text-theme"></i>
-                                    <div>
-                                        <h5>GSAP &amp; ScrollSmoother</h5>
-                                        <span>60 FPS Smooth Scroll &amp; FX</span>
-                                    </div>
+                                    <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--pj-green);"></i>
+                                    <div><h5>GSAP &amp; Smoother</h5><span>60 FPS Smooth Scroll &amp; FX</span></div>
                                 </div>
                             </div>
                         </div>
@@ -818,20 +903,18 @@
                 </section>
 
                 <!-- Frequently Asked Questions -->
-                <section class="section-padding fix">
+                <section class="section-padding fix" style="background: var(--pj-page); padding: 70px 0;">
                     <div class="container">
-                        <div class="section-title text-center">
-                            <span class="sub-title wow fadeInUp"><i class="fa-solid fa-circle-question text-theme me-2"></i> Client FAQs</span>
-                            <h2 class="text-anim">Frequently Asked Questions About Our Services</h2>
-                            <p class="wow fadeInUp" data-wow-delay=".4s">
-                                Straightforward answers regarding timelines, pricing, maintenance, and technical execution.
-                            </p>
+                        <div class="sv-section-head text-center">
+                            <span class="sv-tag-pill"><i class="fa-solid fa-circle-question"></i> Client FAQs</span>
+                            <h2 class="sv-section-title">Frequently Asked Questions</h2>
+                            <p class="sv-section-desc">Straightforward answers regarding timelines, pricing, maintenance, and technical execution.</p>
                         </div>
 
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                                 <div class="accordion" id="serviceFaqAccordion">
-                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-sm">
                                         <h2 class="accordion-header" id="faqHeadingOne">
                                             <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
                                                 How long does it take to design and launch a new website?
@@ -844,7 +927,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-sm">
                                         <h2 class="accordion-header" id="faqHeadingTwo">
                                             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
                                                 Will my website work smoothly on all mobile devices and browsers?
@@ -857,7 +940,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-sm">
                                         <h2 class="accordion-header" id="faqHeadingThree">
                                             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
                                                 Why choose custom frontend code over WordPress or page builders?
@@ -870,7 +953,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+                                    <div class="accordion-item mb-3 border rounded-3 overflow-hidden shadow-sm">
                                         <h2 class="accordion-header" id="faqHeadingFour">
                                             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
                                                 Do you provide post-launch maintenance and technical support?
@@ -883,7 +966,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="accordion-item border rounded-3 overflow-hidden">
+                                    <div class="accordion-item border rounded-3 overflow-hidden shadow-sm">
                                         <h2 class="accordion-header" id="faqHeadingFive">
                                             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
                                                 How do we start working together?
@@ -901,176 +984,26 @@
                     </div>
                 </section>
 
-                <!-- Call to Action Banner -->
-                <section class="section-padding header-bg text-center text-white fix">
+                <!-- Project Pattern CTA Banner -->
+                <section class="section-padding fix" style="background: var(--pj-page); padding-bottom: 70px;">
                     <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <span class="badge bg-primary px-3 py-2 mb-3 text-uppercase fw-bold" style="letter-spacing: 1px;">Ready To Start?</span>
-                                <h2 class="text-white mb-3 text-anim">Let's Build Something Exceptional For Your Business</h2>
-                                <p class="text-white-50 mb-4" style="font-size: 16px;">
-                                    Speak directly with our developer. Get an upfront fixed-price quote and launch your high-performing website in 7 to 14 days.
-                                </p>
-                                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                                    <a href="contact.html" class="theme-btn">Request a Fixed Quote</a>
-                                    <a href="https://wa.me/918793400545" target="_blank" rel="noopener" class="btn btn-outline-light px-4 py-2 d-flex align-items-center gap-2" style="border-radius: 50px;">
-                                        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Chat on WhatsApp
-                                    </a>
-                                </div>
+                        <div class="sv-cta-banner text-center">
+                            <span class="sv-tag-pill mb-3" style="background: rgba(18,160,92,.2); color: #2fe08b;"><i class="fa-regular fa-paper-plane"></i> Ready To Start?</span>
+                            <h2 class="text-white mb-3" style="font-size: 36px; font-weight: 800;">Let's Build Something Exceptional For Your Business</h2>
+                            <p class="text-white-50 mb-4" style="font-size: 16.5px; max-width: 620px; margin: 0 auto 24px;">
+                                Speak directly with our developer. Get an upfront fixed-price proposal and launch your high-performing website in 7 to 14 days.
+                            </p>
+                            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="pj-btn green" style="padding: 12px 26px; font-size: 15px;">
+                                    <i class="fa-regular fa-paper-plane"></i> Request a Proposal
+                                </a>
+                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer" class="pj-btn" style="padding: 12px 24px; font-size: 15px;">
+                                    <i class="fa-brands fa-whatsapp text-success"></i> Chat on WhatsApp
+                                </a>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                <!-- Footer Section -->
-                        <!-- Contact / Quote Modal -->
-        <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
-                <button class="modal-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="row g-0">
-                    <!-- LEFT PANEL -->
-                    <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
-                        <div class="mb-4">
-                            <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
-                                <i class="fa-regular fa-file-lines fs-3"></i>
-                            </span>
-                            <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
-                            <p class="text-white-50 mb-0">
-                                Confirm your project details and share your contact information.
-                                We will send a tailored proposal.
-                            </p>
-                        </div>
-                        <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
-                            <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
-                                <i class="fa-regular fa-clipboard me-1"></i> Project Overview
-                            </p>
-                            <div class="summary-content">
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Service</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryService">Custom Web Development</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Estimated Budget</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryBudget">Flexible</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
-                                    <span class="summary-label small text-white-50">Category</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryType">Commercial Website</span>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="list-unstyled small mt-auto mb-0">
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span>
-                                <span>Response within one business day</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-list-check"></i>
-                                </span>
-                                <span>Scope, timeline and cost breakdown</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-0">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-lock"></i>
-                                </span>
-                                <span>Your details stay confidential</span>
-                            </li>
-                        </ul>
-                    </aside>
-                    <!-- RIGHT PANEL -->
-                    <div class="col-lg-7 p-4 p-lg-5 bg-white">
-                        <h3 class="h4 fw-bold mb-1">Contact Details</h3>
-                        <p class="small text-muted mb-4">Fields marked * are required.</p>
-                        <form id="contactForm" class="modal-form" name="contact" method="POST">
-                            <input type="hidden" name="form-name" value="contact">
-                            <input type="hidden" name="service" id="modalService">
-                            <input type="hidden" name="budget" id="modalBudget">
-                            <input type="hidden" name="project-type" id="modalProjectType">
-                            <div class="row g-3">
-                                <div class="col-12 form-group">
-                                    <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
-                                        <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6" placeholder="John Smith" autocomplete="name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
-                                        <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6" placeholder="name@company.com" autocomplete="email" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
-                                        <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalCompany" class="form-label small fw-semibold">Company</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
-                                        <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6" placeholder="Company name" autocomplete="organization">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
-                                        <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
-                                            <option value="">Select timeline</option>
-                                            <option>Within 2 weeks</option>
-                                            <option>1 month</option>
-                                            <option>2-3 months</option>
-                                            <option>Flexible</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12 form-group">
-                                    <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
-                                    <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
-                                </div>
-                                <div class="col-12 form-group checkbox-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required checked>
-                                        <label for="modalAgree" class="form-check-label small text-muted">
-                                            I agree to receive project communication regarding my inquiry.
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
-                                        <span class="btn-text">
-                                            <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
-                                        </span>
-                                        <span class="btn-spinner d-none">
-                                            <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Success Message -->
-                            <div class="form-success d-none text-center py-5">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
-                                    <i class="fa-solid fa-circle-check fs-1"></i>
-                                </span>
-                                <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
-                                <p class="text-muted mb-0">
-                                    Our team will review your requirements and contact you within one business day.
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <footer class="footer-section fix header-bg">
                     <div class="container">
@@ -1201,6 +1134,151 @@
             <i class="fa-brands fa-whatsapp"></i>
         </button>
 
+        <!-- Contact / Quote Modal (Same as Home Page) -->
+        <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="psm-box">
+                <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+                <!-- LEFT PANEL -->
+                <aside class="psm-side">
+                    <div class="psm-side-top">
+                        <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                        <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                        <p class="psm-lead">
+                            Confirm your project details and share your contact information.
+                            We will send a tailored proposal.
+                        </p>
+                    </div>
+
+                    <div class="psm-summary" id="projectSummary">
+                        <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                        <div class="psm-row">
+                            <span class="psm-row-label">Service</span>
+                            <span class="psm-row-value" id="summaryService">Custom Web Development</span>
+                        </div>
+                        <div class="psm-row">
+                            <span class="psm-row-label">Estimated Budget</span>
+                            <span class="psm-row-value" id="summaryBudget">Flexible</span>
+                        </div>
+                        <div class="psm-row">
+                            <span class="psm-row-label">Category</span>
+                            <span class="psm-row-value" id="summaryType">Commercial Website</span>
+                        </div>
+                    </div>
+
+                    <ul class="psm-perks">
+                        <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                        <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                        <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+                    </ul>
+                </aside>
+
+                <!-- RIGHT PANEL -->
+                <div class="psm-main">
+                    <h3 class="psm-main-title">Contact Details</h3>
+                    <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+
+                    <form id="contactForm" class="modal-form psm-form" name="contact"
+                          method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
+                        <input type="hidden" name="form-name" value="contact">
+                        <input type="hidden" name="service" id="modalService">
+                        <input type="hidden" name="budget" id="modalBudget">
+                        <input type="hidden" name="project-type" id="modalProjectType">
+
+                        <div class="psm-fields">
+                            <div class="psm-grid">
+
+                                <div class="psm-field psm-full form-group">
+                                    <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                    <div class="psm-input">
+                                        <i class="fa-regular fa-user"></i>
+                                        <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                    <div class="psm-input">
+                                        <i class="fa-regular fa-envelope"></i>
+                                        <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                    <div class="psm-input">
+                                        <i class="fa-solid fa-phone"></i>
+                                        <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalCompany">Company</label>
+                                    <div class="psm-input">
+                                        <i class="fa-regular fa-building"></i>
+                                        <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
+                                    </div>
+                                </div>
+
+                                <div class="psm-field form-group">
+                                    <label for="modalTimeline">Preferred Timeline</label>
+                                    <div class="psm-input psm-select">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        <select id="modalTimeline" name="timeline">
+                                            <option value="">Select timeline</option>
+                                            <option>Within 2 weeks</option>
+                                            <option>1 month</option>
+                                            <option>2-3 months</option>
+                                            <option>Flexible</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="psm-field psm-full form-group">
+                                    <label for="modalMessage">Project Requirements</label>
+                                    <div class="psm-input psm-textarea">
+                                        <textarea id="modalMessage" name="message" rows="4"
+                                            placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="psm-full form-group checkbox-group">
+                                    <label class="psm-check" for="modalAgree">
+                                        <input type="checkbox" id="modalAgree" name="agree" required checked>
+                                        <span>
+                                            I agree to receive project communication regarding my inquiry.
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div class="psm-full">
+                                    <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
+                                        <span class="btn-text">
+                                            <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
+                                        </span>
+                                        <span class="btn-spinner d-none">
+                                            <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
+                                        </span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div class="form-success psm-success d-none">
+                            <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                            <h3>Inquiry Submitted Successfully</h3>
+                            <p>Our team will review your requirements and contact you within one business day.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- Scripts -->
         <script src="assets/js/jquery-3.7.1.min.js"></script>
         <script src="assets/js/viewport.jquery.js"></script>
@@ -1216,4 +1294,3 @@
         <script src="assets/js/form-handler.js"></script>
     </body>
 </html>
-

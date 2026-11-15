@@ -19,6 +19,141 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/flacticon.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        :root {
+            --bl-green: #12a05c;
+            --bl-green-dark: #0c8449;
+            --bl-green-soft: #e6f5ec;
+            --bl-text: #1b1b1b;
+            --bl-muted: #6e6e6e;
+            --bl-line: #e7e7e7;
+            --bl-page: #f4f4f4;
+            --bl-panel: #f5f5f5;
+        }
+
+        /* Banner */
+        .bl-banner { position: relative; padding: 56px 0 46px; background: #14301f; background-size: cover; background-position: center; }
+        .bl-banner::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.55); }
+        .bl-banner .container { position: relative; z-index: 1; }
+        .bl-banner h1 { margin: 0 0 8px; color: #fff; font-size: 40px; font-weight: 800; line-height: 1.15; }
+        .bl-banner p { margin: 0 0 16px; max-width: 620px; color: rgba(255,255,255,.82); font-size: 17px; }
+        .bl-crumbs { display: flex; gap: 10px; margin: 0; padding: 0; list-style: none; color: rgba(255,255,255,.7); font-size: 14px; }
+        .bl-crumbs a { color: rgba(255,255,255,.7); text-decoration: none; }
+        .bl-crumbs a:hover { color: #fff; }
+        .bl-crumbs li + li::before { content: "/"; margin-right: 10px; }
+        .bl-crumbs .cur { color: #fff; }
+
+        /* Page + cards */
+        .bl-page { background: var(--bl-page); padding: 28px 0 64px; color: var(--bl-text); }
+        .bl-page a { text-decoration: none; }
+        .bl-card { background: #fff; border-radius: 16px; }
+        .bl-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
+        .bl-side { position: sticky; top: 110px; display: grid; gap: 16px; }
+
+        .bl-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 10px 16px; border: 1px solid var(--bl-line); border-radius: 10px;
+            background: #fff; color: var(--bl-text); font-size: 14px; font-weight: 500; line-height: 1.2; cursor: pointer;
+        }
+        .bl-btn:hover { border-color: #bdbdbd; }
+        .bl-btn.green { background: var(--bl-green); border-color: var(--bl-green); color: #fff; }
+        .bl-btn.green:hover { background: var(--bl-green-dark); border-color: var(--bl-green-dark); }
+        .bl-btn:focus-visible, .bl-input:focus-visible, .bl-pill:focus-visible, .bl-catbtn:focus-visible, .bl-page-btn:focus-visible { outline: 2px solid var(--bl-green); outline-offset: 2px; }
+
+        .bl-chip {
+            display: inline-block; padding: 3px 10px; border: 1px solid #222; border-radius: 999px;
+            font-size: 12px; font-weight: 500; line-height: 1.5; background: #fff; color: #222;
+        }
+        .bl-chip.ok { border-color: var(--bl-green); color: var(--bl-green-dark); background: var(--bl-green-soft); }
+
+        /* Active filter bar */
+        .bl-active { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; padding: 12px 16px; }
+        .bl-active span { font-size: 14px; color: #3d3d3d; }
+
+        /* Featured */
+        .bl-feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); overflow: hidden; margin-bottom: 16px; border: 1px solid var(--bl-line); }
+        .bl-feature .bl-img { height: 100%; min-height: 260px; }
+        .bl-feature .bl-body { display: flex; flex-direction: column; justify-content: center; padding: 24px; }
+        .bl-feature h2 { margin: 8px 0 10px; font-size: 24px; font-weight: 600; line-height: 1.3; }
+
+        /* Grid cards */
+        .bl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .bl-item { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--bl-line); }
+        .bl-img { position: relative; height: 200px; background: #e9e9e9; }
+        .bl-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .bl-img .bl-chip { position: absolute; top: 12px; left: 12px; }
+        .bl-body { flex: 1; display: flex; flex-direction: column; padding: 16px 18px 18px; }
+        .bl-cat { font-size: 12.5px; font-weight: 500; color: var(--bl-green-dark); }
+        .bl-body h3 { margin: 6px 0 8px; font-size: 18px; font-weight: 600; line-height: 1.35; }
+        .bl-body h3 a, .bl-feature h2 a { color: var(--bl-text); }
+        .bl-body h3 a:hover, .bl-feature h2 a:hover { color: var(--bl-green-dark); }
+        .bl-excerpt { margin: 0 0 14px; font-size: 14px; line-height: 1.65; color: var(--bl-muted); }
+        .bl-more { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--bl-green-dark); }
+        .bl-more i { font-size: 11px; }
+
+        .bl-skel { height: 300px; border-radius: 14px; background: #ececec; }
+        .bl-empty { grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--bl-muted); }
+        .bl-empty h4 { color: var(--bl-text); }
+
+        /* Pagination */
+        .bl-pager { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 24px; }
+        .bl-page-btn {
+            min-width: 38px; height: 38px; padding: 0 12px; border: 1px solid var(--bl-line); border-radius: 10px;
+            background: #fff; color: #333; font-size: 14px; cursor: pointer;
+        }
+        .bl-page-btn:hover { border-color: #bdbdbd; }
+        .bl-page-btn[aria-current="true"] { background: var(--bl-green); border-color: var(--bl-green); color: #fff; }
+        .bl-page-btn:disabled { opacity: .45; cursor: default; }
+
+        /* Sidebar widgets */
+        .bl-widget { padding: 18px; }
+        .bl-widget h4 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
+        .bl-search { position: relative; }
+        .bl-search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--bl-muted); }
+        .bl-input { width: 100%; height: 42px; padding: 0 12px 0 34px; border: 1px solid var(--bl-line); border-radius: 10px; background: #fff; color: var(--bl-text); font-size: 14px; }
+
+        .bl-cats { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+        .bl-catbtn {
+            display: flex; width: 100%; align-items: center; justify-content: space-between;
+            padding: 9px 12px; border: 0; border-radius: 10px; background: transparent; color: #333; font-size: 14px; text-align: left; cursor: pointer;
+        }
+        .bl-catbtn:hover { background: var(--bl-panel); }
+        .bl-catbtn[aria-pressed="true"] { background: var(--bl-green-soft); color: var(--bl-green-dark); font-weight: 600; }
+        .bl-catbtn small { color: var(--bl-muted); font-size: 12.5px; }
+
+        .bl-recent { display: grid; gap: 14px; }
+        .bl-recent-item { display: flex; gap: 12px; align-items: center; }
+        .bl-recent-item img { flex: none; width: 64px; height: 64px; border-radius: 10px; object-fit: cover; background: #e9e9e9; }
+        .bl-recent-item span { display: block; font-size: 12px; color: var(--bl-muted); }
+        .bl-recent-item h5 { margin: 2px 0 0; font-size: 14px; font-weight: 600; line-height: 1.4; }
+        .bl-recent-item h5 a { color: var(--bl-text); }
+        .bl-recent-item h5 a:hover { color: var(--bl-green-dark); }
+
+        .bl-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .bl-pill {
+            padding: 6px 12px; border: 1px solid var(--bl-line); border-radius: 999px;
+            background: #fff; color: #333; font-size: 13px; cursor: pointer;
+        }
+        .bl-pill:hover { border-color: #bdbdbd; }
+        .bl-pill[aria-pressed="true"] { background: var(--bl-green); border-color: var(--bl-green); color: #fff; }
+
+        .bl-promo { padding: 22px; background: var(--bl-green); color: #fff; }
+        .bl-promo span { font-size: 13px; opacity: .85; }
+        .bl-promo h3 { margin: 6px 0 14px; color: #fff; font-size: 20px; font-weight: 600; line-height: 1.3; }
+        .bl-promo .bl-btn { border-color: #fff; background: #fff; color: var(--bl-green-dark); }
+
+        @media (max-width: 991px) {
+            .bl-layout { grid-template-columns: minmax(0, 1fr); }
+            .bl-side { position: static; }
+        }
+        @media (max-width: 700px) {
+            .bl-banner h1 { font-size: 28px; }
+            .bl-banner p { font-size: 15px; }
+            .bl-feature { grid-template-columns: minmax(0, 1fr); }
+            .bl-feature .bl-img { min-height: 200px; height: 200px; }
+            .bl-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader Start -->
@@ -36,471 +171,338 @@
     <div class="mouseCursor cursor-inner"></div>
 
     <!-- Offcanvas Mobile Menu Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button aria-label="Close menu">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html"><img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
                         </div>
-                        <p class="text d-none d-xl-block">
-                            PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h3>Let's Build Something Great</h3>
-
-                            <div class="contact-info mt-3 mb-4">
-                                <p class="text text-md">
-                                    <i class="fa-solid fa-envelope me-2"></i>
-                                    <a href="mailto:pswebstudio.dev@gmail.com">
-                                        pswebstudio.dev@gmail.com
-                                    </a>
-                                </p>
-
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-phone me-2"></i>
-                                    <a href="tel:+918793400545">
-                                        +91 87934 00545
-                                    </a>
-                                </p>
-
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-globe me-2"></i>
-                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                        pswebstudio.netlify.app
-                                    </a>
-                                </p>
-                            </div>
-
-                            <a href="javascript:void(0);" onclick="openQuoteModal()"
-                            class="theme-btn theme-btn-sm gap-2 log-bt">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                Start a Project
-                            </a>
-
-                            <h3 class="mb-0 mt-4">Connect With Us</h3>
-
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.instagram.com/your-instagram/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-
-                                <a href="https://www.linkedin.com/company/your-company/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-
-                                <a href="https://www.facebook.com/your-page/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
-
-                                <a href="https://wa.me/918793400545"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="WhatsApp">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </a>
-                            </div>
+                        <div class="offcanvas__close">
+                            <button aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-
-            <!-- Header Top Section Start -->
-        <div class="header-top-section">
-            <div class="container-fluid">
-                <div class="header-top-wrapper">
-                    <p>
-                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
                     </p>
-                    <div class="header-right">
-                        <ul class="header-list">
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Let's Build Something Great</h3>
+                        <div class="contact-info mt-3 mb-4">
+                            <p class="text text-md">
+                                <i class="fa-solid fa-envelope me-2"></i>
                                 <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-phone me-2"></i>
                                 <a href="tel:+918793400545">+91 87934 00545</a>
-                            </li>
-                            <li>
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                            </li>
-                        </ul>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-globe me-2"></i>
+                                <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">pswebstudio.netlify.app</a>
+                            </p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn theme-btn-sm gap-2 log-bt">
+                            <i class="fa-solid fa-paper-plane"></i> Start a Project
+                        </a>
+                        <h3 class="mb-0 mt-4">Connect With Us</h3>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.instagram.com/your-instagram/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/your-company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/your-page/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
 
-        <!-- Header Main Section Start -->
-        <header id="header-sticky" class="header-1">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="header-left">
-                            <div class="logo">
-                                <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
+    <!-- Header Top Section Start -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p>
+                    <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
+                </p>
+                <div class="header-right">
+                    <ul class="header-list">
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+918793400545">+91 87934 00545</a></li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main Section Start -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo"><img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
+                        </div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li class="active"><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
-                             <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class=""><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li class=""><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                                            <li class=""><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li class="active"><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
-                                            <li class=""><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li class=""><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="header-button">
-                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
-                            </div>
-                            <div class="header__hamburger my-auto">
-                                <div class="sidebar__toggle">
-                                    <i class="fa-solid fa-bars-staggered"></i>
-                                </div>
-                            </div>
+                        <div class="header-button">
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
+                        </div>
+                        <div class="header__hamburger my-auto">
+                            <div class="sidebar__toggle"><i class="fa-solid fa-bars-staggered"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
     <!-- Main Content Wrapper -->
     <div id="smooth-wrapper">
         <div id="smooth-content">
-            <!-- Breadcrumb Section Start -->
-            <div class="breadcrumb-wrapper fix">
+
+            <!-- Banner -->
+            <div class="bl-banner fix" style="background-image: url(assets/img/banner/portfolio-banner.png);">
                 <div class="container">
-                    <div class="page-heading">
-                        <div class="breadcrumb-sub-title">
-                            <h1 class="wow fadeInUp" data-wow-delay=".3s" id="pageMainHeading">Latest Blog &amp; Articles</h1>
-                        </div>
-                        <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li class="style-2" id="breadcrumbCurrent">
-                                Latest Blog
-                            </li>
-                        </ul>
-                    </div>
+                    <h1 id="pageMainHeading">Latest Blog &amp; Articles</h1>
+                    <p>Engineering notes, web performance tips, and case studies from PS Web Studio.</p>
+                    <ul class="bl-crumbs">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="cur" id="breadcrumbCurrent" aria-current="page">Latest Blog</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- News / Blog Section Start -->
-            <section class="news-section section-padding pt-0">
+            <!-- Blog dashboard -->
+            <main class="bl-page">
                 <div class="container">
-                    <div class="row g-4">
-                        <!-- Left Column: Posts List -->
-                        <div class="col-lg-8 col-12">
-                            <!-- Active Filter Banner (hidden by default) -->
-                            <div id="filterBanner" class="alert alert-info d-none d-flex justify-content-between align-items-center mb-4">
+                    <div class="bl-layout">
+
+                        <!-- Posts -->
+                        <div>
+                            <div id="filterBanner" class="bl-card bl-active" hidden>
                                 <span id="filterBannerText">Showing filtered posts</span>
-                                <button type="button" class="btn btn-sm btn-outline-dark" id="clearFilterBtn">Clear Filter</button>
+                                <button type="button" class="bl-btn" id="clearFilterBtn">Clear filter</button>
                             </div>
 
-                            <!-- Featured Post Area -->
-                            <div id="featuredPostArea">
-                                <!-- Top / Featured news-card-items populated from Supabase -->
+                            <div id="featuredPostArea"></div>
+
+                            <div class="bl-grid" id="postsGridContainer" aria-live="polite">
+                                <div class="bl-skel"></div><div class="bl-skel"></div>
+                                <div class="bl-skel"></div><div class="bl-skel"></div>
                             </div>
 
-                            <!-- Grid Posts Area -->
-                            <div class="row g-4" id="postsGridContainer">
-                                <!-- Fallback / Skeleton Cards while loading -->
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="news-card-items">
-                                        <div class="news-image">
-                                            <img src="assets/img/home-1/news/news-8.jpg" alt="Blog Post">
-                                            <span>Web Dev</span>
-                                        </div>
-                                        <div class="news-content">
-                                            <span>Frontend Engineering</span>
-                                            <h3><a href="blog-detail.html?slug=modern-web-architecture">Modern Web Architecture for High Performance</a></h3>
-                                            <a href="blog-detail.html?slug=modern-web-architecture" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="news-card-items">
-                                        <div class="news-image">
-                                            <img src="assets/img/home-1/news/news-9.jpg" alt="Blog Post">
-                                            <span>SEO</span>
-                                        </div>
-                                        <div class="news-content">
-                                            <span>Search Optimization</span>
-                                            <h3><a href="blog-detail.html?slug=core-web-vitals-guide">The Practical Guide to Core Web Vitals Optimization</a></h3>
-                                            <a href="blog-detail.html?slug=core-web-vitals-guide" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Pagination -->
-                            <div class="page-nav-wrap text-center mt-5" id="paginationWrap">
-                                <ul id="paginationList">
-                                    <li><a class="page-numbers active" href="#">1</a></li>
-                                </ul>
-                            </div>
+                            <nav class="bl-pager" id="paginationWrap" aria-label="Blog pages"></nav>
                         </div>
 
-                        <!-- Right Column: Sidebar -->
-                        <div class="col-lg-4 col-12">
-                            <div class="main-sideber sticky-style">
-                                <!-- Search Widget -->
-                                <div class="single-sideber-widget">
-                                    <div class="search-widget">
-                                        <form action="#" id="blogSearchForm">
-                                            <input type="text" id="blogSearchInput" placeholder="Search blog...">
-                                            <button type="submit" aria-label="Search"><i class="fa-regular fa-magnifying-glass"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <!-- Categories Widget -->
-                                <div class="single-sideber-widget">
-                                    <div class="widget-title">
-                                        <h4>Categories</h4>
-                                    </div>
-                                    <ul id="sidebarCategories">
-                                        <li><a href="blog.html">Web Development</a><span>(4)</span></li>
-                                        <li><a href="blog.html">UI / UX Design</a><span>(3)</span></li>
-                                        <li><a href="blog.html">SEO &amp; Performance</a><span>(5)</span></li>
-                                        <li><a href="blog.html">Case Studies</a><span>(2)</span></li>
-                                    </ul>
-                                </div>
-
-                                <!-- Recent Posts Widget -->
-                                <div class="single-sideber-widget">
-                                    <div class="widget-title">
-                                        <h4>Recent Posts</h4>
-                                    </div>
-                                    <div class="recent-post-area" id="sidebarRecentPosts">
-                                        <div class="recent-items">
-                                            <div class="recent-thumb">
-                                                <img src="assets/img/home-1/news/news-8.jpg" alt="Post">
-                                            </div>
-                                            <div class="recent-content">
-                                                <span>Recent</span>
-                                                <h5><a href="blog-detail.html">High-Performance Frontend Systems</a></h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Tag Cloud Widget -->
-                                <div class="single-sideber-widget">
-                                    <div class="widget-title">
-                                        <h4>Popular Tags</h4>
-                                    </div>
-                                    <div class="tagcloud" id="sidebarTags">
-                                        <a href="blog.html">Frontend</a>
-                                        <a href="blog.html">Performance</a>
-                                        <a href="blog.html">SEO</a>
-                                        <a href="blog.html">MySQL</a>
-                                        <a href="blog.html">JavaScript</a>
-                                        <a href="blog.html">Bootstrap</a>
-                                    </div>
-                                </div>
-
-                                <!-- Promo CTA Card -->
-                                <div class="tour-bg-image">
-                                    <img src="assets/img/home-1/news/news-19.jpg" alt="PS Web Studio">
-                                    <div class="tour-bg-content">
-                                        <span>Build Your Vision</span>
-                                        <h3><a href="contact.html">Need a Custom Website?</a></h3>
-                                        <a href="contact.html" class="theme-btn">Get Started</a>
-                                    </div>
-                                </div>
+                        <!-- Sidebar -->
+                        <aside class="bl-side">
+                            <div class="bl-card bl-widget">
+                                <form id="blogSearchForm" role="search">
+                                    <label class="bl-search">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <input type="search" id="blogSearchInput" class="bl-input" placeholder="Search blog" aria-label="Search blog" autocomplete="off">
+                                    </label>
+                                </form>
                             </div>
-                        </div>
+
+                            <div class="bl-card bl-widget">
+                                <h4>Categories</h4>
+                                <ul class="bl-cats" id="sidebarCategories"></ul>
+                            </div>
+
+                            <div class="bl-card bl-widget">
+                                <h4>Recent posts</h4>
+                                <div class="bl-recent" id="sidebarRecentPosts"></div>
+                            </div>
+
+                            <div class="bl-card bl-widget">
+                                <h4>Popular tags</h4>
+                                <div class="bl-tags" id="sidebarTags"></div>
+                            </div>
+
+                            <div class="bl-card bl-promo">
+                                <span>Build your vision</span>
+                                <h3>Need a custom website?</h3>
+                                <a href="contact.html" class="bl-btn">Get started</a>
+                            </div>
+                        </aside>
+
                     </div>
                 </div>
-            </section>
+            </main>
 
-            <!-- Footer Section Start -->
-                    <!-- Contact / Quote Modal -->
-        <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
-                <button class="modal-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="row g-0">
+            <!-- Contact / Quote Modal (Same as Home Page) -->
+            <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="psm-box">
+                    <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
                     <!-- LEFT PANEL -->
-                    <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
-                        <div class="mb-4">
-                            <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
-                                <i class="fa-regular fa-file-lines fs-3"></i>
-                            </span>
-                            <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
-                            <p class="text-white-50 mb-0">
+                    <aside class="psm-side">
+                        <div class="psm-side-top">
+                            <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                            <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="psm-lead">
                                 Confirm your project details and share your contact information.
                                 We will send a tailored proposal.
                             </p>
                         </div>
-                        <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
-                            <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
-                                <i class="fa-regular fa-clipboard me-1"></i> Project Overview
-                            </p>
-                            <div class="summary-content">
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Service</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryService">Custom Web Development</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Estimated Budget</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryBudget">Flexible</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
-                                    <span class="summary-label small text-white-50">Category</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryType">Commercial Website</span>
-                                </div>
+
+                        <div class="psm-summary" id="projectSummary">
+                            <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Service</span>
+                                <span class="psm-row-value" id="summaryService">Custom Web Development</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Estimated Budget</span>
+                                <span class="psm-row-value" id="summaryBudget">Flexible</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Category</span>
+                                <span class="psm-row-value" id="summaryType">Commercial Website</span>
                             </div>
                         </div>
-                        <ul class="list-unstyled small mt-auto mb-0">
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span>
-                                <span>Response within one business day</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-list-check"></i>
-                                </span>
-                                <span>Scope, timeline and cost breakdown</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-0">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-lock"></i>
-                                </span>
-                                <span>Your details stay confidential</span>
-                            </li>
+
+                        <ul class="psm-perks">
+                            <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
                         </ul>
                     </aside>
+
                     <!-- RIGHT PANEL -->
-                    <div class="col-lg-7 p-4 p-lg-5 bg-white">
-                        <h3 class="h4 fw-bold mb-1">Contact Details</h3>
-                        <p class="small text-muted mb-4">Fields marked * are required.</p>
-                        <form id="contactForm" class="modal-form" name="contact" method="POST">
+                    <div class="psm-main">
+                        <h3 class="psm-main-title">Contact Details</h3>
+                        <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+
+                        <form id="contactForm" class="modal-form psm-form" name="contact"
+                              method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="service" id="modalService">
                             <input type="hidden" name="budget" id="modalBudget">
                             <input type="hidden" name="project-type" id="modalProjectType">
-                            <div class="row g-3">
-                                <div class="col-12 form-group">
-                                    <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
-                                        <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6" placeholder="John Smith" autocomplete="name" required>
+
+                            <div class="psm-fields">
+                                <div class="psm-grid">
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-user"></i>
+                                            <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
-                                        <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6" placeholder="name@company.com" autocomplete="email" required>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
-                                        <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalCompany" class="form-label small fw-semibold">Company</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
-                                        <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6" placeholder="Company name" autocomplete="organization">
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalCompany">Company</label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-building"></i>
+                                            <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
-                                        <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
-                                            <option value="">Select timeline</option>
-                                            <option>Within 2 weeks</option>
-                                            <option>1 month</option>
-                                            <option>2-3 months</option>
-                                            <option>Flexible</option>
-                                        </select>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalTimeline">Preferred Timeline</label>
+                                        <div class="psm-input psm-select">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <select id="modalTimeline" name="timeline">
+                                                <option value="">Select timeline</option>
+                                                <option>Within 2 weeks</option>
+                                                <option>1 month</option>
+                                                <option>2-3 months</option>
+                                                <option>Flexible</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 form-group">
-                                    <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
-                                    <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
-                                </div>
-                                <div class="col-12 form-group checkbox-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required checked>
-                                        <label for="modalAgree" class="form-check-label small text-muted">
-                                            I agree to receive project communication regarding my inquiry.
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalMessage">Project Requirements</label>
+                                        <div class="psm-input psm-textarea">
+                                            <textarea id="modalMessage" name="message" rows="4"
+                                                placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-full form-group checkbox-group">
+                                        <label class="psm-check" for="modalAgree">
+                                            <input type="checkbox" id="modalAgree" name="agree" required checked>
+                                            <span>
+                                                I agree to receive project communication regarding my inquiry.
+                                            </span>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
-                                        <span class="btn-text">
-                                            <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
-                                        </span>
-                                        <span class="btn-spinner d-none">
-                                            <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
-                                        </span>
-                                    </button>
+
+                                    <div class="psm-full">
+                                        <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
+                                            <span class="btn-text">
+                                                <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
+                                            </span>
+                                            <span class="btn-spinner d-none">
+                                                <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
+                                            </span>
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
+
                             <!-- Success Message -->
-                            <div class="form-success d-none text-center py-5">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
-                                    <i class="fa-solid fa-circle-check fs-1"></i>
-                                </span>
-                                <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
-                                <p class="text-muted mb-0">
-                                    Our team will review your requirements and contact you within one business day.
-                                </p>
+                            <div class="form-success psm-success d-none">
+                                <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                                <h3>Inquiry Submitted Successfully</h3>
+                                <p>Our team will review your requirements and contact you within one business day.</p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <footer class="footer-section fix header-bg">
+            <!-- Footer Section Start -->
+            <footer class="footer-section fix header-bg">
                 <div class="container">
                     <div class="footer-widget-wrapper">
                         <div class="row">
                             <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
                                 <div class="single-footer-widget">
-                                    <div class="wid-title">
-                                        <h4>Services</h4>
-                                    </div>
+                                    <div class="wid-title"><h4>Services</h4></div>
                                     <ul class="list-area">
                                         <li><a href="index.html#portfolio"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
                                         <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
@@ -511,12 +513,10 @@
                             </div>
                             <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
                                 <div class="single-footer-widget">
-                                    <div class="wid-title">
-                                        <h4>Company</h4>
-                                    </div>
+                                    <div class="wid-title"><h4>Company</h4></div>
                                     <ul class="list-area">
                                         <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
-                                        <li><a href="project.html"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
                                         <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
                                         <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
                                     </ul>
@@ -524,9 +524,7 @@
                             </div>
                             <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
                                 <div class="single-footer-widget">
-                                    <div class="wid-title">
-                                        <h4>Technologies</h4>
-                                    </div>
+                                    <div class="wid-title"><h4>Technologies</h4></div>
                                     <ul class="list-area">
                                         <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
                                         <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
@@ -537,40 +535,24 @@
                             </div>
                             <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
                                 <div class="single-footer-widget">
-                                    <div class="wid-title">
-                                        <h4>Get In Touch</h4>
+                                    <div class="wid-title"><h4>Get In Touch</h4></div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                        <div class="content"><h6>Mumbai, Maharashtra <br> India</h6></div>
                                     </div>
                                     <div class="contact-item">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-map-location-dot"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h6>Mumbai, Maharashtra <br> India</h6>
-                                        </div>
-                                    </div>
-                                    <div class="contact-item">
-                                        <div class="icon">
-                                            <i class="fa-regular fa-envelope"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6>
-                                        </div>
+                                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                        <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
                                     </div>
                                     <div class="contact-item mb-0">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-phone-volume"></i>
-                                        </div>
-                                        <div class="content">
-                                            <h6><a href="tel:+918793400545">+91 87934 00545</a></h6>
-                                        </div>
+                                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                        <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
                                 <div class="single-footer-widget">
-                                    <div class="wid-title">
-                                        <h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4>
-                                    </div>
+                                    <div class="wid-title"><h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4></div>
                                     <div class="newsletter-content">
                                         <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
                                         <form action="#">
@@ -591,8 +573,6 @@
                             <div class="text-item wow fadeInUp" data-wow-delay=".5s">
                                 <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
                                 <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -627,10 +607,12 @@
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg';
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    const PAGE_SIZE = 6;
     let allBlogs = [];
-    let activeCategory = null;
-    let activeTag = null;
+    let activeCategory = '';
+    let activeTag = '';
     let searchQuery = '';
+    let page = 1;
 
     const fallbackImages = [
         'assets/img/home-1/news/news-17.jpg',
@@ -641,17 +623,207 @@
         'assets/img/home-1/news/news-18.jpg'
     ];
 
+    // Escape anything coming from the database before it touches innerHTML
+    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+    const $ = (id) => document.getElementById(id);
+    const fb = (i) => fallbackImages[i % fallbackImages.length];
+
     function resolveImage(imgStr, index) {
-        if (!imgStr) return fallbackImages[index % fallbackImages.length];
+        if (!imgStr) return fb(index);
         if (imgStr.startsWith('http') || imgStr.startsWith('assets/')) return imgStr;
         return `assets/img/blog/${imgStr}`;
     }
 
+    const tagsOf = (b) => (Array.isArray(b.tags) ? b.tags : String(b.tags || '').split(','))
+        .map(t => String(t).trim()).filter(Boolean);
+    const detailUrl = (b) => `blog-detail.html?slug=${encodeURIComponent(b.slug || b.id)}`;
+
+    function getFiltered() {
+        return allBlogs.filter(b => {
+            if (activeCategory && (b.category || '').toLowerCase() !== activeCategory.toLowerCase()) return false;
+            if (activeTag && !tagsOf(b).some(t => t.toLowerCase() === activeTag.toLowerCase())) return false;
+            if (searchQuery) {
+                const hay = `${b.title || ''} ${b.excerpt || ''} ${b.category || ''}`.toLowerCase();
+                if (!hay.includes(searchQuery)) return false;
+            }
+            return true;
+        });
+    }
+
+    function syncUrl() {
+        const p = new URLSearchParams();
+        if (activeCategory) p.set('category', activeCategory);
+        if (activeTag) p.set('tag', activeTag);
+        if (searchQuery) p.set('q', searchQuery);
+        const qs = p.toString();
+        history.replaceState({}, '', 'blog.html' + (qs ? '?' + qs : ''));
+    }
+
+    function cardHtml(post, idx) {
+        const img = resolveImage(post.image, idx);
+        return `
+        <article class="bl-card bl-item">
+            <div class="bl-img">
+                <img src="${esc(img)}" alt="${esc(post.title)}" loading="lazy" onerror="this.src='${fb(idx)}'">
+                <span class="bl-chip">${esc(post.date || 'Article')}</span>
+            </div>
+            <div class="bl-body">
+                <span class="bl-cat">${esc(post.category || 'Article')}</span>
+                <h3><a href="${detailUrl(post)}">${esc(post.title)}</a></h3>
+                ${post.excerpt ? `<p class="bl-excerpt">${esc(post.excerpt)}</p>` : ''}
+                <a href="${detailUrl(post)}" class="bl-more">Read more <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </article>`;
+    }
+
+    function featureHtml(post) {
+        const img = resolveImage(post.image, 0);
+        return `
+        <article class="bl-card bl-feature">
+            <div class="bl-img">
+                <img src="${esc(img)}" alt="${esc(post.title)}" onerror="this.src='${fb(0)}'">
+                <span class="bl-chip ok">${esc(post.date || 'Featured')}</span>
+            </div>
+            <div class="bl-body">
+                <span class="bl-cat">${esc(post.category || 'Insights')}</span>
+                <h2><a href="${detailUrl(post)}">${esc(post.title)}</a></h2>
+                ${post.excerpt ? `<p class="bl-excerpt">${esc(post.excerpt)}</p>` : ''}
+                <a href="${detailUrl(post)}" class="bl-more">Read more <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </article>`;
+    }
+
+    function renderPosts() {
+        const filtered = getFiltered();
+        const hasFilter = !!(activeCategory || activeTag || searchQuery);
+        const pages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+        if (page > pages) page = pages;
+        const slice = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+        // Active filter bar
+        const banner = $('filterBanner');
+        if (hasFilter) {
+            const parts = [];
+            if (activeCategory) parts.push(`Category "${activeCategory}"`);
+            if (activeTag) parts.push(`Tag "${activeTag}"`);
+            if (searchQuery) parts.push(`Search "${searchQuery}"`);
+            $('filterBannerText').textContent = `Showing ${filtered.length} result${filtered.length === 1 ? '' : 's'} for ${parts.join(', ')}`;
+            banner.hidden = false;
+        } else {
+            banner.hidden = true;
+        }
+
+        const featuredArea = $('featuredPostArea');
+        const grid = $('postsGridContainer');
+
+        if (!filtered.length) {
+            featuredArea.innerHTML = '';
+            grid.innerHTML = `
+                <div class="bl-empty bl-card">
+                    <i class="fa-regular fa-folder-open fa-3x mb-3"></i>
+                    <h4>No articles found</h4>
+                    <p>Try a different search or clear the filter.</p>
+                    <button type="button" class="bl-btn green" id="resetFilterBtn">View all articles</button>
+                </div>`;
+            $('paginationWrap').innerHTML = '';
+            return;
+        }
+
+        // Lead post only on page 1 with no filter
+        let list = slice;
+        if (!hasFilter && page === 1) {
+            featuredArea.innerHTML = featureHtml(slice[0]);
+            list = slice.slice(1);
+        } else {
+            featuredArea.innerHTML = '';
+        }
+        const offset = (page - 1) * PAGE_SIZE + (list.length === slice.length ? 0 : 1);
+        grid.innerHTML = list.map((p, i) => cardHtml(p, offset + i)).join('');
+        renderPagination(pages);
+    }
+
+    function renderPagination(pages) {
+        const wrap = $('paginationWrap');
+        if (pages <= 1) { wrap.innerHTML = ''; return; }
+        let html = `<button type="button" class="bl-page-btn" data-page="${page - 1}" ${page === 1 ? 'disabled' : ''} aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></button>`;
+        for (let i = 1; i <= pages; i++) {
+            html += `<button type="button" class="bl-page-btn" data-page="${i}" ${i === page ? 'aria-current="true"' : ''}>${i}</button>`;
+        }
+        html += `<button type="button" class="bl-page-btn" data-page="${page + 1}" ${page === pages ? 'disabled' : ''} aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></button>`;
+        wrap.innerHTML = html;
+    }
+
+    function renderSidebar() {
+        const catMap = {};
+        const tagSet = new Set();
+        allBlogs.forEach(b => {
+            if (b.category) catMap[b.category] = (catMap[b.category] || 0) + 1;
+            tagsOf(b).forEach(t => tagSet.add(t));
+        });
+
+        const catBtn = (label, value, n) =>
+            `<li><button type="button" class="bl-catbtn" data-cat="${esc(value)}" aria-pressed="${value.toLowerCase() === activeCategory.toLowerCase()}"><span>${esc(label)}</span><small>${n}</small></button></li>`;
+        $('sidebarCategories').innerHTML = catBtn('All articles', '', allBlogs.length) +
+            Object.entries(catMap).map(([c, n]) => catBtn(c, c, n)).join('');
+
+        $('sidebarRecentPosts').innerHTML = allBlogs.slice(0, 3).map((post, idx) => `
+            <div class="bl-recent-item">
+                <img src="${esc(resolveImage(post.image, idx))}" alt="" loading="lazy" onerror="this.src='${fb(idx)}'">
+                <div>
+                    <span>${esc(post.date || 'Recent')}</span>
+                    <h5><a href="${detailUrl(post)}">${esc(post.title)}</a></h5>
+                </div>
+            </div>`).join('');
+
+        $('sidebarTags').innerHTML = [...tagSet].map(t =>
+            `<button type="button" class="bl-pill" data-tag="${esc(t)}" aria-pressed="${t.toLowerCase() === activeTag.toLowerCase()}">${esc(t)}</button>`
+        ).join('');
+    }
+
+    function refresh() {
+        syncUrl();
+        renderSidebar();
+        renderPosts();
+    }
+
+    function resetAllFilters() {
+        activeCategory = ''; activeTag = ''; searchQuery = ''; page = 1;
+        $('blogSearchInput').value = '';
+        refresh();
+    }
+
+    // Events (delegated, so they survive re-rendering)
+    document.addEventListener('click', (e) => {
+        const cat = e.target.closest('[data-cat]');
+        if (cat) { activeCategory = cat.dataset.cat; page = 1; refresh(); return; }
+        const tag = e.target.closest('[data-tag]');
+        if (tag) { activeTag = activeTag.toLowerCase() === tag.dataset.tag.toLowerCase() ? '' : tag.dataset.tag; page = 1; refresh(); return; }
+        const pg = e.target.closest('[data-page]');
+        if (pg && !pg.disabled) {
+            page = Number(pg.dataset.page);
+            renderPosts();
+            document.querySelector('.bl-page').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+        }
+        if (e.target.closest('#clearFilterBtn') || e.target.closest('#resetFilterBtn')) resetAllFilters();
+    });
+
+    $('blogSearchForm').addEventListener('submit', (e) => e.preventDefault());
+    $('blogSearchInput').addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        page = 1;
+        syncUrl();
+        renderPosts();
+    });
+
     async function initBlog() {
-        const urlParams = new URLSearchParams(window.location.search);
-        activeCategory = urlParams.get('category');
-        activeTag = urlParams.get('tag');
-        searchQuery = (urlParams.get('q') || '').trim().toLowerCase();
+        const params = new URLSearchParams(window.location.search);
+        activeCategory = params.get('category') || '';
+        activeTag = params.get('tag') || '';
+        searchQuery = (params.get('q') || '').trim().toLowerCase();
+        $('blogSearchInput').value = params.get('q') || '';
 
         try {
             const { data, error } = await supabase
@@ -659,271 +831,54 @@
                 .select('*')
                 .eq('is_enabled', true)
                 .order('display_order', { ascending: true });
-
             if (error) throw error;
             allBlogs = data || [];
-            
-            buildSidebar(allBlogs);
-            renderFilteredPosts();
+            refresh();
         } catch (err) {
             console.error('Error fetching blogs from Supabase:', err);
-            // Fallback rendering handles gracefully
+            $('postsGridContainer').innerHTML = `
+                <div class="bl-empty bl-card">
+                    <h4>Couldn't load articles</h4>
+                    <p>Check your connection and refresh the page.</p>
+                </div>`;
         }
-    }
-
-    function renderFilteredPosts() {
-        let filtered = allBlogs.slice();
-
-        if (activeCategory) {
-            filtered = filtered.filter(b => (b.category || '').toLowerCase() === activeCategory.toLowerCase());
-        }
-        if (activeTag) {
-            filtered = filtered.filter(b => {
-                const tags = Array.isArray(b.tags) ? b.tags : (b.tags || '').split(',').map(t => t.trim().toLowerCase());
-                return tags.includes(activeTag.toLowerCase());
-            });
-        }
-        if (searchQuery) {
-            filtered = filtered.filter(b => 
-                (b.title || '').toLowerCase().includes(searchQuery) ||
-                (b.excerpt || '').toLowerCase().includes(searchQuery) ||
-                (b.category || '').toLowerCase().includes(searchQuery)
-            );
-        }
-
-        // Update Filter Banner
-        const filterBanner = document.getElementById('filterBanner');
-        const filterBannerText = document.getElementById('filterBannerText');
-        if (activeCategory || activeTag || searchQuery) {
-            filterBanner.classList.remove('d-none');
-            let text = 'Filtering by: ';
-            if (activeCategory) text += `Category "${activeCategory}" `;
-            if (activeTag) text += `Tag "${activeTag}" `;
-            if (searchQuery) text += `Search "${searchQuery}"`;
-            filterBannerText.textContent = text;
-        } else {
-            filterBanner.classList.add('d-none');
-        }
-
-        const featuredArea = document.getElementById('featuredPostArea');
-        const gridArea = document.getElementById('postsGridContainer');
-
-        if (filtered.length === 0) {
-            featuredArea.innerHTML = '';
-            gridArea.innerHTML = `
-                <div class="col-12 text-center py-5">
-                    <i class="fa-regular fa-folder-open fa-3x text-muted mb-3"></i>
-                    <h4>No articles found</h4>
-                    <p class="text-muted">Try adjusting your search or filter criteria.</p>
-                    <button class="theme-btn btn-sm" id="resetFilterBtn">View All Articles</button>
-                </div>
-            `;
-            const resetBtn = document.getElementById('resetFilterBtn');
-            if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
-            return;
-        }
-
-        // If no filter active and we have >= 3 posts, show lead featured post
-        if (!activeCategory && !activeTag && !searchQuery && filtered.length > 0) {
-            const leadPost = filtered[0];
-            const remaining = filtered.slice(1);
-            const leadSlug = leadPost.slug || leadPost.id;
-            const leadImg = resolveImage(leadPost.image, 0);
-
-            featuredArea.innerHTML = `
-                <div class="news-card-items mt-0 mb-4">
-                    <div class="news-image">
-                        <img src="${leadImg}" alt="${leadPost.title}" onerror="this.src='${fallbackImages[0]}'">
-                        <span>${leadPost.date || 'Featured'}</span>
-                    </div>
-                    <div class="news-content">
-                        <span>${leadPost.category || 'Insights'}</span>
-                        <h3>
-                            <a href="blog-detail.html?slug=${leadSlug}">
-                                ${leadPost.title}
-                            </a>
-                        </h3>
-                        <p class="text-muted mt-2">${leadPost.excerpt || ''}</p>
-                        <a href="blog-detail.html?slug=${leadSlug}" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            `;
-
-            gridArea.innerHTML = remaining.map((post, idx) => {
-                const slug = post.slug || post.id;
-                const img = resolveImage(post.image, idx + 1);
-                return `
-                    <div class="col-lg-6 col-md-6">
-                        <div class="news-card-items">
-                            <div class="news-image">
-                                <img src="${img}" alt="${post.title}" onerror="this.src='${fallbackImages[(idx+1)%fallbackImages.length]}'">
-                                <span>${post.date || 'Recent'}</span>
-                            </div>
-                            <div class="news-content">
-                                <span>${post.category || 'Article'}</span>
-                                <h3>
-                                    <a href="blog-detail.html?slug=${slug}">
-                                        ${post.title}
-                                    </a>
-                                </h3>
-                                <a href="blog-detail.html?slug=${slug}" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        } else {
-            featuredArea.innerHTML = '';
-            gridArea.innerHTML = filtered.map((post, idx) => {
-                const slug = post.slug || post.id;
-                const img = resolveImage(post.image, idx);
-                return `
-                    <div class="col-lg-6 col-md-6">
-                        <div class="news-card-items">
-                            <div class="news-image">
-                                <img src="${img}" alt="${post.title}" onerror="this.src='${fallbackImages[idx%fallbackImages.length]}'">
-                                <span>${post.date || 'Article'}</span>
-                            </div>
-                            <div class="news-content">
-                                <span>${post.category || 'Article'}</span>
-                                <h3>
-                                    <a href="blog-detail.html?slug=${slug}">
-                                        ${post.title}
-                                    </a>
-                                </h3>
-                                <a href="blog-detail.html?slug=${slug}" class="link-btn">Read More <i class="fa-solid fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        if (typeof WOW !== 'undefined') {
-            new WOW().init();
-        }
-    }
-
-    function buildSidebar(blogs) {
-        // Build Categories
-        const catMap = {};
-        const tagSet = new Set();
-
-        blogs.forEach(b => {
-            if (b.category) {
-                catMap[b.category] = (catMap[b.category] || 0) + 1;
-            }
-            if (b.tags) {
-                const tags = Array.isArray(b.tags) ? b.tags : b.tags.split(',');
-                tags.forEach(t => {
-                    const clean = t.trim();
-                    if (clean) tagSet.add(clean);
-                });
-            }
-        });
-
-        const catUl = document.getElementById('sidebarCategories');
-        if (catUl && Object.keys(catMap).length > 0) {
-            catUl.innerHTML = Object.entries(catMap).map(([cat, count]) => `
-                <li>
-                    <a href="blog.html?category=${encodeURIComponent(cat)}">${cat}</a>
-                    <span>(${count})</span>
-                </li>
-            `).join('');
-        }
-
-        // Build Recent Posts
-        const recentArea = document.getElementById('sidebarRecentPosts');
-        if (recentArea && blogs.length > 0) {
-            const recent = blogs.slice(0, 3);
-            recentArea.innerHTML = recent.map((post, idx) => {
-                const slug = post.slug || post.id;
-                const img = resolveImage(post.image, idx);
-                return `
-                    <div class="recent-items">
-                        <div class="recent-thumb">
-                            <img src="${img}" alt="${post.title}" onerror="this.src='${fallbackImages[idx]}'">
-                        </div>
-                        <div class="recent-content">
-                            <span>${post.date || 'Recent'}</span>
-                            <h5>
-                                <a href="blog-detail.html?slug=${slug}">${post.title}</a>
-                            </h5>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Build Tags
-        const tagsArea = document.getElementById('sidebarTags');
-        if (tagsArea && tagSet.size > 0) {
-            tagsArea.innerHTML = Array.from(tagSet).map(tag => `
-                <a href="blog.html?tag=${encodeURIComponent(tag)}">${tag}</a>
-            `).join('');
-        }
-    }
-
-    function resetAllFilters() {
-        activeCategory = null;
-        activeTag = null;
-        searchQuery = '';
-        window.history.pushState({}, '', 'blog.html');
-        renderFilteredPosts();
-    }
-
-    const clearBtn = document.getElementById('clearFilterBtn');
-    if (clearBtn) clearBtn.addEventListener('click', resetAllFilters);
-
-    const searchForm = document.getElementById('blogSearchForm');
-    if (searchForm) {
-        searchForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const input = document.getElementById('blogSearchInput');
-            searchQuery = (input.value || '').trim().toLowerCase();
-            renderFilteredPosts();
-        });
     }
 
     document.addEventListener('DOMContentLoaded', initBlog);
     </script>
 
-        <!-- WhatsApp Floating Chat & Popup -->
-        <!-- WhatsApp Popup -->
-                                <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
-                                    <div class="psws-whatsapp-header">
-                                        <div class="psws-whatsapp-header-icon">
-                                            <i class="fa-brands fa-whatsapp"></i>
-                                        </div>
-                                        <div class="psws-whatsapp-header-info">
-                                            <div class="psws-whatsapp-title">PSWeb Studio</div>
-                                            <div class="psws-whatsapp-status">● Typically replies instantly</div>
-                                        </div>
-                                        <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
-                                            <i class="fa-solid fa-chevron-down"></i>
-                                        </button>
-                                    </div>
-                                    <div class="psws-whatsapp-body">
-                                        <div class="psws-whatsapp-message">
-                                            <p>How can I help you? :)</p>
-                                            <div class="psws-whatsapp-time" id="pswsWhatsappTime">Now</div>
-                                        </div>
-                                    </div>
-                                    <div class="psws-whatsapp-footer">
-                                        <form class="psws-whatsapp-form" id="pswsWhatsappForm">
-                                            <div class="psws-whatsapp-input-wrapper">
-                                                <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
-                                                <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
-                                                    <i class="fa-solid fa-paper-plane"></i>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+    <!-- WhatsApp Floating Chat & Popup -->
+    <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+        <div class="psws-whatsapp-header">
+            <div class="psws-whatsapp-header-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="psws-whatsapp-header-info">
+                <div class="psws-whatsapp-title">PSWeb Studio</div>
+                <div class="psws-whatsapp-status">● Typically replies instantly</div>
+            </div>
+            <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="psws-whatsapp-body">
+            <div class="psws-whatsapp-message">
+                <p>How can I help you? :)</p>
+                <div class="psws-whatsapp-time" id="pswsWhatsappTime">Now</div>
+            </div>
+        </div>
+        <div class="psws-whatsapp-footer">
+            <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                <div class="psws-whatsapp-input-wrapper">
+                    <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                    <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-                                <!-- Floating WhatsApp Button -->
-                                <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </button>
-    </body>
+    <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+</body>
 </html>

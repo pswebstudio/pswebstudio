@@ -20,260 +20,138 @@
     <link rel="stylesheet" href="../assets/css/flacticon.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <style>
-      
-        .project-card .project-image {
-            position: relative;
-            overflow: hidden;
-            height: 220px;
+        :root {
+            --pj-green: #12a05c;
+            --pj-green-dark: #0c8449;
+            --pj-green-soft: #e6f5ec;
+            --pj-text: #1b1b1b;
+            --pj-muted: #6e6e6e;
+            --pj-line: #e7e7e7;
+            --pj-page: #f4f4f4;
+            --pj-panel: #f5f5f5;
         }
-        .project-card .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 1rem;
-        }
-        .project-card .project-image .project-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            color: #fff;
-            padding: 0px 9px;
-            border-radius: 50px;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .project-card .project-image .project-badge.live {
-            background: #198754;
-        }
-        .project-card .project-image .project-badge.draft {
-            background: #ffc107;
-            color: #000;
-        }
-        .project-card .project-image .project-icon {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(255,255,255,0.9);
-            padding: 3px 10px;
-            border-radius: 8px;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: #333;
-        }
-        .project-card .project-image .project-icon img {
-            width: 16px;
-            height: 16px;
-            object-fit: contain;
-        }
-        .project-card .project-body {
-            padding: 24px 24px 20px;
-        }
-        .project-card .project-body .project-tag {
-            display: inline-block;
-            background: #e7f1ff;
-            color: #0d9ce0;
-            padding: 2px 14px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-        .project-card .project-body h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-        .project-card .project-body h3 a {
-            color: #1a1a2e;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .project-card .project-body h3 a:hover {
-            color: #0d9ce0;
-        }
-        .project-card .project-body p {
-            color: #6c757d;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 14px;
-        }
-        .project-card .project-body .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 14px;
-        }
-        .project-card .project-body .project-meta i {
-            width: 16px;
-            color: #0d9ce0;
-            margin-right: 4px;
-        }
-        .project-card .project-body .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-        .project-card .project-body .project-tech .tech-tag {
-            background: #f1f3f5;
-            padding: 2px 12px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #495057;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        .project-card .project-footer {
-            padding: 0 24px 24px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .project-card .project-footer .btn-outline {
-            padding: 8px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 13px;
-            border: 2px solid #0d9ce0;
-            color: #0d9ce0;
-            background: transparent;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            justify-content: center;
 
+        .pj-page { background: var(--pj-page); padding: 28px 0 64px; color: var(--pj-text); }
+        .pj-page a { text-decoration: none; }
+        .pj-card { background: #fff; border-radius: 16px; }
+
+
+        /* Main banner */
+        .pj-banner { position: relative; padding: 60px 0 50px; background-size: cover; background-position: center;     margin-top: 150px;}
+        .pj-banner::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,.58); }
+        .pj-banner .container { position: relative; z-index: 1; }
+        .pj-banner h1 { margin: 0; color: #fff; font-size: 42px; font-weight: 800; line-height: 1.15; }
+        .pj-banner p { margin: 14px 0 16px; max-width: 600px; color: rgba(255,255,255,.82); font-size: 18px; }
+        .pj-crumbs { display: flex; gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; color: rgba(255,255,255,.7); font-size: 14px; }
+        .pj-crumbs a { color: rgba(255,255,255,.7); }
+        .pj-crumbs a:hover { color: #fff; }
+        .pj-crumbs li + li::before { content: "/"; margin-right: 10px; }
+        .pj-crumbs .cur { color: #fff; }
+        .pj-banner .pj-btn.green { padding: 11px 20px; }
+        .pj-bstats { display: flex; gap: 40px; }
+        .pj-bstats h2 { margin: 0; color: #fff; font-size: 32px; font-weight: 700; }
+        .pj-bstats span { color: rgba(255,255,255,.65); font-size: 14px; }
+
+        /* Filters */
+        .pj-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 4px 16px; }
+        .pj-pill {
+            padding: 7px 14px; border: 1px solid var(--pj-line); border-radius: 999px;
+            background: #fff; color: #333; font-size: 13px; font-weight: 500; line-height: 1.2; cursor: pointer;
         }
-        .project-card .project-footer .btn-outline:hover {
-            background: #0d9ce0;
-            color: #fff;
-            transform: translateX(4px);
+        .pj-pill:hover { border-color: #bdbdbd; }
+        .pj-pill[aria-pressed="true"] { background: var(--pj-green); border-color: var(--pj-green); color: #fff; }
+        .pj-pill:focus-visible { outline: 2px solid var(--pj-green); outline-offset: 2px; }
+        .pj-pill small { margin-left: 4px; opacity: .7; font-size: 11px; }
+        .pj-seg { display: inline-flex; border: 1px solid var(--pj-line); border-radius: 10px; overflow: hidden; }
+        .pj-seg button { height: 38px; padding: 0 12px; border: 0; background: #fff; color: #333; font-size: 13px; cursor: pointer; }
+        .pj-seg button + button { border-left: 1px solid var(--pj-line); }
+        .pj-seg button[aria-pressed="true"] { background: var(--pj-green-soft); color: var(--pj-green-dark); font-weight: 600; }
+        .pj-seg button:focus-visible { outline: 2px solid var(--pj-green); outline-offset: -2px; }
+
+        /* Top bar */
+        .pj-top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .pj-top-title { flex: 1; min-width: 0; }
+        .pj-top-title h1 { margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3; color: var(--pj-text); }
+        .pj-top-title p { margin: 2px 0 0; font-size: 13.5px; color: var(--pj-muted); max-width: 70ch; }
+
+        .pj-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 10px 16px; border: 1px solid var(--pj-line); border-radius: 10px;
+            background: #fff; color: var(--pj-text); font-size: 14px; font-weight: 500; line-height: 1.2; cursor: pointer;
         }
-        .project-card .project-footer .btn-primary-custom {
-            padding: 8px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 13px;
-            background: #0d9ce0;
-            color: #fff;
-            border: none;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            text-align: center;
-            justify-content: center;
+        .pj-btn:hover { border-color: #bdbdbd; }
+        .pj-btn.green { background: var(--pj-green); border-color: var(--pj-green); color: #fff; }
+        .pj-btn.green:hover { background: var(--pj-green-dark); border-color: var(--pj-green-dark); }
+        .pj-btn:focus-visible, .pj-field:focus-visible { outline: 2px solid var(--pj-green); outline-offset: 2px; }
+
+        /* Stat cards */
+        .pj-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .pj-stat { padding: 18px 20px; }
+        .pj-stat-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+        .pj-stat-label { font-size: 14px; color: #555; }
+        .pj-ico {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 34px; height: 34px; border: 1px solid var(--pj-line); border-radius: 9px;
+            color: var(--pj-green); font-size: 14px;
         }
-        .project-card .project-footer .btn-primary-custom:hover {
-            background: #0a58ca;
-            transform: translateX(4px);
+        .pj-stat-num { margin: 10px 0 0; font-size: 32px; font-weight: 400; line-height: 1; }
+
+        /* Toolbar */
+        .pj-list { margin-top: 16px; padding: 18px 16px 20px; }
+        .pj-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 16px; padding: 0 4px; }
+        .pj-toolbar h2 { flex: 1 1 200px; margin: 0; font-size: 16px; font-weight: 600; }
+        .pj-field {
+            height: 40px; padding: 0 12px; border: 1px solid var(--pj-line); border-radius: 10px;
+            background: #fff; color: var(--pj-text); font-size: 14px;
         }
-        .breadcrumb-wrapper-4 {
-            padding: 60px 0 50px;
-            position: relative;
-            background-size: cover;
-            background-position: center;
+        .pj-search { position: relative; flex: 0 1 240px; }
+        .pj-search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--pj-muted); }
+        .pj-search .pj-field { width: 100%; padding-left: 34px; }
+
+        /* Project cards */
+        .pj-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .pj-item { display: flex; flex-direction: column; border: 1px solid var(--pj-line); border-radius: 14px; background: #fff; overflow: hidden; }
+        .pj-img { position: relative; height: 200px; background: #e9e9e9; }
+        .pj-img > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .pj-chip {
+            display: inline-block; padding: 3px 10px; border: 1px solid #222; border-radius: 999px;
+            font-size: 12px; font-weight: 500; line-height: 1.5; background: #fff; color: #222;
         }
-        .breadcrumb-wrapper-4::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.55);
+        .pj-chip.ok { border-color: var(--pj-green); color: var(--pj-green-dark); background: var(--pj-green-soft); }
+        .pj-img .pj-chip { position: absolute; top: 12px; left: 12px; }
+        .pj-domain {
+            position: absolute; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 6px;
+            padding: 3px 10px; border-radius: 8px; background: rgba(255,255,255,.92); font-size: 12px; color: #333;
         }
-        .breadcrumb-wrapper-4 .container {
-            position: relative;
-            z-index: 1;
+        .pj-domain img { width: 16px; height: 16px; object-fit: contain; }
+        .pj-body { flex: 1; padding: 16px 18px 6px; }
+        .pj-tag { display: inline-block; margin-bottom: 8px; font-size: 12.5px; color: var(--pj-green-dark); font-weight: 500; }
+        .pj-body h3 { margin: 0 0 6px; font-size: 18px; font-weight: 600; line-height: 1.3; }
+        .pj-body h3 a { color: var(--pj-text); }
+        .pj-body h3 a:hover { color: var(--pj-green-dark); }
+        .pj-body p { margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: var(--pj-muted); }
+        .pj-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .pj-meta {
+            display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 12px 14px; border-radius: 10px;
+            background: var(--pj-panel); font-size: 13px; color: #4a4a4a;
         }
-        .breadcrumb-wrapper-4 h1 {
-            color: #fff;
-            font-size: 42px;
-            font-weight: 800;
-        }
-        .breadcrumb-wrapper-4 p {
-            color: rgba(255,255,255,0.8);
-            font-size: 18px;
-            max-width: 600px;
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 10px;
-            color: rgba(255,255,255,0.7);
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items li a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items li a:hover {
-            color: #fff;
-        }
-        .breadcrumb-wrapper-4 .breadcrumb-items .style-2 {
-            color: #fff;
-        }
-        .loading-spinner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 400px;
-        }
-        .no-projects {
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .no-projects h3 {
-            color: #666;
-        }
-        .stats-row {
-            display: flex;
-            gap: 40px;
-            margin-top: 20px;
-        }
-        .stats-row .stat-item h2 {
-            color: #fff;
-            font-size: 32px;
-            font-weight: 700;
-        }
-        .stats-row .stat-item p {
-            color: rgba(255,255,255,0.6);
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-        @media (max-width: 768px) {
-            .breadcrumb-wrapper-4 h1 {
-                font-size: 28px;
-            }
-            .breadcrumb-wrapper-4 p {
-                font-size: 15px;
-            }
-            .project-card .project-image {
-                height: 180px;
-            }
-            .stats-row {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            .stats-row .stat-item h2 {
-                font-size: 24px;
-            }
+        .pj-meta i { width: 14px; margin-right: 4px; color: var(--pj-green); }
+        .pj-foot { display: flex; gap: 10px; padding: 14px 18px 18px; }
+        .pj-foot .pj-btn { flex: 1; padding: 9px 12px; font-size: 13px; }
+
+        .pj-empty { padding: 60px 20px; text-align: center; color: var(--pj-muted); }
+        .pj-empty h3 { color: var(--pj-text); font-size: 18px; }
+
+        @media (max-width: 1100px) { .pj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 700px) {
+            .pj-banner h1 { font-size: 28px; }
+            .pj-banner p { font-size: 15px; }
+            .pj-bstats { gap: 20px; flex-wrap: wrap; }
+            .pj-bstats h2 { font-size: 24px; }
+            .pj-top { flex-wrap: wrap; }
+            .pj-stats, .pj-grid { grid-template-columns: minmax(0, 1fr); }
+            .pj-search { flex: 1 1 100%; }
+            .pj-toolbar .pj-field { flex: 1; }
         }
     </style>
 </head>
@@ -293,578 +171,397 @@
     <div class="mouseCursor cursor-outer"></div>
     <div class="mouseCursor cursor-inner"></div>
 
-            <!-- Offcanvas Mobile Menu Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="../index.html">
-                                    <img src="../assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button aria-label="Close menu">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
+    <!-- Offcanvas Mobile Menu Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="../index.html"><img src="../assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
                         </div>
-                        <p class="text d-none d-xl-block">
-                            PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h3>Let's Build Something Great</h3>
-
-                            <div class="contact-info mt-3 mb-4">
-                                <p class="text text-md">
-                                    <i class="fa-solid fa-envelope me-2"></i>
-                                    <a href="mailto:pswebstudio.dev@gmail.com">
-                                        pswebstudio.dev@gmail.com
-                                    </a>
-                                </p>
-
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-phone me-2"></i>
-                                    <a href="tel:+918793400545">
-                                        +91 87934 00545
-                                    </a>
-                                </p>
-
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-globe me-2"></i>
-                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                        pswebstudio.netlify.app
-                                    </a>
-                                </p>
-                            </div>
-
-                            <a href="javascript:void(0);" onclick="openQuoteModal()"
-                            class="theme-btn theme-btn-sm gap-2 log-bt">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                Start a Project
-                            </a>
-
-                            <h3 class="mb-0 mt-4">Connect With Us</h3>
-
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.instagram.com/your-instagram/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-
-                                <a href="https://www.linkedin.com/company/your-company/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-
-                                <a href="https://www.facebook.com/your-page/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
-
-                                <a href="https://wa.me/918793400545"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="WhatsApp">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </a>
-                            </div>
+                        <div class="offcanvas__close">
+                            <button aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-
-    <!-- Header-Top Section Start -->
-            <!-- Header Top Section Start -->
-        <div class="header-top-section">
-            <div class="container-fluid">
-                <div class="header-top-wrapper">
-                    <p>
-                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
                     </p>
-                    <div class="header-right">
-                        <ul class="header-list">
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Let's Build Something Great</h3>
+                        <div class="contact-info mt-3 mb-4">
+                            <p class="text text-md">
+                                <i class="fa-solid fa-envelope me-2"></i>
                                 <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-phone me-2"></i>
                                 <a href="tel:+918793400545">+91 87934 00545</a>
-                            </li>
-                            <li>
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                            </li>
-                        </ul>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-globe me-2"></i>
+                                <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">pswebstudio.netlify.app</a>
+                            </p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn theme-btn-sm gap-2 log-bt">
+                            <i class="fa-solid fa-paper-plane"></i> Start a Project
+                        </a>
+                        <h3 class="mb-0 mt-4">Connect With Us</h3>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.instagram.com/your-instagram/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/your-company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/your-page/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
 
-        <!-- Header Main Section Start -->
-        <header id="header-sticky" class="header-1">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="header-left">
-                            <div class="logo">
-                                <a href="../index.html" class="header-logo">
-                                    <img src="../assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
+    <!-- Header Top Section Start -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p>
+                    <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
+                </p>
+                <div class="header-right">
+                    <ul class="header-list">
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+918793400545">+91 87934 00545</a></li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main Section Start -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="../index.html" class="header-logo"><img src="../assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
+                        </div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="../service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li class="active"><a href="../project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li><a href="../blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="../about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="../contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
-                             <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class=""><a href="../index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li class=""><a href="../service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                                            <li class="active"><a href="../project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li class=""><a href="../blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
-                                            <li class=""><a href="../about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li class=""><a href="../contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="header-button">
-                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
-                            </div>
-                            <div class="header__hamburger my-auto">
-                                <div class="sidebar__toggle">
-                                    <i class="fa-solid fa-bars-staggered"></i>
-                                </div>
-                            </div>
+                        <div class="header-button">
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
+                        </div>
+                        <div class="header__hamburger my-auto">
+                            <div class="sidebar__toggle"><i class="fa-solid fa-bars-staggered"></i></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
     <div id="smooth-wrapper">
         <div id="smooth-content">
-            
-            <!-- Breadcrumb -->
-            <div class="breadcrumb-wrapper-4 fix bg-cover" style="background-image: url(../assets/img/banner/portfolio-banner.png);">
+
+            <!-- Main banner -->
+            <div class="pj-banner fix bg-cover" style="background-image: url(../assets/img/banner/portfolio-banner.png);">
                 <div class="container">
-                    <div class="row align-items-end">
+                    <div class="row align-items-end g-4">
                         <div class="col-md-7">
-                            <h1 class="wow fadeInUp" data-wow-delay=".3s">Our Projects</h1>
-                            <p class="wow fadeInUp my-3" data-wow-delay=".4s">
-                                Explore our portfolio of custom web development projects for travel, tourism, hospitality, and service brands.
-                            </p>
-                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="style-2">Portfolio</li>
+                            <h1>Our Projects</h1>
+                            <p>Explore our portfolio of custom web development projects for travel, tourism, hospitality, and service brands.</p>
+                            <ul class="pj-crumbs">
+                                <li><a href="../index.html">Home</a></li>
+                                <li class="cur" aria-current="page">Portfolio</li>
                             </ul>
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="pj-btn green"><i class="fa-regular fa-paper-plane"></i> Start a project</a>
                         </div>
                         <div class="col-md-5">
-                            <div class="stats-row wow fadeInUp" data-wow-delay=".6s">
-                                <div class="stat-item">
-                                    <h2 id="projectCount">0</h2>
-                                    <p>Projects Delivered</p>
-                                </div>
-                                <div class="stat-item">
-                                    <h2>3+</h2>
-                                    <p>Years Experience</p>
-                                </div>
-                                <div class="stat-item">
-                                    <h2>100%</h2>
-                                    <p>Client Satisfaction</p>
-                                </div>
+                            <div class="pj-bstats">
+                                <div><h2 id="projectCount">0</h2><span>Projects Delivered</span></div>
+                                <div><h2>3+</h2><span>Years Experience</span></div>
+                                <div><h2>100%</h2><span>Client Satisfaction</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Projects Grid Section -->
-            <section class="project-grid-section section-padding">
+            <!-- Projects dashboard -->
+            <main class="pj-page">
                 <div class="container">
-                    <div class="section-title text-center mb-5">
-                        <h2 class="text-anim">Projects Built &amp; Delivered</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".3s">
-                            Each project is crafted with attention to performance, responsiveness, and real business results.
-                        </p>
-                    </div>
-                    <div class="row g-4" id="projectsContainer">
-                        <div class="col-12">
-                            <div class="loading-spinner">
-                                <div class="spinner-border text-primary" role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
+
+                    <section class="pj-card pj-list" aria-label="Projects">
+                        <div class="pj-toolbar">
+                            <h2>Projects built &amp; delivered</h2>
+                            <label class="pj-search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="search" id="pjSearch" class="pj-field" placeholder="Search projects" aria-label="Search projects" autocomplete="off">
+                            </label>
+                            <div class="pj-seg" id="pjSort" role="group" aria-label="Sort projects">
+                                <button type="button" data-sort="default" aria-pressed="true">Default</button>
+                                <button type="button" data-sort="az" aria-pressed="false">A to Z</button>
+                                <button type="button" data-sort="za" aria-pressed="false">Z to A</button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CTA Section -->
-            <section class="contact-section section-padding pb-0">
-                <div class="container">
-                    <div class="contact-wrapper">
-                        <div class="row g-4 align-items-end">
-                            <div class="col-lg-6">
-                                <div class="contact-image">
-                                    <img data-speed=".8" src="../assets/img/home-1/Image.jpg" alt="Contact PS Web Studio">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="contact-content">
-                                    <div class="logo-image">
-                                        <a href="index.html"><img src="../assets/img/logo/psweb-logo-trans.png" alt="PS Web Studio"></a>
-                                    </div>
-                                    <div class="section-title mb-0">
-                                        <h2 class="sec-title text-white text-anim">Ready to Build Your Next Project?</h2>
-                                    </div>
-                                    <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                        PS Web Studio delivers custom web solutions tailored to your business needs. Let's talk!
-                                    </p>
-                                    <a href="contact.html" class="theme-btn">Start Your Project</a>
-                                </div>
+                        <div class="pj-filters" id="pjFilters" role="group" aria-label="Filter by industry"></div>
+                        <div class="pj-grid" id="projectsContainer">
+                            <div class="pj-empty" style="grid-column:1/-1">
+                                <div class="spinner-border text-success" role="status"><span class="visually-hidden">Loading...</span></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
 
-            <!-- Footer Section Start -->
-                    <!-- Contact / Quote Modal -->
-        <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-box p-0 overflow-hidden rounded-4 shadow-lg" style="max-width:960px;width:100%;">
-                <button class="modal-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="row g-0">
+                </div>
+            </main>
+
+
+
+            <!-- Contact / Quote Modal (Same as Home Page) -->
+            <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="psm-box">
+                    <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
                     <!-- LEFT PANEL -->
-                    <aside class="col-lg-5 bg-dark text-white p-4 p-lg-5 d-flex flex-column">
-                        <div class="mb-4">
-                            <span class="d-inline-flex align-items-center justify-content-center rounded-3 bg-white bg-opacity-10 p-3 mb-3">
-                                <i class="fa-regular fa-file-lines fs-3"></i>
-                            </span>
-                            <h2 class="h3 fw-bold mb-2" id="modalTitle">Request a Project Proposal</h2>
-                            <p class="text-white-50 mb-0">
+                    <aside class="psm-side">
+                        <div class="psm-side-top">
+                            <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                            <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="psm-lead">
                                 Confirm your project details and share your contact information.
                                 We will send a tailored proposal.
                             </p>
                         </div>
-                        <div class="project-summary bg-white bg-opacity-10 rounded-4 p-3 p-lg-4 mb-4" id="projectSummary">
-                            <p class="small text-uppercase fw-semibold text-white-50 mb-3 letter-spacing">
-                                <i class="fa-regular fa-clipboard me-1"></i> Project Overview
-                            </p>
-                            <div class="summary-content">
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Service</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryService">Custom Web Development</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2 border-bottom border-white border-opacity-25">
-                                    <span class="summary-label small text-white-50">Estimated Budget</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryBudget">Flexible</span>
-                                </div>
-                                <div class="summary-row d-flex justify-content-between align-items-center gap-3 py-2">
-                                    <span class="summary-label small text-white-50">Category</span>
-                                    <span class="summary-value small fw-semibold text-end" id="summaryType">Commercial Website</span>
-                                </div>
+
+                        <div class="psm-summary" id="projectSummary">
+                            <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Service</span>
+                                <span class="psm-row-value" id="summaryService">Custom Web Development</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Estimated Budget</span>
+                                <span class="psm-row-value" id="summaryBudget">Flexible</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Category</span>
+                                <span class="psm-row-value" id="summaryType">Commercial Website</span>
                             </div>
                         </div>
-                        <ul class="list-unstyled small mt-auto mb-0">
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span>
-                                <span>Response within one business day</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-3">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-list-check"></i>
-                                </span>
-                                <span>Scope, timeline and cost breakdown</span>
-                            </li>
-                            <li class="d-flex align-items-center gap-3 mb-0">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-25 text-success p-2">
-                                    <i class="fa-solid fa-lock"></i>
-                                </span>
-                                <span>Your details stay confidential</span>
-                            </li>
+
+                        <ul class="psm-perks">
+                            <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
                         </ul>
                     </aside>
+
                     <!-- RIGHT PANEL -->
-                    <div class="col-lg-7 p-4 p-lg-5 bg-white">
-                        <h3 class="h4 fw-bold mb-1">Contact Details</h3>
-                        <p class="small text-muted mb-4">Fields marked * are required.</p>
-                        <form id="contactForm" class="modal-form" name="contact" method="POST">
+                    <div class="psm-main">
+                        <h3 class="psm-main-title">Contact Details</h3>
+                        <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+
+                        <form id="contactForm" class="modal-form psm-form" name="contact"
+                              method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
                             <input type="hidden" name="form-name" value="contact">
                             <input type="hidden" name="service" id="modalService">
                             <input type="hidden" name="budget" id="modalBudget">
                             <input type="hidden" name="project-type" id="modalProjectType">
-                            <div class="row g-3">
-                                <div class="col-12 form-group">
-                                    <label for="modalName" class="form-label small fw-semibold">Full Name *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-user"></i></span>
-                                        <input type="text" id="modalName" name="name" class="form-control bg-light border-start-0 fs-6" placeholder="John Smith" autocomplete="name" required>
+
+                            <div class="psm-fields">
+                                <div class="psm-grid">
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-user"></i>
+                                            <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalEmail" class="form-label small fw-semibold">Email *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-envelope"></i></span>
-                                        <input type="email" id="modalEmail" name="email" class="form-control bg-light border-start-0 fs-6" placeholder="name@company.com" autocomplete="email" required>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalPhone" class="form-label small fw-semibold">Contact Number *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-solid fa-phone"></i></span>
-                                        <input type="tel" id="modalPhone" name="phone" class="form-control bg-light border-start-0 fs-6" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalCompany" class="form-label small fw-semibold">Company</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-building"></i></span>
-                                        <input type="text" id="modalCompany" name="company" class="form-control bg-light border-start-0 fs-6" placeholder="Company name" autocomplete="organization">
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalCompany">Company</label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-building"></i>
+                                            <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="modalTimeline" class="form-label small fw-semibold">Preferred Timeline</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="fa-regular fa-calendar"></i></span>
-                                        <select id="modalTimeline" name="timeline" class="form-select bg-light border-start-0 fs-6">
-                                            <option value="">Select timeline</option>
-                                            <option>Within 2 weeks</option>
-                                            <option>1 month</option>
-                                            <option>2-3 months</option>
-                                            <option>Flexible</option>
-                                        </select>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalTimeline">Preferred Timeline</label>
+                                        <div class="psm-input psm-select">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <select id="modalTimeline" name="timeline">
+                                                <option value="">Select timeline</option>
+                                                <option>Within 2 weeks</option>
+                                                <option>1 month</option>
+                                                <option>2-3 months</option>
+                                                <option>Flexible</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 form-group">
-                                    <label for="modalMessage" class="form-label small fw-semibold">Project Requirements</label>
-                                    <textarea id="modalMessage" name="message" rows="4" class="form-control form-control-lg bg-light fs-6" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
-                                </div>
-                                <div class="col-12 form-group checkbox-group">
-                                    <div class="form-check">
-                                        <input type="checkbox" id="modalAgree" name="agree" class="form-check-input" required checked>
-                                        <label for="modalAgree" class="form-check-label small text-muted">
-                                            I agree to receive project communication regarding my inquiry.
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalMessage">Project Requirements</label>
+                                        <div class="psm-input psm-textarea">
+                                            <textarea id="modalMessage" name="message" rows="4"
+                                                placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-full form-group checkbox-group">
+                                        <label class="psm-check" for="modalAgree">
+                                            <input type="checkbox" id="modalAgree" name="agree" required checked>
+                                            <span>
+                                                I agree to receive project communication regarding my inquiry.
+                                            </span>
                                         </label>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="theme-btn submit-btn w-100 py-3 fw-semibold shadow-sm" id="submitBtn">
-                                        <span class="btn-text">
-                                            <i class="fa-regular fa-paper-plane me-2"></i>Submit Project Inquiry
-                                        </span>
-                                        <span class="btn-spinner d-none">
-                                            <i class="fa-solid fa-spinner fa-spin me-2"></i>Processing Request...
-                                        </span>
-                                    </button>
+
+                                    <div class="psm-full">
+                                        <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
+                                            <span class="btn-text">
+                                                <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
+                                            </span>
+                                            <span class="btn-spinner d-none">
+                                                <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
+                                            </span>
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
+
                             <!-- Success Message -->
-                            <div class="form-success d-none text-center py-5">
-                                <span class="d-inline-flex rounded-circle bg-success bg-opacity-10 text-success p-4 mb-3">
-                                    <i class="fa-solid fa-circle-check fs-1"></i>
-                                </span>
-                                <h3 class="h4 fw-bold">Inquiry Submitted Successfully</h3>
-                                <p class="text-muted mb-0">
-                                    Our team will review your requirements and contact you within one business day.
-                                </p>
+                            <div class="form-success psm-success d-none">
+                                <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                                <h3>Inquiry Submitted Successfully</h3>
+                                <p>Our team will review your requirements and contact you within one business day.</p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <footer class="footer-section fix header-bg">
+            <!-- Footer Section Start -->
+            <footer class="footer-section fix header-bg">
+                <div class="container">
+                    <div class="footer-widget-wrapper">
+                        <div class="row">
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Services</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="../service.html"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                        <li><a href="../contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
+                                        <li><a href="../contact.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimization</a></li>
+                                        <li><a href="../contact.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX Integration</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Company</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                                        <li><a href="../project/"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                        <li><a href="../news.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                                        <li><a href="../contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Technologies</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
+                                        <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
+                                        <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                        <li><a href="../about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Get In Touch</h4></div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                        <div class="content"><h6>Mumbai, Maharashtra <br> India</h6></div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                        <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
+                                    </div>
+                                    <div class="contact-item mb-0">
+                                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                        <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4></div>
+                                    <div class="newsletter-content">
+                                        <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
+                                        <form action="#">
+                                            <div class="form-clt">
+                                                <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                <button type="submit" class="theme-btn">Subscribe</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom style-1">
                     <div class="container">
-                        <div class="footer-widget-wrapper">
-                            <div class="row">
-                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Services</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="../service.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Website Development
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Responsive UI Design
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    SEO Optimization
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    MySQL & AJAX Integration
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Company</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    About Us
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="project/">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Portfolio
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="news.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Blog
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Contact
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Technologies</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    HTML5 & CSS3
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    JavaScript & jQuery
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Bootstrap & Tailwind
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    MySQL & AJAX
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Get In Touch</h4>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-map-location-dot"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    Mumbai, Maharashtra <br>
-                                                    India
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-regular fa-envelope"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item mb-0">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-phone-volume"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="tel:+918793400545">+91 87934 00545</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Subscribe for Web Dev <br>
-                                                Tips & Updates
-                                            </h4>
-                                        </div>
-                                        <div class="newsletter-content">
-                                            <p>
-                                                Occasional notes on web performance, SEO, and new projects - no spam.
-                                            </p>
-                                            <form action="#">
-                                                <div class="form-clt">
-                                                    <label for="newsletter-email" class="visually-hidden">Email Address</label>
-                                                    <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
-                                                    <button type="submit" class="theme-btn">
-                                                        Subscribe
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="footer-wrapper">
+                            <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="../admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-bottom style-1">
-                        <div class="container">
-                            <div class="footer-wrapper">
-                                <div class="text-item wow fadeInUp" data-wow-delay=".5s">
-                                    <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="../admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
-                                    <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                </div>
+            </footer>
         </div>
     </div>
 
@@ -893,9 +590,7 @@
             var preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.classList.add('hide');
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                }, 500);
+                setTimeout(function() { preloader.style.display = 'none'; }, 500);
             }
         }
         hidePreloader();
@@ -927,27 +622,193 @@
     // Project image mapping
     const projectImages = {
         'andaman-dmc': 'andaman-dmc.png',
-        'andaman-vacations': 'andaman-vacations.png',
+        'andaman-vacation': 'andaman.vacation1.png',
+        'andaman-vacations': 'andaman.vacation1.png',
+        'andaman-travel-expert': 'andaman-travel-expert.png',
+        'explore-andamans': 'explore-andamans.png',
         'andaman-travel-agent': 'andaman-travel-agent.png',
-        'quest-guide-india': 'qg.png',
+        'hotel-in-andaman': 'hia.png',
+        'ladakh-dmc': 'ladakh-dmc.png',
+        'ladakhdmc': 'ladakh-dmc.png',
+        'ladakh-life': 'ladakh-life.png',
+        'ladakhlife': 'ladakh-life.png',
         'madhya-pradesh-dmc': 'mp.png',
         'mpdmc': 'mpdmc.png',
-        'hotel-in-andaman': 'hia.png',
+        'explore-madhya-pradesh': 'explore-madhya-pradesh.png',
+        'incredible-south-india': 'incredible-south-india.png',
+        'tripzolo': 'tripzolo.png',
+        'quest-guide-india': 'qg.png',
+        'tsc-barcode-printers': 'tscprinters.png',
+        'tscprinters': 'tscprinters.png',
         'markaa': 'markaa.png',
-        'ladakhlife': 'ladakhlife.png',
-        'ladakhdmc': 'ladakhdmc.png',
-        'tscprinters': 'tscprinters.png'
+        'hospital-crm': 'hospital-crm-dashboard-thumb.png'
     };
 
+    function resolveProjectImage(project, slug) {
+        if (projectImages[slug]) return projectImages[slug];
+        if (project.images && Array.isArray(project.images) && project.images.length > 0) {
+            const first = project.images[0];
+            if (first === 'andaman-vacations.png') return 'andaman.vacation1.png';
+            if (first === 'ladakhdmc.png') return 'ladakh-dmc.png';
+            if (first === 'ladakhlife.png') return 'ladakh-life.png';
+            if (first === 'tsc.png') return 'tscprinters.png';
+            return first;
+        }
+        return 'andaman-dmc.png';
+    }
+
+    const allProjectsFallback = [
+        { title: "Andaman DMC", slug: "andaman-dmc", industry: "Travel & Tourism", client: "Andaman DMC", year: "2026", status: "Live", live_url: "https://www.andamandmc.com", image: "andaman-dmc.png",
+          description: "A comprehensive travel and tour management platform that streamlines destination management operations with powerful booking and content management capabilities.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Andaman Vacation", slug: "andaman-vacation", industry: "Travel & Tourism", client: "Andaman Vacation", year: "2026", status: "Live", live_url: "https://andamanvacation.com", image: "andaman.vacation1.png",
+          description: "A modern travel and tourism website focused on promoting Andaman holiday packages, honeymoon tours, beach activities, and custom vacation planning.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Andaman Travel Expert", slug: "andaman-travel-expert", industry: "Travel & Tourism", client: "Andaman Travel Expert", year: "2026", status: "Live", live_url: "https://www.andamantravelexpert.com", image: "andaman-travel-expert.png",
+          description: "Personalized holiday planning platform across the Andaman and Nicobar Islands featuring island tour packages, watersports, and direct enquiries.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "CSS3"], backend: ["PHP", "MySQL"] } },
+        { title: "Explore Andamans", slug: "explore-andamans", industry: "Travel & Tourism", client: "Explore Andamans", year: "2026", status: "Live", live_url: "https://www.exploreandaman.co.in", image: "explore-andamans.png",
+          description: "Travel technology and tourism platform combining holiday packages, online ferry ticket booking, island excursions, and watersports bookings.",
+          tech_stack: { frontend: ["HTML5", "JavaScript", "Bootstrap"], backend: ["PHP", "MySQL"] } },
+        { title: "Andaman Travel Agent", slug: "andaman-travel-agent", industry: "Travel & Tourism", client: "Andaman Travel Agent", year: "2026", status: "Live", live_url: "https://www.andamantravelagent.com", image: "andaman-travel-agent.png",
+          description: "A curated tour and travel platform connecting travelers with verified local guides, custom island adventures, and dynamic package quotes.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Hotel in Andaman", slug: "hotel-in-andaman", industry: "Hospitality", client: "Hotel in Andaman", year: "2026", status: "Live", live_url: "https://www.hotelinandaman.com", image: "hia.png",
+          description: "A comprehensive accommodation guide and booking platform for hotels, resorts, and homestays across the Andaman Islands with live availability.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5"], backend: ["PHP", "MySQL"] } },
+        { title: "Ladakh DMC", slug: "ladakh-dmc", industry: "Travel & Tourism", client: "Quest Guide India", year: "2026", status: "Live", live_url: "https://www.ladakhdmc.in", image: "ladakh-dmc.png",
+          description: "B2B travel portal and ground handling operations website for travel agents and tour operators across Leh, Nubra Valley, and Pangong Lake.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Ladakh Life", slug: "ladakh-life", industry: "Travel & Adventure", client: "Ladakh Life Expeditions", year: "2026", status: "Live", live_url: "https://ladakhlife.com", image: "ladakh-life.png",
+          description: "Travel and adventure website featuring Leh Ladakh bike expeditions, family vacations, cultural tours, and customized travel packages.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Madhya Pradesh DMC", slug: "madhya-pradesh-dmc", industry: "Travel & Tourism", client: "Madhya Pradesh DMC", year: "2026", status: "Live", live_url: "https://www.madhyapradeshdmc.com", image: "mp.png",
+          description: "Specialized travel portal showcasing heritage tours, wildlife safaris, and cultural circuits across Madhya Pradesh with instant enquiry forms.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "Laravel", "MySQL"] } },
+        { title: "MPDMC", slug: "mpdmc", industry: "Travel & Tourism", client: "MPDMC Team", year: "2026", status: "Live", live_url: "https://www.mpdmc.com", image: "mpdmc.png",
+          description: "Wildlife safari planning, heritage temple walks, and customized central India holiday packages with verified local guides.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5"], backend: ["PHP", "MySQL"] } },
+        { title: "Explore Madhya Pradesh", slug: "explore-madhya-pradesh", industry: "Travel & Tourism", client: "Explore Madhya Pradesh", year: "2026", status: "Live", live_url: "https://www.exploremadhyapradesh.com", image: "explore-madhya-pradesh.png",
+          description: "Comprehensive destination guides, tiger safari itineraries, and cultural tour planning for Khajuraho, Orchha, Kanha, and Ujjain.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Incredible South India", slug: "incredible-south-india", industry: "Travel & Tourism", client: "Incredible South India", year: "2026", status: "Live", live_url: "https://www.incrediblesouthindia.com", image: "incredible-south-india.png",
+          description: "Tourism website covering Kerala backwaters, Tamil Nadu temple trails, Karnataka heritage sites, and customized holiday packages.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Tripzolo", slug: "tripzolo", industry: "Travel & Hospitality", client: "Tripzolo India", year: "2026", status: "Live", live_url: "https://www.tripzolo.com", image: "tripzolo.png",
+          description: "Holiday booking portal offering domestic and international holiday collections, curated experiences, and corporate travel solutions.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Quest Guide India", slug: "quest-guide-india", industry: "Travel & Tourism", client: "Quest Guide India", year: "2026", status: "Live", live_url: "https://www.questguideindia.com", image: "qg.png",
+          description: "Pan-India tour platform connecting travelers with verified local guides, multi-city itineraries, and cultural experiences across India.",
+          tech_stack: { frontend: ["React.js", "Bootstrap", "CSS3"], backend: ["Node.js", "Express.js", "MongoDB"] } },
+        { title: "TSC Barcode Printers", slug: "tsc-barcode-printers", industry: "Barcode & Hardware", client: "TSC Printers", year: "2026", status: "Live", live_url: "https://www.tscbarcodeprinters.com", image: "tscprinters.png",
+          description: "Corporate hardware catalog and B2B enquiry portal showcasing desktop, industrial, and mobile barcode printers and accessories.",
+          tech_stack: { frontend: ["HTML5", "Bootstrap 5", "JavaScript"], backend: ["PHP", "MySQL"] } },
+        { title: "Markaa Enterprise", slug: "markaa", industry: "Printing & B2B Solutions", client: "Markaa Team", year: "2026", status: "Live", live_url: "https://www.markaa.in", image: "markaa.png",
+          description: "Digital catalog for barcode systems, custom thermal labels, identification technology, and enterprise printing solutions.",
+          tech_stack: { frontend: ["React.js", "Tailwind CSS"], backend: ["Node.js", "Express.js", "MongoDB"] } }
+    ];
+
+    // Escape anything coming from the database before it touches innerHTML
+    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+    const safeUrl = (u) => /^https?:\/\//i.test(u || '') ? esc(u) : '';
+    const hostOf = (u) => { try { return new URL(u).hostname; } catch { return ''; } };
+
+    let allProjects = [];
+    const els = {
+        grid: document.getElementById('projectsContainer'),
+        count: document.getElementById('projectCount'),
+        search: document.getElementById('pjSearch'),
+        filters: document.getElementById('pjFilters'),
+        sort: document.getElementById('pjSort')
+    };
+    let activeIndustry = '';
+    let activeSort = 'default';
+
+    function renderProjectCard(project) {
+        const slug = project.slug || project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        const imageName = project.image || resolveProjectImage(project, slug);
+        const live = safeUrl(project.live_url);
+        const domain = hostOf(project.live_url);
+        const detail = `../project.html?project=${encodeURIComponent(slug)}`;
+
+        const techTags = [
+            ...(project.tech_stack?.frontend || []).slice(0, 2),
+            ...(project.tech_stack?.backend || []).slice(0, 2)
+        ];
+        const displayTech = techTags.length ? techTags.slice(0, 3) : ['HTML5', 'CSS3', 'PHP'];
+        const desc = project.description
+            ? project.description.substring(0, 120) + (project.description.length > 120 ? '...' : '')
+            : '';
+
+        return `
+        <article class="pj-item">
+            <div class="pj-img">
+                <img src="../assets/img/project-banner/${esc(imageName)}" alt="${esc(project.title)}" loading="lazy" onerror="this.src='../assets/img/project-banner/andaman-dmc.png'">
+                <span class="pj-chip ${project.status === 'Live' || !project.status ? 'ok' : ''}">${esc(project.status || 'Live')}</span>
+                ${domain ? `<div class="pj-domain"><img src="https://www.google.com/s2/favicons?domain=${esc(domain)}&sz=16" alt="" onerror="this.parentElement.style.display='none'">${esc(domain)}</div>` : ''}
+            </div>
+            <div class="pj-body">
+                <span class="pj-tag">${esc(project.industry || 'Technology')}</span>
+                <h3><a href="${detail}">${esc(project.title)}</a></h3>
+                <p>${esc(desc)}</p>
+                <div class="pj-tech">${displayTech.map(t => `<span class="pj-chip">${esc(t)}</span>`).join('')}</div>
+                <div class="pj-meta">
+                    <span><i class="fa-regular fa-user"></i>${esc(project.client || 'Various Clients')}</span>
+                    <span><i class="fa-regular fa-calendar"></i>${esc(project.year || '2026')}</span>
+                </div>
+            </div>
+            <div class="pj-foot">
+                <a href="${detail}" class="pj-btn"><i class="fa-regular fa-eye"></i> View details</a>
+                ${live ? `<a href="${live}" target="_blank" rel="noopener noreferrer" class="pj-btn green"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>` : ''}
+            </div>
+        </article>`;
+    }
+
+    function renderFilters() {
+        const counts = {};
+        allProjects.forEach(p => { if (p.industry) counts[p.industry] = (counts[p.industry] || 0) + 1; });
+        const names = Object.keys(counts).sort();
+        if (activeIndustry && !counts[activeIndustry]) activeIndustry = '';
+        const pill = (label, value, n) =>
+            `<button type="button" class="pj-pill" data-ind="${esc(value)}" aria-pressed="${value === activeIndustry}">${esc(label)}<small>${n}</small></button>`;
+        els.filters.innerHTML = pill('All', '', allProjects.length) + names.map(n => pill(n, n, counts[n])).join('');
+    }
+
+    function render() {
+        const q = els.search.value.trim().toLowerCase();
+        const ind = activeIndustry;
+        let list = allProjects.filter(p => {
+            if (ind && p.industry !== ind) return false;
+            if (!q) return true;
+            return [p.title, p.client, p.industry, p.description,
+                ...(p.tech_stack?.frontend || []), ...(p.tech_stack?.backend || [])]
+                .join(' ').toLowerCase().includes(q);
+        });
+
+        if (activeSort === 'az') list = [...list].sort((a, b) => a.title.localeCompare(b.title));
+        if (activeSort === 'za') list = [...list].sort((a, b) => b.title.localeCompare(a.title));
+
+        els.grid.innerHTML = list.length
+            ? list.map(renderProjectCard).join('')
+            : `<div class="pj-empty" style="grid-column:1/-1"><h3>No projects match</h3><p>Try a different search or clear the industry filter.</p></div>`;
+    }
+
+    function setProjects(list) {
+        allProjects = list;
+        if (els.count) els.count.textContent = list.length;
+        renderFilters();
+        render();
+    }
+
     async function loadProjects() {
-        const container = document.getElementById('projectsContainer');
-        const projectCount = document.getElementById('projectCount');
-        
-        if (!container) return;
+        if (!els.grid) return;
+
+        // Render the verified local catalog first, then upgrade from Supabase
+        setProjects(allProjectsFallback);
 
         try {
-            console.log('🔍 Loading projects from Supabase...');
-
             const { data: projects, error } = await supabase
                 .from('projects')
                 .select('*')
@@ -955,201 +816,67 @@
                 .order('display_order', { ascending: true });
 
             if (error) {
-                console.error('❌ Supabase error:', error);
-                throw error;
-            }
-
-            console.log(`✅ Found ${projects?.length || 0} projects`);
-
-            if (projects && projects.length > 0) {
-                if (projectCount) projectCount.textContent = projects.length;
-            }
-
-            if (!projects || projects.length === 0) {
-                container.innerHTML = `
-                    <div class="col-12">
-                        <div class="no-projects">
-                            <h3>No projects available</h3>
-                            <p class="text-muted">Check back soon for updates!</p>
-                        </div>
-                    </div>
-                `;
+                console.warn('Supabase fetch returned error, keeping local projects:', error);
                 return;
             }
-
-            container.innerHTML = projects.map(project => {
-                const slug = project.slug || project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                const imageName = projectImages[slug] || 'default.png';
-                const domain = project.live_url ? new URL(project.live_url).hostname : '';
-                
-                // Get first two tech tags for display
-                const techTags = [];
-                if (project.tech_stack?.frontend && project.tech_stack.frontend.length > 0) {
-                    techTags.push(project.tech_stack.frontend[0]);
-                }
-                if (project.tech_stack?.backend && project.tech_stack.backend.length > 0) {
-                    techTags.push(project.tech_stack.backend[0]);
-                }
-                const displayTech = techTags.slice(0, 3);
-
-                return `
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="../assets/img/project-banner/${imageName}" alt="${project.title}" loading="lazy">
-                                <span class="project-badge ${project.status === 'Live' ? 'live' : 'draft'}">${project.status || 'Live'}</span>
-                                ${domain ? `
-                                    <div class="project-icon">
-                                        <img src="https://www.google.com/s2/favicons?domain=${domain}&sz=16" alt="${domain}">
-                                        ${domain}
-                                    </div>
-                                ` : ''}
-                            </div>
-                            <div class="project-body">
-                                <span class="project-tag">${project.industry || 'Technology'}</span>
-                                <h3><a href="project-detail.html?slug=${slug}">${project.title}</a></h3>
-                                <p>${project.description ? project.description.substring(0, 120) + (project.description.length > 120 ? '...' : '') : ''}</p>
-                                ${displayTech.length > 0 ? `
-                                    <div class="project-tech">
-                                        ${displayTech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                                    </div>
-                                ` : ''}
-                                <div class="project-meta">
-                                    <span><i class="fa-regular fa-user"></i> ${project.client || 'Various Clients'}</span>
-                                    <span><i class="fa-regular fa-calendar"></i> ${project.year || '2026'}</span>
-                                </div>
-                            </div>
-                            <div class="project-footer">
-                                <a href="project-detail.html?slug=${slug}" class="btn-outline">
-                                    <i class="fa-regular fa-eye"></i> View Details
-                                </a>
-
-                                ${project.live_url ? `
-                                    <href="../${project.live_url}".replace(/^\/+/, '')}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="btn-primary-custom">
-                                        <i class="fa-regular fa-arrow-up-right-from-square"></i> Live Site
-                                    </a>
-                                ` : ''}
-
-
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            // Reinitialize WOW.js
-            if (typeof WOW !== 'undefined') {
-                new WOW().init();
-            }
-
+            if (projects && projects.length > 0) setProjects(projects);
         } catch (error) {
-            console.error('❌ Error loading projects:', error);
-            container.innerHTML = `
-                <div class="col-12 text-center">
-                    <p class="text-danger">Failed to load projects. Please refresh the page.</p>
-                    <p class="text-muted small">Error: ${error.message}</p>
-                </div>
-            `;
+            console.warn('Using local project catalog:', error);
         }
     }
 
-    // Load projects when DOM is ready
+    els.search.addEventListener('input', render);
+    els.filters.addEventListener('click', (e) => {
+        const btn = e.target.closest('.pj-pill');
+        if (!btn) return;
+        activeIndustry = btn.dataset.ind;
+        renderFilters();
+        render();
+    });
+    els.sort.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-sort]');
+        if (!btn) return;
+        activeSort = btn.dataset.sort;
+        els.sort.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+        render();
+    });
     document.addEventListener('DOMContentLoaded', loadProjects);
     </script>
 
-        <!-- WhatsApp Floating Chat & Popup -->
-        <!-- PSWeb Studio WhatsApp -->
-                               <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
-
-    <!-- Header -->
-    <div class="psws-whatsapp-header">
-
-        <div class="psws-whatsapp-header-icon">
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-
-        <div class="psws-whatsapp-header-info">
-            <div class="psws-whatsapp-title">
-                PSWeb Studio
+    <!-- WhatsApp Floating Chat & Popup -->
+    <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+        <div class="psws-whatsapp-header">
+            <div class="psws-whatsapp-header-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="psws-whatsapp-header-info">
+                <div class="psws-whatsapp-title">PSWeb Studio</div>
+                <div class="psws-whatsapp-status">● Typically replies instantly</div>
             </div>
-            <div class="psws-whatsapp-status">
-                ● Typically replies instantly
-            </div>
+            <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
         </div>
-
-        <!-- Close -->
-        <button
-            type="button"
-            class="psws-whatsapp-close"
-            id="pswsWhatsappClose"
-            aria-label="Close WhatsApp">
-            <i class="fa-solid fa-chevron-down"></i>
-        </button>
-
-    </div>
-
-
-    <!-- Body -->
-    <div class="psws-whatsapp-body">
-
-        <div class="psws-whatsapp-message">
-            <p>How can I help you? :)</p>
-            <div class="psws-whatsapp-time" id="pswsWhatsappTime">
-                23:03
+        <div class="psws-whatsapp-body">
+            <div class="psws-whatsapp-message">
+                <p>How can I help you? :)</p>
+                <div class="psws-whatsapp-time" id="pswsWhatsappTime">23:03</div>
             </div>
         </div>
-
+        <div class="psws-whatsapp-footer">
+            <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                <div class="psws-whatsapp-input-wrapper">
+                    <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                    <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
+    <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
 
-    <!-- Footer -->
-    <div class="psws-whatsapp-footer">
-
-        <form
-            class="psws-whatsapp-form"
-            id="pswsWhatsappForm">
-
-            <div class="psws-whatsapp-input-wrapper">
-
-                <input
-                    type="text"
-                    id="pswsWhatsappInput"
-                    class="psws-whatsapp-input"
-                    placeholder="Write your message..."
-                    autocomplete="off"
-                    aria-label="WhatsApp Message"
-                >
-
-                <button
-                    type="submit"
-                    class="psws-whatsapp-send"
-                    aria-label="Send WhatsApp message">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- ================================
-     FLOATING WHATSAPP BUTTON
-================================= -->
-
-                        <button
-                            type="button"
-                            class="psws-whatsapp-launcher"
-                            id="pswsWhatsappLauncher"
-                            aria-label="Open WhatsApp Chat">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </button>
-        <script src="../assets/js/form-handler.js"></script>
+    <script src="../assets/js/form-handler.js"></script>
 </body>
 </html>

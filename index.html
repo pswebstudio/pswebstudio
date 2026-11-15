@@ -682,6 +682,7 @@
                         <div class="swiper selected-work-slider">
                             <div class="swiper-wrapper" id="projectsContainer">
                                 <!-- Slide 1: Andaman DMC -->
+
                                 <div class="swiper-slide">
                                     <article class="selected-work-card">
                                         <div class="selected-work-thumb">
@@ -857,68 +858,6 @@
                                                 </a>
                                             </div>
                                             <p class="selected-work-desc">Explore Madhya Pradesh.</p>
-                                            <div class="selected-work-tech">
-                                                <span class="selected-work-tech-pill">HTML</span>
-                                                <span class="selected-work-tech-pill">CSS</span>
-                                                <span class="selected-work-tech-pill">JavaScript</span>
-                                                <span class="selected-work-tech-pill">PHP</span>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-
-                                <!-- Slide 7: Andaman Islands -->
-                                <div class="swiper-slide">
-                                    <article class="selected-work-card">
-                                        <div class="selected-work-thumb">
-                                            <img src="assets/img/project-banner/andaman-travel-expert.png" alt="Andaman Islands" loading="lazy">
-                                        </div>
-                                        <div class="selected-work-body">
-                                            <div class="selected-work-header">
-                                                <div class="selected-work-title-wrap">
-                                                    <h3 class="selected-work-title">
-                                                        <a href="project.html?project=andaman-islands">Andaman Islands</a>
-                                                    </h3>
-                                                    <div class="selected-work-category">
-                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
-                                                    </div>
-                                                </div>
-                                                <a href="project.html?project=andaman-islands" class="selected-work-arrow-btn" aria-label="View Andaman Islands project">
-                                                    <i class="fa-solid fa-arrow-right"></i>
-                                                </a>
-                                            </div>
-                                            <p class="selected-work-desc">Travel to Andaman Islands.</p>
-                                            <div class="selected-work-tech">
-                                                <span class="selected-work-tech-pill">HTML</span>
-                                                <span class="selected-work-tech-pill">CSS</span>
-                                                <span class="selected-work-tech-pill">PHP</span>
-                                                <span class="selected-work-tech-pill">MySQL</span>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-
-                                <!-- Slide 8: Andaman Islands -->
-                                <div class="swiper-slide">
-                                    <article class="selected-work-card">
-                                        <div class="selected-work-thumb">
-                                            <img src="assets/img/project-banner/explore-andamans.png" alt="Andaman Islands" loading="lazy">
-                                        </div>
-                                        <div class="selected-work-body">
-                                            <div class="selected-work-header">
-                                                <div class="selected-work-title-wrap">
-                                                    <h3 class="selected-work-title">
-                                                        <a href="project.html?project=explore-andamans">Andaman Islands</a>
-                                                    </h3>
-                                                    <div class="selected-work-category">
-                                                        <i class="fa-solid fa-briefcase"></i> Travel &amp; Tourism
-                                                    </div>
-                                                </div>
-                                                <a href="project.html?project=explore-andamans" class="selected-work-arrow-btn" aria-label="View Andaman Islands project">
-                                                    <i class="fa-solid fa-arrow-right"></i>
-                                                </a>
-                                            </div>
-                                            <p class="selected-work-desc">Discover Andaman Islands.</p>
                                             <div class="selected-work-tech">
                                                 <span class="selected-work-tech-pill">HTML</span>
                                                 <span class="selected-work-tech-pill">CSS</span>
@@ -1200,29 +1139,29 @@
                         </div>
                     </div>
                 </section>
-               <section>
-                <div class="container">
 
-<section class="content-section news-section section-padding fix">
-    <div class="section-title">
+<section class="content-section news-section section-padding fix" aria-label="Latest insights and articles">
+    <div class="container-fluid px-4">
         <div class="d-flex flex-center-between">
             <h2 class="mb-0">Insights on Web Performance, SEO &amp; Development</h2>
-            <a href="/blog/" class="link-btn">
+            <a href="/blog/" class="link-btn" aria-label="View all blog articles">
                 View All
             </a>
         </div>
         <p class="mt-1">
-            Practical guides for businesses planning, rebuilding or improving their website.
+            Practical guides for businesses planning, rebuilding, or improving their websites.
         </p>
-    </div>
-
-    <div class="row">
+         <div class="row">
 
         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".1s">
-            <div class="content-card news-card-items related">
+            <article class="content-card news-card-items related">
                 <div class="content-image news-image">
-                    <img src="/assets/img/blog/website-redesign-checklist.webp" alt="Website redesign checklist for businesses" width="600" height="400" loading="lazy">
-                    <span>12 Aug 2026</span>
+                    <img src="/assets/img/blog/website-redesign-checklist.webp"
+                         alt="Website redesign checklist for businesses"
+                         width="600" height="400"
+                         loading="lazy"
+                         decoding="async">
+                    <span><time datetime="2026-08-12">12 Aug 2026</time></span>
                 </div>
                 <div class="content-body news-content">
                     <span>Web Strategy</span>
@@ -1231,18 +1170,23 @@
                             Website Redesign Checklist: What to Audit Before You Rebuild
                         </a>
                     </h3>
-                    <a href="/blog/website-redesign-checklist" class="link-btn" aria-label="Read more: Website Redesign Checklist">
-                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    <a href="/blog/website-redesign-checklist" class="link-btn"
+                       aria-label="Read more: Website Redesign Checklist">
+                        Read More <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </a>
                 </div>
-            </div>
+            </article>
         </div>
 
         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-            <div class="content-card news-card-items related">
+            <article class="content-card news-card-items related">
                 <div class="content-image news-image">
-                    <img src="/assets/img/blog/core-web-vitals-guide.webp" alt="Core Web Vitals explained for website owners" width="600" height="400" loading="lazy">
-                    <span>09 Sep 2026</span>
+                    <img src="/assets/img/blog/core-web-vitals-guide.webp"
+                         alt="Core Web Vitals explained for website owners"
+                         width="600" height="400"
+                         loading="lazy"
+                         decoding="async">
+                    <span><time datetime="2026-09-09">09 Sep 2026</time></span>
                 </div>
                 <div class="content-body news-content">
                     <span>Performance &amp; SEO</span>
@@ -1251,18 +1195,23 @@
                             Core Web Vitals Explained: What to Fix First
                         </a>
                     </h3>
-                    <a href="/blog/core-web-vitals-what-to-fix-first" class="link-btn" aria-label="Read more: Core Web Vitals Explained">
-                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    <a href="/blog/core-web-vitals-what-to-fix-first" class="link-btn"
+                       aria-label="Read more: Core Web Vitals Explained">
+                        Read More <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </a>
                 </div>
-            </div>
+            </article>
         </div>
 
         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
-            <div class="content-card news-card-items related">
+            <article class="content-card news-card-items related">
                 <div class="content-image news-image">
-                    <img src="/assets/img/blog/static-vs-dynamic-website.webp" alt="Static versus dynamic website comparison" width="600" height="400" loading="lazy">
-                    <span>07 Oct 2026</span>
+                    <img src="/assets/img/blog/static-vs-dynamic-website.webp"
+                         alt="Static versus dynamic website comparison"
+                         width="600" height="400"
+                         loading="lazy"
+                         decoding="async">
+                    <span><time datetime="2026-10-07">07 Oct 2026</time></span>
                 </div>
                 <div class="content-body news-content">
                     <span>Web Development</span>
@@ -1271,18 +1220,23 @@
                             Static vs Dynamic Websites: Which Does Your Business Need?
                         </a>
                     </h3>
-                    <a href="/blog/static-vs-dynamic-website" class="link-btn" aria-label="Read more: Static vs Dynamic Websites">
-                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    <a href="/blog/static-vs-dynamic-website" class="link-btn"
+                       aria-label="Read more: Static vs Dynamic Websites">
+                        Read More <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </a>
                 </div>
-            </div>
+            </article>
         </div>
 
         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-            <div class="content-card news-card-items related">
+            <article class="content-card news-card-items related">
                 <div class="content-image news-image">
-                    <img src="/assets/img/blog/enquiry-booking-system.webp" alt="How an online enquiry and booking system works" width="600" height="400" loading="lazy">
-                    <span>28 Oct 2026</span>
+                    <img src="/assets/img/blog/enquiry-booking-system.webp"
+                         alt="How an online enquiry and booking system works"
+                         width="600" height="400"
+                         loading="lazy"
+                         decoding="async">
+                    <span><time datetime="2026-10-28">28 Oct 2026</time></span>
                 </div>
                 <div class="content-body news-content">
                     <span>Web Platforms</span>
@@ -1291,18 +1245,20 @@
                             How an Online Enquiry and Booking System Works
                         </a>
                     </h3>
-                    <a href="/blog/how-enquiry-booking-systems-work" class="link-btn" aria-label="Read more: How an Online Enquiry and Booking System Works">
-                        Read More <i class="fa-solid fa-chevron-right"></i>
+                    <a href="/blog/how-enquiry-booking-systems-work" class="link-btn"
+                       aria-label="Read more: How an Online Enquiry and Booking System Works">
+                        Read More <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </a>
                 </div>
-            </div>
+            </article>
         </div>
 
     </div>
+    </div>
+
+
 </section>
 
-</div>
-               </section>
                 <!-- FAQ Section Start -->
               <section class="faq-section-3 section-padding fix header-bg mx-0">
     <div class="container">
@@ -1882,22 +1838,6 @@
                 image: "mp.png",
                 desc: "Explore Madhya Pradesh.",
                 tech: ["HTML", "CSS", "JavaScript", "PHP"]
-            },
-            {
-                title: "Andaman Islands",
-                slug: "andaman-islands",
-                industry: "Travel & Tourism",
-                image: "andaman-travel-expert-2.png",
-                desc: "Travel to Andaman Islands.",
-                tech: ["HTML", "CSS", "PHP", "MySQL"]
-            },
-            {
-                title: "Andaman Islands",
-                slug: "explore-andamans",
-                industry: "Travel & Tourism",
-                image: "explore-andamans-2.png",
-                desc: "Discover Andaman Islands.",
-                tech: ["HTML", "CSS", "JavaScript", "PHP"]
             }
         ];
 
@@ -1913,9 +1853,10 @@
             }
             workSwiper = new Swiper('.selected-work-slider', {
                 slidesPerView: 1.15,
-                spaceBetween: 24,
-                speed: 700,
-                loop: true,
+                spaceBetween: 14,
+                speed: 650,
+                loop: false,
+                rewind: true,
                 autoplay: {
                     delay: 3500,
                     disableOnInteraction: false,
@@ -1930,17 +1871,25 @@
                     clickable: true
                 },
                 breakpoints: {
-                    576: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
+                    0: {
+                        slidesPerView: 1.15,
+                        spaceBetween: 12
+                    },
+                    480: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 14
+                    },
+                    768: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 16
                     },
                     992: {
                         slidesPerView: 3,
-                        spaceBetween: 24
+                        spaceBetween: 18
                     },
                     1200: {
                         slidesPerView: 4,
-                        spaceBetween: 24
+                        spaceBetween: 20
                     }
                 }
             });
@@ -1986,6 +1935,10 @@
             const projectCount = document.getElementById('projectCount');
             const projectCount2 = document.getElementById('projectCount2');
 
+            // Set counter to 15+
+            if (projectCount) projectCount.textContent = '15';
+            if (projectCount2) projectCount2.textContent = '15';
+
             // Initialize swiper on pre-rendered slides immediately
             initWorkSlider();
 
@@ -1997,15 +1950,15 @@
                     .select('*')
                     .eq('is_enabled', true)
                     .order('display_order', { ascending: true })
-                    .limit(8);
+                    .limit(6);
 
                 if (error) throw error;
 
-                if (projects && projects.length >= 8) {
-                    if (projectCount) projectCount.textContent = '8';
-                    if (projectCount2) projectCount2.textContent = '8';
+                if (projects && projects.length >= 5) {
+                    if (projectCount) projectCount.textContent = '15';
+                    if (projectCount2) projectCount2.textContent = '15';
 
-                    container.innerHTML = projects.slice(0, 8).map((p, idx) => {
+                    container.innerHTML = projects.slice(0, 6).map((p, idx) => {
                         const slug = p.slug || p.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
                         const img = projectImages[slug] || (defaultSelectedProjects[idx] ? defaultSelectedProjects[idx].image : 'andaman-dmc.png');
                         const desc = p.description || (defaultSelectedProjects[idx] ? defaultSelectedProjects[idx].desc : 'High performance web development.');
