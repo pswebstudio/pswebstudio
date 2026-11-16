@@ -6,98 +6,276 @@
     <title>PSWeb Studio - Admin Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-        .login-card {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 420px;
-            width: 100%;
-            margin: 20px;
-        }
-        .login-card h2 {
-            color: #1a1a2e;
-            font-weight: 700;
-            margin-bottom: 4px;
-            text-align: center;
-            font-size: 28px;
-        }
-        .login-card .brand {
-            color: #0d6efd;
-        }
-        .login-card .subtitle {
-            text-align: center;
-            color: #6c757d;
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-        .login-card .form-label {
-            font-weight: 600;
-            font-size: 14px;
-            color: #333;
-        }
-        .login-card .form-control {
-            border-radius: 10px;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-        .login-card .form-control:focus {
-            border-color: #0d9ce1;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
-        }
-        .login-card .btn-primary {
-            width: 100%;
-            padding: 12px;
-            font-weight: 600;
-            border-radius: 10px;
-            font-size: 16px;
-            background-color: #0d9ce1;
-        }
-        .login-card .btn-primary:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-        .alert {
-            display: none;
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-size: 14px;
-        }
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #6c757d;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        .back-link:hover {
-            color: #0d6efd;
-        }
-        .login-footer {
-            text-align: center;
-            margin-top: 16px;
-            font-size: 12px;
-            color: #35647a;
-        }
-    </style>
+   <style>
+
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 30px 15px;
+    background:
+        radial-gradient(ellipse at 15% 15%, rgba(13, 156, 224, 0.20), transparent 40%),
+        radial-gradient(ellipse at 85% 85%, rgba(22, 62, 142, 0.35), transparent 40%),
+        linear-gradient(135deg, #101b2d 0%, #142b48 50%, #101b2d 100%);
+    font-family: "Inter Tight", "Segoe UI", system-ui, sans-serif;
+    color: #151515;
+}
+
+/* Login Card */
+.login-card {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    margin: 20px;
+    padding: 42px 38px;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.22),
+        0 5px 20px rgba(0, 0, 0, 0.06);
+    animation: loginCardIn 0.55s ease both;
+}
+
+
+
+/* Heading */
+.login-card h2 {
+    margin: 0 0 8px;
+    color: #151515;
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.login-card .brand {
+    color: #0d9ce0;
+}
+
+.login-card .subtitle {
+    margin: 0 0 32px;
+    color: #696969;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Form Labels */
+.login-card .form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #303b49;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Input Fields */
+.login-card .form-control {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 15px;
+    border: 1px solid #dce2e9;
+    border-radius: 10px;
+    background: #f9fafc;
+    color: #151515;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-card .form-control:hover {
+    border-color: #b8c9d8;
+    background: #ffffff;
+}
+
+.login-card .form-control:focus {
+    border-color: #0d9ce0;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(13, 156, 224, 0.11);
+}
+
+.login-card .form-control::placeholder {
+    color: #a0a9b4;
+    font-size: 13px;
+}
+
+/* Login Button */
+.login-card .btn-primary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 49px;
+    padding: 12px 20px;
+    margin-top: 8px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9ce0, #163e8e);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    box-shadow: 0 6px 16px rgba(13, 156, 224, 0.20);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.login-card .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(13, 156, 224, 0.30);
+    filter: brightness(1.05);
+}
+
+.login-card .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.login-card .btn-primary:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Alerts */
+.login-card .alert {
+    display: none;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.login-card .alert-danger {
+    background: #fff1f0;
+    border-color: #ffd6d2;
+    color: #b42318;
+}
+
+.login-card .alert-success {
+    background: #ecfdf3;
+    border-color: #b7ebc6;
+    color: #187443;
+}
+
+.login-card .alert-warning {
+    background: #fff8e6;
+    border-color: #ffe2a8;
+    color: #946200;
+}
+
+/* Back Link */
+.login-card .back-link {
+    display: block;
+    margin-top: 22px;
+    color: #696969;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-card .back-link:hover {
+    color: #0d9ce0;
+}
+
+.login-card .back-link i {
+    margin-right: 5px;
+}
+
+/* Footer */
+.login-card .login-footer {
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid #edf0f3;
+    color: #8a96a3;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Animation */
+@keyframes loginCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility */
+.login-card a:focus-visible,
+.login-card button:focus-visible,
+.login-card input:focus-visible {
+    outline: 2px solid #0d9ce0;
+    outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    body {
+        padding: 18px 12px;
+    }
+
+    .login-card {
+        max-width: 100%;
+        margin: 0;
+        padding: 34px 24px;
+        border-radius: 16px;
+    }
+
+    .login-card h2 {
+        font-size: 25px;
+    }
+
+    .login-card .subtitle {
+        margin-bottom: 26px;
+    }
+}
+
+@media (max-width: 360px) {
+    .login-card {
+        padding: 30px 19px;
+    }
+
+    .login-card h2 {
+        font-size: 23px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .login-card,
+    .login-card *,
+    .login-card *::before,
+    .login-card *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .login-card .btn-primary:hover {
+        transform: none;
+    }
+}
+
+   </style>
 </head>
 <body>
     <div class="login-card">
@@ -156,7 +334,7 @@
 
         const supabase = createClient(supabaseUrl, supabaseKey);
 
-        
+
         function getAdminUrl(page) {
             const p = window.location.pathname;
             const idx = p.lastIndexOf('/admin');

@@ -1,1359 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--<< Header Area >>-->
-    <head>
-        <!-- ========== Meta Tags ========== -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="webtend">
-        <meta name="description" content="Roavio - Travel & Tour Booking Html Template">
-        <!-- ======== Page title ============ -->
-        <title>Roavio - Travel & Tour Booking Html Template</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.svg">
-        <!--<< Bootstrap min.css >>-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--<< All Min Css >>-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <!--<< Animate.css >>-->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Swiper Bundle.css >>-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Flacticon.css >>-->
-        <link rel="stylesheet" href="assets/css/flacticon.css">
-        <!--<< Main.css >>-->
-        <link rel="stylesheet" href="assets/css/main.css">
-    </head>
-    <body>
-        <!-- Preloader Start -->
-        <div id="preloader" class="preloader">
-            <div class="animation-preloader">
-                <div class="spinner">                
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="R" class="letters-loading">
-                    R
-                    </span>
-                    <span data-text-preloader="O" class="letters-loading">
-                    O
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                    A
-                    </span>
-                    <span data-text-preloader="V" class="letters-loading">
-                    V
-                    </span>
-                    <span data-text-preloader="I" class="letters-loading">
-                    I
-                    </span>
-                    <span data-text-preloader="O" class="letters-loading">
-                    O
-                    </span>
-                </div>
-                <p class="text-center">Loading</p>
-            </div>
-            <div class="loader">
-                <div class="row">
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-left">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                    <div class="col-3 loader-section section-right">
-                        <div class="bg"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Back To Top Start -->
-        <button id="back-top" class="back-to-top show">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="PS Web Studio">
+    <meta name="description" content="Answers to common questions about working with PS Web Studio: process, timelines, pricing, tech stack, SEO, hosting and support.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FAQs · PS Web Studio">
+    <meta property="og:description" content="Process, timelines, pricing, tech stack, SEO and support: common questions about working with PS Web Studio.">
+    <title>FAQs · PS Web Studio</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
+    <link rel="shortcut icon" href="assets/img/favico/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/flacticon.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+<style>
+:root {
+    --pd-green: #12a05c;
+    --pd-green-dark: #0c8449;
+    --pd-green-soft: #e6f5ec;
+    --pd-text: #1b1b1b;
+    --pd-muted: #6e6e6e;
+    --pd-line: #e7e7e7;
+    --pd-page: #f4f4f4;
+    --pd-card: #fff;
+    --pd-panel: #f5f5f5;
+}
+
+/* ===== FAQ page: same dashboard style as project detail ===== */
+.pd-page { background: var(--pd-page); padding: 28px 0 72px; color: var(--pd-text); }
+.pd-page a { text-decoration: none; }
+.pd-card { background: var(--pd-card); border-radius: 16px; }
+
+.pd-top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; margin-top: 130px; }
+.pd-top-title { flex: 1; min-width: 0; }
+.pd-top-title h1 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--pd-text); }
+.pd-top-title p { margin: 2px 0 0; font-size: 13.5px; color: var(--pd-muted); }
+.pd-top-actions { display: flex; gap: 10px; }
+
+.pd-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border: 1px solid var(--pd-line); border-radius: 10px;
+    background: #fff; color: var(--pd-text); font-size: 14px; font-weight: 500;
+    cursor: pointer; line-height: 1.2;
+}
+.pd-btn:hover { border-color: #bdbdbd; }
+.pd-btn.green { background: var(--pd-green); border-color: var(--pd-green); color: #fff; }
+.pd-btn.green:hover { background: var(--pd-green-dark); border-color: var(--pd-green-dark); }
+.pd-btn:focus-visible, .faq-cat:focus-visible, .faq-search input:focus-visible, .faq-item summary:focus-visible {
+    outline: 2px solid var(--pd-green); outline-offset: 2px;
+}
+
+.faq-hero { display: grid; grid-template-columns: minmax(0, 2.25fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.faq-main { display: grid; gap: 12px; min-width: 0; }
+
+/* Search + categories */
+.faq-tools { padding: 18px; }
+.faq-search { position: relative; }
+.faq-search i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--pd-muted); font-size: 14px; }
+.faq-search input {
+    width: 100%; padding: 12px 14px 12px 40px; border: 1px solid var(--pd-line);
+    border-radius: 10px; background: #fff; font-size: 14.5px; color: var(--pd-text);
+}
+.faq-cats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.faq-cat {
+    padding: 7px 14px; border: 1px solid var(--pd-line); border-radius: 999px;
+    background: #fff; color: #333; font-size: 13px; font-weight: 500; cursor: pointer; line-height: 1.4;
+}
+.faq-cat:hover { border-color: #bdbdbd; }
+.faq-cat[aria-pressed="true"] { background: var(--pd-green-soft); border-color: var(--pd-green); color: var(--pd-green-dark); }
+.faq-cat .n { margin-left: 4px; color: var(--pd-muted); font-weight: 400; }
+.faq-count { margin: 12px 2px 0; font-size: 13px; color: var(--pd-muted); }
+
+/* Accordion */
+.faq-item { padding: 0; }
+.faq-item summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 16px 18px; font-size: 15px; font-weight: 500; cursor: pointer; list-style: none; color: var(--pd-text);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary i { flex: none; font-size: 12px; color: var(--pd-muted); transition: transform .2s; }
+.faq-item[open] summary i { transform: rotate(180deg); color: var(--pd-green); }
+.faq-item[open] summary { color: var(--pd-green-dark); }
+.faq-body { padding: 0 18px 18px; font-size: 15px; line-height: 1.7; color: #3d3d3d; }
+.faq-body p { margin: 0 0 10px; }
+.faq-body p:last-child { margin-bottom: 0; }
+.faq-body ul { margin: 0 0 10px; padding-left: 18px; }
+.faq-body li { margin-bottom: 5px; }
+.faq-tag { display: inline-block; margin-top: 4px; padding: 3px 8px; border-radius: 6px; background: var(--pd-green-soft); color: var(--pd-green-dark); font-size: 12px; }
+.faq-empty { display: none; padding: 40px 20px; text-align: center; }
+.faq-empty h3 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.faq-empty p { margin: 0 0 14px; color: var(--pd-muted); }
+
+/* Aside */
+.faq-aside { position: sticky; top: 110px; display: grid; gap: 12px; }
+.faq-side { padding: 20px; }
+.faq-side h2 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.faq-side > p { margin: 0 0 16px; font-size: 14px; color: var(--pd-muted); line-height: 1.6; }
+.faq-facts { margin: 0 0 16px; padding: 6px 16px; border-radius: 12px; background: var(--pd-panel); }
+.faq-facts div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; font-size: 13px; }
+.faq-facts dt { margin: 0; font-weight: 400; color: #4a4a4a; }
+.faq-facts dd { margin: 0; text-align: right; font-weight: 600; }
+.faq-side .pd-btn { width: 100%; justify-content: center; }
+.faq-side .pd-btn + .pd-btn { margin-top: 8px; }
+
+.pd-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; padding: 22px 24px; }
+.pd-cta h2 { margin: 0 0 4px; font-size: 20px; font-weight: 600; }
+.pd-cta p { margin: 0; color: var(--pd-muted); font-size: 14.5px; }
+
+@media (max-width: 991px) {
+    .faq-hero { grid-template-columns: minmax(0, 1fr); }
+    .faq-aside { position: static; }
+}
+@media (max-width: 640px) {
+    .pd-top { flex-wrap: wrap; }
+    .pd-top-actions { width: 100%; }
+    .pd-top-actions .pd-btn { flex: 1; justify-content: center; }
+    .pd-cta .pd-btn { width: 100%; justify-content: center; }
+    .faq-item summary { font-size: 14.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .faq-item summary i { transition: none; }
+}
+</style>
+</head>
+<body>
+
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Back To Top Start -->
+    <button id="back-top" class="back-to-top show">
         <i class="fa-regular fa-arrow-up"></i>
-        </button>
-        
-        <!-- MouseCursor Start -->
-        <div class="mouseCursor cursor-outer"></div>
-        <div class="mouseCursor cursor-inner"></div>
-                <!-- Offcanvas Mobile Menu Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button aria-label="Close menu">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text d-none d-xl-block">
-                            PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h3>Let's Build Something Great</h3>
+    </button>
 
-                            <div class="contact-info mt-3 mb-4">
-                                <p class="text text-md">
-                                    <i class="fa-solid fa-envelope me-2"></i>
-                                    <a href="mailto:pswebstudio.dev@gmail.com">
-                                        pswebstudio.dev@gmail.com
-                                    </a>
-                                </p>
+    <!-- MouseCursor Start -->
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"></div>
 
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-phone me-2"></i>
-                                    <a href="tel:+918793400545">
-                                        +91 87934 00545
-                                    </a>
-                                </p>
-
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-globe me-2"></i>
-                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                        pswebstudio.netlify.app
-                                    </a>
-                                </p>
-                            </div>
-
-                            <a href="javascript:void(0);" onclick="openQuoteModal()"
-                            class="theme-btn theme-btn-sm gap-2 log-bt">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                Start a Project
+    <!-- Offcanvas Mobile Menu Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html">
+                                <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
                             </a>
-
-                            <h3 class="mb-0 mt-4">Connect With Us</h3>
-
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.instagram.com/your-instagram/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-
-                                <a href="https://www.linkedin.com/company/your-company/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-
-                                <a href="https://www.facebook.com/your-page/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
-
-                                <a href="https://wa.me/918793400545"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="WhatsApp">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </a>
-                            </div>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button aria-label="Close menu">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="offcanvas__overlay"></div>
-        <!-- Header-Top Section Start -->
-                <!-- Header Top Section Start -->
-        <div class="header-top-section">
-            <div class="container-fluid">
-                <div class="header-top-wrapper">
-                    <p>
-                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
                     </p>
-                    <div class="header-right">
-                        <ul class="header-list">
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Let's Build Something Great</h3>
+                        <div class="contact-info mt-3 mb-4">
+                            <p class="text text-md">
+                                <i class="fa-solid fa-envelope me-2"></i>
                                 <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-phone me-2"></i>
                                 <a href="tel:+918793400545">+91 87934 00545</a>
-                            </li>
-                            <li>
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                            </li>
-                        </ul>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-globe me-2"></i>
+                                <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">pswebstudio.netlify.app</a>
+                            </p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn theme-btn-sm gap-2 log-bt">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Start a Project
+                        </a>
+                        <h3 class="mb-0 mt-4">Connect With Us</h3>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.instagram.com/your-instagram/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/your-company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/your-page/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
 
-        <!-- Header Main Section Start -->
-        <header id="header-sticky" class="header-1">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="header-left">
-                            <div class="logo">
-                                <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
-                             <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class=""><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li class=""><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                                            <li class=""><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li class=""><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
-                                            <li class=""><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li class=""><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="header-button">
-                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
-                            </div>
-                            <div class="header__hamburger my-auto">
-                                <div class="sidebar__toggle">
-                                    <i class="fa-solid fa-bars-staggered"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-         <div id="smooth-wrapper">
-             <div id="smooth-content">
-                 <!-- Breadcrumb-Wrapper Section Start -->
-                <div class="breadcrumb-wrapper-3 fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb/bg-2.jpg);">
-                    <div class="container">
-                        <div class="page-heading">
-                            <div class="breadcrumb-sub-title">
-                                <h1 class="wow fadeInUp" data-wow-delay=".3s">
-                                    FAQs
-                                </h1>
-                            </div>
-                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                                <li>
-                                    <a href="index.html">
-                                    Home
-                                    </a>
-                                </li>
-                                <li class="style-2 style-3">
-                                    FAQs
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Conatct-Us Section Start -->
-                <section class="faq-section section-padding fix">
-                    <div class="container">
-                        <div class="faq-wrapper">
-                            <div class="row g-4">
-                                <div class="col-lg-8 col-12">
-                                    <div class="faq-left-content">
-                                        <div class="section-title mb-0">
-                                            <h2 class="text-anim">
-                                                Frequently Asked Questions?
-                                            </h2>
-                                        </div>
-                                        <p class="text">
-                                            We’ve gathered the information you need in one place you can save time and make
-                                            confident decisions. And if you don’t see your question answered.
-                                        </p>
-                                        <ul class="nav" role="tablist">
-                                            <li class="nav-item style-2 wow fadeInUp" data-wow-delay=".2s">
-                                                <a href="#technical" data-bs-toggle="tab" class="nav-link active" aria-selected="false" role="tab" tabindex="-1">
-                                                General
-                                                </a>
-                                            </li>
-                                            <li class="nav-item wow fadeInUp" data-wow-delay=".4s">
-                                                <a href="#work" data-bs-toggle="tab" class="nav-link" aria-selected="true" role="tab">
-                                                Pricing Plan
-                                                </a>
-                                            </li>
-                                            <li class="nav-item wow fadeInUp" data-wow-delay=".6s">
-                                                <a href="#ambition" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab" tabindex="-1">
-                                                Tour Package
-                                                </a>
-                                            </li>
-                                            <li class="nav-item wow fadeInUp" data-wow-delay=".8s">
-                                                <a href="#skill" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab" tabindex="-1">
-                                                Privacy Policy
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div id="technical" class="tab-pane fade active show" role="tabpanel">
-                                                <div class="faq-box-item">
-                                                    <div class="faq-items-4">
-                                                        <div class="accordion" id="technicalAccordion">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingOne">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseOne" aria-expanded="false" aria-controls="technicalCollapseOne">
-                                                                    1. How do I book a trip with your agency?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseOne" class="accordion-collapse collapse" aria-labelledby="technicalHeadingOne"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingTwo">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseTwo" aria-expanded="true" aria-controls="technicalCollapseTwo">
-                                                                    2. Do you offer customized travel packages?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseTwo" class="accordion-collapse collapse show"
-                                                                    aria-labelledby="technicalHeadingTwo" data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingThree">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseThree" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseThree">
-                                                                    3. What payment methods do you accept?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseThree" class="accordion-collapse collapse"
-                                                                    aria-labelledby="technicalHeadingThree" data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingFour">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseFour" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseFour">
-                                                                    4. Can you assist with visas and travel documents?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseFour" class="accordion-collapse collapse" aria-labelledby="technicalHeadingFour"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingFive">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseFive" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseFive">
-                                                                    5. What happens if I need to cancel or reschedule my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseFive" class="accordion-collapse collapse" aria-labelledby="technicalHeadingFive"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingSix">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseSix" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseSix">
-                                                                    6. Do you provide travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseSix" class="accordion-collapse collapse" aria-labelledby="technicalHeadingSix"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingSeven">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseSeven" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseSeven">
-                                                                    7. Are your tours suitable for families and groups?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseSeven" class="accordion-collapse collapse" aria-labelledby="technicalHeadingSeven"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingEight">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseEight" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseEight">
-                                                                    8. How can I contact you during my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseEight" class="accordion-collapse collapse" aria-labelledby="technicalHeadingEight"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingNine">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseNine" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseNine">
-                                                                    9. How can I book a tour with you?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseNine" class="accordion-collapse collapse" aria-labelledby="technicalHeadingNine"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="technicalHeadingTen">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#technicalCollapseTen" aria-expanded="false"
-                                                                        aria-controls="technicalCollapseTen">
-                                                                    10. Can you help with visas and travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="technicalCollapseTen" class="accordion-collapse collapse" aria-labelledby="technicalHeadingTen"
-                                                                    data-bs-parent="#technicalAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="work" class="tab-pane fade" role="tabpanel">
-                                                <div class="faq-box-item">
-                                                    <div class="faq-items-4">
-                                                        <div class="accordion" id="workAccordion">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingOne">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseOne" aria-expanded="false" aria-controls="workCollapseOne">
-                                                                    1. How do I book a trip with your agency?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseOne" class="accordion-collapse collapse" aria-labelledby="workHeadingOne"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingTwo">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseTwo" aria-expanded="true" aria-controls="workCollapseTwo">
-                                                                    2. Do you offer customized travel packages?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseTwo" class="accordion-collapse collapse show"
-                                                                    aria-labelledby="workHeadingTwo" data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingThree">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseThree" aria-expanded="false"
-                                                                        aria-controls="workCollapseThree">
-                                                                    3. What payment methods do you accept?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseThree" class="accordion-collapse collapse"
-                                                                    aria-labelledby="workHeadingThree" data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingFour">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseFour" aria-expanded="false"
-                                                                        aria-controls="workCollapseFour">
-                                                                    4. Can you assist with visas and travel documents?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseFour" class="accordion-collapse collapse" aria-labelledby="workHeadingFour"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingFive">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseFive" aria-expanded="false"
-                                                                        aria-controls="workCollapseFive">
-                                                                    5. What happens if I need to cancel or reschedule my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseFive" class="accordion-collapse collapse" aria-labelledby="workHeadingFive"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingSix">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseSix" aria-expanded="false"
-                                                                        aria-controls="workCollapseSix">
-                                                                    6. Do you provide travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseSix" class="accordion-collapse collapse" aria-labelledby="workHeadingSix"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingSeven">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseSeven" aria-expanded="false"
-                                                                        aria-controls="workCollapseSeven">
-                                                                    7. Are your tours suitable for families and groups?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseSeven" class="accordion-collapse collapse" aria-labelledby="workHeadingSeven"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingEight">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseEight" aria-expanded="false"
-                                                                        aria-controls="workCollapseEight">
-                                                                    8. How can I contact you during my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseEight" class="accordion-collapse collapse" aria-labelledby="workHeadingEight"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingNine">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseNine" aria-expanded="false"
-                                                                        aria-controls="workCollapseNine">
-                                                                    9. How can I book a tour with you?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseNine" class="accordion-collapse collapse" aria-labelledby="workHeadingNine"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="workHeadingTen">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#workCollapseTen" aria-expanded="false"
-                                                                        aria-controls="workCollapseTen">
-                                                                    10. Can you help with visas and travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="workCollapseTen" class="accordion-collapse collapse" aria-labelledby="workHeadingTen"
-                                                                    data-bs-parent="#workAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="ambition" class="tab-pane fade" role="tabpanel">
-                                                <div class="faq-box-item">
-                                                    <div class="faq-items-4">
-                                                        <div class="accordion" id="ambitionAccordion">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingOne">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseOne" aria-expanded="false" aria-controls="ambitionCollapseOne">
-                                                                    1. How do I book a trip with your agency?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseOne" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingOne"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingTwo">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseTwo" aria-expanded="true" aria-controls="ambitionCollapseTwo">
-                                                                    2. Do you offer customized travel packages?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseTwo" class="accordion-collapse collapse show"
-                                                                    aria-labelledby="ambitionHeadingTwo" data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingThree">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseThree" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseThree">
-                                                                    3. What payment methods do you accept?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseThree" class="accordion-collapse collapse"
-                                                                    aria-labelledby="ambitionHeadingThree" data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingFour">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseFour" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseFour">
-                                                                    4. Can you assist with visas and travel documents?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseFour" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingFour"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingFive">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseFive" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseFive">
-                                                                    5. What happens if I need to cancel or reschedule my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseFive" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingFive"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingSix">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseSix" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseSix">
-                                                                    6. Do you provide travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseSix" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingSix"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingSeven">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseSeven" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseSeven">
-                                                                    7. Are your tours suitable for families and groups?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseSeven" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingSeven"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingEight">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseEight" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseEight">
-                                                                    8. How can I contact you during my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseEight" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingEight"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingNine">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseNine" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseNine">
-                                                                    9. How can I book a tour with you?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseNine" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingNine"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="ambitionHeadingTen">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#ambitionCollapseTen" aria-expanded="false"
-                                                                        aria-controls="ambitionCollapseTen">
-                                                                    10. Can you help with visas and travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="ambitionCollapseTen" class="accordion-collapse collapse" aria-labelledby="ambitionHeadingTen"
-                                                                    data-bs-parent="#ambitionAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="skill" class="tab-pane fade" role="tabpanel">
-                                                <div class="faq-box-item">
-                                                    <div class="faq-items-4">
-                                                        <div class="accordion" id="skillAccordion">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingOne">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseOne" aria-expanded="false" aria-controls="skillCollapseOne">
-                                                                    1. How do I book a trip with your agency?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseOne" class="accordion-collapse collapse" aria-labelledby="skillHeadingOne"
-                                                                    data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingTwo">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseTwo" aria-expanded="true" aria-controls="skillCollapseTwo">
-                                                                    2. Do you offer customized travel packages?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseTwo" class="accordion-collapse collapse show"
-                                                                    aria-labelledby="skillHeadingTwo" data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingThree">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseThree" aria-expanded="false"
-                                                                        aria-controls="skillCollapseThree">
-                                                                    3. What payment methods do you accept?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseThree" class="accordion-collapse collapse"
-                                                                    aria-labelledby="skillHeadingThree" data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingFour">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseFour" aria-expanded="false"
-                                                                        aria-controls="skillCollapseFour">
-                                                                    4. Can you assist with visas and travel documents?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseFour" class="accordion-collapse collapse" aria-labelledby="skillHeadingFour"
-                                                                    data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingFive">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseFive" aria-expanded="false"
-                                                                        aria-controls="skillCollapseFive">
-                                                                    5. What happens if I need to cancel or reschedule my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseFive" class="accordion-collapse collapse" aria-labelledby="skillHeadingFive"
-                                                                    data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingSix">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseSix" aria-expanded="false"
-                                                                        aria-controls="skillCollapseSix">
-                                                                    6. Do you provide travel insurance?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseSix" class="accordion-collapse collapse" aria-labelledby="skillHeadingSix"
-                                                                    data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingSeven">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseSeven" aria-expanded="false"
-                                                                        aria-controls="skillCollapseSeven">
-                                                                    7. Are your tours suitable for families and groups?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseSeven" class="accordion-collapse collapse" aria-labelledby="skillHeadingSeven"
-                                                                    data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingEight">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseEight" aria-expanded="false"
-                                                                        aria-controls="skillCollapseEight">
-                                                                    8. How can I contact you during my trip?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseEight" class="accordion-collapse collapse" aria-labelledby="skillHeadingEight"
-                                                                    data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="skillHeadingNine">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                                        data-bs-target="#skillCollapseNine" aria-expanded="false"
-                                                                        aria-controls="skillCollapseNine">
-                                                                    9. How can I book a tour with you?
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="skillCollapseNine" class="accordion-collapse collapse" aria-labelledby="skillHeadingNine" data-bs-parent="#skillAccordion">
-                                                                    <div class="accordion-body">
-                                                                        <p>
-                                                                            Yes! We specialize in tailor-made tours. You can share your preferences—destinations, activities, and budget—and we’ll design a trip that suits your needs.
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-12">
-                                                        <div class="faq-right">
-                                                            <div class="faq-bg-image">
-                                                                <img src="assets/img/home-1/news/news-19.jpg" alt="img">
-                                                                <div class="tour-bg-content">
-                                                                    <span>xplore The World</span>
-                                                                    <h3>
-                                                                        <a href="tour-details.html">Best Tourist Place</a>
-                                                                    </h3>
-                                                                    <a href="tour-details.html" class="theme-btn">Explore Tours</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="comment-box">
-                                                                <h3>Have Any Questions?</h3>
-                                                                <p>Don’t heisted to contact us</p>
-                                                                <form action="#">
-                                                                    <div class="row g-2">
-                                                                        <div class="col-lg-12">
-                                                                            <div class="form-clt">
-                                                                                <input type="text" name="name" id="name" placeholder="Name">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-12">
-                                                                            <div class="form-clt">
-                                                                                <input type="text" name="email" id="email6" placeholder="Email">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-12">
-                                                                            <div class="form-clt">
-                                                                                <textarea name="message" id="message" placeholder="Write message"></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-12">
-                                                                            <button type="submit" class="theme-btn">
-                                                                            Submit
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact Section Start -->
-                <section class="contact-section section-padding pb-0">
-                    <div class="container">
-                        <div class="contact-wrapper">
-                            <div class="row g-4 align-items-end">
-                                <div class="col-lg-6">
-                                    <div class="contact-image">
-                                        <img data-speed=".8" src="assets/img/home-1/Image.jpg" alt="img">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="contact-content">
-                                        <div class="logo-image">
-                                            <a href="index.html"><img src="assets/img/logo/white-logo.svg" alt="img"></a>
-                                        </div>
-                                        <div class="section-title mb-0">
-                                            <h2 class="sec-title text-white text-anim">
-                                                Adventure Is Calling – Are You Ready?
-                                            </h2>
-                                        </div>
-                                        <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                            Get ready to embark on unforgettable journeys with us. whether you’re seeking thrilling adventures, relaxing escapes
-                                        </p>
-                                        <a href="tour-details.html" class="theme-btn">Explore Our Tours</a>
-                             <!-- Contact / Quote Modal -->
-        <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="psm-box">
-                <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <aside class="psm-side">
-                    <div class="psm-side-top">
-                        <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
-                        <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
-                        <p class="psm-lead">Confirm your project details and share your contact information. We will send a tailored proposal.</p>
-                    </div>
-                    <div class="psm-summary" id="projectSummary">
-                        <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
-                        <div class="psm-row"><span class="psm-row-label">Service</span><span class="psm-row-value" id="summaryService">Custom Web Development</span></div>
-                        <div class="psm-row"><span class="psm-row-label">Estimated Budget</span><span class="psm-row-value" id="summaryBudget">Flexible</span></div>
-                        <div class="psm-row"><span class="psm-row-label">Category</span><span class="psm-row-value" id="summaryType">Commercial Website</span></div>
-                    </div>
-                    <ul class="psm-perks">
-                        <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
-                        <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
-                        <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+    <!-- Header Top Section Start -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p>
+                    <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
+                </p>
+                <div class="header-right">
+                    <ul class="header-list">
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+918793400545">+91 87934 00545</a></li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
                     </ul>
-                </aside>
-                <div class="psm-main">
-                    <h3 class="psm-main-title">Contact Details</h3>
-                    <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
-                    <form id="contactForm" class="modal-form psm-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="contact">
-                        <input type="hidden" name="service" id="modalService">
-                        <input type="hidden" name="budget" id="modalBudget">
-                        <input type="hidden" name="project-type" id="modalProjectType">
-                        <div class="psm-fields">
-                            <div class="psm-grid">
-                                <div class="psm-field psm-full form-group">
-                                    <label for="modalName">Full Name <span class="psm-req">*</span></label>
-                                    <div class="psm-input"><i class="fa-regular fa-user"></i><input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalEmail">Email <span class="psm-req">*</span></label>
-                                    <div class="psm-input"><i class="fa-regular fa-envelope"></i><input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
-                                    <div class="psm-input"><i class="fa-solid fa-phone"></i><input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalCompany">Company</label>
-                                    <div class="psm-input"><i class="fa-regular fa-building"></i><input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization"></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalTimeline">Preferred Timeline</label>
-                                    <div class="psm-input psm-select"><i class="fa-regular fa-calendar"></i><select id="modalTimeline" name="timeline"><option value="">Select timeline</option><option>Within 2 weeks</option><option>1 month</option><option>2-3 months</option><option>Flexible</option></select></div>
-                                </div>
-                                <div class="psm-field psm-full form-group">
-                                    <label for="modalMessage">Project Requirements</label>
-                                    <div class="psm-input psm-textarea"><textarea id="modalMessage" name="message" rows="4" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea></div>
-                                </div>
-                                <div class="psm-full form-group checkbox-group">
-                                    <label class="psm-check" for="modalAgree"><input type="checkbox" id="modalAgree" name="agree" required checked><span>I agree to receive project communication regarding my inquiry.</span></label>
-                                </div>
-                                <div class="psm-full">
-                                    <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn"><span class="btn-text"><i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry</span><span class="btn-spinner d-none"><i class="fa-solid fa-spinner fa-spin"></i> Processing Request...</span></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-success psm-success d-none">
-                            <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
-                            <h3>Inquiry Submitted Successfully</h3>
-                            <p>Our team will review your requirements and contact you within one business day.</p>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <footer class="footer-section fix header-bg">
+    <!-- Header Main Section Start -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header-button">
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
+                        </div>
+                        <div class="header__hamburger my-auto">
+                            <div class="sidebar__toggle">
+                                <i class="fa-solid fa-bars-staggered"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <main>
+                <div class="pd-page">
                     <div class="container">
-                        <div class="footer-widget-wrapper">
-                            <div class="row">
-                                <div class="col-xl-2 col-md-4 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Services</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Best Tour Guide
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Tour Booking
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Hotel Booking
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Ticket Booking
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Company</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                About Us
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Community
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Jobs Careers
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="news-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                News Blog
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Destinations</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                African Safaris
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Alaska & Canada
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                South America
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Middle East
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Get In Touch</h4>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-map-location-dot"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    578 Level, D-block Street <br>
-                                                    Melbourne, Australia
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-regular fa-envelope"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="mailto:supportrevelo@gmail.com">supportrevelo@gmail.com</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="contact-item mb-0">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-phone-volume"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    <a href="tel:+88012334588">+880 123 345 88</a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-6">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Subscribe Our Newsletter to <br>
-                                                get more offer & Tips
-                                            </h4>
-                                        </div>
-                                        <div class="newsletter-content">
-                                            <p>
-                                                Stay connected & never miss a deal! subscribe
-                                                to our newsletter and get travel offers
-                                            </p>
-                                            <form action="#">
-                                                <div class="form-clt">
-                                                    <input type="text" name="email" id="email" placeholder="Email Address">
-                                                    <button type="submit" class="theme-btn">
-                                                    Subscribe
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <div class="container">
-                            <div class="footer-wrapper">
-                                <h2>Roavio</h2>
-                                <div class="text-item">
-                                    <p>@Copy 2025 <span>ROAVIO,</span> All rights reserved</p>
-                                    <a href="#" class="icon"><i class="fa-solid fa-chevron-up"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-             </div>
-         </div>
 
-        <!--<< All JS Plugins >>-->
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Viewport Js >>-->
-        <script src="assets/js/viewport.jquery.js"></script>
-        <!--<< Bootstrap Js >>-->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <!--<< Gsap Min Js >>-->
-        <script src="assets/js/gsap.min.js"></script>
-        <!--<< ScrollTrigger Min Js >>-->
-        <script src="assets/js/ScrollTrigger.min.js"></script>
-        <!--<< ScrollSmoother Min Js >>-->
-        <script src="assets/js/ScrollSmoother.min.js"></script>
-        <!--<< ScrollToPlugin Min Js >>-->
-        <script src="assets/js/split-type.min.js"></script>
-        <!--<< SplitText Min Js >>-->
-        <script src="assets/js/SplitText.min.js"></script>
-        <!--<< nice-selec Js >>-->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Waypoints Js >>-->
-        <script src="assets/js/jquery.waypoints.js"></script>
-        <!--<< Counterup Js >>-->
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Wow Animation Js >>-->
-        <script src="assets/js/wow.min.js"></script>
-        <!--<< Main.js >>-->
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/form-handler.js"></script>
-    </body>
+                        <div class="pd-top">
+                            <a href="index.html" class="pd-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+                            <div class="pd-top-title">
+                                <h1>Frequently asked questions</h1>
+                                <p>How projects work with PS Web Studio, from first message to launch and support.</p>
+                            </div>
+                            <div class="pd-top-actions">
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green"><i class="fa-regular fa-paper-plane"></i> Get a quote</a>
+                            </div>
+                        </div>
+
+                        <div class="faq-hero">
+
+                            <!-- LEFT: search, filters, questions -->
+                            <div class="faq-main">
+
+                                <div class="pd-card faq-tools">
+                                    <div class="faq-search">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <input type="search" id="faqSearch" placeholder="Search questions, e.g. timeline, SEO, hosting" aria-label="Search FAQs" autocomplete="off">
+                                    </div>
+                                    <div class="faq-cats" id="faqCats" role="group" aria-label="Filter by topic">
+                                        <button type="button" class="faq-cat" data-cat="all" aria-pressed="true">All <span class="n"></span></button>
+                                        <button type="button" class="faq-cat" data-cat="general" aria-pressed="false">General <span class="n"></span></button>
+                                        <button type="button" class="faq-cat" data-cat="process" aria-pressed="false">Process &amp; timeline <span class="n"></span></button>
+                                        <button type="button" class="faq-cat" data-cat="pricing" aria-pressed="false">Pricing &amp; payment <span class="n"></span></button>
+                                        <button type="button" class="faq-cat" data-cat="tech" aria-pressed="false">Tech &amp; SEO <span class="n"></span></button>
+                                        <button type="button" class="faq-cat" data-cat="support" aria-pressed="false">Support &amp; ownership <span class="n"></span></button>
+                                    </div>
+                                    <p class="faq-count" id="faqCount" aria-live="polite"></p>
+                                </div>
+
+                                <div id="faqList" class="faq-main" style="gap:12px">
+
+                                    <!-- GENERAL -->
+                                    <details class="pd-card faq-item" data-cat="general" id="q-what-you-do">
+                                        <summary>What kind of websites does PS Web Studio build? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Business websites, travel and tourism sites, healthcare and clinic sites, and service-business sites. Work is frontend-led: responsive layouts, fast pages, clean markup and on-page SEO, with MySQL and AJAX integration where a site needs forms, listings or an admin-managed content area.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="general" id="q-who-works">
+                                        <summary>Who will work on my project? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>PS Web Studio is run by a working frontend developer based in Mumbai. You deal with the person building your site, not an account manager passing notes. If a project needs a specialist (a copywriter or a photographer, for example), that is discussed and agreed with you first.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="general" id="q-industries">
+                                        <summary>Do you have experience in my industry? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>The portfolio covers travel, healthcare and service businesses. Travel and tourism is the deepest area: itinerary pages, destination content, enquiry flows and SEO structure for tour sites. See the <a href="project/">Projects page</a> for real examples before you decide.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="general" id="q-redesign">
+                                        <summary>Can you redesign or fix my existing website? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Yes. Redesigns, speed fixes, mobile layout problems, broken forms and SEO clean-ups are all common requests. Send the URL with your quote request. A short review of the current site comes first, so the scope reflects what is actually wrong rather than a full rebuild by default.</p>
+                                        </div>
+                                    </details>
+
+                                    <!-- PROCESS -->
+                                    <details class="pd-card faq-item" data-cat="process" id="q-how-start">
+                                        <summary>How do I start a project? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Use the <a href="javascript:void(0);" onclick="openQuoteModal()">Get a Quote</a> form, or message on <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>. The more you include, the faster the reply:</p>
+                                            <ul>
+                                                <li>What the business does and who the site is for</li>
+                                                <li>Pages or features you expect</li>
+                                                <li>Two or three websites you like, and why</li>
+                                                <li>Your target launch date and rough budget</li>
+                                            </ul>
+                                            <p>You get a scope and price within one business day.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="process" id="q-steps">
+                                        <summary>What are the steps from brief to launch? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <ul>
+                                                <li><strong>Scope:</strong> pages, features and content agreed in writing.</li>
+                                                <li><strong>Design:</strong> layout and visual direction shared for your feedback.</li>
+                                                <li><strong>Build:</strong> responsive development and any database or form integration.</li>
+                                                <li><strong>Review:</strong> you test on a staging link and send one consolidated list of changes.</li>
+                                                <li><strong>Launch:</strong> domain, hosting, SEO basics and final checks.</li>
+                                            </ul>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="process" id="q-timeline">
+                                        <summary>How long does a website take? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>It depends on page count and features, and above all on how quickly content and feedback arrive. A small brochure site is typically a matter of weeks. A larger site with listings, enquiry flows or a database takes longer. The exact timeline goes into your quote, and you can pick a preferred window in the quote form.</p>
+                                            <span class="faq-tag">Content delays are the most common cause of late launches</span>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="process" id="q-content">
+                                        <summary>Do I need to provide the text and images? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Ideally yes, since you know the business best. If you have rough notes, they can be shaped into page copy. Images should be real photos of your business, team or destinations where possible. Stock photos work as placeholders but rarely build trust. Tell us up front what you can supply so it is reflected in the timeline.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="process" id="q-revisions">
+                                        <summary>How many rounds of changes are included? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>The number of revision rounds is stated in your quote. Changes within the agreed scope are covered. New pages or features added mid-project are quoted separately, so the original price stays clear. Sending feedback as one consolidated list per round keeps things moving.</p>
+                                        </div>
+                                    </details>
+
+                                    <!-- PRICING -->
+                                    <details class="pd-card faq-item" data-cat="pricing" id="q-cost">
+                                        <summary>How much does a website cost? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>There is no fixed price list because scope varies too much. Cost is driven by:</p>
+                                            <ul>
+                                                <li>Number of pages and templates</li>
+                                                <li>Custom design versus a lighter layout</li>
+                                                <li>Features: enquiry forms, listings, database, admin panel</li>
+                                                <li>Content and SEO work included</li>
+                                            </ul>
+                                            <p>Send the brief and you receive a written breakdown, so you can see what each part costs.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="pricing" id="q-payment">
+                                        <summary>How does payment work? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Payment is split into milestones, with an advance to begin and the balance tied to delivery. The schedule and accepted payment methods are written into your quote before any work starts. For larger projects, more milestones can be agreed.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="pricing" id="q-extra-costs">
+                                        <summary>What costs are not included in the build price? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Third-party costs are usually separate and paid to the provider directly, in your name:</p>
+                                            <ul>
+                                                <li>Domain registration and yearly renewal</li>
+                                                <li>Hosting</li>
+                                                <li>Paid plugins, premium fonts or licensed images</li>
+                                                <li>Email, SMS or payment-gateway fees</li>
+                                            </ul>
+                                            <p>These are listed in the quote so nothing appears later.</p>
+                                        </div>
+                                    </details>
+
+                                    <!-- TECH -->
+                                    <details class="pd-card faq-item" data-cat="tech" id="q-stack">
+                                        <summary>What technologies do you use? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>HTML5, CSS3, JavaScript and jQuery for the frontend, with Bootstrap or Tailwind CSS for layout. MySQL and AJAX handle dynamic content such as listings, enquiry storage and admin-managed pages. The choice follows the project: a simple site gets a simple stack.</p>
+                                            <p>The work is frontend-first. If a project needs heavy custom server-side logic beyond that, you are told at the quote stage rather than after work begins.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="tech" id="q-mobile">
+                                        <summary>Will my site work on phones and tablets? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Yes. Every site is built mobile-first and checked across common screen sizes and browsers before launch. Most visitors to travel and local-service sites arrive on a phone, so the mobile layout gets the same attention as desktop.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="tech" id="q-seo">
+                                        <summary>Do you handle SEO? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>On-page and technical SEO are part of the build: clean heading structure, title and meta tags, image alt text, schema markup, sitemap and robots setup, page speed and internal linking. That gives a site a sound base to rank from.</p>
+                                            <p>Nobody can promise a specific ranking or a date for page one. Rankings also depend on content quality, competition and links over time. Anyone who guarantees otherwise is selling you something they do not control.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="tech" id="q-speed">
+                                        <summary>How do you keep the site fast? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Compressed and correctly sized images, lazy loading below the fold, minimal render-blocking scripts and lean CSS. Pages are tested before launch, and speed problems found on an older site are listed in the review step.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="tech" id="q-forms">
+                                        <summary>Can the site collect enquiries and send them to my email? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>Yes. Enquiry and contact forms can email submissions to you, store them in a database, or both, with spam protection and a clear success message for the visitor. WhatsApp click-to-chat buttons can be added alongside.</p>
+                                        </div>
+                                    </details>
+
+                                    <!-- SUPPORT -->
+                                    <details class="pd-card faq-item" data-cat="support" id="q-ownership">
+                                        <summary>Who owns the website and the code after delivery? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>You do. Once the final payment is made, the site files, content and design for your project are yours. Domain and hosting accounts should be registered in your name from the start. That way you are never locked in to anyone, including PS Web Studio.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="support" id="q-after-launch">
+                                        <summary>What happens after the site goes live? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>A short post-launch window covers bugs in what was delivered. After that, updates, new pages, content changes and ongoing SEO can be handled as small paid tasks or a monthly arrangement. Which one fits depends on how often your site changes.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="support" id="q-edit">
+                                        <summary>Can I edit the content myself later? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>If you plan to update content often, say so in the brief. Sections such as listings or announcements can be driven from a database with a simple admin area. A static brochure site is cheaper and faster, but changes go through a developer. Choosing between the two early avoids a rebuild later.</p>
+                                        </div>
+                                    </details>
+
+                                    <details class="pd-card faq-item" data-cat="support" id="q-contact">
+                                        <summary>What is the best way to reach you during a project? <i class="fa-solid fa-chevron-down"></i></summary>
+                                        <div class="faq-body">
+                                            <p>WhatsApp for quick questions, email at <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a> for files and approvals, and a call when something is easier to explain out loud. Written approvals on email keep a clear record of what was agreed.</p>
+                                        </div>
+                                    </details>
+
+                                    <div class="pd-card faq-empty" id="faqEmpty">
+                                        <h3>No matching questions</h3>
+                                        <p>Try a different word, or ask directly and get a reply within one business day.</p>
+                                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green">Ask a question</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT: contact card -->
+                            <aside class="faq-aside">
+                                <div class="pd-card faq-side">
+                                    <h2>Still have a question?</h2>
+                                    <p>Send the details of your project. You get a reply with scope and price within one business day.</p>
+                                    <dl class="faq-facts">
+                                        <div><dt>Reply time</dt><dd>1 business day</dd></div>
+                                        <div><dt>Based in</dt><dd>Mumbai, India</dd></div>
+                                        <div><dt>Projects</dt><dd>14+ delivered</dd></div>
+                                    </dl>
+                                    <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green"><i class="fa-regular fa-paper-plane"></i> Get a quote</a>
+                                    <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer" class="pd-btn"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                                    <a href="mailto:pswebstudio.dev@gmail.com" class="pd-btn"><i class="fa-regular fa-envelope"></i> Email us</a>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="pd-card pd-cta">
+                            <div>
+                                <h2>Ready to plan your website?</h2>
+                                <p>Send the brief and you'll get a scope and price within one business day.</p>
+                            </div>
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green">Get a quote</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Contact / Quote Modal (same as Home Page) -->
+            <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="psm-box">
+                    <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <aside class="psm-side">
+                        <div class="psm-side-top">
+                            <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                            <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="psm-lead">Confirm your project details and share your contact information. We will send a tailored proposal.</p>
+                        </div>
+                        <div class="psm-summary" id="projectSummary">
+                            <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                            <div class="psm-row"><span class="psm-row-label">Service</span><span class="psm-row-value" id="summaryService">Custom Web Development</span></div>
+                            <div class="psm-row"><span class="psm-row-label">Estimated Budget</span><span class="psm-row-value" id="summaryBudget">Flexible</span></div>
+                            <div class="psm-row"><span class="psm-row-label">Category</span><span class="psm-row-value" id="summaryType">Commercial Website</span></div>
+                        </div>
+                        <ul class="psm-perks">
+                            <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+                        </ul>
+                    </aside>
+                    <div class="psm-main">
+                        <h3 class="psm-main-title">Contact Details</h3>
+                        <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+                        <form id="contactForm" class="modal-form psm-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="service" id="modalService">
+                            <input type="hidden" name="budget" id="modalBudget">
+                            <input type="hidden" name="project-type" id="modalProjectType">
+                            <div class="psm-fields">
+                                <div class="psm-grid">
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                        <div class="psm-input"><i class="fa-regular fa-user"></i><input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                        <div class="psm-input"><i class="fa-regular fa-envelope"></i><input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                        <div class="psm-input"><i class="fa-solid fa-phone"></i><input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalCompany">Company</label>
+                                        <div class="psm-input"><i class="fa-regular fa-building"></i><input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization"></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalTimeline">Preferred Timeline</label>
+                                        <div class="psm-input psm-select"><i class="fa-regular fa-calendar"></i><select id="modalTimeline" name="timeline"><option value="">Select timeline</option><option>Within 2 weeks</option><option>1 month</option><option>2-3 months</option><option>Flexible</option></select></div>
+                                    </div>
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalMessage">Project Requirements</label>
+                                        <div class="psm-input psm-textarea"><textarea id="modalMessage" name="message" rows="4" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea></div>
+                                    </div>
+                                    <div class="psm-full form-group checkbox-group">
+                                        <label class="psm-check" for="modalAgree"><input type="checkbox" id="modalAgree" name="agree" required checked><span>I agree to receive project communication regarding my inquiry.</span></label>
+                                    </div>
+                                    <div class="psm-full">
+                                        <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn"><span class="btn-text"><i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry</span><span class="btn-spinner d-none"><i class="fa-solid fa-spinner fa-spin"></i> Processing Request...</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-success psm-success d-none">
+                                <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                                <h3>Inquiry Submitted Successfully</h3>
+                                <p>Our team will review your requirements and contact you within one business day.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Section Start -->
+            <footer class="footer-section fix header-bg">
+                <div class="container">
+                    <div class="footer-widget-wrapper">
+                        <div class="row">
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Services</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimization</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX Integration</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Company</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                        <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Technologies</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Get In Touch</h4></div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                        <div class="content"><h6>Mumbai, Maharashtra <br> India</h6></div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                        <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
+                                    </div>
+                                    <div class="contact-item mb-0">
+                                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                        <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4></div>
+                                    <div class="newsletter-content">
+                                        <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
+                                        <form action="#">
+                                            <div class="form-clt">
+                                                <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                <button type="submit" class="theme-btn">Subscribe</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom style-1">
+                    <div class="container">
+                        <div class="footer-wrapper">
+                            <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!--<< All JS Plugins >>-->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/split-type.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form-handler.js"></script>
+
+    <!-- Preloader Hide Fix -->
+    <script>
+    (function () {
+        function hidePreloader() {
+            var p = document.getElementById('preloader');
+            if (p) { p.classList.add('hide'); setTimeout(function () { p.style.display = 'none'; }, 500); }
+        }
+        hidePreloader();
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hidePreloader);
+        setTimeout(hidePreloader, 2000);
+    })();
+    </script>
+
+    <!-- FAQ: filter, search, single-open accordion, FAQPage schema -->
+    <script>
+    (function () {
+        var list = document.getElementById('faqList');
+        var items = Array.prototype.slice.call(list.querySelectorAll('.faq-item'));
+        var cats = Array.prototype.slice.call(document.querySelectorAll('.faq-cat'));
+        var search = document.getElementById('faqSearch');
+        var count = document.getElementById('faqCount');
+        var empty = document.getElementById('faqEmpty');
+        var activeCat = 'all';
+
+        // Counts per category
+        cats.forEach(function (b) {
+            var c = b.dataset.cat;
+            var n = c === 'all' ? items.length : items.filter(function (i) { return i.dataset.cat === c; }).length;
+            b.querySelector('.n').textContent = '(' + n + ')';
+        });
+
+        // Add chevron icon is already in markup; keep one item open at a time
+        items.forEach(function (d) {
+            d.addEventListener('toggle', function () {
+                if (d.open) items.forEach(function (o) { if (o !== d) o.open = false; });
+            });
+        });
+
+        function apply() {
+            var q = search.value.trim().toLowerCase();
+            var shown = 0;
+            items.forEach(function (d) {
+                var okCat = activeCat === 'all' || d.dataset.cat === activeCat;
+                var okText = !q || d.textContent.toLowerCase().indexOf(q) !== -1;
+                var show = okCat && okText;
+                d.style.display = show ? '' : 'none';
+                if (!show) d.open = false;
+                if (show) shown++;
+            });
+            empty.style.display = shown ? 'none' : 'block';
+            count.textContent = shown + (shown === 1 ? ' question' : ' questions');
+        }
+
+        cats.forEach(function (b) {
+            b.addEventListener('click', function () {
+                activeCat = b.dataset.cat;
+                cats.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+                apply();
+            });
+        });
+        search.addEventListener('input', apply);
+
+        // Deep link: faq.html#q-timeline opens that answer
+        function openFromHash() {
+            var id = location.hash.slice(1);
+            var el = id && document.getElementById(id);
+            if (el && el.classList.contains('faq-item')) {
+                el.open = true;
+                setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
+            }
+        }
+        openFromHash();
+        window.addEventListener('hashchange', openFromHash);
+        apply();
+
+        // FAQPage structured data, built from the visible content so the two never drift apart
+        try {
+            var data = {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: items.map(function (d) {
+                    var q = d.querySelector('summary').textContent.trim();
+                    var a = d.querySelector('.faq-body').textContent.replace(/\s+/g, ' ').trim();
+                    return { '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } };
+                })
+            };
+            var s = document.createElement('script');
+            s.type = 'application/ld+json';
+            s.textContent = JSON.stringify(data);
+            document.head.appendChild(s);
+        } catch (e) { /* schema is optional */ }
+    })();
+    </script>
+
+    <!-- WhatsApp Floating Chat & Popup -->
+    <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+        <div class="psws-whatsapp-header">
+            <div class="psws-whatsapp-header-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="psws-whatsapp-header-info">
+                <div class="psws-whatsapp-title">PSWeb Studio</div>
+                <div class="psws-whatsapp-status">● Typically replies instantly</div>
+            </div>
+            <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp">
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="psws-whatsapp-body">
+            <div class="psws-whatsapp-message">
+                <p>How can I help you? :)</p>
+                <div class="psws-whatsapp-time" id="pswsWhatsappTime">23:03</div>
+            </div>
+        </div>
+        <div class="psws-whatsapp-footer">
+            <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                <div class="psws-whatsapp-input-wrapper">
+                    <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                    <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+</body>
 </html>

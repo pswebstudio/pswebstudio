@@ -1,0 +1,88 @@
+
+# ==================================================
+# PS WEB STUDIO - APACHE CONFIGURATION
+# ==================================================
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# --------------------------------------------------
+# 1. Force HTTPS
+# --------------------------------------------------
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# --------------------------------------------------
+# 2. Remove WWW (Use non-www domain)
+# Replace example.com with your actual domain
+# --------------------------------------------------
+# RewriteCond %{HTTP_HOST} ^www\.example\.com$ [NC]
+# RewriteRule ^ https://example.com%{REQUEST_URI} [R=301,L]
+
+# --------------------------------------------------
+# 3. Custom 404 Error Page
+# --------------------------------------------------
+ErrorDocument 404 /404.html
+
+# --------------------------------------------------
+# 4. Security Headers
+# --------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --------------------------------------------------
+# 5. Disable Directory Browsing
+# --------------------------------------------------
+Options -Indexes
+
+# --------------------------------------------------
+# 6. Protect Sensitive Files
+# --------------------------------------------------
+<FilesMatch "^(\.htaccess|\.htpasswd|\.env|composer\.(json|lock)|package(-lock)?\.json)$">
+    Require all denied
+</FilesMatch>
+
+# --------------------------------------------------
+# 7. Block Access to Backup and Configuration Files
+# --------------------------------------------------
+<FilesMatch "\.(bak|config|sql|ini|log|sh|old|orig|save|swp)$">
+    Require all denied
+</FilesMatch>
+
+# --------------------------------------------------
+# 8. Browser Caching
+# --------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    ExpiresByType font/woff2 "access plus 1 year"
+
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --------------------------------------------------
+# 9. Compression
+# --------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>

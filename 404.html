@@ -1,559 +1,203 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <!--<< Header Area >>-->
-    <head>
-      <!-- ========== Meta Tags ========== -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="webtend">
-        <meta name="description" content="Roavio - Travel & Tour Booking Html Template">
-        <!-- ======== Page title ============ -->
-        <title>Roavio - Travel & Tour Booking Html Template</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.svg">
-        <!--<< Bootstrap min.css >>-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--<< All Min Css >>-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-        <!--<< Animate.css >>-->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Swiper Bundle.css >>-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Flacticon.css >>-->
-        <link rel="stylesheet" href="assets/css/flacticon.css">
-        <!--<< Main.css >>-->
-        <link rel="stylesheet" href="assets/css/main.css">
-    </head>
-    <body>
 
-      
-       
-        <!-- Preloader Start -->
-     <div id="preloader" class="preloader">
-            <div class="spinner"></div>
-        </div> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Back To Top Start -->
-        <button id="back-top" class="back-to-top show">
-            <i class="fa-regular fa-arrow-up"></i>
-        </button>
+    <title>404 - Page Not Found | PS Web Studio</title>
 
-        <!-- MouseCursor Start -->
-        <div class="mouseCursor cursor-outer"></div>
-        <div class="mouseCursor cursor-inner"></div>
+    <meta name="description" content="The page you're looking for could not be found. Visit PS Web Studio to explore our website development services.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="PS Web Studio">
 
-                 <!-- Offcanvas Mobile Menu Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button aria-label="Close menu">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="text d-none d-xl-block">
-                            PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h3>Let's Build Something Great</h3>
+    <link rel="canonical" href="https://pswebstudio.netlify.app/404.html">
 
-                            <div class="contact-info mt-3 mb-4">
-                                <p class="text text-md">
-                                    <i class="fa-solid fa-envelope me-2"></i>
-                                    <a href="mailto:pswebstudio.dev@gmail.com">
-                                        pswebstudio.dev@gmail.com
-                                    </a>
-                                </p>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png">
 
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-phone me-2"></i>
-                                    <a href="tel:+918793400545">
-                                        +91 87934 00545
-                                    </a>
-                                </p>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 
-                                <p class="text text-md mt-2">
-                                    <i class="fa-solid fa-globe me-2"></i>
-                                    <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">
-                                        pswebstudio.netlify.app
-                                    </a>
-                                </p>
-                            </div>
+    <style>
+        .error-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            text-align: center;
+            background: #f8f8f8;
+        }
 
-                            <a href="javascript:void(0);" onclick="openQuoteModal()"
-                            class="theme-btn theme-btn-sm gap-2 log-bt">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                Start a Project
-                            </a>
+        .error-content {
+            max-width: 650px;
+            width: 100%;
+        }
 
-                            <h3 class="mb-0 mt-4">Connect With Us</h3>
+        .error-number {
+        font-size: clamp(110px, 22vw, 130px);
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -3px;
+        color: var(--ott-accent-2);
+        margin-bottom: 20px;
 
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.instagram.com/your-instagram/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
+        }
 
-                                <a href="https://www.linkedin.com/company/your-company/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
+        .error-label {
+          display: inline-block;
+          padding: 8px 18px;
+          background: rgb(221 232 253);
+          color: #163e8e;
+          border-radius: 30px;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 20px
+        }
 
-                                <a href="https://www.facebook.com/your-page/"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
+        .error-content h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 700;
+            color: #171717;
+            margin-bottom: 18px;
+        }
 
-                                <a href="https://wa.me/918793400545"
-                                target="_blank" rel="nofollow noopener noreferrer"
-                                aria-label="WhatsApp">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        .error-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666;
+            max-width: 510px;
+            margin: 0 auto 30px;
+        }
+
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .error-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 10px 23px;
+          border-radius: 5px;
+          font-size: 14px;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .error-btn-primary {
+          background: var(--bs-primary);
+          color: #fff;
+          }
+
+        .error-btn-primary:hover {
+            background: #171717;
+            color: #fff;
+        }
+
+        .error-btn-secondary {
+            border: 1px solid #ddd;
+            color: #171717;
+            background: #fff;
+        }
+
+        .error-btn-secondary:hover {
+            border-color: #ac6e34;
+            color: #ac6e34;
+        }
+
+        .error-footer {
+            margin-top: 55px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .error-footer a {
+            color: #163e8e;
+            text-decoration: none;
+        }
+
+        @media (max-width: 575px) {
+            .error-wrapper {
+                padding: 60px 18px;
+            }
+
+            .error-number {
+                letter-spacing: -6px;
+            }
+
+            .error-content p {
+                font-size: 14px;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .error-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="error-wrapper">
+        <div class="error-content">
+
+            <div class="error-number">404</div>
+
+            <span class="error-label">Page Not Found</span>
+
+            <h1>Oops! This Page Is Missing.</h1>
+
+            <p>
+                The page you're looking for may have been moved,
+                deleted, or the link might be incorrect.
+                Don't worry, let's get you back on track.
+            </p>
+
+            <div class="error-actions">
+                <a href="index.html" class="error-btn error-btn-primary">
+                    <i class="fa-solid fa-house"></i>
+                    Back to Homepage
+                </a>
+
+                <a href="contact.html" class="error-btn error-btn-secondary">
+                    <i class="fa-regular fa-envelope"></i>
+                    Contact Us
+                </a>
             </div>
+
+            <div class="error-footer">
+                <p>
+                    © <span id="currentYear"></span>
+                    <a href="index.html">PS Web Studio</a>.
+                    All Rights Reserved.
+                </p>
+            </div>
+
         </div>
-        <div class="offcanvas__overlay"></div>
+    </main>
 
-         <!-- Header-Top Section Start -->
-                <!-- Header Top Section Start -->
-        <div class="header-top-section">
-            <div class="container-fluid">
-                <div class="header-top-wrapper">
-                    <p>
-                        <span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a>
-                    </p>
-                    <div class="header-right">
-                        <ul class="header-list">
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-phone"></i>
-                                <a href="tel:+918793400545">+91 87934 00545</a>
-                            </li>
-                            <li>
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
 
-        <!-- Header Main Section Start -->
-        <header id="header-sticky" class="header-1">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="header-left">
-                            <div class="logo">
-                                <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
-                             <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li class=""><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                                            <li class=""><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
-                                            <li class=""><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
-                                            <li class=""><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
-                                            <li class=""><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
-                                            <li class=""><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="header-button">
-                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a>
-                            </div>
-                            <div class="header__hamburger my-auto">
-                                <div class="sidebar__toggle">
-                                    <i class="fa-solid fa-bars-staggered"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header> 
-
-     <div id="smooth-wrapper">
-        <div id="smooth-content">
-
-      <!-- error Section Start -->
-       <section class="error-section section-padding fix">
-           <div class="text">404 (page not found)</div>
-          <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="error-item">
-                        <div class="error-image">
-                            <img src="assets/img/inner-page/404.png" alt="img">
-                        </div>
-                        <div class="error-content">
-                            <h2 class="text-anim">Sorry! page can’t be found</h2>
-                            <p>Sorry, the page you’re looking for doesn’t exist or may have been moved.</p>
-                             <a href="index.html" class="theme-btn" data-animation="fadeInUp" data-delay="1.3s">Go to Home</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-       </section>
-      
-
-       <!-- Contact Section Start -->
-       <section class="contact-section section-padding pb-0">
-            <div class="container">
-                <div class="contact-wrapper">
-                    <div class="row g-4 align-items-end">
-                        <div class="col-lg-6">
-                            <div class="contact-image">
-                                <img data-speed=".8" src="assets/img/home-1/Image.jpg" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="contact-content">
-                                <div class="logo-image">
-                                    <a href="index.html"><img src="assets/img/logo/white-logo.svg" alt="img"></a>
-                                </div>
-                                <div class="section-title mb-0">
-                                    <h2 class="sec-title text-white text-anim">
-                                        Adventure is calling – are you ready?
-                                    </h2>
-                                </div>
-                                <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                   Get ready to embark on unforgettable journeys with us. whether you’re seeking thrilling adventures, relaxing escapes
-                                </p>
-                                <a href="tour-details.html" class="theme-btn">Explore Our Tours</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-       </section>
-
-       <!-- Footer Section Start -->
-        <!-- Contact / Quote Modal -->
-        <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="psm-box">
-                <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <aside class="psm-side">
-                    <div class="psm-side-top">
-                        <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
-                        <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
-                        <p class="psm-lead">Confirm your project details and share your contact information. We will send a tailored proposal.</p>
-                    </div>
-                    <div class="psm-summary" id="projectSummary">
-                        <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
-                        <div class="psm-row"><span class="psm-row-label">Service</span><span class="psm-row-value" id="summaryService">Custom Web Development</span></div>
-                        <div class="psm-row"><span class="psm-row-label">Estimated Budget</span><span class="psm-row-value" id="summaryBudget">Flexible</span></div>
-                        <div class="psm-row"><span class="psm-row-label">Category</span><span class="psm-row-value" id="summaryType">Commercial Website</span></div>
-                    </div>
-                    <ul class="psm-perks">
-                        <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
-                        <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
-                        <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
-                    </ul>
-                </aside>
-                <div class="psm-main">
-                    <h3 class="psm-main-title">Contact Details</h3>
-                    <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
-                    <form id="contactForm" class="modal-form psm-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                        <input type="hidden" name="form-name" value="contact">
-                        <input type="hidden" name="service" id="modalService">
-                        <input type="hidden" name="budget" id="modalBudget">
-                        <input type="hidden" name="project-type" id="modalProjectType">
-                        <div class="psm-fields">
-                            <div class="psm-grid">
-                                <div class="psm-field psm-full form-group">
-                                    <label for="modalName">Full Name <span class="psm-req">*</span></label>
-                                    <div class="psm-input"><i class="fa-regular fa-user"></i><input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalEmail">Email <span class="psm-req">*</span></label>
-                                    <div class="psm-input"><i class="fa-regular fa-envelope"></i><input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
-                                    <div class="psm-input"><i class="fa-solid fa-phone"></i><input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalCompany">Company</label>
-                                    <div class="psm-input"><i class="fa-regular fa-building"></i><input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization"></div>
-                                </div>
-                                <div class="psm-field form-group">
-                                    <label for="modalTimeline">Preferred Timeline</label>
-                                    <div class="psm-input psm-select"><i class="fa-regular fa-calendar"></i><select id="modalTimeline" name="timeline"><option value="">Select timeline</option><option>Within 2 weeks</option><option>1 month</option><option>2-3 months</option><option>Flexible</option></select></div>
-                                </div>
-                                <div class="psm-field psm-full form-group">
-                                    <label for="modalMessage">Project Requirements</label>
-                                    <div class="psm-input psm-textarea"><textarea id="modalMessage" name="message" rows="4" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea></div>
-                                </div>
-                                <div class="psm-full form-group checkbox-group">
-                                    <label class="psm-check" for="modalAgree"><input type="checkbox" id="modalAgree" name="agree" required checked><span>I agree to receive project communication regarding my inquiry.</span></label>
-                                </div>
-                                <div class="psm-full">
-                                    <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn"><span class="btn-text"><i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry</span><span class="btn-spinner d-none"><i class="fa-solid fa-spinner fa-spin"></i> Processing Request...</span></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-success psm-success d-none">
-                            <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
-                            <h3>Inquiry Submitted Successfully</h3>
-                            <p>Our team will review your requirements and contact you within one business day.</p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer-section fix header-bg">
-        <div class="container">
-            <div class="footer-widget-wrapper">
-                <div class="row">
-                    <div class="col-xl-2 col-md-4 col-lg-3">
-                        <div class="single-footer-widget">
-                            <div class="wid-title">
-                                <h4>Services</h4>
-                            </div>
-                            <ul class="list-area">
-                                <li>
-                                    <a href="tour-details.html">
-                                       <i class="fa-solid fa-chevron-right"></i>
-                                        Best Tour Guide
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tour-details.html">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        Tour Booking
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        Hotel Booking
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">
-                                       <i class="fa-solid fa-chevron-right"></i>
-                                        Ticket Booking
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-lg-3">
-                        <div class="single-footer-widget">
-                            <div class="wid-title">
-                                <h4>Company</h4>
-                            </div>
-                            <ul class="list-area">
-                                <li>
-                                    <a href="about.html">
-                                       <i class="fa-solid fa-chevron-right"></i>
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        Community
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        Jobs Careers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="news-details.html">
-                                       <i class="fa-solid fa-chevron-right"></i>
-                                        News Blog
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4 col-lg-3">
-                        <div class="single-footer-widget">
-                            <div class="wid-title">
-                                <h4>Destinations</h4>
-                            </div>
-                            <ul class="list-area">
-                                <li>
-                                    <a href="tour-details.html">
-                                       <i class="fa-solid fa-chevron-right"></i>
-                                       African Safaris
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tour-details.html">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        Alaska & Canada
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tour-details.html">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                        South America
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tour-details.html">
-                                       <i class="fa-solid fa-chevron-right"></i>
-                                       Middle East
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="single-footer-widget">
-                            <div class="wid-title">
-                                <h4>Get In Touch</h4>
-                            </div>
-                           <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fa-solid fa-map-location-dot"></i>
-                                </div>
-                                <div class="content">
-                                    <h6>
-                                        578 Level, D-block Street <br>
-                                        Melbourne, Australia
-                                    </h6>
-                                </div>
-                           </div>
-                           <div class="contact-item">
-                                <div class="icon">
-                                   <i class="fa-regular fa-envelope"></i>
-                                </div>
-                                <div class="content">
-                                    <h6>
-                                       <a href="mailto:supportrevelo@gmail.com">supportrevelo@gmail.com</a>
-                                    </h6>
-                                </div>
-                           </div>
-                           <div class="contact-item mb-0">
-                                <div class="icon">
-                                   <i class="fa-solid fa-phone-volume"></i>
-                                </div>
-                                <div class="content">
-                                    <h6>
-                                      <a href="tel:+88012334588">+880 123 345 88</a>
-                                    </h6>
-                                </div>
-                           </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-6">
-                        <div class="single-footer-widget">
-                            <div class="wid-title">
-                                <h4>Subscribe Our Newsletter to <br>
-                                    get more offer & Tips
-                                </h4>
-                            </div>
-                           <div class="newsletter-content">
-                            <p>
-                                Stay connected & never miss a deal! subscribe
-                                to our newsletter and get travel offers
-                            </p>
-                            <form action="#">
-                                <div class="form-clt">
-                                    <input type="text" name="email" id="email" placeholder="Email Address">
-                                    <button type="submit" class="theme-btn">
-                                        Subscribe
-                                    </button>
-                                </div>
-                             </form>
-                           </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-wrapper">
-                    <h2>Roavio</h2>
-                    <div class="text-item">
-                        <p>@Copy 2025 <span>ROAVIO,</span> All rights reserved</p>
-                        <a href="#" class="icon"><i class="fa-solid fa-chevron-up"></i></a>
-                    </div>
-                </div>
-            </div>
-         </div>
-       </footer>
-        </div>
-     </div>
-
-       
-
-       <!--<< All JS Plugins >>-->
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Viewport Js >>-->
-        <script src="assets/js/viewport.jquery.js"></script>
-        <!--<< Bootstrap Js >>-->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <!--<< Gsap Min Js >>-->
-        <script src="assets/js/gsap.min.js"></script>
-        <!--<< ScrollTrigger Min Js >>-->
-        <script src="assets/js/ScrollTrigger.min.js"></script>
-        <!--<< ScrollSmoother Min Js >>-->
-        <script src="assets/js/ScrollSmoother.min.js"></script>
-        <!--<< ScrollToPlugin Min Js >>-->
-        <script src="assets/js/split-type.min.js"></script>
-        <!--<< SplitText Min Js >>-->
-        <script src="assets/js/SplitText.min.js"></script>
-        <!--<< nice-selec Js >>-->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Waypoints Js >>-->
-        <script src="assets/js/jquery.waypoints.js"></script>
-        <!--<< Counterup Js >>-->
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Wow Animation Js >>-->
-        <script src="assets/js/wow.min.js"></script>
-        <!--<< Main.js >>-->
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/form-handler.js"></script>
-    </body>
+</body>
 </html>

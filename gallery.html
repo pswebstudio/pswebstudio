@@ -1,718 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--<< Header Area >>-->
-    <head>
-      <!-- ========== Meta Tags ========== -->
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="webtend">
-        <meta name="description" content="Roavio - Travel & Tour Booking Html Template">
-        <!-- ======== Page title ============ -->
-        <title>Roavio - Travel & Tour Booking Html Template</title>
-        <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="assets/img/favicon.svg">
-        <!--<< Bootstrap min.css >>-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--<< All Min Css >>-->
-        <link rel="stylesheet" href="assets/css/all.min.css">
-        <!--<< Animate.css >>-->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Swiper Bundle.css >>-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Flacticon.css >>-->
-        <link rel="stylesheet" href="assets/css/flacticon.css">
-        <!--<< Main.css >>-->
-        <link rel="stylesheet" href="assets/css/main.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="PS Web Studio">
+    <meta name="description" content="Screenshots from PS Web Studio client websites across travel, healthcare and service businesses. Filter by industry and open any project.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gallery · PS Web Studio">
+    <meta property="og:description" content="Screenshots from client websites built by PS Web Studio.">
+    <title>Gallery · PS Web Studio</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
+    <link rel="shortcut icon" href="assets/img/favico/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/flacticon.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+<style>
+:root {
+    --pd-green: #12a05c;
+    --pd-green-dark: #0c8449;
+    --pd-green-soft: #e6f5ec;
+    --pd-text: #1b1b1b;
+    --pd-muted: #6e6e6e;
+    --pd-line: #e7e7e7;
+    --pd-page: #f4f4f4;
+    --pd-card: #fff;
+    --pd-panel: #f5f5f5;
+}
+.pd-page { background: var(--pd-page); padding: 28px 0 72px; color: var(--pd-text); }
+.pd-page a { text-decoration: none; }
+.pd-card { background: var(--pd-card); border-radius: 16px; }
 
-      
-       
-        <!-- Preloader Start -->
-     <div id="preloader" class="preloader">
-            <div class="spinner"></div>
-        </div> 
+.pd-top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; margin-top: 130px; }
+.pd-top-title { flex: 1; min-width: 0; }
+.pd-top-title h1 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; color: var(--pd-text); }
+.pd-top-title p { margin: 2px 0 0; font-size: 13.5px; color: var(--pd-muted); }
+.pd-top-actions { display: flex; gap: 10px; }
+.pd-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border: 1px solid var(--pd-line); border-radius: 10px;
+    background: #fff; color: var(--pd-text); font-size: 14px; font-weight: 500; cursor: pointer; line-height: 1.2;
+}
+.pd-btn:hover { border-color: #bdbdbd; }
+.pd-btn.green { background: var(--pd-green); border-color: var(--pd-green); color: #fff; }
+.pd-btn.green:hover { background: var(--pd-green-dark); border-color: var(--pd-green-dark); }
+.pd-btn:focus-visible, .gl-cat:focus-visible, .gl-tile:focus-visible, .gl-lb button:focus-visible { outline: 2px solid var(--pd-green); outline-offset: 2px; }
 
-        <!-- Back To Top Start -->
-        <button id="back-top" class="back-to-top show">
-            <i class="fa-regular fa-arrow-up"></i>
-        </button>
+/* Filter bar */
+.gl-tools { padding: 16px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.gl-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.gl-cat { padding: 7px 14px; border: 1px solid var(--pd-line); border-radius: 999px; background: #fff; color: #333; font-size: 13px; font-weight: 500; cursor: pointer; line-height: 1.4; }
+.gl-cat:hover { border-color: #bdbdbd; }
+.gl-cat[aria-pressed="true"] { background: var(--pd-green-soft); border-color: var(--pd-green); color: var(--pd-green-dark); }
+.gl-cat .n { margin-left: 4px; color: var(--pd-muted); font-weight: 400; }
+.gl-count { margin: 0; font-size: 13px; color: var(--pd-muted); }
 
-        <!-- MouseCursor Start -->
-        <div class="mouseCursor cursor-outer"></div>
-        <div class="mouseCursor cursor-inner"></div>
+/* Grid */
+.gl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+.gl-tile { all: unset; box-sizing: border-box; position: relative; display: block; overflow: hidden; border-radius: 16px; background: #e9e9e9; aspect-ratio: 16 / 10; cursor: zoom-in; }
+.gl-tile img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.gl-tile:hover img, .gl-tile:focus-visible img { transform: scale(1.04); }
+.gl-cap {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 16px 14px; text-align: left;
+    background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0)); color: #fff;
+    opacity: 0; transform: translateY(6px); transition: opacity .25s, transform .25s;
+}
+.gl-tile:hover .gl-cap, .gl-tile:focus-visible .gl-cap { opacity: 1; transform: none; }
+.gl-cap strong { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
+.gl-cap span { font-size: 12.5px; opacity: .85; }
+@media (hover: none) { .gl-cap { opacity: 1; transform: none; } }
 
-         <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content">
-                        <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+.gl-more { display: flex; justify-content: center; margin-top: 20px; }
+
+/* Skeleton / empty */
+.gl-skel { aspect-ratio: 16 / 10; border-radius: 16px; background: linear-gradient(90deg, #e9e9e9, #f3f3f3, #e9e9e9); background-size: 200% 100%; animation: glsk 1.2s infinite linear; }
+@keyframes glsk { to { background-position: -200% 0; } }
+.gl-empty { grid-column: 1 / -1; padding: 60px 20px; text-align: center; }
+.gl-empty h3 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.gl-empty p { margin: 0 0 14px; color: var(--pd-muted); }
+
+/* Lightbox */
+.gl-lb { width: 100%; max-width: min(1200px, 94vw); padding: 0; overflow: visible; border: 0; background: transparent; }
+.gl-lb::backdrop { background: rgba(0,0,0,.88); }
+.gl-lb img { display: block; width: 100%; max-height: 78vh; object-fit: contain; border-radius: 8px; }
+.gl-lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; color: #fff; }
+.gl-lb-bar p { margin: 0; font-size: 14px; }
+.gl-lb-bar small { opacity: .75; }
+.gl-lb-bar a { color: #fff; font-size: 13.5px; text-decoration: underline; white-space: nowrap; }
+.gl-lb button.x { position: absolute; top: -44px; right: 0; }
+.gl-lb button { width: 36px; height: 36px; border: 0; border-radius: 50%; background: #fff; color: #111; cursor: pointer; }
+.gl-lb button.nav { position: absolute; top: 50%; transform: translateY(-60%); }
+.gl-lb button.prev { left: 10px; }
+.gl-lb button.next { right: 10px; }
+
+.pd-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; padding: 22px 24px; }
+.pd-cta h2 { margin: 0 0 4px; font-size: 20px; font-weight: 600; }
+.pd-cta p { margin: 0; color: var(--pd-muted); font-size: 14.5px; }
+
+@media (max-width: 991px) { .gl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+    .pd-top { flex-wrap: wrap; }
+    .pd-top-actions { width: 100%; }
+    .pd-top-actions .pd-btn { flex: 1; justify-content: center; }
+    .gl-grid { grid-template-columns: minmax(0, 1fr); }
+    .pd-cta .pd-btn { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .gl-tile img, .gl-cap { transition: none; }
+    .gl-skel { animation: none; }
+}
+</style>
+</head>
+<body>
+
+    <div id="preloader" class="preloader"><div class="spinner"></div></div>
+
+    <button id="back-top" class="back-to-top show"><i class="fa-regular fa-arrow-up"></i></button>
+
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"></div>
+
+    <!-- Offcanvas Mobile Menu -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html"><img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
                         </div>
-                        <p class="text d-none d-xl-block">
-                            Nullam dignissim, ante scelerisque the  is euismod fermentum odio sem semper the is erat, a feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
-                        </p>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h3>Get Appointment</h3>
-                            <form action="#" id="contact-form" method="POST" class="contact-form-items">
-                                <div class="row g-4">
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <input type="text" name="name" id="name33" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <input type="text" name="name" id="email33" placeholder="Email Address">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-clt">
-                                            <textarea name="message" id="message2" placeholder="Enter message..."></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="offcanvas__close">
+                            <button aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
+                    </p>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Let's Build Something Great</h3>
+                        <div class="contact-info mt-3 mb-4">
+                            <p class="text text-md"><i class="fa-solid fa-envelope me-2"></i><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></p>
+                            <p class="text text-md mt-2"><i class="fa-solid fa-phone me-2"></i><a href="tel:+918793400545">+91 87934 00545</a></p>
+                            <p class="text text-md mt-2"><i class="fa-solid fa-globe me-2"></i><a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">pswebstudio.netlify.app</a></p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn theme-btn-sm gap-2 log-bt"><i class="fa-solid fa-paper-plane"></i> Start a Project</a>
+                        <h3 class="mb-0 mt-4">Connect With Us</h3>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.instagram.com/your-instagram/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/your-company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/your-page/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="offcanvas__overlay"></div>
+    </div>
+    <div class="offcanvas__overlay"></div>
 
-         <!-- Header-Top Section Start -->
-        <div class="header-top-section">
-            <div class="container-fluid">
-                <div class="header-top-wrapper">
-                    <p>
-    Welcome to <span>PS Web Studio</span> creative agency, need smart ideas for your business <b>Let’s Talk</b>
-</p>
-                    <div class="header-right">
-                        <div class="flag-wrap">
-                            <i class="fa-solid fa-globe"></i>
-                            <div class="nice-select" tabindex="0">
-                                <span class="current">
-                                    English
-                                </span>
-                                <ul class="list">
-                                    <li data-value="1" class="option selected focus">
-                                        English
-                                    </li>
-                                    <li data-value="1" class="option">
-                                        Bangla
-                                    </li>
-                                    <li data-value="1" class="option">
-                                        Hindi
-                                    </li>
-                                </ul>
-                             </div>
+    <!-- Header Top -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p><span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="javascript:void(0);" onclick="openQuoteModal()" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a></p>
+                <div class="header-right">
+                    <ul class="header-list">
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+918793400545">+91 87934 00545</a></li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="index.html" class="header-logo"><img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
                         </div>
-                        <ul class="header-list">
-                            <li>
-                                <i class="fa-solid fa-envelope"></i>
-                                <a href="mailto:pswebstudio.dev@gmail.com">Email : pswebstudio.dev@gmail.com</a>
-                            </li>
-                            <li>
-                               <i class="fa-solid fa-phone-flip"></i>
-                                <a href="tel:1-234-567-889">Call : +91 87934 00545</a>
-                            </li>
-                        </ul>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header-button"><a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a></div>
+                        <div class="header__hamburger my-auto"><div class="sidebar__toggle"><i class="fa-solid fa-bars-staggered"></i></div></div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Header Section Start -->
-         <header id="header-sticky" class="header-1">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="header-left">
-                            <div class="logo">
-                                <a href="index.html" class="header-logo">
-                                    <img src="assets/img/logo/black-logo.svg" alt="logo-img">
-                                </a>
+    </header>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <main>
+                <div class="pd-page">
+                    <div class="container">
+
+                        <div class="pd-top">
+                            <a href="index.html" class="pd-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+                            <div class="pd-top-title">
+                                <h1>Gallery</h1>
+                                <p>Screenshots from client websites built by PS Web Studio.</p>
                             </div>
-                             <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                   <nav id="mobile-menu">
-                                        <ul>
-                                            <li class="has-dropdown active menu-thumb">
-                                                <a href="index.html">
-                                                    Home 
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu has-homemenu">
-                                                    <li>
-                                                        <div class="homemenu-items">
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb">
-                                                                    <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 01
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-2.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 02
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-3.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 03
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-4.html" class="theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Home 04
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown active d-xl-none">
-                                                <a href="index.html" class="border-none">
-                                                Home
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="index.html">Home 01</a></li>
-                                                    <li><a href="index-2.html">Home 02</a></li>
-                                                    <li><a href="index-3.html">Home 03</a></li>
-                                                    <li><a href="index-4.html">Home 04</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="destination-details.html">
-                                                    Destinations
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="destination.html">Destinations 01</a></li>
-                                                    <li><a href="destination-2.html">Destinations 02</a></li>
-                                                    <li><a href="destination-details.html">Destination Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                    Tours
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="tour-list.html">Tour List</a></li>
-                                                    <li><a href="tour-grid.html">Tour Grid</a></li>
-                                                    <li><a href="tour-sidebar.html">Tour sidebar</a></li>
-                                                    <li><a href="tour-no-sidebar.html">Tour No sidebar</a></li>
-                                                    <li><a href="tour-details.html">Tour Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="news-details.html">
-                                                    Pages
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li>
-                                                        <a href="about.html">About Us</a>
-                                                    </li>
-                                                    <li><a href="team.html">Team</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                    <li><a href="faq.html">Our Faq</a></li>
-                                                    <li><a href="gallery.html">Our Gallery</a></li>
-                                                    <li><a href="404.html">404 Page</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="news-details.html">
-                                                    Blog
-                                                    <i class="fa-solid fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="news.html">Blog Standard</a></li>
-                                                    <li><a href="news-grid.html">Blog Grid</a></li>
-                                                    <li><a href="news-details.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact Us</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                            <div class="pd-top-actions">
+                                <a href="project/" class="pd-btn">All projects</a>
+                                <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green"><i class="fa-regular fa-paper-plane"></i> Get a quote</a>
                             </div>
                         </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
-                           <div class="search-widget">
-                                <form action="#">
-                                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                    <input type="text" placeholder="Search">
-                                </form>
+
+                        <div class="pd-card gl-tools">
+                            <div class="gl-cats" id="glCats" role="group" aria-label="Filter by industry"></div>
+                            <p class="gl-count" id="glCount" aria-live="polite"></p>
+                        </div>
+
+                        <div class="gl-grid" id="glGrid" aria-busy="true">
+                            <div class="gl-skel"></div><div class="gl-skel"></div><div class="gl-skel"></div>
+                            <div class="gl-skel"></div><div class="gl-skel"></div><div class="gl-skel"></div>
+                        </div>
+                        <div class="gl-more"><button type="button" class="pd-btn" id="glMore" hidden>Load more</button></div>
+
+                        <div class="pd-card pd-cta">
+                            <div>
+                                <h2>Want a site like these?</h2>
+                                <p>Send the brief and you'll get a scope and price within one business day.</p>
                             </div>
-                            <div class="header-button">
-                                <a href="contact.html" class="theme-btn">Book Now</a>
-                            </div>
-                            <div class="header__hamburger d-xl-none my-auto">
-                                <div class="sidebar__toggle">
-                                    <i class="fas fa-bars"></i>
+                            <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green">Get a quote</a>
+                        </div>
+                    </div>
+                </div>
+
+                <dialog class="gl-lb" id="glLb" aria-label="Screenshot viewer">
+                    <button type="button" class="x" aria-label="Close viewer"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="button" class="nav prev" aria-label="Previous screenshot"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button type="button" class="nav next" aria-label="Next screenshot"><i class="fa-solid fa-chevron-right"></i></button>
+                    <img alt="">
+                    <div class="gl-lb-bar">
+                        <p><span id="glLbTitle"></span><br><small id="glLbMeta"></small></p>
+                        <a href="#" id="glLbLink">View project</a>
+                    </div>
+                </dialog>
+            </main>
+
+            <!-- Contact / Quote Modal -->
+            <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="psm-box">
+                    <button type="button" class="psm-close" id="closeModal" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+                    <aside class="psm-side">
+                        <div class="psm-side-top">
+                            <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                            <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="psm-lead">Confirm your project details and share your contact information. We will send a tailored proposal.</p>
+                        </div>
+                        <div class="psm-summary" id="projectSummary">
+                            <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                            <div class="psm-row"><span class="psm-row-label">Service</span><span class="psm-row-value" id="summaryService">Custom Web Development</span></div>
+                            <div class="psm-row"><span class="psm-row-label">Estimated Budget</span><span class="psm-row-value" id="summaryBudget">Flexible</span></div>
+                            <div class="psm-row"><span class="psm-row-label">Category</span><span class="psm-row-value" id="summaryType">Commercial Website</span></div>
+                        </div>
+                        <ul class="psm-perks">
+                            <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+                        </ul>
+                    </aside>
+                    <div class="psm-main">
+                        <h3 class="psm-main-title">Contact Details</h3>
+                        <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+                        <form id="contactForm" class="modal-form psm-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="service" id="modalService">
+                            <input type="hidden" name="budget" id="modalBudget">
+                            <input type="hidden" name="project-type" id="modalProjectType">
+                            <div class="psm-fields">
+                                <div class="psm-grid">
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                        <div class="psm-input"><i class="fa-regular fa-user"></i><input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                        <div class="psm-input"><i class="fa-regular fa-envelope"></i><input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                        <div class="psm-input"><i class="fa-solid fa-phone"></i><input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalCompany">Company</label>
+                                        <div class="psm-input"><i class="fa-regular fa-building"></i><input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization"></div>
+                                    </div>
+                                    <div class="psm-field form-group">
+                                        <label for="modalTimeline">Preferred Timeline</label>
+                                        <div class="psm-input psm-select"><i class="fa-regular fa-calendar"></i><select id="modalTimeline" name="timeline"><option value="">Select timeline</option><option>Within 2 weeks</option><option>1 month</option><option>2-3 months</option><option>Flexible</option></select></div>
+                                    </div>
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalMessage">Project Requirements</label>
+                                        <div class="psm-input psm-textarea"><textarea id="modalMessage" name="message" rows="4" placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea></div>
+                                    </div>
+                                    <div class="psm-full form-group checkbox-group">
+                                        <label class="psm-check" for="modalAgree"><input type="checkbox" id="modalAgree" name="agree" required checked><span>I agree to receive project communication regarding my inquiry.</span></label>
+                                    </div>
+                                    <div class="psm-full">
+                                        <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn"><span class="btn-text"><i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry</span><span class="btn-spinner d-none"><i class="fa-solid fa-spinner fa-spin"></i> Processing Request...</span></button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-success psm-success d-none">
+                                <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                                <h3>Inquiry Submitted Successfully</h3>
+                                <p>Our team will review your requirements and contact you within one business day.</p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </header> 
 
-        <div id="smooth-wrapper">
-            <div id="smooth-content">
-                <!-- Breadcrumb-Wrapper Section Start -->
-                <div class="breadcrumb-wrapper-3 fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb/bg-2.jpg);">
-                    <div class="container">
-                        <div class="page-heading">
-                            <div class="breadcrumb-sub-title">
-                                <h1 class="wow fadeInUp" data-wow-delay=".3s">
-                                Gallery
-                                </h1>
-                            </div>
-                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                            <li>
-                                <a href="index.html">
-                                    Home
-                                </a>
-                            </li>
-                            <li class="style-2 style-3">
-                                Gallery
-                            </li>
-                        </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- gallery Section Start -->
-                <section class="gallery-section section-padding fix">
-                    <div class="container">
-                        <div class="section-title text-center">
-                            <h2 class="text-anim">
-                            Explore Our Photo Gallery
-                            </h2>
-                            <p class="wow fadeInUp" data-wow-delay=".5s">Crafting journeys, creating memories plan smarter, travel better</p>
-                        </div>
-                    </div>
-                    <div class="swiper gallery-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/01.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
+            <!-- Footer -->
+            <footer class="footer-section fix header-bg">
+                <div class="container">
+                    <div class="footer-widget-wrapper">
+                        <div class="row">
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Services</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Responsive UI Design</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimization</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX Integration</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/02.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Company</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+                                        <li><a href="project/"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                        <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/03.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
+                            <div class="col-xl-2 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Technologies</h4></div>
+                                    <ul class="list-area">
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> HTML5 &amp; CSS3</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> JavaScript &amp; jQuery</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Bootstrap &amp; Tailwind</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> MySQL &amp; AJAX</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/04.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/05.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper gallery-slider-2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/06.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/07.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/08.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="gallery-image">
-                                    <img src="assets/img/inner-page/gallery/09.jpg" alt="img">
-                                    <div class="gallery-content">
-                                        <h4>
-                                            <a href="tour-details.html">Brown Concrete Building</a>
-                                        </h4>
-                                        <p>Tour & Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Contact Section Start -->
-                <section class="contact-section section-padding pb-0">
-                        <div class="container">
-                            <div class="contact-wrapper">
-                                <div class="row g-4 align-items-end">
-                                    <div class="col-lg-6">
-                                        <div class="contact-image">
-                                            <img data-speed=".8" src="assets/img/home-1/Image.jpg" alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="contact-content">
-                                            <div class="logo-image">
-                                                <a href="index.html"><img src="assets/img/logo/white-logo.svg" alt="img"></a>
-                                            </div>
-                                            <div class="section-title mb-0">
-                                                <h2 class="sec-title text-white text-anim">
-                                                    Adventure Is Calling – Are You Ready?
-                                                </h2>
-                                            </div>
-                                            <p class="text wow fadeInUp" data-wow-delay=".3s">
-                                            Get ready to embark on unforgettable journeys with us. whether you’re seeking thrilling adventures, relaxing escapes
-                                            </p>
-                                            <a href="tour-details.html" class="theme-btn">Explore Our Tours</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </section>
-
-                <!-- Footer Section Start -->
-                <footer class="footer-section fix header-bg">
-                    <div class="container">
-                        <div class="footer-widget-wrapper">
-                            <div class="row">
-                                <div class="col-xl-2 col-md-4 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Services</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    Best Tour Guide
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Tour Booking
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Hotel Booking
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    Ticket Booking
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Company</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="about.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    About Us
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Community
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Jobs Careers
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="news-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                    News Blog
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2 col-md-4 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Destinations</h4>
-                                        </div>
-                                        <ul class="list-area">
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                African Safaris
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    Alaska & Canada
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                    <i class="fa-solid fa-chevron-right"></i>
-                                                    South America
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="tour-details.html">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                                Middle East
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-md-6 col-lg-3">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Get In Touch</h4>
-                                        </div>
+                            <div class="col-xl-3 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Get In Touch</h4></div>
                                     <div class="contact-item">
-                                            <div class="icon">
-                                                <i class="fa-regular fa-map-location-dot"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                    578 Level, D-block Street <br>
-                                                    Melbourne, Australia
-                                                </h6>
-                                            </div>
+                                        <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                        <div class="content"><h6>Mumbai, Maharashtra <br> India</h6></div>
                                     </div>
                                     <div class="contact-item">
-                                            <div class="icon">
-                                            <i class="fa-regular fa-envelope"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                <a href="mailto:supportrevelo@gmail.com">supportrevelo@gmail.com</a>
-                                                </h6>
-                                            </div>
+                                        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                        <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
                                     </div>
                                     <div class="contact-item mb-0">
-                                            <div class="icon">
-                                            <i class="fa-regular fa-phone-volume"></i>
-                                            </div>
-                                            <div class="content">
-                                                <h6>
-                                                <a href="tel:+88012334588">+880 123 345 88</a>
-                                                </h6>
-                                            </div>
-                                    </div>
+                                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                        <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-md-6 col-lg-6">
-                                    <div class="single-footer-widget">
-                                        <div class="wid-title">
-                                            <h4>Subscribe Our Newsletter to <br>
-                                                get more offer & Tips
-                                            </h4>
-                                        </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                <div class="single-footer-widget">
+                                    <div class="wid-title"><h4>Subscribe for Web Dev <br> Tips &amp; Updates</h4></div>
                                     <div class="newsletter-content">
-                                        <p>
-                                            Stay connected & never miss a deal! subscribe
-                                            to our newsletter and get travel offers
-                                        </p>
+                                        <p>Occasional notes on web performance, SEO, and new projects - no spam.</p>
                                         <form action="#">
                                             <div class="form-clt">
-                                                <input type="text" name="email" id="email" placeholder="Email Address">
-                                                <button type="submit" class="theme-btn">
-                                                    Subscribe
-                                                </button>
+                                                <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                <button type="submit" class="theme-btn">Subscribe</button>
                                             </div>
                                         </form>
                                     </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-bottom">
-                        <div class="container">
-                            <div class="footer-wrapper">
-                                <h2>Roavio</h2>
-                                <div class="text-item">
-                                    <p>@Copy 2025 <span>ROAVIO,</span> All rights reserved</p>
-                                    <a href="#" class="icon"><i class="fa-solid fa-chevron-up"></i></a>
-                                </div>
+                </div>
+                <div class="footer-bottom style-1">
+                    <div class="container">
+                        <div class="footer-wrapper">
+                            <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                <p>© 2026 <span>PS Web Studio,</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                <a href="#" class="icon" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
                             </div>
                         </div>
                     </div>
-                </footer>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/split-type.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form-handler.js"></script>
+
+    <script>
+    (function () {
+        function hidePreloader() {
+            var p = document.getElementById('preloader');
+            if (p) { p.classList.add('hide'); setTimeout(function () { p.style.display = 'none'; }, 500); }
+        }
+        hidePreloader();
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hidePreloader);
+        setTimeout(hidePreloader, 2000);
+    })();
+    </script>
+
+    <!-- Gallery loader: same Supabase projects table as project.html -->
+    <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/+esm';
+
+    const supabase = createClient(
+        'https://jerlrkqevhevulupcowu.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Implcmxya3FldmhldnVsdXBjb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxODgyODksImV4cCI6MjEwMTc2NDI4OX0.VBKZPlgv9LiSJttmP0pI4QG-3eRPqDKnU9fyp-SvRLg'
+    );
+
+    const IMG_BASE = 'assets/img/project-banner/';
+    const DETAIL_URL = (slug) => 'project.html?slug=' + encodeURIComponent(slug);  // adjust if your detail URL differs
+    const PAGE_SIZE = 12;
+
+    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+
+    const grid = document.getElementById('glGrid');
+    const catsEl = document.getElementById('glCats');
+    const countEl = document.getElementById('glCount');
+    const moreBtn = document.getElementById('glMore');
+    const lb = document.getElementById('glLb');
+    const lbImg = lb.querySelector('img');
+
+    let all = [];        // every screenshot: {src, title, industry, slug, n, total}
+    let view = [];       // after filter
+    let shown = 0;
+    let active = 'All';
+    let lbIndex = 0;
+
+    async function load() {
+        try {
+            const { data, error } = await supabase
+                .from('projects')
+                .select('slug,title,industry,images,is_enabled')
+                .eq('is_enabled', true);
+            if (error) throw error;
+
+            (data || []).forEach(p => {
+                const imgs = Array.isArray(p.images) ? p.images : [];
+                imgs.forEach((file, i) => all.push({
+                    src: IMG_BASE + file,
+                    title: p.title,
+                    industry: p.industry || 'Other',
+                    slug: p.slug,
+                    n: i + 1,
+                    total: imgs.length
+                }));
+            });
+
+            buildCats();
+            applyFilter('All');
+        } catch (e) {
+            console.error('Gallery load failed:', e);
+            grid.setAttribute('aria-busy', 'false');
+            grid.innerHTML = `<div class="pd-card gl-empty"><h3>Couldn't load the gallery</h3>
+                <p>Check your connection and refresh the page.</p>
+                <a href="project/" class="pd-btn green">Browse projects</a></div>`;
+            countEl.textContent = '';
+        }
+    }
+
+    function buildCats() {
+        const counts = {};
+        all.forEach(s => { counts[s.industry] = (counts[s.industry] || 0) + 1; });
+        const names = ['All', ...Object.keys(counts).sort()];
+        catsEl.innerHTML = names.map(n => {
+            const c = n === 'All' ? all.length : counts[n];
+            return `<button type="button" class="gl-cat" data-cat="${esc(n)}" aria-pressed="${n === 'All'}">${esc(n)} <span class="n">(${c})</span></button>`;
+        }).join('');
+        catsEl.addEventListener('click', e => {
+            const b = e.target.closest('.gl-cat');
+            if (!b) return;
+            catsEl.querySelectorAll('.gl-cat').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+            applyFilter(b.dataset.cat);
+        });
+    }
+
+    function applyFilter(cat) {
+        active = cat;
+        view = cat === 'All' ? all : all.filter(s => s.industry === cat);
+        shown = 0;
+        grid.innerHTML = '';
+        grid.setAttribute('aria-busy', 'false');
+        if (!view.length) {
+            grid.innerHTML = `<div class="pd-card gl-empty"><h3>No screenshots yet</h3>
+                <p>New projects are added regularly. Meanwhile, see the full project list.</p>
+                <a href="project/" class="pd-btn green">Browse projects</a></div>`;
+        }
+        renderMore();
+    }
+
+    function renderMore() {
+        const slice = view.slice(shown, shown + PAGE_SIZE);
+        const frag = document.createDocumentFragment();
+        slice.forEach((s, k) => {
+            const idx = shown + k;
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'gl-tile';
+            b.dataset.i = idx;
+            b.setAttribute('aria-label', `Open ${s.title} screenshot ${s.n} of ${s.total}`);
+            b.innerHTML = `<img src="${esc(s.src)}" alt="${esc(s.title)} website screenshot ${s.n}" loading="lazy" decoding="async">
+                <span class="gl-cap"><strong>${esc(s.title)}</strong><span>${esc(s.industry)}</span></span>`;
+            frag.appendChild(b);
+        });
+        grid.appendChild(frag);
+        shown += slice.length;
+        moreBtn.hidden = shown >= view.length;
+        countEl.textContent = view.length ? `Showing ${shown} of ${view.length}` : '';
+    }
+
+    moreBtn.addEventListener('click', renderMore);
+
+    // Lightbox
+    function openLb(i) {
+        lbIndex = (i + view.length) % view.length;
+        const s = view[lbIndex];
+        lbImg.src = s.src;
+        lbImg.alt = `${s.title} website screenshot ${s.n}`;
+        document.getElementById('glLbTitle').textContent = s.title;
+        document.getElementById('glLbMeta').textContent = `${s.industry} · Screenshot ${s.n} of ${s.total}`;
+        document.getElementById('glLbLink').href = DETAIL_URL(s.slug);
+        if (!lb.open) lb.showModal();
+    }
+    grid.addEventListener('click', e => {
+        const t = e.target.closest('.gl-tile');
+        if (t && typeof lb.showModal === 'function') openLb(+t.dataset.i);
+    });
+    lb.querySelector('.prev').addEventListener('click', () => openLb(lbIndex - 1));
+    lb.querySelector('.next').addEventListener('click', () => openLb(lbIndex + 1));
+    lb.querySelector('.x').addEventListener('click', () => lb.close());
+    lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+    lb.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') openLb(lbIndex - 1);
+        if (e.key === 'ArrowRight') openLb(lbIndex + 1);
+    });
+
+    document.addEventListener('DOMContentLoaded', load);
+    if (document.readyState !== 'loading') load();
+    </script>
+
+    <!-- WhatsApp Floating Chat & Popup -->
+    <div class="psws-whatsapp-popup" id="pswsWhatsappPopup">
+        <div class="psws-whatsapp-header">
+            <div class="psws-whatsapp-header-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="psws-whatsapp-header-info">
+                <div class="psws-whatsapp-title">PSWeb Studio</div>
+                <div class="psws-whatsapp-status">● Typically replies instantly</div>
+            </div>
+            <button type="button" class="psws-whatsapp-close" id="pswsWhatsappClose" aria-label="Close WhatsApp"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <div class="psws-whatsapp-body">
+            <div class="psws-whatsapp-message">
+                <p>How can I help you? :)</p>
+                <div class="psws-whatsapp-time" id="pswsWhatsappTime">23:03</div>
             </div>
         </div>
-
-        <!--<< All JS Plugins >>-->
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Viewport Js >>-->
-        <script src="assets/js/viewport.jquery.js"></script>
-        <!--<< Bootstrap Js >>-->
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <!--<< Gsap Min Js >>-->
-        <script src="assets/js/gsap.min.js"></script>
-        <!--<< ScrollTrigger Min Js >>-->
-        <script src="assets/js/ScrollTrigger.min.js"></script>
-        <!--<< ScrollSmoother Min Js >>-->
-        <script src="assets/js/ScrollSmoother.min.js"></script>
-        <!--<< ScrollToPlugin Min Js >>-->
-        <script src="assets/js/split-type.min.js"></script>
-        <!--<< SplitText Min Js >>-->
-        <script src="assets/js/SplitText.min.js"></script>
-        <!--<< nice-selec Js >>-->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Waypoints Js >>-->
-        <script src="assets/js/jquery.waypoints.js"></script>
-        <!--<< Counterup Js >>-->
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Wow Animation Js >>-->
-        <script src="assets/js/wow.min.js"></script>
-        <!--<< Main.js >>-->
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/form-handler.js"></script>
-    </body>
+        <div class="psws-whatsapp-footer">
+            <form class="psws-whatsapp-form" id="pswsWhatsappForm">
+                <div class="psws-whatsapp-input-wrapper">
+                    <input type="text" id="pswsWhatsappInput" class="psws-whatsapp-input" placeholder="Write your message..." autocomplete="off" aria-label="WhatsApp Message">
+                    <button type="submit" class="psws-whatsapp-send" aria-label="Send WhatsApp message"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button type="button" class="psws-whatsapp-launcher" id="pswsWhatsappLauncher" aria-label="Open WhatsApp Chat"><i class="fa-brands fa-whatsapp"></i></button>
+</body>
 </html>
