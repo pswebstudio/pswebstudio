@@ -1259,3 +1259,7 @@
   border-radius: 4px;
   line-height: 1.4;
 }
+.header-logo img,
+.offcanvas__logo img{
+  width: 250px;
+  object-fit: cover;}
