@@ -1261,5 +1261,5 @@
 }
 .header-logo img,
 .offcanvas__logo img{
-  width: 250px;
+  height: 70px;
   object-fit: cover;}

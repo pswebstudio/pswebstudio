@@ -2876,9 +2876,9 @@ span {
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 .faq-wrapper-3 .faq-content .faq-items-5 .accordion .accordion-item h2 button {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 400;
   box-shadow: none;
   padding: 10px 0 35px;
   color: var(--white);
@@ -2886,6 +2886,7 @@ span {
   display: flex;
   align-items: center;
   gap: 90px;
+  font-family: var(--bs-body-font-family);
 }
 .faq-wrapper-3 .faq-content .faq-items-5 .accordion .accordion-item h2 button span {
   font-size: 16px;
@@ -2935,39 +2936,52 @@ span {
   color: var(--header);
   border-radius: 20px !important;
 }
+
+/* FAQ Accordion Arrow Icon */
 .faq-wrapper-3 .faq-content .faq-items-5 .accordion .accordion-button::after {
-  content: "\f061";
-  font-family: "Font Awesome 6 Pro";
-  background: rgba(153, 165, 55, 0.08);
-  font-weight: 900;
-  transition: all 0.3s ease-in-out !important;
-  color: var(--white);
-  border: none !important;
-  width: initial;
-  height: initial;
-  line-height: initial;
-  background-color: transparent;
+    content: "\f061" !important;
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-size: 14px;
+    color: var(--white);
+
+    background: none !important;
+    background-image: none !important;
+
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;
+    transition: all 0.3s ease-in-out !important;
+    transform: rotate(0deg);
 }
+
+/* Active Accordion Button */
 .faq-wrapper-3 .faq-content .faq-items-5 .accordion .accordion-button:not(.collapsed) {
-  background-color: transparent;
-  color: var(--white);
-  border-radius: 0 !important;
-  border-top-right-radius: 10px !important;
-  border-bottom: none;
-  z-index: 999;
-  position: relative;
+    background-color: transparent !important;
+    color: var(--white);
+    border-radius: 0 !important;
+    border-top-right-radius: 10px !important;
+    border-bottom: none;
+    box-shadow: none !important;
+    z-index: 999;
+    position: relative;
 }
+
+/* Active Accordion Arrow */
 .faq-wrapper-3 .faq-content .faq-items-5 .accordion .accordion-button:not(.collapsed)::after {
-  content: "\f061";
-  font-family: "Font Awesome 6 Pro";
-  width: initial;
-  height: initial;
-  line-height: initial;
-  background-color: transparent;
-  font-weight: 900;
-  color: var(--white);
-  transform: rotate(0);
+    content: "\f061" !important;
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    color: var(--white);
+    background: none !important;
+    background-image: none !important;
+    transform: rotate(90deg);
 }
+
 
 .faq-section-3 {
   position: relative;
@@ -4139,9 +4153,13 @@ gap: 15px;
   background-color: var(--theme-2);
   border-radius: 10px;
 }
+.award-box img,
+.list-box-item li img {
+      filter: brightness(0) invert(1);
+}
 .feature-memories-wrapper .feature-memories-right .list-box-item .award-box h5 {
   color: var(--white);
-  margin-top: 35px;
+  margin-top: 15px;
   font-weight: 400;
       font-size: 1rem;
 }
@@ -9473,6 +9491,8 @@ gap: 15px;
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   transform: scale(1.02);
   transition: all 1.5s ease-out;
 }
@@ -9499,6 +9519,7 @@ gap: 15px;
 .news-card-items .news-content h3 {
   margin-top: 10px;
   margin-bottom: 10px;
+      font-size: 1.4rem;
 }
 .news-card-items .news-content h3 a {
   background-position: 0 95%;
