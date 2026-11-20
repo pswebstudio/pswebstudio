@@ -1,0 +1,624 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="PS Web Studio">
+    <meta name="description" content="Web development pricing from PS Web Studio: fixed project quotes, hourly rates, monthly maintenance and add-on prices for custom work.">
+    <title>Web Development Pricing: Project, Hourly &amp; Monthly Rates · PS Web Studio</title>
+    <link rel="canonical" href="https://pswebstudio.netlify.app/web-development-pricing">
+    <link rel="icon" type="image/x-icon" href="assets/img/favico/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+.pr-banner{position:relative;padding:60px 0 50px;background-size:cover;background-position:center;}
+.pr-banner::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.58)}
+.pr-banner .container{position:relative;z-index:1}
+.pr-banner h1{margin:0;color:var(--white);font-size:42px;font-weight:800;line-height:1.15}
+.pr-banner p{margin:14px 0 16px;max-width:620px;color:rgba(255,255,255,.82);font-size:18px}
+.pr-crumbs{display:flex;gap:10px;margin:0 0 4px;padding:0;list-style:none;color:rgba(255,255,255,.7);font-size:14px}
+.pr-crumbs a{color:rgba(255,255,255,.7);text-decoration:none}
+.pr-crumbs li+li::before{content:"/";margin-right:10px}
+.pr-crumbs .cur{color:var(--white)}
+
+.pr-page{background:var(--bg);padding:40px 0 64px;color:var(--header)}
+.pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.pr-card{display:flex;flex-direction:column;padding:28px 24px;background:var(--white);border:1px solid var(--border);border-radius:16px}
+.pr-card.featured{border:2px solid #198754;position:relative}
+.pr-flag{position:absolute;top:-13px;left:24px;padding:3px 12px;border-radius:999px;background:#198754;color:var(--white);font-size:12px;font-weight:600}
+.pr-card h2{margin:0 0 6px;font-size:20px;font-weight:600}
+.pr-for{margin:0 0 18px;font-size:14px;color:var(--text)}
+.pr-price{margin:0;font-size:34px;font-weight:700;line-height:1.1}
+.pr-price small{font-size:14px;font-weight:400;color:var(--text)}
+.pr-note{margin:4px 0 20px;font-size:13px;color:var(--text)}
+.pr-list{margin:0 0 24px;padding:0;list-style:none;flex:1}
+.pr-list li{display:flex;gap:10px;padding:7px 0;font-size:14px;line-height:1.5;color:var(--text)}
+.pr-list i{margin-top:4px;color:#198754;font-size:12px}
+.pr-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border:1px solid var(--border);border-radius:10px;background:var(--white);color:var(--header);font-size:14px;font-weight:500;text-decoration:none}
+.pr-btn:hover{border-color:var(--text)}
+.pr-btn.green{background:#198754;border-color:#198754;color:var(--white)}
+.pr-btn.green:hover{background:#146C43;border-color:#146C43}
+.pr-btn:focus-visible{outline:2px solid #198754;outline-offset:2px}
+
+.pr-sec{margin-top:48px}
+.pr-sec h2{margin:0 0 6px;font-size:24px;font-weight:600}
+.pr-sec>p{margin:0 0 20px;color:var(--text);max-width:70ch}
+.pr-box{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:8px 24px}
+.pr-table{width:100%;border-collapse:collapse;font-size:14px}
+.pr-table th,.pr-table td{padding:14px 8px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.pr-table th{font-weight:600;color:var(--header)}
+.pr-table td{color:var(--text)}
+.pr-table tr:last-child td{border-bottom:0}
+.pr-faq details{border-bottom:1px solid var(--border);padding:16px 0}
+.pr-faq details:last-child{border-bottom:0}
+.pr-faq summary{cursor:pointer;font-weight:600;font-size:15px;color:var(--header)}
+.pr-faq p{margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--text)}
+.pr-cta{margin-top:48px;padding:36px 28px;border-radius:16px;background:#0e4121;color:var(--white);text-align:center}
+.pr-cta h2{margin:0 0 8px;color:var(--white);font-size:26px}
+.pr-cta p{margin:0 0 20px;color:rgba(255,255,255,.8)}
+
+@media (max-width:1100px){.pr-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:700px){.pr-banner h1{font-size:28px}.pr-banner p{font-size:15px}.pr-box{overflow-x:auto}.pr-table{min-width:520px}}
+    </style>
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I choose fixed-price or hourly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose fixed-price when the scope is clear. Choose hourly when requirements will change as you go or when the work is small fixes and updates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in monthly maintenance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code checks, content updates up to a monthly hour limit, backups, uptime monitoring and a short monthly report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I buy add-ons after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add-ons are priced separately and can be built on any site, including ones PS Web Studio did not originally build, after a quick code review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with existing websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Speed fixes, SEO cleanup, new pages and migrations are all available. A review of the current code comes first so the quote is accurate."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+
+    <nav class="home-bottom-nav" aria-label="Mobile navigation">
+        <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="service.html" class="bottom-nav-item"><i class="fa-solid fa-layer-group"></i><span>Services</span></a>
+        <a href="showcase/" class="bottom-nav-item"><i class="fa-solid fa-laptop-code"></i><span>Projects</span></a>
+        <a href="pricing" class="bottom-nav-item active"><i class="fa-solid fa-tags"></i><span>Pricing</span></a>
+        <a href="about.html" class="bottom-nav-item"><i class="fa-solid fa-circle-info"></i><span>About</span></a>
+        <a href="contact.html" class="bottom-nav-item"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+    </nav>
+
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader"><div class="spinner"></div></div>
+
+    <!-- Back To Top Start -->
+    <button id="back-top" class="back-to-top show" aria-label="Back to top">
+        <i class="fa-regular fa-arrow-up"></i>
+    </button>
+
+    <!-- MouseCursor Start -->
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"></div>
+
+    <!-- Offcanvas Mobile Menu Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html"><img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                    <p class="text d-none d-xl-block">
+                        PS Web Studio builds fast, responsive, SEO-friendly websites for businesses across travel, healthcare, and services - from frontend development to full site delivery.
+                    </p>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h3>Let's Build Something Great</h3>
+                        <div class="contact-info mt-3 mb-4">
+                            <p class="text text-md">
+                                <i class="fa-solid fa-envelope me-2"></i>
+                                <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-phone me-2"></i>
+                                <a href="tel:+918793400545">+91 87934 00545</a>
+                            </p>
+                            <p class="text text-md mt-2">
+                                <i class="fa-solid fa-globe me-2"></i>
+                                <a href="https://pswebstudio.netlify.app/" target="_blank" rel="noopener noreferrer">pswebstudio.netlify.app</a>
+                            </p>
+                        </div>
+                        <a href="contact.html" class="theme-btn theme-btn-sm gap-2 log-bt">
+                            <i class="fa-solid fa-paper-plane"></i> Start a Project
+                        </a>
+                        <h3 class="mb-0 mt-4">Connect With Us</h3>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.instagram.com/your-instagram/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/your-company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/your-page/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+
+    <!-- Header Top Section Start -->
+    <div class="header-top-section">
+        <div class="container-fluid">
+            <div class="header-top-wrapper">
+                <p><span>PSWeb Studio</span> - need a fast, modern website for your business? <a href="contact.html" class="topbar-lets-talk"><b>Let's Talk</b> <i class="fa-solid fa-arrow-right-long"></i></a></p>
+                <div class="header-right">
+                    <ul class="header-list">
+                        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+918793400545">+91 87934 00545</a></li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Main Section Start -->
+    <header id="header-sticky" class="header-1">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo"><a href="index.html" class="header-logo"><img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio logo"></a></div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                                        <li><a href="service.html"><i class="fa-solid fa-layer-group"></i> Services</a></li>
+                                        <li><a href="showcase/"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
+                                        <li class="active"><a href="pricing.html"><i class="fa-solid fa-tags"></i> Pricing</a></li>
+                                        <li><a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+                                        <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header-button"><a href="javascript:void(0);" onclick="openQuoteModal()" class="theme-btn">Get a Quote</a></div>
+                        <div class="header__hamburger my-auto"><div class="sidebar__toggle"><i class="fa-solid fa-bars-staggered"></i></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <div class="pr-banner fix bg-cover" style="background-image:url(assets/img/banner/portfolio-banner.png);">
+                <div class="container">
+                    <h1>Web Development Pricing</h1>
+                    <p>Project, hourly and monthly rates for custom development, plus fixed prices for common add-ons.</p>
+                    <ul class="pr-crumbs">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li class="cur" aria-current="page">Web Development Pricing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <main class="pr-page">
+                <div class="container">
+
+                    <section aria-label="Billing models">
+                        <!-- TODO: confirm every rate below before publishing -->
+                        <div class="pr-grid">
+
+                            <article class="pr-card featured">
+                                <span class="pr-flag">Most common</span>
+                                <h2>Fixed project</h2>
+                                <p class="pr-for">Clear scope, defined deliverables</p>
+                                <p class="pr-price">Per scope <small>quoted upfront</small></p>
+                                <p class="pr-note">Package prices on the pricing page</p>
+                                <ul class="pr-list">
+                                    <li><i class="fa-solid fa-check"></i> Cost, scope and timeline agreed before work starts</li>
+                                    <li><i class="fa-solid fa-check"></i> Milestone payments</li>
+                                    <li><i class="fa-solid fa-check"></i> Changes outside scope quoted separately</li>
+                                </ul>
+                                <a href="pricing" class="pr-btn green">See packages</a>
+                            </article>
+
+                            <article class="pr-card">
+                                <h2>Hourly</h2>
+                                <p class="pr-for">Changing requirements, fixes and small tasks</p>
+                                <p class="pr-price">₹800 <small>per hour</small></p>
+                                <p class="pr-note">Minimum 5 hours per engagement</p>
+                                <ul class="pr-list">
+                                    <li><i class="fa-solid fa-check"></i> Billed for time worked, tracked and shared weekly</li>
+                                    <li><i class="fa-solid fa-check"></i> Good for bug fixes, UI changes and code reviews</li>
+                                    <li><i class="fa-solid fa-check"></i> No long commitment</li>
+                                </ul>
+                                <a href="javascript:void(0);" onclick="openQuoteModal('Hourly','','Development')" class="pr-btn">Enquire</a>
+                            </article>
+
+                            <article class="pr-card">
+                                <h2>Monthly maintenance</h2>
+                                <p class="pr-for">Sites that need steady upkeep</p>
+                                <p class="pr-price">₹2,999 <small>per month</small></p>
+                                <p class="pr-note">Includes up to 3 hours of updates</p>
+                                <ul class="pr-list">
+                                    <li><i class="fa-solid fa-check"></i> Content and layout updates</li>
+                                    <li><i class="fa-solid fa-check"></i> Backups and uptime monitoring</li>
+                                    <li><i class="fa-solid fa-check"></i> Monthly report with speed and SEO checks</li>
+                                </ul>
+                                <a href="javascript:void(0);" onclick="openQuoteModal('Maintenance','','Support')" class="pr-btn">Enquire</a>
+                            </article>
+
+                        </div>
+                    </section>
+
+                    <section class="pr-sec" aria-label="Add-on prices">
+                        <h2>Add-on prices</h2>
+                        <p>Fixed prices for common work on new or existing sites. GST is extra.</p>
+                        <div class="pr-box">
+                            <table class="pr-table">
+                                <thead><tr><th>Add-on</th><th>What you get</th><th>Price</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Extra page</td><td>One additional page on an existing template</td><td>₹1,500</td></tr>
+                                    <tr><td>Enquiry form with MySQL and AJAX</td><td>Form submits without a page reload and stores entries in a database</td><td>₹3,500</td></tr>
+                                    <tr><td>Speed and Core Web Vitals pass</td><td>Image, script and CSS optimization with before and after scores</td><td>₹6,000</td></tr>
+                                    <tr><td>SEO audit with fix list</td><td>On-page and technical review, plus a prioritized list of changes</td><td>₹5,000</td></tr>
+                                    <tr><td>Site migration with 301 redirects</td><td>Move to a new design or domain without losing rankings</td><td>₹8,000</td></tr>
+                                    <tr><td>Admin dashboard module</td><td>Manage one content type (packages, listings or posts) without editing code</td><td>₹15,000</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top:16px">Planning a full build? Read the <a href="website-design-cost" style="color:#198754">website design cost guide</a>.</p>
+                    </section>
+
+                    <section class="pr-sec pr-faq" aria-label="Questions">
+                        <h2>Common questions</h2>
+                        <div class="pr-box">
+                            <details>
+                                <summary>Should I choose fixed-price or hourly?</summary>
+                                <p>Choose fixed-price when the scope is clear. Choose hourly when requirements will change as you go or when the work is small fixes and updates.</p>
+                            </details>
+                            <details>
+                                <summary>What is included in monthly maintenance?</summary>
+                                <p>Code checks, content updates up to a monthly hour limit, backups, uptime monitoring and a short monthly report.</p>
+                            </details>
+                            <details>
+                                <summary>Can I buy add-ons after launch?</summary>
+                                <p>Yes. Add-ons are priced separately and can be built on any site, including ones PS Web Studio did not originally build, after a quick code review.</p>
+                            </details>
+                            <details>
+                                <summary>Do you work with existing websites?</summary>
+                                <p>Yes. Speed fixes, SEO cleanup, new pages and migrations are all available. A review of the current code comes first so the quote is accurate.</p>
+                            </details>
+                        </div>
+                    </section>
+                    <section class="pr-cta">
+                        <h2>Tell me what you need built or fixed</h2>
+                        <p>Share the details and get a quote, or book hours for smaller tasks.</p>
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="pr-btn green"><i class="fa-regular fa-paper-plane"></i> Enquire Now</a>
+                    </section>
+                </div>
+            </main>
+
+            <footer class="footer-section fix header-bg">
+                    <div class="container">
+                        <div class="footer-widget-wrapper">
+                            <div class="row g-4">
+
+                                <!-- Col 1: Brand -->
+                                <div class="col-xl-3 col-md-6 col-lg-4 wow fadeInUp">
+                                    <div class="single-footer-widget">
+                                        <div class="footer-logo mb-3">
+                                            <a href="index.html">
+                                                <img src="assets/img/logo/psweb-logo.png" alt="PS Web Studio" style="max-height:48px;">
+                                            </a>
+                                        </div>
+                                        <p class="footer-desc" style="font-size:14px;color:var(--text,#aaa);line-height:1.7;max-width:260px;">Fast, modern websites built for performance, SEO and long-term growth.</p>
+                                        <div class="social-icon d-flex align-items-center gap-2 mt-3">
+                                            <a href="https://www.instagram.com/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                                            <a href="https://www.linkedin.com/company/" target="_blank" rel="nofollow noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="https://www.facebook.com/" target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                                            <a href="https://wa.me/918793400545" target="_blank" rel="nofollow noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Col 2: Services -->
+                                <div class="col-xl-2 col-md-3 col-lg-2 wow fadeInUp" data-wow-delay=".2s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title"><h4>Services</h4></div>
+                                        <ul class="list-area">
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Website Development</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> Web Platforms</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> CRM &amp; Dashboards</a></li>
+                                            <li><a href="service.html"><i class="fa-solid fa-chevron-right"></i> SEO Optimisation</a></li>
+                                            <li><a href="pricing.html"><i class="fa-solid fa-chevron-right"></i> Pricing</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Col 3: Company -->
+                                <div class="col-xl-2 col-md-3 col-lg-2 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title"><h4>Company</h4></div>
+                                        <ul class="list-area">
+                                            <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+                                            <li><a href="showcase/"><i class="fa-solid fa-chevron-right"></i> Portfolio</a></li>
+                                            <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
+                                            <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                                            <li><a href="faq.html"><i class="fa-solid fa-chevron-right"></i> FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Col 4: Get In Touch -->
+                                <div class="col-xl-2 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".5s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title"><h4>Get In Touch</h4></div>
+                                        <div class="contact-item">
+                                            <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                            <div class="content"><h6>Mumbai, India<br>Serving clients worldwide</h6></div>
+                                        </div>
+                                        <div class="contact-item">
+                                            <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+                                            <div class="content"><h6><a href="mailto:pswebstudio.dev@gmail.com">pswebstudio.dev@gmail.com</a></h6></div>
+                                        </div>
+                                        <div class="contact-item">
+                                            <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                            <div class="content"><h6><a href="tel:+918793400545">+91 87934 00545</a></h6></div>
+                                        </div>
+                                        <div class="contact-item mb-0">
+                                            <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+                                            <div class="content"><h6><a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></h6></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Col 5: Newsletter -->
+                                <div class="col-xl-3 col-md-6 col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                    <div class="single-footer-widget">
+                                        <div class="wid-title"><h4>Stay Updated</h4></div>
+                                        <div class="newsletter-content">
+                                            <p>Occasional notes on web performance, SEO and new projects. No spam.</p>
+                                            <form action="#" class="mt-3">
+                                                <div class="form-clt">
+                                                    <label for="newsletter-email" class="visually-hidden">Email Address</label>
+                                                    <input type="email" name="email" id="newsletter-email" placeholder="Email Address" required>
+                                                    <button type="submit" class="theme-btn">Subscribe</button>
+                                                </div>
+                                            </form>
+                                            <div class="mt-3" style="font-size:13px;color:var(--text,#aaa);">
+                                                <a href="privacy.html" style="color:inherit;text-decoration:underline;">Privacy Policy</a>
+                                                &nbsp;·&nbsp;
+                                                <a href="terms.html" style="color:inherit;text-decoration:underline;">Terms</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom style-1">
+                        <div class="container">
+                            <div class="footer-wrapper">
+                                <div class="text-item wow fadeInUp" data-wow-delay=".5s">
+                                    <p>© 2026 <span>PS Web Studio.</span> All rights reserved · <a href="admin/" class="text-muted" style="text-decoration:none;font-size:13px;" title="Admin Portal"><i class="fa-solid fa-lock" style="font-size:11px;"></i> Admin</a></p>
+                                    <div class="d-flex align-items-center flex-wrap gap-3" style="font-size:13px;">
+                                        <a href="privacy.html" style="color:var(--text,#aaa);text-decoration:none;">Privacy</a>
+                                        <a href="terms.html" style="color:var(--text,#aaa);text-decoration:none;">Terms</a>
+                                        <a href="https://wa.me/918793400545" target="_blank" rel="noopener noreferrer" class="psws-footer-wa-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                                        <a href="#" class="psws-back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i> Back to Top</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+        </div>
+    </div>
+
+    <!-- Contact / Quote Modal (Same as Home Page) -->
+            <div class="psm-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="psm-box">
+                    <button type="button" class="psm-close" id="closeModal" aria-label="Close modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <!-- LEFT PANEL -->
+                    <aside class="psm-side">
+                        <div class="psm-side-top">
+                            <span class="psm-badge"><i class="fa-regular fa-file-lines"></i></span>
+                            <h2 class="psm-title" id="modalTitle">Request a Project Proposal</h2>
+                            <p class="psm-lead">
+                                Confirm your project details and share your contact information.
+                                We will send a tailored proposal.
+                            </p>
+                        </div>
+
+                        <div class="psm-summary" id="projectSummary">
+                            <p class="psm-summary-title"><i class="fa-regular fa-clipboard"></i> Project Overview</p>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Service</span>
+                                <span class="psm-row-value" id="summaryService">Custom Web Development</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Estimated Budget</span>
+                                <span class="psm-row-value" id="summaryBudget">Flexible</span>
+                            </div>
+                            <div class="psm-row">
+                                <span class="psm-row-label">Category</span>
+                                <span class="psm-row-value" id="summaryType">Commercial Website</span>
+                            </div>
+                        </div>
+
+                        <ul class="psm-perks">
+                            <li><span class="psm-perk-icon"><i class="fa-regular fa-clock"></i></span> Response within one business day</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-list-check"></i></span> Scope, timeline and cost breakdown</li>
+                            <li><span class="psm-perk-icon"><i class="fa-solid fa-lock"></i></span> Your details stay confidential</li>
+                        </ul>
+                    </aside>
+
+                    <!-- RIGHT PANEL -->
+                    <div class="psm-main">
+                        <h3 class="psm-main-title">Contact Details</h3>
+                        <p class="psm-main-sub">Fields marked <span class="psm-req">*</span> are required.</p>
+
+                        <form id="contactForm" class="modal-form psm-form" name="contact"
+                              method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
+                            <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="service" id="modalService">
+                            <input type="hidden" name="budget" id="modalBudget">
+                            <input type="hidden" name="project-type" id="modalProjectType">
+
+                            <div class="psm-fields">
+                                <div class="psm-grid">
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalName">Full Name <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-user"></i>
+                                            <input type="text" id="modalName" name="name" placeholder="John Smith" autocomplete="name" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalEmail">Email <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-envelope"></i>
+                                            <input type="email" id="modalEmail" name="email" placeholder="name@company.com" autocomplete="email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalPhone">Contact Number <span class="psm-req">*</span></label>
+                                        <div class="psm-input">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <input type="tel" id="modalPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalCompany">Company</label>
+                                        <div class="psm-input">
+                                            <i class="fa-regular fa-building"></i>
+                                            <input type="text" id="modalCompany" name="company" placeholder="Company name" autocomplete="organization">
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-field form-group">
+                                        <label for="modalTimeline">Preferred Timeline</label>
+                                        <div class="psm-input psm-select">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            <select id="modalTimeline" name="timeline">
+                                                <option value="">Select timeline</option>
+                                                <option>Within 2 weeks</option>
+                                                <option>1 month</option>
+                                                <option>2-3 months</option>
+                                                <option>Flexible</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-field psm-full form-group">
+                                        <label for="modalMessage">Project Requirements</label>
+                                        <div class="psm-input psm-textarea">
+                                            <textarea id="modalMessage" name="message" rows="4"
+                                                placeholder="Objectives, key features, reference websites, or anything else we should know."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="psm-full form-group checkbox-group">
+                                        <label class="psm-check" for="modalAgree">
+                                            <input type="checkbox" id="modalAgree" name="agree" required checked>
+                                            <span>
+                                                I agree to receive project communication regarding my inquiry.
+                                            </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="psm-full">
+                                        <button type="submit" class="theme-btn submit-btn psm-submit" id="submitBtn">
+                                            <span class="btn-text">
+                                                <i class="fa-regular fa-paper-plane"></i> Submit Project Inquiry
+                                            </span>
+                                            <span class="btn-spinner d-none">
+                                                <i class="fa-solid fa-spinner fa-spin"></i> Processing Request...
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Success Message -->
+                            <div class="form-success psm-success d-none">
+                                <span class="psm-success-icon"><i class="fa-solid fa-circle-check"></i></span>
+                                <h3>Inquiry Submitted Successfully</h3>
+                                <p>Our team will review your requirements and contact you within one business day.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form-handler.js"></script>
+    <script>
+    (function(){
+        function hide(){var p=document.getElementById('preloader');if(p){p.classList.add('hide');setTimeout(function(){p.style.display='none'},500)}}
+        hide();
+        document.addEventListener('DOMContentLoaded',hide);
+        setTimeout(hide,2000);
+    })();
+    </script>
+</body>
+</html>

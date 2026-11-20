@@ -1,7 +1,8 @@
 /* ==========================================================================
-   PSWEB STUDIO - OTT HERO BANNER, BIG THUMBNAIL TRAY & SERVICES TRAY
-   v2: syntax fix, shared gutter token, edge-bleed carousels, touch support,
-   slide progress dots, theme-tokenised badge colours.
+   PSWEB STUDIO - OTT HERO, BIG THUMBNAIL TRAY, SERVICES TRAY, SELECTED WORK
+   v3: hero supports silent video (no sound or mute button), wider-screen
+   gutter, glass controls, slide counter, better focus + touch states,
+   fixed undefined variables, tighter specificity.
    ========================================================================== */
 
 :root {
@@ -12,10 +13,10 @@
   --theme-2: #163e8e;
   --header: #151515;
   --text: #696969;
-  --border: #C9C9C9;
+  --border: #c9c9c9;
   --border-rgb: 201, 201, 201;
-  --bg: #F7F7F7;
-  --bg-2: #EDF2DE;
+  --bg: #f7f7f7;
+  --bg-2: #edf2de;
 
   --theme-rgb: 13, 156, 224;
   --header-rgb: 21, 21, 21;
@@ -26,36 +27,42 @@
   --ott-accent-light: color-mix(in srgb, var(--theme) 65%, var(--white));
   --ott-dark-bg: var(--header);
   --ott-card-bg: color-mix(in srgb, var(--header) 88%, var(--white));
-  /* --text is ~3.3:1 on #151515 (fails AA), so muted text on dark derives from --border */
   --ott-text-muted: color-mix(in srgb, var(--border) 78%, var(--header));
   --ott-text-synopsis: var(--border);
   --ott-gradient: linear-gradient(90deg, var(--theme) 0%, var(--theme-2) 100%);
+  --ott-glass: rgba(255, 255, 255, 0.08);
+  --ott-glass-border: rgba(255, 255, 255, 0.18);
 
-  /* Badge colours (semantic, kept out of the rules) */
+  /* Badge colours */
   --ott-gold-rgb: 245, 197, 24;
   --ott-green-rgb: 52, 211, 153;
   --ott-pink-rgb: 236, 72, 153;
 
   /* Layout + motion */
-  --ott-gutter: clamp(16px, 4vw, 48px);
+  --ott-max: 1440px;
+  /* Side gutter grows on ultra-wide screens so content stays centred
+     while carousels still bleed to the viewport edge */
+  --ott-gutter: max(clamp(16px, 4vw, 48px), calc((100vw - var(--ott-max)) / 2 + 48px));
   --ott-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ott-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ott-slide-duration: 6s; /* match your JS autoplay interval */
 }
 
 /* ==========================================================================
-   HERO
+   HERO (images only)
    ========================================================================== */
 .ott-hero-section {
   position: relative;
   width: 100%;
   min-height: 560px;
-  height: clamp(520px, 72vh, 680px);
-  height: clamp(520px, 72svh, 680px);
+  height: clamp(520px, 72vh, 700px);
+  height: clamp(520px, 72svh, 700px);
   background-color: var(--ott-dark-bg);
   overflow: hidden;
   color: var(--white);
   display: flex;
   align-items: center;
+  isolation: isolate;
 }
 
 .ott-hero-slides {
@@ -69,7 +76,7 @@
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s;
   will-change: opacity;
 }
 
@@ -79,17 +86,38 @@
 }
 
 .ott-hero-slide-bg {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
   transform: scale(1);
-  transition: transform 9s var(--ott-ease);
+  transition: transform 10s var(--ott-ease);
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
-.ott-hero-slide.is-active .ott-hero-slide-bg {
-  transform: scale(1.045);
+.ott-hero-slide.is-active .ott-hero-slide-bg { transform: scale(1.05); }
+
+/* Video slides play silently: the background can be an <img> or a <video>.
+   CSS cannot mute a video, so the <video> tag needs the `muted` attribute
+   (see note in reply). Sound / mute buttons are hidden. */
+.ott-hero-slide video.ott-hero-slide-bg {
+  pointer-events: none;     /* no click-to-pause, no native controls */
+  background: var(--ott-dark-bg);
 }
+
+.ott-hero-slide video.ott-hero-slide-bg::-webkit-media-controls,
+.ott-hero-slide video.ott-hero-slide-bg::-webkit-media-controls-panel,
+.ott-hero-slide video.ott-hero-slide-bg::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.ott-hero-sound,
+.ott-hero-mute,
+.ott-btn-sound,
+.ott-btn-mute { display: none !important; }
 
 /* Vignettes */
 .ott-hero-vignette {
@@ -99,31 +127,32 @@
   z-index: 2;
 }
 
-.ott-hero-vignette-left {
+.ott-hero-vignette-left,
+.ott-hero-vignette-bottom {
   position: absolute;
   inset: 0;
+}
+
+.ott-hero-vignette-left {
   background: linear-gradient(
     90deg,
     var(--header) 0%,
-    rgba(var(--header-rgb), 0.96) 20%,
-    rgba(var(--header-rgb), 0.82) 40%,
-    rgba(var(--header-rgb), 0.55) 60%,
-    rgba(var(--header-rgb), 0.18) 82%,
+    rgba(var(--header-rgb), 0.95) 18%,
+    rgba(var(--header-rgb), 0.78) 38%,
+    rgba(var(--header-rgb), 0.5) 58%,
+    rgba(var(--header-rgb), 0.15) 80%,
     transparent 100%
   );
 }
 
 .ott-hero-vignette-bottom {
-  position: absolute;
-  inset: 0;
   background: linear-gradient(
     0deg,
     var(--header) 0%,
-    rgba(var(--header-rgb), 0.96) 15%,
-    rgba(var(--header-rgb), 0.8) 28%,
-    rgba(var(--header-rgb), 0.45) 44%,
-    rgba(var(--header-rgb), 0.12) 58%,
-    transparent 70%
+    rgba(var(--header-rgb), 0.92) 14%,
+    rgba(var(--header-rgb), 0.6) 30%,
+    rgba(var(--header-rgb), 0.2) 50%,
+    transparent 68%
   );
 }
 
@@ -134,32 +163,31 @@
   background: linear-gradient(
     180deg,
     rgba(var(--header-rgb), 0.75) 0%,
-    rgba(var(--header-rgb), 0.3) 50%,
+    rgba(var(--header-rgb), 0.28) 55%,
     transparent 100%
   );
 }
 
-/* Content wrapper: gutter was missing on desktop, text touched the viewport edge */
+/* Content wrapper */
 .ott-hero-content-wrap {
   position: relative;
   z-index: 5;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding-inline: var(--ott-gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
   min-width: 0;
 }
 
 .ott-hero-details {
-  width: min(100%, 600px);
+  width: min(100%, 620px);
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px 0;
 }
 
 .ott-hero-brand-header { margin-bottom: 14px; }
@@ -167,62 +195,68 @@
 .ott-hero-tagline-lead {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-size: 11px;
+  gap: 8px;
+  font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2.2px;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 6px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 8px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 .ott-hero-tagline-lead i {
-  color: var(--ott-accent);
+  color: var(--ott-accent-light);
   font-size: 13px;
 }
 
 .ott-hero-title-display {
-  font-family: 'Inter Tight', 'Montserrat', -apple-system, sans-serif;
-  font-size: clamp(1.8rem, 4.6vw, 3.8rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-family: 'Inter Tight', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.1rem, 4.8vw, 4.4rem);
+  font-weight: 850;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
   color: var(--white);
   margin: 0;
+  max-width: 950px;
   overflow-wrap: anywhere;
   text-wrap: balance;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(var(--theme-rgb), 0.28);
-  transition: opacity 0.35s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45), 0 6px 22px rgba(0, 0, 0, 0.35);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: opacity 320ms ease, transform 320ms var(--ott-ease-out);
 }
 
 .ott-hero-title-display .title-accent {
-  background: linear-gradient(
-    135deg,
-    var(--ott-accent-light) 0%,
-    var(--theme) 55%,
-    color-mix(in srgb, var(--theme) 60%, var(--theme-2)) 100%
-  );
+  color: var(--ott-accent-light);
+  background: linear-gradient(110deg, var(--ott-accent-light), var(--theme) 65%, var(--theme-2));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.ott-hero-title-display.is-changing {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .ott-hero-badge-row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   font-size: 14.5px;
   font-weight: 700;
-  color: var(--ott-accent);
-  margin: 10px 0 12px;
+  color: var(--ott-accent-light);
+  margin: 12px 0;
   letter-spacing: 0.2px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .ott-hero-badge-row .badge-dot {
-  color: rgba(var(--theme-rgb), 0.6);
+  color: rgba(var(--theme-rgb), 0.7);
   font-size: 16px;
   line-height: 1;
 }
@@ -251,7 +285,7 @@
 .ott-ua-badge {
   display: inline-flex;
   align-items: center;
-  padding: 1px 7px;
+  padding: 1px 8px;
   font-size: 11.5px;
   font-weight: 700;
   color: var(--bg);
@@ -260,16 +294,16 @@
   border-radius: 4px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
 .ott-hero-synopsis {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 15.5px;
+  line-height: 1.65;
   color: var(--ott-text-synopsis);
   margin: 0 0 16px;
-  max-width: 520px;
+  max-width: 540px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
@@ -285,7 +319,6 @@
   flex-wrap: wrap;
   font-size: 14px;
   font-weight: 700;
-  color: var(--bg);
   margin-bottom: 24px;
   letter-spacing: 0.3px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
@@ -308,14 +341,15 @@
   margin-top: 4px;
 }
 
-/* Was padding: 13px 100px, which overflowed narrow screens. Now sized by min-width. */
 .ott-btn-watch {
   position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   min-width: 240px;
+  min-height: 48px;
   padding: 14px 40px;
   font-size: 15.5px;
   font-weight: 600;
@@ -324,31 +358,44 @@
   background: var(--ott-gradient);
   background-size: 160% auto;
   background-position: left center;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: background-position 0.35s ease, transform 0.35s ease,
+  box-shadow: 0 8px 24px rgba(var(--theme-rgb), 0.35);
+  transition: background-position 0.35s ease, transform 0.35s var(--ott-ease-out),
               box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+/* soft light sweep on hover */
+.ott-btn-watch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ott-ease-out);
+  pointer-events: none;
 }
 
 .ott-btn-watch:hover {
   background-position: right center;
   transform: translateY(-2px);
   filter: brightness(1.08);
+  box-shadow: 0 12px 30px rgba(var(--theme-rgb), 0.5);
 }
 
+.ott-btn-watch:hover::after { transform: translateX(120%); }
 .ott-btn-watch:active { transform: translateY(0); }
-
 .ott-btn-watch i { font-size: 14px; }
 
 .ott-btn-plus {
   width: 48px;
   height: 48px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  background: var(--ott-glass);
+  border: 1px solid var(--ott-glass-border);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -359,7 +406,7 @@
 }
 
 .ott-btn-plus:hover {
-  background: rgba(var(--theme-rgb), 0.22);
+  background: rgba(var(--theme-rgb), 0.25);
   border-color: var(--ott-accent);
   transform: translateY(-2px);
 }
@@ -370,52 +417,15 @@
 .ott-btn-plus:focus-visible,
 .ott-tray-arrow:focus-visible,
 .ott-svc-arrow:focus-visible,
-.ott-hero-dot:focus-visible {
+.ott-hero-dot:focus-visible,
+.work-slider-arrow:focus-visible,
+.ott-svc-card:focus-visible {
   outline: 2px solid var(--ott-accent-light);
   outline-offset: 3px;
 }
 
-/* NEW: slide progress dots. Markup:
-   <div class="ott-hero-dots"><button class="ott-hero-dot is-active" aria-label="Slide 1"></button>...</div> */
-.ott-hero-dots {
-  display: flex;
-  gap: 8px;
-  margin-top: 26px;
-}
 
-.ott-hero-dot {
-  position: relative;
-  width: 32px;
-  height: 12px;           /* 12px hit area, 3px visible line */
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-}
 
-.ott-hero-dot::before,
-.ott-hero-dot::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 4.5px;
-  height: 3px;
-  border-radius: 2px;
-}
-
-.ott-hero-dot::before { background: rgba(255, 255, 255, 0.28); }
-
-.ott-hero-dot.is-active::after {
-  background: var(--ott-gradient);
-  transform-origin: left;
-  animation: ott-dot-fill var(--ott-slide-duration) linear forwards;
-}
-
-@keyframes ott-dot-fill {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
 
 /* ==========================================================================
    BIG THUMBNAIL TRAY
@@ -461,29 +471,37 @@
 
 .ott-tray-nav-arrows { display: flex; gap: 10px; }
 
-.ott-tray-arrow {
-  width: 38px;
-  height: 38px;
+.ott-tray-arrow,
+.ott-svc-arrow {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--ott-glass);
+  border: 1px solid var(--ott-glass-border);
   color: var(--white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   transition: background 0.25s ease, border-color 0.25s ease,
               transform 0.25s ease, box-shadow 0.25s ease;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
 }
 
-.ott-tray-arrow:hover {
+.ott-tray-arrow:hover,
+.ott-svc-arrow:hover {
   background: var(--ott-accent);
   border-color: var(--ott-accent);
   transform: scale(1.08);
-  box-shadow: 0 0 14px rgba(var(--theme-rgb), 0.6);
+  box-shadow: 0 0 16px rgba(var(--theme-rgb), 0.6);
+}
+
+.ott-tray-arrow:disabled,
+.ott-svc-arrow:disabled {
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 /* Carousel bleeds to the viewport edges so the next card peeks in */
@@ -492,7 +510,8 @@
   margin-inline: calc(var(--ott-gutter) * -1);
 }
 
-.ott-tray-carousel-wrap::after {
+.ott-tray-carousel-wrap::after,
+.ott-svc-carousel-wrap::after {
   content: '';
   position: absolute;
   inset: 0 0 0 auto;
@@ -518,20 +537,22 @@
 }
 
 .ott-tray-track::-webkit-scrollbar { display: none; }
+.ott-tray-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
 
 .ott-big-card {
   flex: 0 0 auto;
   box-sizing: border-box;
   width: clamp(130px, 14.5vw, 225px);
   aspect-ratio: 1 / 1;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
   background: var(--ott-card-bg);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   cursor: pointer;
   user-select: none;
   scroll-snap-align: start;
-  transition: transform 0.32s var(--ott-ease), box-shadow 0.32s ease;
+  transition: transform 0.34s var(--ott-ease), box-shadow 0.34s ease;
 }
 
 .ott-big-card-img {
@@ -540,7 +561,7 @@
   object-fit: cover;
   object-position: center top;
   display: block;
-  transition: transform 0.55s var(--ott-ease);
+  transition: transform 0.6s var(--ott-ease);
   -webkit-user-drag: none;
 }
 
@@ -565,7 +586,7 @@
   left: 12px;
   z-index: 3;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 3px 9px;
@@ -577,16 +598,8 @@
   transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
 }
 
-/* Variants now change the background (the old ones only set a border that never existed) */
-.ott-big-card-tag.tag-gold {
-  color: var(--header);
-  background: rgb(var(--ott-gold-rgb));
-}
-
-.ott-big-card-tag.tag-pink {
-  color: var(--white);
-  background: rgb(var(--ott-pink-rgb));
-}
+.ott-big-card-tag.tag-gold { color: var(--header); background: rgb(var(--ott-gold-rgb)); }
+.ott-big-card-tag.tag-pink { color: var(--white); background: rgb(var(--ott-pink-rgb)); }
 
 .ott-big-card-content {
   position: absolute;
@@ -595,7 +608,7 @@
   z-index: 3;
   transform: translateY(100%);
   opacity: 0;
-  transition: transform 0.36s var(--ott-ease), opacity 0.3s ease;
+  transition: transform 0.38s var(--ott-ease), opacity 0.3s ease;
 }
 
 .ott-big-card-title {
@@ -634,8 +647,8 @@
 /* Hover + keyboard focus */
 .ott-big-card:hover,
 .ott-big-card:focus-visible {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  transform: translateY(-6px) scale(1.035);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(var(--theme-rgb), 0.5);
   z-index: 5;
 }
 
@@ -651,18 +664,11 @@
 .ott-big-card:focus-visible .ott-big-card-overlay { opacity: 1; }
 
 .ott-big-card:hover .ott-big-card-tag,
-.ott-big-card:focus-visible .ott-big-card-tag {
-  opacity: 1;
-  transform: translateY(0);
-}
+.ott-big-card:focus-visible .ott-big-card-tag { opacity: 1; transform: translateY(0); }
 
 .ott-big-card:hover .ott-big-card-content,
-.ott-big-card:focus-visible .ott-big-card-content {
-  transform: translateY(0);
-  opacity: 1;
-}
+.ott-big-card:focus-visible .ott-big-card-content { transform: translateY(0); opacity: 1; }
 
-/* Active card: accent bar instead of a border */
 .ott-big-card.is-active::after {
   content: '';
   position: absolute;
@@ -672,13 +678,15 @@
   z-index: 4;
 }
 
-/* Touch devices have no hover, so titles were never visible. Show details always. */
+/* Touch devices have no hover: always show details */
 @media (hover: none) {
   .ott-big-card-overlay { opacity: 1; }
   .ott-big-card-content { transform: none; opacity: 1; }
   .ott-big-card-tag { opacity: 1; transform: none; }
-  .ott-big-card:hover { transform: none; box-shadow: none; }
+  .ott-big-card:hover { transform: none; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06); }
   .ott-big-card:hover .ott-big-card-img { transform: none; }
+  .ott-svc-card:hover { transform: none; box-shadow: none; }
+  .ott-btn-watch:hover::after { transform: translateX(-120%); }
 }
 
 /* ==========================================================================
@@ -707,7 +715,7 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--ott-accent);
+  color: var(--ott-accent-light);
 }
 
 .ott-svc-tray-label-dot {
@@ -733,7 +741,8 @@
   flex-basis: 100%;
   max-width: 620px;
   margin: 4px 0 0;
-  font-size: clamp(13px, 1.4vw, 14px);
+  font-size: clamp(13px, 1.4vw, 14.5px);
+  line-height: 1.6;
   color: var(--ott-text-synopsis);
 }
 
@@ -744,39 +753,7 @@
   align-self: center;
 }
 
-.ott-svc-arrow {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(var(--border-rgb), 0.35);
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
-}
-
-.ott-svc-arrow:hover {
-  background: var(--ott-accent);
-  border-color: var(--ott-accent);
-  transform: scale(1.1);
-}
-
-/* Wrap has no side padding now; the track carries the gutter so cards bleed to the edge */
 .ott-svc-carousel-wrap { position: relative; }
-
-.ott-svc-carousel-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: clamp(40px, 6vw, 90px);
-  background: linear-gradient(90deg, transparent, var(--ott-dark-bg));
-  pointer-events: none;
-  z-index: 2;
-}
 
 .ott-svc-track {
   display: flex;
@@ -784,7 +761,6 @@
   overflow-x: auto;
   padding: 10px var(--ott-gutter) 16px;
   scroll-padding-inline: var(--ott-gutter);
-  /* mandatory fights JS drag-scrolling; proximity keeps snapping without the fight */
   scroll-snap-type: x proximity;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -800,12 +776,11 @@
   position: relative;
   flex: 0 0 clamp(230px, 22vw, 290px);
   scroll-snap-align: start;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   background: var(--ott-card-bg);
   border: 1.5px solid rgba(255, 255, 255, 0.07);
-  outline: none;
-  transition: transform 0.28s var(--ott-ease), box-shadow 0.28s ease, border-color 0.25s ease;
+  transition: transform 0.3s var(--ott-ease), box-shadow 0.3s ease, border-color 0.25s ease;
 }
 
 .ott-svc-card:hover,
@@ -828,7 +803,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.55s var(--ott-ease);
+  transition: transform 0.6s var(--ott-ease);
   -webkit-user-drag: none;
 }
 
@@ -840,8 +815,8 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0.55) 70%,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.5) 70%,
     rgba(0, 0, 0, 0.82) 100%
   );
   pointer-events: none;
@@ -861,15 +836,16 @@
   justify-content: center;
   color: var(--ott-accent-light);
   font-size: 17px;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  transition: background 0.2s, border-color 0.2s;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s, border-color 0.2s, transform 0.3s var(--ott-ease-out);
 }
 
 .ott-svc-card:hover .ott-svc-card-icon,
 .ott-svc-card:focus-visible .ott-svc-card-icon {
   background: rgba(var(--theme-rgb), 0.35);
   border-color: var(--ott-accent);
+  transform: scale(1.08);
 }
 
 .ott-svc-card-body { padding: 14px 16px 18px; }
@@ -885,14 +861,14 @@
   text-transform: uppercase;
 }
 
-.badge-blue  { background: rgba(var(--theme-rgb), 0.18);     color: var(--ott-accent-light);       border: 1px solid rgba(var(--theme-rgb), 0.35); }
-.badge-gold  { background: rgba(var(--ott-gold-rgb), 0.14);  color: rgb(var(--ott-gold-rgb));      border: 1px solid rgba(var(--ott-gold-rgb), 0.35); }
-.badge-green { background: rgba(var(--ott-green-rgb), 0.14); color: rgb(var(--ott-green-rgb));     border: 1px solid rgba(var(--ott-green-rgb), 0.35); }
-.badge-pink  { background: rgba(var(--ott-pink-rgb), 0.14);  color: rgb(var(--ott-pink-rgb));      border: 1px solid rgba(var(--ott-pink-rgb), 0.35); }
+.badge-blue  { background: rgba(var(--theme-rgb), 0.18);     color: var(--ott-accent-light);   border: 1px solid rgba(var(--theme-rgb), 0.35); }
+.badge-gold  { background: rgba(var(--ott-gold-rgb), 0.14);  color: rgb(var(--ott-gold-rgb));  border: 1px solid rgba(var(--ott-gold-rgb), 0.35); }
+.badge-green { background: rgba(var(--ott-green-rgb), 0.14); color: rgb(var(--ott-green-rgb)); border: 1px solid rgba(var(--ott-green-rgb), 0.35); }
+.badge-pink  { background: rgba(var(--ott-pink-rgb), 0.14);  color: rgb(var(--ott-pink-rgb));  border: 1px solid rgba(var(--ott-pink-rgb), 0.35); }
 
 .ott-svc-card-title {
   margin: 0 0 7px;
-  font-size: 15px;
+  font-size: 15.5px;
   font-weight: 700;
   line-height: 1.3;
   color: var(--white);
@@ -925,12 +901,233 @@
 }
 
 .ott-svc-card-meta i {
-  color: var(--ott-accent);
+  color: var(--ott-accent-light);
   font-size: 11px;
 }
 
 /* ==========================================================================
-   RESPONSIVE (gutter token handles most spacing, so this block is short)
+   SELECTED WORK (8 cards, Swiper)
+   ========================================================================== */
+#portfolio .container { max-width: 1320px; }
+
+.selected-work-slider {
+  padding: 10px 2px 24px;
+  overflow: hidden;
+}
+
+.selected-work-slider .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.selected-work-slider .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.selected-work-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.32s var(--ott-ease), box-shadow 0.32s ease, border-color 0.32s ease;
+}
+
+.selected-work-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--theme-rgb), 0.25);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.work-slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.work-slider-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #374151;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.work-slider-arrow:hover {
+  background: var(--theme, #0d9ce0);
+  color: #fff;
+  border-color: var(--theme, #0d9ce0);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 156, 224, 0.25);
+}
+
+.selected-work-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.selected-work-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #cbd5e1;
+  opacity: 1;
+  margin: 0 !important;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.selected-work-pagination .swiper-pagination-bullet-active {
+  width: 28px;
+  background: var(--theme, #0d9ce0);
+}
+
+.selected-work-thumb {
+  position: relative;
+  width: 100%;
+  height: clamp(150px, 10.5vw, 180px);
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
+}
+
+.selected-work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s var(--ott-ease);
+}
+
+.selected-work-card:hover .selected-work-thumb img { transform: scale(1.05); }
+
+.selected-work-body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.selected-work-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.selected-work-title-wrap { flex: 1; min-width: 0; }
+
+.selected-work-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.selected-work-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.selected-work-title a:hover { color: var(--bs-primary-text-emphasis, var(--theme-2)); }
+
+.selected-work-category {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.selected-work-category i { font-size: 12px; color: #1f2937; }
+
+.selected-work-arrow-btn {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--bs-primary-text-emphasis, var(--theme-2));
+  color: var(--bs-primary-text-emphasis, var(--theme-2));
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.selected-work-arrow-btn i { font-size: 13px; transition: transform 0.25s ease; }
+
+.selected-work-card:hover .selected-work-arrow-btn {
+  background: var(--bs-primary-text-emphasis, var(--theme-2));
+  color: #fff;
+  border-color: var(--bs-primary-text-emphasis, var(--theme-2));
+}
+
+.selected-work-card:hover .selected-work-arrow-btn i { transform: translateX(2px); }
+
+.selected-work-desc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.selected-work-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.selected-work-tech-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+.header-logo img,
+.offcanvas__logo img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   RESPONSIVE
    ========================================================================== */
 @media (max-width: 991px) {
   .ott-hero-section {
@@ -964,13 +1161,11 @@
     height: clamp(480px, 78svh, 620px);
     padding-bottom: 0;
   }
-  .header-top-wrapper{
-    display: none !important;
-  }
+
+  .header-top-wrapper { display: none !important; }
+
   .ott-hero-details { padding: 80px 0 24px; }
-
   .ott-hero-badge-row { font-size: 13px; }
-
   .ott-hero-meta-row { font-size: 12.5px; gap: 6px; }
 
   .ott-hero-synopsis {
@@ -991,7 +1186,8 @@
     font-size: 14px;
   }
 
-  .ott-btn-plus { width: 44px; height: 44px; font-size: 16px; }
+  .ott-btn-plus { width: 46px; height: 46px; font-size: 16px; }
+  .ott-hero-dots { margin-top: 20px; }
 
   .ott-tray-section { padding-bottom: 28px; }
   .ott-tray-header { margin-bottom: 12px; }
@@ -999,7 +1195,7 @@
   .ott-tray-nav-arrows { display: none; } /* swipe on mobile */
   .ott-tray-track { gap: 12px; padding-block: 8px 16px; }
 
-  .ott-big-card { border-radius: 8px; }
+  .ott-big-card { border-radius: 10px; }
   .ott-big-card-tag { top: 8px; left: 8px; font-size: 8.5px; padding: 2px 6px; }
   .ott-big-card-content { padding: 10px 8px; }
   .ott-big-card-title { font-size: 13px; margin-bottom: 2px; }
@@ -1009,7 +1205,7 @@
 
   .ott-services-tray-section { padding: 36px 0; }
   .ott-svc-tray-header { padding-bottom: 18px; gap: 6px 12px; }
-  .ott-svc-arrow { width: 34px; height: 34px; font-size: 13px; }
+  .ott-svc-arrow { width: 36px; height: 36px; font-size: 13px; }
   .ott-svc-card { flex-basis: clamp(220px, 68vw, 260px); }
 }
 
@@ -1019,7 +1215,9 @@
 @media (prefers-reduced-motion: reduce) {
   .ott-hero-slide,
   .ott-hero-slide-bg,
+  .ott-hero-title-display,
   .ott-btn-watch,
+  .ott-btn-watch::after,
   .ott-btn-plus,
   .ott-tray-arrow,
   .ott-tray-track,
@@ -1027,7 +1225,9 @@
   .ott-big-card-img,
   .ott-svc-card,
   .ott-svc-card-thumb img,
-  .ott-svc-arrow {
+  .ott-svc-arrow,
+  .selected-work-card,
+  .selected-work-thumb img {
     scroll-behavior: auto !important;
     transition: none !important;
     animation: none !important;
@@ -1036,230 +1236,3 @@
   .ott-hero-slide.is-active .ott-hero-slide-bg { transform: none; }
   .ott-hero-dot.is-active::after { animation: none; }
 }
-
-/* ==========================================================================
-   Selected Work UI (Matches Attached UI Spec - 8 Cards)
-   ========================================================================== */
-#portfolio .container {
-  max-width: 1320px;
-}
-
-.selected-work-slider {
-  padding: 10px 2px 24px;
-  overflow: hidden;
-}
-
-.selected-work-slider .swiper-wrapper {
-  display: flex;
-  align-items: stretch;
-}
-
-.selected-work-slider .swiper-slide {
-  height: auto;
-  display: flex;
-}
-
-.selected-work-card {
-  width: 100%;
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.selected-work-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-}
-
-.work-slider-nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.work-slider-arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  color: #374151;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.work-slider-arrow:hover {
-  background: var(--theme, #0d9ce0);
-  color: #ffffff;
-  border-color: var(--theme, #0d9ce0);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(13, 156, 224, 0.25);
-}
-
-.selected-work-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.selected-work-pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background: #cbd5e1;
-  opacity: 1;
-  margin: 0 !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.selected-work-pagination .swiper-pagination-bullet-active {
-  width: 28px;
-  background: var(--theme, #0d9ce0);
-}
-
-.selected-work-thumb {
-  position: relative;
-  width: 100%;
-  height: clamp(150px, 10.5vw, 180px);
-  overflow: hidden;
-  border-radius: 14px 14px 0 0;
-}
-
-.selected-work-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-.selected-work-body {
-  padding: 14px 14px 16px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.selected-work-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-.selected-work-title-wrap {
-  flex: 1;
-  min-width: 0;
-}
-
-.selected-work-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: #111827;
-  margin: 0 0 4px;
-  line-height: 1.3;
-}
-
-.selected-work-title a {
-  color: #111827;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.selected-work-title a:hover {
-  color: var(--bs-primary-text-emphasis);
-}
-
-.selected-work-category {
-  font-size: 13px;
-  font-weight: 500;
-  color: #374151;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.selected-work-category i {
-  font-size: 12px;
-  color: #1f2937;
-}
-
-.selected-work-arrow-btn {
-  width: 34px;
-  height: 34px;
-  min-width: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--bs-primary-text-emphasis);
-  color: var(--bs-primary-text-emphasis);
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: all 0.25s ease;
-}
-
-.selected-work-arrow-btn i {
-  font-size: 13px;
-  transition: transform 0.25s ease;
-}
-
-.selected-work-card:hover .selected-work-arrow-btn {
-  background: var(--bs-primary-text-emphasis);
-  color: #ffffff;
-  border-color: var(--bs-primary-text-emphasis);
-}
-
-.selected-work-card:hover .selected-work-arrow-btn i {
-  transform: translateX(2px);
-}
-
-.selected-work-desc {
-    font-size: 13px;
-    color: #6b7280;
-    line-height: 1.45;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-.selected-work-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-  margin-top: auto;
-}
-
-.selected-work-tech-pill {
-  display: inline-block;
-  padding: 3px 9px;
-  font-size: 11.5px;
-  font-weight: 500;
-  color: #4b5563;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
-  line-height: 1.4;
-}
-.header-logo img,
-.offcanvas__logo img{
-  height: 70px;
-  object-fit: cover;}

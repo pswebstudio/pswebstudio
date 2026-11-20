@@ -16918,9 +16918,10 @@ gap: 15px;
 
 
 .psm-overlay.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    display: flex !important;
 }
 
 .psm-box {
@@ -17303,3 +17304,61 @@ gap: 15px;
         display: none !important;
     }
 }
+
+
+/* ============================================================
+   UPGRADED FOOTER — additional styles
+   ============================================================ */
+
+/* Brand column logo + tagline */
+.footer-logo img { display: block; }
+.footer-desc { font-size: 14px; line-height: 1.75; color: var(--text, #aaa); max-width: 260px; }
+
+/* Social icons in footer — align & spacing */
+.single-footer-widget .social-icon a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.12);
+    font-size: 14px;
+    color: var(--text, #aaa);
+    transition: background .2s, border-color .2s, color .2s;
+}
+.single-footer-widget .social-icon a:hover {
+    background: var(--theme, #0d9ce0);
+    border-color: var(--theme, #0d9ce0);
+    color: #fff;
+}
+
+/* Footer bottom bar — flex between copyright and links */
+.footer-bottom .footer-wrapper .text-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+.footer-bottom .footer-wrapper .text-item p { margin: 0; }
+.footer-bottom .footer-wrapper .text-item a.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+    font-size: 12px;
+    transition: background .2s;
+}
+.footer-bottom .footer-wrapper .text-item a.icon:hover { background: var(--theme, #0d9ce0); border-color: var(--theme, #0d9ce0); }
+
+/* WhatsApp icon color in footer contact-items */
+.single-footer-widget .contact-item .fa-whatsapp { color: #25D366; }
+
+/* Pricing link in footer services list */
+.single-footer-widget .list-area li:last-child a { opacity: .8; }

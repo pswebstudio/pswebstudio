@@ -497,7 +497,7 @@
                     <td><span class="ad-status${live ? '' : ' pending'}">${escapeHtml(p.status || 'Draft')}</span></td>
                     <td><label class="ad-switch"><input type="checkbox" data-toggle-project="${escapeHtml(p.id)}" ${p.is_enabled ? 'checked' : ''} aria-label="Show ${escapeHtml(p.title)} on the site"><span></span></label></td>
                     <td><div class="actions">
-                        ${p.slug ? `<a class="ad-btn sm" href="${escapeHtml(siteBase)}project/${encodeURIComponent(p.slug)}" target="_blank" rel="noopener" aria-label="View ${escapeHtml(p.title)} on the site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ''}
+                        ${p.slug ? `<a class="ad-btn sm" href="${escapeHtml(siteBase)}showcase/${encodeURIComponent(p.slug)}" target="_blank" rel="noopener" aria-label="View ${escapeHtml(p.title)} on the site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ''}
                         <button class="ad-btn sm" data-action="edit-project" data-id="${escapeHtml(p.id)}" aria-label="Edit ${escapeHtml(p.title)}"><i class="fa-solid fa-pen"></i></button>
                         <button class="ad-btn sm danger" data-action="delete-project" data-id="${escapeHtml(p.id)}" aria-label="Delete ${escapeHtml(p.title)}"><i class="fa-solid fa-trash"></i></button>
                     </div></td>

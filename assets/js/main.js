@@ -784,3 +784,29 @@ document.addEventListener("DOMContentLoaded", function () {
     launcher.style.position = "fixed";
 
 });
+
+
+/* =========================================
+   BACK TO TOP — Smooth Scroll
+   .psws-back-to-top links in footer bar
+========================================= */
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".psws-back-to-top").forEach(function (btn) {
+
+        btn.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            // If GSAP ScrollSmoother is available, use it
+            if (window.ScrollSmoother && ScrollSmoother.get()) {
+                ScrollSmoother.get().scrollTo(0, true);
+            } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+
+        });
+
+    });
+
+});

@@ -940,3 +940,74 @@
         }
     }
 }
+
+/* ============================================
+   FOOTER — WhatsApp CTA Button
+   ============================================ */
+.psws-footer-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    background-color: #25D366;
+    color: $white !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    line-height: 1;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    white-space: nowrap;
+
+    i {
+        font-size: 15px;
+        line-height: 1;
+    }
+
+    &:hover {
+        background-color: #1da851;
+        transform: translateY(-1px);
+        color: $white !important;
+    }
+
+    @include breakpoint(max-sm) {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   FOOTER — Back to Top Button
+   ============================================ */
+.psws-back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    background-color: $theme-color;
+    color: $white !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    line-height: 1;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    white-space: nowrap;
+    filter: drop-shadow(0 4px 20px rgba(251, 91, 50, 0.35));
+
+    i {
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    &:hover {
+        background-color: #d94920;
+        transform: translateY(-2px);
+        color: $white !important;
+    }
+
+    @include breakpoint(max-sm) {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+}

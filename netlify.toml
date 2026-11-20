@@ -3,7 +3,7 @@
   publish = "."
 
 [[redirects]]
-  from = "/project/*"
+  from = "/showcase/*"
   to = "/project.html?project=:splat"
   status = 200
 

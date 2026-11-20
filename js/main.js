@@ -12,7 +12,7 @@ async function renderProjects(containerId = 'projects-container') {
 
     try {
         const projects = await api.getProjects();
-        
+
         if (!projects || !projects.length) {
             container.innerHTML = '<p class="text-center text-muted">No projects available.</p>';
             return;
@@ -33,10 +33,10 @@ async function renderProjects(containerId = 'projects-container') {
                     <div class="project-body">
                         <p class="description" itemprop="description">${project.description || ''}</p>
                         <div class="tech-stack">
-                            ${project.tech_stack?.frontend?.map(tech => 
+                            ${project.tech_stack?.frontend?.map(tech =>
                                 `<span class="tech-tag">${tech}</span>`
                             ).join('') || ''}
-                            ${project.tech_stack?.backend?.map(tech => 
+                            ${project.tech_stack?.backend?.map(tech =>
                                 `<span class="tech-tag">${tech}</span>`
                             ).join('') || ''}
                         </div>
@@ -67,7 +67,7 @@ async function renderTestimonials(containerId = 'testimonials-container') {
 
     try {
         const testimonials = await api.getTestimonials();
-        
+
         if (!testimonials || !testimonials.length) {
             container.innerHTML = '<p class="text-center text-muted">No testimonials available.</p>';
             return;
@@ -103,7 +103,7 @@ async function renderServices(containerId = 'services-container') {
 
     try {
         const services = await api.getServices();
-        
+
         if (!services || !services.length) {
             container.innerHTML = '<p class="text-center text-muted">No services available.</p>';
             return;
@@ -134,24 +134,24 @@ async function loadSiteSettings() {
     try {
         const settings = await api.getSiteSettings();
         if (!settings) return;
-        
+
         // Update title
         if (settings.meta_title) {
             document.title = settings.meta_title;
         }
-        
+
         // Update meta description
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc && settings.meta_description) {
             metaDesc.content = settings.meta_description;
         }
-        
+
         // Update header
         const brandLink = document.querySelector('.navbar-brand');
         if (brandLink && settings.site_name) {
             brandLink.innerHTML = settings.site_name.replace('PSWeb', 'PS<span>Web</span>');
         }
-        
+
         // Update footer
         const footer = document.querySelector('.footer');
         if (footer && settings.footer_content) {
@@ -160,13 +160,13 @@ async function loadSiteSettings() {
                 footerText.textContent = settings.footer_content;
             }
         }
-        
+
         // Update copyright
         const copyright = document.querySelector('.copyright-text');
         if (copyright && settings.copyright_text) {
             copyright.textContent = settings.copyright_text;
         }
-        
+
     } catch (error) {
         console.error('Error loading site settings:', error);
     }
@@ -185,3 +185,43 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Export for use in other scripts
 export { renderProjects, renderServices, renderTestimonials, loadSiteSettings };
+
+
+function syncHeroVideo(index) {
+  var slides = document.querySelectorAll('#ottHeroBanner .ott-hero-slide');
+
+  slides.forEach(function (slide, i) {
+    var v = slide.querySelector('video');
+
+    if (!v) return;
+
+    v.muted = true;
+    v.playsInline = true;
+
+    // Remove previous ended listener
+    v.onended = null;
+
+    if (i === index) {
+      v.currentTime = 0;
+
+      // When this video finishes, move to next slide
+      v.onended = function () {
+        var nextIndex = (index + 1) % slides.length;
+
+        // Trigger your existing hero slider navigation
+        if (typeof showHeroSlide === 'function') {
+          showHeroSlide(nextIndex);
+        }
+      };
+
+      var p = v.play();
+      if (p && p.catch) {
+        p.catch(function () {});
+      }
+
+    } else {
+      v.pause();
+      v.currentTime = 0;
+    }
+  });
+}
