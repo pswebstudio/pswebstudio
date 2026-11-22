@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="robots" content="noindex, nofollow">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -776,6 +777,7 @@
     }
 
     function setMeta(project, firstImage) {
+        let rob = document.querySelector('meta[name="robots"]'); if (!rob) { rob = document.createElement('meta'); rob.name = "robots"; document.head.appendChild(rob); } rob.content = "noindex, nofollow";
         const title = `${project.title} · PS Web Studio`;
         const desc = (project.description || '').replace(/\s+/g, ' ').trim().slice(0, 155);
         document.title = title;
@@ -834,7 +836,7 @@
                         <p>Selected client work by PS Web Studio.</p>
                     </div>
                     <div class="pd-top-actions">
-                        ${live ? `<a href="${live}" target="_blank" rel="noopener noreferrer" class="pd-btn green"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit live site</a>` : ''}
+                        <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn green"><i class="fa-regular fa-paper-plane"></i> Start a Project Like This</a>
                         <a href="javascript:void(0);" onclick="openQuoteModal()" class="pd-btn">Get a quote</a>
                     </div>
                 </div>
@@ -865,7 +867,7 @@
                         <h2>${esc(project.title)}</h2>
                         <p class="pd-loc"><i class="fa-regular fa-building"></i> ${[project.industry, project.type || 'Custom web development'].filter(Boolean).map(esc).join(', ')}</p>
                         <dl class="pd-facts">
-                            <div><dt>Client</dt><dd>${esc(project.client || 'Confidential')}</dd></div>
+                            <div><dt>Delivered By</dt><dd>PS Web Studio</dd></div>
                             <div><dt>Industry</dt><dd>${esc(project.industry || 'N/A')}</dd></div>
                             <div><dt>Timeline</dt><dd>${esc(project.timeline || 'N/A')}</dd></div>
                             <div><dt>Team</dt><dd>${esc(project.team || 'N/A')}</dd></div>

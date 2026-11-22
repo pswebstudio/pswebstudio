@@ -1,0 +1,24 @@
+# ==================================================
+# PS Web Studio - robots.txt
+# ==================================================
+User-agent: *
+# Disallow indexing of client project detail and showcase pages
+# Prevents PS Web Studio from competing with client brand/domain searches
+Disallow: /project.html
+Disallow: /showcase/
+Disallow: /admin/
+
+# Allow indexing of main agency marketing pages
+Allow: /
+Allow: /index.html
+Allow: /about.html
+Allow: /service.html
+Allow: /pricing.html
+Allow: /plans.html
+Allow: /web-development-pricing.html
+Allow: /website-design-cost.html
+Allow: /website-packages.html
+Allow: /contact.html
+Allow: /blog.html
+Allow: /blog-detail.html
+Allow: /faq.html

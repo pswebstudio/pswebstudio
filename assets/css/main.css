@@ -17374,7 +17374,7 @@ gap: 15px;
    ============================================================ */
 
 .psws-pro-footer {
-     background: #20263e;
+     background: #080808db;
     padding-top: 60px;
     padding-bottom: 0;
     color: var(--bg-2);
@@ -17535,7 +17535,7 @@ display: flex;
 
 /* Middle Row: Subscribe Form + WhatsApp Card (Replaces Payment Security) */
 .psws-footer-mid-row {
-    background: rgb(68 68 68 / 13%);
+    background: rgb(188 188 188 / 13%);
     border-radius: 16px;
     padding: 15px;
 }
@@ -17644,7 +17644,7 @@ background: var(--theme);
 
 .psws-wa-badge-box:hover {
     background: rgba(37, 211, 102, 0.18);
-    border-color: rgba(37, 211, 102, 0.6);
+    border-color: #25D366;
     transform: translateY(-2px);
 }
 
@@ -17656,17 +17656,13 @@ background: var(--theme);
 }
 
 .psws-wa-icon-large {
-    width: 44px;
-    height: 44px;
-    background: #25D366;
     color: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 30px;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
 .psws-wa-hero-info {
@@ -17707,7 +17703,7 @@ background: var(--theme);
 
 /* Bottom Strip */
 .psws-exact-footer-bottom {
-    background: #060a12;
+    background: #171819;
     padding: 18px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     margin-top: 30px;

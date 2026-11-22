@@ -361,7 +361,6 @@
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(var(--theme-rgb), 0.35);
   transition: background-position 0.35s ease, transform 0.35s var(--ott-ease-out),
               box-shadow 0.35s ease, filter 0.35s ease;
 }

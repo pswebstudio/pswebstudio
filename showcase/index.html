@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="robots" content="noindex, nofollow">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1124,7 +1125,7 @@ border-color: #0e4121;
             <div class="pj-img">
                 <img src="../assets/img/project-banner/${esc(imageName)}" alt="${esc(project.title)}" loading="lazy" onerror="this.src='../assets/img/project-banner/andaman-dmc.png'">
                 <span class="pj-chip ${project.status === 'Live' || !project.status ? 'ok' : ''}">${esc(project.status || 'Live')}</span>
-                ${domain ? `<div class="pj-domain"><img src="https://www.google.com/s2/favicons?domain=${esc(domain)}&sz=16" alt="" onerror="this.parentElement.style.display='none'">${esc(domain)}</div>` : ''}
+                <div class="pj-domain"><i class="fa-solid fa-code" style="font-size:12px;margin-right:4px;color:var(--pj-green);"></i>PSWeb Studio Build</div>
             </div>
             <div class="pj-body">
                 <span class="pj-tag">${esc(project.industry || 'Technology')}</span>
@@ -1132,13 +1133,13 @@ border-color: #0e4121;
                 <p>${esc(desc)}</p>
                 <div class="pj-tech">${displayTech.map(t => `<span class="pj-chip">${esc(t)}</span>`).join('')}</div>
                 <div class="pj-meta">
-                    <span><i class="fa-regular fa-user"></i>${esc(project.client || 'Various Clients')}</span>
+                    <span><i class="fa-solid fa-laptop-code"></i>PSWeb Studio</span>
                     <span><i class="fa-regular fa-calendar"></i>${esc(project.year || '2026')}</span>
                 </div>
             </div>
             <div class="pj-foot">
                 <a href="${detail}" class="pj-btn"><i class="fa-regular fa-eye"></i> View details</a>
-                ${live ? `<a href="${live}" target="_blank" rel="noopener noreferrer" class="pj-btn green"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>` : ''}
+                <a href="javascript:void(0);" onclick="openQuoteModal()" class="pj-btn green"><i class="fa-regular fa-paper-plane"></i> Get a Quote</a>
             </div>
         </article>`;
     }

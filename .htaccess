@@ -86,3 +86,12 @@ Options -Indexes
     AddOutputFilterByType DEFLATE application/xml
     AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
+
+# --------------------------------------------------
+# X-Robots-Tag: Noindex for Project & Showcase URLs
+# --------------------------------------------------
+<IfModule mod_headers.c>
+    <FilesMatch "^(project\.html)$">
+        Header set X-Robots-Tag "noindex, nofollow"
+    </FilesMatch>
+</IfModule>
